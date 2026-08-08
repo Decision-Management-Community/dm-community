@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../lib/url';
+
+const links = [
+  { href: url('/resources/case-studies/'), title: 'Case Studies', desc: 'Real-world decision management case studies, link-checked.' },
+  { href: url('/resources/tools/'), title: 'Tools', desc: 'DMN tools, rules engines, constraint/optimization solvers, and platforms.' },
+  { href: url('/resources/decision-models/'), title: 'Decision Models', desc: 'Sample decision models by industry: Financial Services, Insurance, Healthcare.' },
+  { href: url('/resources/standards/'), title: 'Standards', desc: 'DMN, BPMN, SBVR, RuleML/RIF, and related methodologies.' },
+  { href: url('/resources/discussion-groups/'), title: 'Discussion Groups', desc: 'Where practitioners discuss decision management online.' },
+  { href: url('/resources/related-websites/'), title: 'Related Websites', desc: 'Other sites and communities in this space.' },
+  { href: url('/resources/books/'), title: 'Books', desc: 'Recommended reading, newest first.' },
+  { href: url('/resources/community-software/'), title: 'Community Software', desc: 'Free and community-contributed tools.' },
+];
+---
+<BaseLayout title="Resources" description="Tools, case studies, standards, and other resources for the Decision Management Community.">
+  <h1>Resources</h1>
+  <p>
+    A community-maintained library of tools, case studies, standards, and other resources for
+    decision management practitioners. Everything here lives as Markdown in our GitHub repo —
+    see <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
+    to add or fix an entry.
+  </p>
+  <div class="card-grid">
+    {links.map((l) => (
+      <a class="card link-card" href={l.href}>
+        <h3>{l.title}</h3>
+        <p class="muted">{l.desc}</p>
+      </a>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .link-card { color: inherit; display: block; }
+  .link-card:hover { border-color: var(--color-primary); text-decoration: none; }
+  .link-card h3 { color: var(--color-primary); }
+</style>

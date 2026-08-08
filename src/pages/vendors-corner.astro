@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry, getCollection, render } from 'astro:content';
+
+const entry = await getEntry('pages', 'vendors-corner');
+const { Content } = await render(entry!);
+
+const posts = (await getCollection('vendorNews')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+<BaseLayout title="Vendor's Corner" description={entry?.data.description}>
+  <h1>{entry?.data.title}</h1>
+  {entry?.data.description && <p class="lede">{entry.data.description}</p>}
+
+  {posts.length > 0 && (
+    <>
+      <h2>Announcements</h2>
+      <div class="card-grid">
+        {posts.map((p) => (
+          <div class="card">
+            <span class="badge">{p.data.vendor}</span>
+            <h3>{p.data.url ? <a href={p.data.url} target="_blank" rel="noopener">{p.data.title}</a> : p.data.title}</h3>
+            <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+
+  <article class="prose">
+    <Content />
+  </article>
+
+  <p class="muted">
+    Have a product update to share? See
+    <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
+    for how to add an entry — it just takes a dated Markdown file.
+  </p>
+</BaseLayout>
+
+<style>
+  .small { font-size: 0.8rem; }
+</style>

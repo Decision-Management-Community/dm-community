@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { url } from '../../lib/url';
+
+const sessions = (await getCollection('minicamps')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const rendered = await Promise.all(sessions.map((s) => render(s)));
+---
+<BaseLayout title="MiniCamps" description="Online sessions with decision intelligence practitioners, held between annual DecisionCAMPs.">
+  <a href={url('/decisioncamp/')}>&larr; DecisionCAMP</a>
+  <h1>MiniCamps</h1>
+  <p>
+    Between annual DecisionCAMPs, the community runs MiniCamps — online sessions with decision
+    intelligence practitioners. If you'd like to present, send a proposal (author, title, brief
+    abstract) to <a href="mailto:DecisionManagementCommunity@gmail.com">DecisionManagementCommunity@gmail.com</a>.
+  </p>
+
+  <div class="sessions">
+    {sessions.map((s, i) => {
+      const { Content } = rendered[i];
+      return (
+        <div class="card session">
+          <p class="muted small">{s.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+          <h3>
+            {s.data.recordingUrl ? <a href={s.data.recordingUrl} target="_blank" rel="noopener">{s.data.title}</a> : s.data.title}
+          </h3>
+          <p class="muted">
+            {s.data.speaker}{s.data.affiliation ? `, ${s.data.affiliation}` : ''}
+          </p>
+          <div class="prose">
+            <Content />
+          </div>
+          <p class="links">
+            {s.data.recordingUrl && <a href={s.data.recordingUrl} target="_blank" rel="noopener">Recording &rarr;</a>}
+            {s.data.slidesUrl && <a href={s.data.slidesUrl.startsWith('/') ? url(s.data.slidesUrl) : s.data.slidesUrl} target="_blank" rel="noopener">Slides &rarr;</a>}
+          </p>
+        </div>
+      );
+    })}
+  </div>
+
+  <p class="muted">
+    Missing a session, or want to add one? See
+    <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.
+  </p>
+</BaseLayout>
+
+<style>
+  .sessions { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+  .session h3 { margin: 0.2rem 0; }
+  .session .small { font-size: 0.8rem; margin: 0; }
+  .links { display: flex; gap: 1rem; margin-top: 0.75rem; }
+</style>

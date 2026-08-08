@@ -1,0 +1,185 @@
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const pages = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    order: z.number().default(0),
+  }),
+});
+
+const advisoryBoard = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/advisory-board' }),
+  schema: z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    // Generational suffix (Jr., Sr., III, ...), kept separate from lastName
+    // so sorting by last name isn't thrown off by it.
+    suffix: z.string().optional(),
+    // Root-relative path to a self-hosted headshot under public/advisory-board/,
+    // e.g. "/advisory-board/jane-doe.jpg". Optional — falls back to an initials avatar.
+    image: z.string().optional(),
+    affiliation: z.string().optional(),
+    linkedin: z.string().url().optional(),
+    email: z.string().email().optional(),
+  }),
+});
+
+const sponsors = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/sponsors' }),
+  schema: z.object({
+    name: z.string(),
+    url: z.string().url(),
+    logo: z.string().optional(),
+    active: z.boolean().default(true),
+    order: z.number().default(0),
+  }),
+});
+
+const caseStudies = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/case-studies' }),
+  schema: z.object({
+    title: z.string(),
+    organization: z.string().optional(),
+    industry: z.string().optional(),
+    vendor: z.string().optional(),
+    // Either a full external URL, or a root-relative path to a self-hosted
+    // file under public/ (e.g. "/case-studies/foo.pdf").
+    url: z
+      .string()
+      .refine((v) => v.startsWith('/') || /^https?:\/\//.test(v), 'must be a URL or a root-relative path')
+      .optional(),
+    // Original site had several dead links mixed into its case-study list.
+    // Track link health explicitly instead of silently dropping or trusting it.
+    linkStatus: z.enum(['ok', 'broken', 'unverified']).default('unverified'),
+    summary: z.string().optional(),
+  }),
+});
+
+const tools = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/tools' }),
+  schema: z.object({
+    name: z.string(),
+    category: z.enum([
+      'DMN Tools',
+      'Rules Engines',
+      'Constraint Solvers',
+      'Optimization Solvers',
+      'Decision Intelligence Platforms',
+    ]),
+    url: z.string().url().optional(),
+    linkStatus: z.enum(['ok', 'broken', 'unverified']).default('unverified'),
+    summary: z.string().optional(),
+  }),
+});
+
+const decisionModels = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/decision-models' }),
+  schema: z.object({
+    title: z.string(),
+    industry: z.enum(['Financial Services', 'Insurance', 'Healthcare', 'Other']),
+    url: z.string().url().optional(),
+    linkStatus: z.enum(['ok', 'broken', 'unverified']).default('unverified'),
+    summary: z.string().optional(),
+  }),
+});
+
+const challenges = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/challenges' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    tags: z.array(z.string()).default([]),
+    solutions: z
+      .array(
+        z.object({
+          title: z.string(),
+          author: z.string(),
+          affiliation: z.string().optional(),
+          url: z.string().url().optional(),
+        }),
+      )
+      .default([]),
+  }),
+});
+
+const qa = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/qa' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    category: z.enum([
+      'Agentic AI',
+      'Business Rules',
+      'Decision Intelligence Platforms',
+      'Decision Optimization',
+      'Machine Learning',
+      'DMN, BPMN, CMMN',
+    ]),
+    author: z.string().optional(),
+  }),
+});
+
+const events = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
+  schema: z.object({
+    title: z.string(),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
+    location: z.string().optional(),
+    url: z.string().url().optional(),
+  }),
+});
+
+const decisioncamp = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/decisioncamp' }),
+  schema: z.object({
+    year: z.number(),
+    title: z.string(),
+    location: z.string().optional(),
+    url: z.string().url().optional(),
+  }),
+});
+
+const minicamps = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/minicamps' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    speaker: z.string(),
+    affiliation: z.string().optional(),
+    recordingUrl: z.string().url().optional(),
+    // Either an external URL or a root-relative path to a self-hosted file.
+    slidesUrl: z
+      .string()
+      .refine((v) => v.startsWith('/') || /^https?:\/\//.test(v), 'must be a URL or a root-relative path')
+      .optional(),
+  }),
+});
+
+const vendorNews = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/vendor-news' }),
+  schema: z.object({
+    title: z.string(),
+    vendor: z.string(),
+    date: z.coerce.date(),
+    url: z.string().url().optional(),
+  }),
+});
+
+export const collections = {
+  pages,
+  advisoryBoard,
+  sponsors,
+  caseStudies,
+  tools,
+  decisionModels,
+  challenges,
+  qa,
+  events,
+  decisioncamp,
+  minicamps,
+  vendorNews,
+};

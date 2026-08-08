@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import Avatar from '../components/Avatar.astro';
+
+const members = (await getCollection('advisoryBoard')).sort((a, b) =>
+  a.data.lastName.localeCompare(b.data.lastName) || a.data.firstName.localeCompare(b.data.firstName),
+);
+
+function displayName(m: (typeof members)[number]) {
+  const { firstName, lastName, suffix } = m.data;
+  return `${lastName}, ${firstName}${suffix ? ` ${suffix}` : ''}`;
+}
+const fullName = (m: (typeof members)[number]) =>
+  `${m.data.firstName} ${m.data.lastName}${m.data.suffix ? ` ${m.data.suffix}` : ''}`;
+---
+<BaseLayout title="Advisory Board" description="Meet the Decision Management Community Advisory Board.">
+  <h1>Advisory Board</h1>
+  <p>
+    Our Advisory Board brings together experienced leaders in Decision Management to help guide
+    where our community goes next — ensuring we continue building something genuinely valuable for
+    practitioners.
+  </p>
+  <p>The Advisory Board plays a key role in:</p>
+  <ul class="prose">
+    <li>Providing strategic guidance on community initiatives</li>
+    <li>Sharing expert perspectives and industry insights</li>
+    <li>Shaping events, content, and new features to better serve members</li>
+    <li>Helping make our community more collaborative, thoughtful, and member-driven</li>
+  </ul>
+
+  <h2>Members</h2>
+  <div class="card-grid">
+    {members.map((m) => (
+      <div class="card member-card">
+        <Avatar name={fullName(m)} image={m.data.image} />
+        <div>
+          <h3>{m.data.linkedin ? <a href={m.data.linkedin} target="_blank" rel="noopener">{displayName(m)}</a> : displayName(m)}</h3>
+          {m.data.affiliation && <p class="muted">{m.data.affiliation}</p>}
+          {m.data.email && <p><a href={`mailto:${m.data.email}`}>{m.data.email}</a></p>}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <p>Please feel free to connect with the board and contribute your ideas! You can also propose changes to this page directly via a <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">GitHub pull request</a>.</p>
+</BaseLayout>
+
+<style>
+  .member-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .member-card h3 {
+    margin: 0 0 0.15rem;
+  }
+  .member-card p {
+    margin: 0.1rem 0;
+    font-size: 0.9rem;
+  }
+</style>

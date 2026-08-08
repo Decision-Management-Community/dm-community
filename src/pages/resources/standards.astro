@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('pages', 'resources-standards');
+const { Content } = await render(entry!);
+---
+<BaseLayout title="Standards" description={entry?.data.description}>
+  <article class="prose">
+    <h1>{entry?.data.title}</h1>
+    <Content />
+  </article>
+</BaseLayout>

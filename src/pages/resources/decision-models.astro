@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+import { categoryColor } from '../../lib/categoryColors';
+
+const all = await getCollection('decisionModels');
+const industries = ['Financial Services', 'Insurance', 'Healthcare', 'Other'] as const;
+---
+<BaseLayout title="Decision Models" description="Sample decision models by industry.">
+  <h1>Decision Models</h1>
+  <p>
+    Prototype decision models contributed by the community, organized by industry. Several
+    industry categories from the original site (Telecom, Construction, Retail, Transportation)
+    had no actual content behind them — placeholders, not migrated content — so they're omitted
+    here until someone contributes real models for them.
+  </p>
+
+  {industries.map((ind) => {
+    const items = all.filter((m) => m.data.industry === ind);
+    if (items.length === 0) return null;
+    const color = categoryColor(ind);
+    return (
+      <>
+        <h2><span class="dot" style={`background:${color};`}></span>{ind}</h2>
+        <div class="card-grid">
+          {items.map((m) => (
+            <div class="card" style={`border-left: 3px solid ${color};`}>
+              <h3><a href={url(`/resources/decision-models/${m.id}/`)}>{m.data.title}</a></h3>
+              {m.data.summary && <p class="muted">{m.data.summary}</p>}
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  })}
+
+  <p class="muted">
+    Have a decision model to share? <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">Contribute it via pull request</a>.
+  </p>
+</BaseLayout>
+
+<style>
+  .dot {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 50%;
+    margin-right: 0.5em;
+  }
+</style>

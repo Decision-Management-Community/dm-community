@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+import { categoryBadgeStyle } from '../../lib/categoryColors';
+
+const challenges = (await getCollection('challenges')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout title="Challenges" description="Monthly decision-modeling problems posted by the Decision Management Community.">
+  <h1>Challenges</h1>
+  <p>
+    The challenges below describe decision-modeling problems that we post regularly. We invite
+    visitors to this website to submit their solutions. You may use any business rules and decision
+    management system, or none at all.
+  </p>
+  <p>
+    Submitted solutions are posted along with the authors' names and affiliations. Send your
+    solutions to <a href="mailto:DecisionManagementCommunity@gmail.com">DecisionManagementCommunity@gmail.com</a>,
+    or add them directly via a <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">pull request</a>.
+  </p>
+
+  <div class="card-grid">
+    {challenges.map((c) => (
+      <div class="card">
+        <h3><a href={url(`/challenges/${c.id}/`)}>{c.data.title}</a></h3>
+        <p class="muted">{c.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+        {c.data.tags.length > 0 && (
+          <p>{c.data.tags.map((t: string) => <span class="badge tag" style={categoryBadgeStyle(t)}>{t}</span>)}</p>
+        )}
+        <p class="muted small">{c.data.solutions.length} solution{c.data.solutions.length === 1 ? '' : 's'}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="muted">
+    This is a small recent sample — twelve years of monthly challenges haven't been migrated yet.
+    See <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive">CONTRIBUTING.md</a>
+    if you'd like to help bring the archive over.
+  </p>
+</BaseLayout>
+
+<style>
+  .small { font-size: 0.8rem; }
+  .tag { margin: 0.2rem 0.3rem 0.2rem 0; }
+</style>

@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { url } from '../lib/url';
+
+const challenges = (await getCollection('challenges')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+const latestChallenge = challenges[0];
+
+const qaPosts = (await getCollection('qa')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const vendorNews = (await getCollection('vendorNews')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const events = (await getCollection('events')).sort(
+  (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
+);
+const upcomingEvents = events.filter((e) => e.data.startDate.valueOf() >= Date.now()).slice(0, 3);
+
+const stats = [
+  { label: 'Advisory Board Experts', count: (await getCollection('advisoryBoard')).length },
+  { label: 'DecisionCAMP Editions', count: (await getCollection('decisioncamp')).length },
+  { label: 'MiniCamp Sessions', count: (await getCollection('minicamps')).length },
+  { label: 'Sponsors', count: (await getCollection('sponsors')).length },
+];
+---
+<BaseLayout title="Home" description="Decision Management Community — for practitioners, by practitioners. Business rules, decision modeling, optimization, machine learning, and agentic AI.">
+  <section class="hero">
+    <div class="hero-text">
+      <h1>For Practitioners, by Practitioners</h1>
+      <p class="lede muted">
+        A community of business analysts, developers, vendors, and decision-makers working with
+        Business Rules, Decision Modeling, Machine Learning, Decision Optimization, and Agentic AI.
+      </p>
+      <div class="cta-row">
+        <a class="btn" href={url('/challenges/')}>Browse Challenges</a>
+        <a class="btn secondary" href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">Contribute on GitHub</a>
+      </div>
+    </div>
+    <svg class="hero-art" width="300" height="240" viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M150 40 L90 110 M150 40 L210 110" stroke="var(--color-border)" stroke-width="2" />
+      <path d="M90 110 L55 175 M90 110 L120 175" stroke="var(--color-border)" stroke-width="2" />
+      <path d="M210 110 L180 175 M210 110 L245 175" stroke="var(--color-border)" stroke-width="2" />
+      <path d="M150 22 L168 40 L150 58 L132 40 Z" fill="var(--color-accent)" />
+      <path d="M90 92 L106 110 L90 128 L74 110 Z" fill="var(--color-primary)" />
+      <path d="M210 92 L226 110 L210 128 L194 110 Z" fill="var(--color-primary)" />
+      <circle cx="55" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
+      <circle cx="120" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
+      <circle cx="180" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
+      <circle cx="245" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
+    </svg>
+  </section>
+
+  <section class="stat-strip">
+    {stats.map((s) => (
+      <div class="stat">
+        <span class="stat-number">{s.count}</span>
+        <span class="stat-label muted">{s.label}</span>
+      </div>
+    ))}
+  </section>
+
+  <div class="card-grid home-grid">
+    <div class="card">
+      <span class="badge">Latest Challenge</span>
+      {latestChallenge ? (
+        <>
+          <h3><a href={url(`/challenges/${latestChallenge.id}/`)}>{latestChallenge.data.title}</a></h3>
+          <p class="muted">{latestChallenge.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+        </>
+      ) : <p class="muted">No challenges yet.</p>}
+      <a href={url('/challenges/')}>All challenges &rarr;</a>
+    </div>
+
+    <div class="card">
+      <span class="badge">Recent Q&amp;A</span>
+      <ul class="link-list">
+        {qaPosts.slice(0, 3).map((q) => (
+          <li><a href={url(`/qa/${q.id}/`)}>{q.data.title}</a></li>
+        ))}
+      </ul>
+      <a href={url('/qa/')}>All questions &rarr;</a>
+    </div>
+
+    <div class="card">
+      <span class="badge">Vendor's Corner</span>
+      {vendorNews.length > 0 ? (
+        <ul class="link-list">
+          {vendorNews.slice(0, 3).map((v) => (
+            <li><a href={v.data.url ?? url('/vendors-corner/')} target={v.data.url ? '_blank' : undefined} rel={v.data.url ? 'noopener' : undefined}>{v.data.title}</a></li>
+          ))}
+        </ul>
+      ) : <p class="muted">No dated announcements yet.</p>}
+      <a href={url('/vendors-corner/')}>All announcements &rarr;</a>
+    </div>
+
+    <div class="card">
+      <span class="badge">Upcoming Events</span>
+      <ul class="link-list">
+        {upcomingEvents.length > 0 ? upcomingEvents.map((e) => (
+          <li>
+            <a href={e.data.url} target="_blank" rel="noopener">{e.data.title}</a>
+            <div class="muted small">{e.data.startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}{e.data.location ? ` · ${e.data.location}` : ''}</div>
+          </li>
+        )) : <li class="muted">No upcoming events listed.</li>}
+      </ul>
+      <a href={url('/events/')}>All events &rarr;</a>
+    </div>
+  </div>
+
+  <section>
+    <h2>What is Decision Management?</h2>
+    <p>
+      Decision Management (DM) has become a critical methodological and technological approach for
+      supporting decision-making processes across industries. Thousands of business analysts,
+      developers, technology vendors, consultants, and decision-makers rely on Decision Intelligence
+      technologies — Business Rules, Decision Modeling, Machine Learning, Decision Optimization, and
+      Agentic AI — to power their day-to-day operations.
+    </p>
+    <p><a href={url('/about/')}>Read more about the community &rarr;</a></p>
+  </section>
+
+  <section>
+    <h2>Get Involved</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Submit a Case Study or Tool</h3>
+        <p class="muted">Add your organization's case study, a tool, or a decision model to the Resources library — just open a pull request with a Markdown file.</p>
+        <a href={url('/resources/')}>Browse Resources &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Answer a Challenge</h3>
+        <p class="muted">Each month we post a decision-modeling problem. Solve it with any tool (or none at all) and share your solution.</p>
+        <a href={url('/challenges/')}>See the latest challenge &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Join DecisionCAMP</h3>
+        <p class="muted">Our annual conference for decision intelligence practitioners — talks, workshops, and community.</p>
+        <a href={url('/decisioncamp/')}>Learn more &rarr;</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.5rem 0 2.5rem;
+    background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+    background-size: 22px 22px;
+    background-position: -11px -11px;
+  }
+  .hero-text { flex: 1 1 420px; }
+  .lede { font-size: 1.15rem; max-width: 60ch; }
+  .cta-row { display: flex; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap; }
+  .hero-art { flex: 0 0 auto; display: block; }
+  @media (max-width: 780px) {
+    .hero-art { display: none; }
+  }
+  .stat-strip {
+    display: flex;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.5rem 0;
+    margin: 0.5rem 0 2rem;
+  }
+  .stat {
+    flex: 1 1 160px;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-left: 1px solid var(--color-border);
+  }
+  .stat:first-child { border-left: none; }
+  .stat-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    font-weight: 600;
+    color: var(--color-accent-dark);
+    line-height: 1.1;
+  }
+  .stat-label {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-top: 0.3rem;
+  }
+  @media (max-width: 600px) {
+    .stat { border-left: none; border-top: 1px solid var(--color-border); flex: 1 1 45%; }
+    .stat:first-child { border-top: none; }
+  }
+  .home-grid { margin-top: 0; }
+  .link-list { list-style: none; padding: 0; margin: 0.5rem 0 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .small { font-size: 0.82rem; }
+</style>

@@ -1,0 +1,61 @@
+---
+import { url } from '../lib/url';
+
+interface Props {
+  name: string;
+  image?: string;
+  size?: number;
+}
+const { name, image, size = 72 } = Astro.props;
+
+const initials = name
+  .split(/\s+/)
+  .filter(Boolean)
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('')
+  .toUpperCase();
+
+// Deterministic pick between the two brand colors, so the same person
+// always gets the same placeholder color across builds.
+let hash = 0;
+for (const char of name) hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+const bg = hash % 2 === 0 ? 'var(--color-brand)' : 'var(--color-accent-dark)';
+---
+{image ? (
+  <img
+    class="avatar"
+    src={url(image)}
+    alt={name}
+    width={size}
+    height={size}
+    loading="lazy"
+  />
+) : (
+  <div class="avatar avatar-fallback" style={`background:${bg}; width:${size}px; height:${size}px; font-size:${size * 0.36}px;`}>
+    {initials}
+  </div>
+)}
+
+<style define:vars={{ size: `${size}px` }}>
+  .avatar {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    object-fit: cover;
+    /* Portrait headshots are usually face-up-top; bias the crop there
+       instead of dead-center, which tends to cut into the face. */
+    object-position: center 15%;
+    display: block;
+    flex-shrink: 0;
+  }
+  .avatar-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4f1ea;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+</style>

@@ -1,0 +1,199 @@
+:root {
+  --color-bg: #fdfcfa;
+  --color-bg-alt: #f4f1ea;
+  --color-text: #1c1d22;
+  --color-text-muted: #5b5c66;
+  --color-border: #e3ded2;
+  --color-brand: #1f2a44;
+  --color-primary: #2b4a7c;
+  --color-primary-dark: #1c355e;
+  --color-accent: #c07f22;
+  --color-accent-dark: #97640f;
+  --color-card: #ffffff;
+  --shadow-card: 0 1px 3px rgba(31, 27, 15, 0.08), 0 1px 2px rgba(31, 27, 15, 0.06);
+  --radius: 8px;
+  --max-width: 1080px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #13141a;
+    --color-bg-alt: #1a1c24;
+    --color-text: #ece9e2;
+    --color-text-muted: #a3a1ad;
+    --color-border: #2c2e3a;
+    --color-brand: #2a3a5c;
+    --color-primary: #8fb2e6;
+    --color-primary-dark: #b7cdf2;
+    --color-accent: #dda553;
+    --color-accent-dark: #f0bd72;
+    --color-card: #1a1c24;
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 500; }
+h2 { font-size: clamp(1.5rem, 2.2vw, 1.95rem); margin-top: 2.5rem; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+
+p { color: var(--color-text); }
+
+.muted { color: var(--color-text-muted); }
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}
+
+.badge.ok { color: #1a7f4b; border-color: #1a7f4b55; background: #1a7f4b14; }
+.badge.broken { color: #b23a3a; border-color: #b23a3a55; background: #b23a3a14; }
+.badge.unverified { color: #9a7b1f; border-color: #9a7b1f55; background: #9a7b1f14; }
+
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.4rem;
+  box-shadow: var(--shadow-card);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #1c1d22;
+  padding: 0.6rem 1.15rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--color-accent-dark);
+  text-decoration: none;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+/* Styled with a nod to DMN decision tables: a bold top rule (like a hit-policy
+   header bar) and alternating rows, rather than a generic bare grid. */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  border-top: 3px solid var(--color-accent);
+}
+
+th, td {
+  text-align: left;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+th {
+  color: var(--color-text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--color-bg-alt);
+}
+
+tbody tr:nth-child(even) {
+  background: var(--color-bg-alt);
+}
+
+/* A quiet decision-tree motif for prose bullet lists, in place of default
+   browser bullets. Matches both a wrapping .prose container and the class
+   applied directly to the <ul>. */
+.prose ul li::marker,
+ul.prose li::marker {
+  content: "◆  ";
+  color: var(--color-accent);
+  font-size: 0.7em;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--color-bg-alt);
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/*
+ * Pagefind's own CSS declares its default theme on :root and is injected
+ * after this stylesheet, so a :root override here would lose the cascade
+ * regardless of source order. Scoping to the container id instead wins on
+ * specificity (id selector beats :root's pseudo-class specificity), so this
+ * works no matter when pagefind-ui.css loads.
+ */
+#pagefind-search {
+  --pagefind-ui-primary: var(--color-accent-dark);
+  --pagefind-ui-text: var(--color-text);
+  --pagefind-ui-background: var(--color-card);
+  --pagefind-ui-border: var(--color-border);
+  --pagefind-ui-tag: var(--color-bg-alt);
+  --pagefind-ui-border-radius: 6px;
+  --pagefind-ui-font: var(--font-sans);
+}

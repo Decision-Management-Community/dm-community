@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+import { categoryBadgeStyle } from '../../lib/categoryColors';
+
+const all = (await getCollection('caseStudies')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const detailUrl = (id: string) => url(`/resources/case-studies/${id}/`);
+const ok = all.filter((c) => c.data.linkStatus === 'ok');
+const broken = all.filter((c) => c.data.linkStatus === 'broken');
+const unverified = all.filter((c) => c.data.linkStatus === 'unverified');
+---
+<BaseLayout title="Case Studies" description="Real-world decision management case studies.">
+  <h1>Case Studies</h1>
+  <p>
+    Case studies contributed or referred to by Decision Management practitioners. During this
+    site's rebuild we checked every link in the original case-study list — several had gone
+    dead over the years. Working links are listed first; broken ones are kept below for the
+    record rather than silently dropped, in case someone can track down a working copy.
+  </p>
+
+  <h2>Available Case Studies</h2>
+  <div class="card-grid">
+    {ok.map((c) => (
+      <div class="card">
+        <span class="badge ok">Link verified</span>
+        {c.data.industry && <span class="badge" style={categoryBadgeStyle(c.data.industry)}>{c.data.industry}</span>}
+        <h3><a href={detailUrl(c.id)}>{c.data.title}</a></h3>
+        {c.data.summary && <p>{c.data.summary}</p>}
+      </div>
+    ))}
+    {unverified.map((c) => (
+      <div class="card">
+        <span class="badge unverified">Unverified</span>
+        {c.data.industry && <span class="badge" style={categoryBadgeStyle(c.data.industry)}>{c.data.industry}</span>}
+        <h3><a href={detailUrl(c.id)}>{c.data.title}</a></h3>
+        {c.data.summary && <p>{c.data.summary}</p>}
+      </div>
+    ))}
+  </div>
+
+  {broken.length > 0 && (
+    <>
+      <h2>Broken Links (kept for reference)</h2>
+      <p class="muted">These case studies were referenced on the original site, but their links no longer resolve.</p>
+      <div class="card-grid">
+        {broken.map((c) => (
+          <div class="card">
+            <span class="badge broken">Broken link</span>
+            <h3><a href={detailUrl(c.id)}>{c.data.title}</a></h3>
+            {c.data.industry && <p class="muted small">{c.data.industry}</p>}
+            {c.data.summary && <p>{c.data.summary}</p>}
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+
+  <p class="muted">
+    Have a fix for a broken link, or a new case study to add? See
+    <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>.
+  </p>
+</BaseLayout>
+
+<style>
+  .small { font-size: 0.8rem; }
+  .card .badge { margin-right: 0.35rem; }
+</style>

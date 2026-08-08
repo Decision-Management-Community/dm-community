@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+import { categoryBadgeStyle } from '../../lib/categoryColors';
+
+const posts = (await getCollection('qa')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<BaseLayout title="Q&A" description="Questions and answers from the Decision Management Community.">
+  <h1>Q&amp;A</h1>
+  <p>
+    Discuss and get answers to your Decision Management questions across six areas: Agentic AI,
+    Business Rules, Decision Intelligence Platforms, Decision Optimization, Machine Learning, and
+    DMN/BPMN/CMMN. Add a new question directly via a
+    <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">pull request</a>.
+  </p>
+
+  <div class="card-grid">
+    {posts.map((p) => (
+      <div class="card">
+        <span class="badge" style={categoryBadgeStyle(p.data.category)}>{p.data.category}</span>
+        <h3><a href={url(`/qa/${p.id}/`)}>{p.data.title}</a></h3>
+        <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+      </div>
+    ))}
+  </div>
+
+  <p class="muted">
+    Only a small sample of recent Q&amp;A threads has been migrated so far — the full forum archive
+    hasn't been brought over yet. See
+    <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive">CONTRIBUTING.md</a>.
+  </p>
+</BaseLayout>
+
+<style>
+  .small { font-size: 0.8rem; }
+</style>

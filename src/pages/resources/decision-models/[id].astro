@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { url } from '../../../lib/url';
+
+export async function getStaticPaths() {
+  const models = await getCollection('decisionModels');
+  return models.map((m) => ({ params: { id: m.id }, props: { entry: m } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<BaseLayout title={entry.data.title} description={entry.data.summary ?? `Decision model: ${entry.data.title}`}>
+  <a href={url('/resources/decision-models/')}>&larr; All decision models</a>
+  <h1>{entry.data.title}</h1>
+  <p class="muted">{entry.data.industry}</p>
+
+  <article class="prose">
+    <Content />
+  </article>
+</BaseLayout>

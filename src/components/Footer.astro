@@ -1,0 +1,73 @@
+---
+import { url } from '../lib/url';
+
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Decision Management Community</strong>
+      <p class="muted">For practitioners, by practitioners. Business rules, decision modeling, optimization, machine learning, and agentic AI for decision-making.</p>
+    </div>
+    <div>
+      <h4>Community</h4>
+      <ul>
+        <li><a href={url('/advisory-board/')}>Advisory Board</a></li>
+        <li><a href={url('/sponsors/')}>Sponsors</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/dmcommunity">Google Discussion Group</a></li>
+        <li><a href="https://www.linkedin.com/in/decision-management-community-b0537a96">LinkedIn</a></li>
+        <li><a href="https://x.com/DecisionMgtCom">X / Twitter</a></li>
+        <li><a href={url('/rss.xml')}>RSS Feed</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contribute</h4>
+      <ul>
+        <li><a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md">Submit content via GitHub</a></li>
+        <li><a href="mailto:DecisionManagementCommunity@gmail.com">Email the community</a></li>
+        <li><a href={url('/about/terms-and-conditions/')}>Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap sub">
+    <span class="muted">&copy; {year} Decision Management Community</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+    background: var(--color-bg-alt);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+  .footer-grid h4 {
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-muted);
+  }
+  .footer-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .sub {
+    border-top: 1px solid var(--color-border);
+    padding: 1rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>

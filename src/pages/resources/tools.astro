@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { categoryColor } from '../../lib/categoryColors';
+
+const all = await getCollection('tools');
+const categories = [
+  'DMN Tools',
+  'Rules Engines',
+  'Constraint Solvers',
+  'Optimization Solvers',
+  'Decision Intelligence Platforms',
+] as const;
+---
+<BaseLayout title="Tools" description="DMN tools, rules engines, constraint solvers, optimization solvers, and decision intelligence platforms.">
+  <h1>Tools</h1>
+  <p>
+    A community-maintained catalog of decision management tooling. <strong>Note:</strong> the
+    original site's five tool catalogs (DMN Tools, BRMS, Constraint Solvers, LP/MIP Solvers, and
+    Machine Learning Tools — over 100 products combined) were hosted on a third-party server that
+    has since gone permanently offline, so that data could not be recovered for this migration.
+    The list below is a fresh start, seeded with tools known to be active in the community.
+  </p>
+  <p>
+    Missing your tool? <a href="https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md#adding-a-tool">Add it via pull request</a> — this is exactly the kind of content this rebuild makes easy to contribute.
+  </p>
+
+  {categories.map((cat) => {
+    const items = all.filter((t) => t.data.category === cat);
+    if (items.length === 0) return null;
+    const color = categoryColor(cat);
+    return (
+      <>
+        <h2><span class="dot" style={`background:${color};`}></span>{cat}</h2>
+        <div class="card-grid">
+          {items.map((t) => (
+            <div class="card" style={`border-left: 3px solid ${color};`}>
+              <h3>{t.data.url ? <a href={t.data.url} target="_blank" rel="noopener">{t.data.name}</a> : t.data.name}</h3>
+              {t.data.summary && <p class="muted">{t.data.summary}</p>}
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  })}
+</BaseLayout>
+
+<style>
+  .dot {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 50%;
+    margin-right: 0.5em;
+  }
+</style>
