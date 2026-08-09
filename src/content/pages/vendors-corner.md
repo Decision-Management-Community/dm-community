@@ -24,4 +24,8 @@ Vendors can submit an announcement by [opening a pull request](https://github.co
 
 Additional vendors featured in past entries include Sparkling Logic, Sapiens Decision, IBM Automation Decision Services, InRule, Trisotech, FlexRule, and Kogito, among others, with various decision-automation and optimization announcements.
 
-*The full historical archive of Vendor's Corner posts predates this rebuild and hasn't been migrated yet — see [CONTRIBUTING.md](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive) if you'd like to help bring more of it over.*
+*Most of the historical Vendor's Corner archive (2014-2026) has since been migrated into the dated
+feed above. The handful of announcements below predate that migration pass and didn't have a
+recoverable exact date, so they're kept here as an undated summary instead — see
+[CONTRIBUTING.md](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive)
+if you can pin down real dates for any of them.*

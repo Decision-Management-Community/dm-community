@@ -5,6 +5,15 @@ import { url } from '../../lib/url';
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 
 const challenges = (await getCollection('challenges')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const byYear = new Map<number, typeof challenges>();
+for (const c of challenges) {
+  const year = c.data.date.getUTCFullYear();
+  const list = byYear.get(year) ?? [];
+  list.push(c);
+  byYear.set(year, list);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
 ---
 <BaseLayout title="Challenges" description="Monthly decision-modeling problems posted by the Decision Management Community.">
   <h1>Challenges</h1>
@@ -19,27 +28,54 @@ const challenges = (await getCollection('challenges')).sort((a, b) => b.data.dat
     or add them directly via a <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md">pull request</a>.
   </p>
 
-  <div class="card-grid">
-    {challenges.map((c) => (
-      <div class="card">
-        <h3><a href={url(`/challenges/${c.id}/`)}>{c.data.title}</a></h3>
-        <p class="muted">{c.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
-        {c.data.tags.length > 0 && (
-          <p>{c.data.tags.map((t: string) => <span class="badge tag" style={categoryBadgeStyle(t)}>{t}</span>)}</p>
-        )}
-        <p class="muted small">{c.data.solutions.length} solution{c.data.solutions.length === 1 ? '' : 's'}</p>
-      </div>
-    ))}
-  </div>
+  <nav class="year-jump" aria-label="Jump to year">
+    {years.map((year) => <a href={`#y${year}`}>{year}</a>)}
+  </nav>
 
-  <p class="muted">
-    This is a small recent sample — twelve years of monthly challenges haven't been migrated yet.
-    See <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive">CONTRIBUTING.md</a>
-    if you'd like to help bring the archive over.
-  </p>
+  {years.map((year) => (
+    <section class="year-section" id={`y${year}`}>
+      <h2>{year}</h2>
+      <div class="card-grid">
+        {byYear.get(year)!.map((c) => (
+          <div class="card">
+            <h3><a href={url(`/challenges/${c.id}/`)}>{c.data.title}</a></h3>
+            <p class="muted">{c.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
+            {c.data.tags.length > 0 && (
+              <p>{c.data.tags.map((t: string) => <span class="badge tag" style={categoryBadgeStyle(t)}>{t}</span>)}</p>
+            )}
+            <p class="muted small">{c.data.solutions.length} solution{c.data.solutions.length === 1 ? '' : 's'}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  ))}
 </BaseLayout>
 
 <style>
   .small { font-size: 0.8rem; }
   .tag { margin: 0.2rem 0.3rem 0.2rem 0; }
+  .year-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.7rem;
+    margin: 1.25rem 0;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-alt);
+    border-radius: 8px;
+  }
+  .year-jump a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+  .year-jump a:hover { color: var(--color-text); }
+  .year-section {
+    margin-top: 2.5rem;
+  }
+  .year-section h2 {
+    font-family: var(--font-serif);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
 </style>
