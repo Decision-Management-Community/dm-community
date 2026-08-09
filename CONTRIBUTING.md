@@ -37,6 +37,7 @@ npm run dev      # http://localhost:4321
 | Decision model | [`src/content/decision-models/`](./src/content/decision-models/README.md) | No |
 | Event | [`src/content/events/`](./src/content/events/README.md) | No |
 | Vendor's Corner announcement | [`src/content/vendor-news/`](./src/content/vendor-news/README.md) | No |
+| News post (commentary, interview, milestone) | [`src/content/news/`](./src/content/news/README.md) | No |
 | DecisionCAMP edition | [`src/content/decisioncamp/`](./src/content/decisioncamp/README.md) | No |
 | MiniCamp session | [`src/content/minicamps/`](./src/content/minicamps/README.md) | No |
 | Advisory Board member | [`src/content/advisory-board/`](./src/content/advisory-board/README.md) | New members: yes — open an issue. Updating your own entry: no |

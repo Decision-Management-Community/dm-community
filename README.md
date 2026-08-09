@@ -47,6 +47,7 @@ src/
     decisioncamp/           # one file per DecisionCAMP/RulesFest edition — see its README.md
     minicamps/              # one file per MiniCamp session — see its README.md
     vendor-news/            # one file per Vendor's Corner announcement — see its README.md
+    news/                   # one file per News post (commentary, interview, milestone) — see its README.md
   layouts/BaseLayout.astro
   components/Header.astro, Footer.astro
   pages/                    # route definitions
@@ -60,13 +61,26 @@ migrated at this point:
 - The full Challenges archive (2014–present, ~85 monthly problems with their submitted solutions)
 - The complete Q&A forum (the old site's forum only ever had a handful of threads — this covers
   all of them)
-- The full Vendor's Corner archive (2014–present)
 - Case studies, tools, and decision models, **with every link checked** — broken links from the
   original site were not silently carried over (they're listed separately, flagged as broken,
   rather than hidden or trusted)
 - The RulesFest 2009–2011 presentation archives, **fully migrated with the actual slide PDFs
   hosted directly in this repo** (`public/decisioncamp/rulesfest-*/`) — not linked out to the old
   site, so they no longer depend on it staying online
+
+Two areas are deliberately **not** a full 1:1 migration, because the source material is much larger
+than what's worth carrying over verbatim:
+
+- **Vendor's Corner** covers the vendor/product announcements that were clearly tagged as such on
+  the old site — not every post in its loosely-tagged "Products" category, several of which were
+  actually sponsor announcements, analyst-report commentary, or general essays that belong in News
+  instead.
+- **News** is a curated selection (not the full archive) of commentary, interviews, and milestones
+  from the pre-rebuild site, which ran for 12+ years as a single WordPress blog of 1,300+ posts
+  tagged only by loose topic, not by structural type. The full historical archive remains browsable
+  at [dmcommunity.org](https://dmcommunity.org/). See
+  [CONTRIBUTING.md](./CONTRIBUTING.md#backfilling-the-historical-archive) if you'd like to help pull
+  more of it in.
 
 What's intentionally *not* migrated: the old site's general blog/opinion posts (hundreds of them,
 with no equivalent content type here — this rebuild is "resources + community process," not a full

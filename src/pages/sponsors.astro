@@ -5,7 +5,7 @@ import { url } from '../lib/url';
 
 const sponsors = (await getCollection('sponsors'))
   .filter((s) => s.data.active)
-  .sort((a, b) => a.data.order - b.data.order);
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
 <BaseLayout title="Sponsors" description="Sponsors of the Decision Management Community.">
   <h1>Sponsors</h1>
