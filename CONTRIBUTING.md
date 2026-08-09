@@ -1,8 +1,23 @@
 # Contributing to the Decision Management Community site
 
-This site is built from plain Markdown files in this repository. You don't need to run any code
-to contribute content — you can add or edit a Markdown file directly in the GitHub web UI and open
-a pull request. A maintainer (or CI) will review it and merge it in.
+This site is built from plain Markdown files in this repository. You don't need to run any code to
+contribute content — you can add or edit a Markdown file directly in the GitHub web UI and open a
+pull request. Adam DeJans Jr. or Jacob Feldman reviews every pull request and either merges it, asks
+a quick question, or explains why it doesn't fit.
+
+## The short version
+
+1. **Fork this repository** (or create a branch if you already have write access):
+   [github.com/Decision-Management-Community/dm-community](https://github.com/Decision-Management-Community/dm-community)
+2. **Find the right folder** under `src/content/` for what you're adding (a table is below), and
+   **read that folder's own `README.md`** — each one has the exact frontmatter schema, a
+   copy-pasteable example, and the filename convention for that content type.
+3. **Add or edit a Markdown file.** No build step required to propose one — you can create the file
+   directly in the GitHub web UI if you'd rather not clone the repo.
+4. **Open a pull request.** An automated check (`content-check`) builds the site and validates your
+   file against its schema, so you'll know right away if something's missing before a human ever
+   looks at it.
+5. **A maintainer reviews it.**
 
 If you'd rather preview your change locally first:
 
@@ -11,159 +26,60 @@ npm install
 npm run dev      # http://localhost:4321
 ```
 
-## What you can contribute
+## Where things live
 
-| Content type | Where it lives | Add one by... |
+| Content type | Folder | Board-managed? |
 |---|---|---|
-| Case study | `src/content/case-studies/*.md` | Copying an existing file, filling in the frontmatter |
-| Tool listing | `src/content/tools/*.md` | Same as above |
-| Decision model | `src/content/decision-models/*.md` | Same as above |
-| Monthly Challenge | `src/content/challenges/*.md` | Same as above |
-| Q&A post | `src/content/qa/*.md` | Same as above |
-| Sponsor | `src/content/sponsors/*.md` | Same as above (sponsorship terms still go through the board) |
-| Advisory Board member | `src/content/advisory-board/*.md` | Board-managed — open an issue instead of a PR |
-| Event | `src/content/events/*.md` | Same as above |
-| Vendor's Corner announcement | `src/content/vendor-news/*.md` | Copying an existing file, filling in the frontmatter |
+| Monthly Challenge | [`src/content/challenges/`](./src/content/challenges/README.md) | No |
+| Q&A post | [`src/content/qa/`](./src/content/qa/README.md) | No |
+| Tool listing | [`src/content/tools/`](./src/content/tools/README.md) | No |
+| Case study | [`src/content/case-studies/`](./src/content/case-studies/README.md) | No |
+| Decision model | [`src/content/decision-models/`](./src/content/decision-models/README.md) | No |
+| Event | [`src/content/events/`](./src/content/events/README.md) | No |
+| Vendor's Corner announcement | [`src/content/vendor-news/`](./src/content/vendor-news/README.md) | No |
+| DecisionCAMP edition | [`src/content/decisioncamp/`](./src/content/decisioncamp/README.md) | No |
+| MiniCamp session | [`src/content/minicamps/`](./src/content/minicamps/README.md) | No |
+| Advisory Board member | [`src/content/advisory-board/`](./src/content/advisory-board/README.md) | New members: yes — open an issue. Updating your own entry: no |
+| Sponsor | [`src/content/sponsors/`](./src/content/sponsors/README.md) | New sponsors: yes — terms go through the board. Updating your own logo/summary: no |
 
-Each content type is validated by a schema in `src/content.config.ts` — if your frontmatter is
-missing a required field or has the wrong type, the build will fail with a clear error telling you
-what to fix.
+Every content type is validated by a schema in [`src/content.config.ts`](./src/content.config.ts) —
+if your frontmatter is missing a required field or has the wrong type, the `content-check` CI job
+fails with a specific error telling you what to fix.
 
-### Adding a case study
+## House rules that apply across all content types
 
-Create a new file at `src/content/case-studies/your-case-study-slug.md`:
-
-```markdown
----
-title: "Example Insurer Automates Claims Triage"
-organization: "Example Insurance Co."
-industry: "Insurance"
-vendor: "OpenRules"
-url: "https://example.com/case-study"
-linkStatus: "ok"
-summary: "Short one-sentence summary of the case study."
----
-
-Longer description of the case study goes here as regular Markdown.
-```
-
-**Please set `linkStatus` honestly**: `ok` if you've verified the URL loads, `unverified` if you
-haven't checked, or omit `url` entirely if there isn't a working link (a summary-only entry is
-still useful). Part of this rebuild was cleaning up dead case-study links that had accumulated on
-the old site — help us keep it that way.
-
-### Adding a tool
-
-Same idea, in `src/content/tools/`:
-
-```markdown
----
-name: "Example Rules Engine"
-category: "Rules Engines"   # one of: DMN Tools, Rules Engines, Constraint Solvers, Optimization Solvers, Decision Intelligence Platforms
-url: "https://example.com"
-linkStatus: "ok"
-summary: "One sentence describing what it does."
----
-```
-
-### Adding an Advisory Board member photo
-
-Board membership itself is board-managed (open an issue, don't PR a new member in), but if you're
-already listed and want to add or update your headshot:
-
-1. Add your photo under `public/advisory-board/your-name.jpg` (square, at least 200×200px works well).
-2. Add an `image` field to your entry in `src/content/advisory-board/your-name.md` pointing at it:
-
-```yaml
-image: "/advisory-board/your-name.jpg"
-```
-
-If no `image` is set, the site shows an initials avatar instead — so this is optional, not required.
-Please only add your own photo (or one you have explicit permission to publish); don't add a photo
-of someone else on their behalf.
-
-### Adding a Challenge
-
-`src/content/challenges/YYYY-MM-short-title.md`:
-
-```markdown
----
-title: "Your Challenge Title"
-date: 2026-09-01
-tags: [scheduling]
-solutions: []
----
-
-Problem description in Markdown (tables, lists, etc. all work).
-```
-
-To add a solution to an existing challenge, edit its `solutions` list:
-
-```yaml
-solutions:
-  - title: "My Solution"
-    author: "Your Name"
-    affiliation: "Your Company"
-    url: "https://link-to-your-writeup.com"   # optional
-```
-
-### Adding a Q&A post
-
-`src/content/qa/short-title.md`:
-
-```markdown
----
-title: "Your Question"
-date: 2026-09-01
-category: "Business Rules"   # one of: Agentic AI, Business Rules, Decision Intelligence Platforms, Decision Optimization, Machine Learning, DMN, BPMN, CMMN
-author: "Your Name"
----
-
-Your question or discussion prompt, in Markdown.
-```
-
-### Adding a Vendor's Corner announcement
-
-`src/content/vendor-news/YYYY-MM-DD-short-title.md`:
-
-```markdown
----
-title: "Product X now supports DMN 1.5"
-vendor: "Example Vendor"
-date: 2026-09-01
-url: "https://example.com/announcement"   # optional
----
-```
-
-Dated announcements here automatically show up in the homepage activity feed and the RSS feed —
-no need to edit those separately. (The undated 2025-and-earlier summary on the Vendor's Corner page
-was carried over from the pre-rebuild site without exact dates, which is why it's kept as static text
-instead of dated entries.)
+- **Set `linkStatus` honestly**, wherever a content type has that field: `ok` only once you've
+  actually verified the URL loads, `unverified` if you haven't checked, or omit `url` entirely if
+  there isn't a working link. A missing link is better than a broken one. Several content types on
+  the pre-rebuild site had accumulated dead links — don't reintroduce that.
+- **Host files you have, don't hotlink files you don't control.** If you have the actual PDF, image,
+  or spreadsheet behind an entry, commit it under `public/` (see `public/decisioncamp/rulesfest-*/`
+  for the pattern) and link to your local copy rather than an external URL that might disappear.
+- **Write summaries in your own words.** Don't paste large verbatim blocks from wherever the content
+  originated — a short, accurate restatement is both more useful to readers and keeps the licensing
+  situation clean.
+- **Site or code changes** (not content) are ordinary pull requests against this Astro codebase — see
+  the root [`README.md`](./README.md) for local dev setup. No special process beyond running
+  `npm run build` locally before you push.
 
 ## Backfilling the historical archive
 
-This rebuild intentionally migrated a modern platform plus a small set of representative content
-first, rather than trying to move twelve-plus years of monthly Challenges, DecisionCAMP editions,
-and forum Q&A in one pass. The original site (a WordPress install) is still the source of truth for
-that historical archive until it's migrated.
+This rebuild intentionally migrated a modern platform plus a growing set of historical content,
+rather than trying to move twelve-plus years of the old WordPress site in one pass. The original
+site (dmcommunity.org's WordPress install) is still the source of truth for whatever hasn't been
+migrated yet.
 
-If you want to help backfill it:
+If you want to help backfill more of it:
 
-1. Pick a year/section that hasn't been migrated (check `src/content/challenges/`,
-   `src/content/qa/`, and `src/content/decisioncamp/` for what already exists).
-2. Pull the content from the original site, convert it to the Markdown format shown above.
-3. **Copy it in, don't link out.** If the source page has real body content (a write-up, a
-   presentation list, a decision-model description), inline it as Markdown in the new file. If it
-   references a downloadable file (PDF, image, spreadsheet) that's only hosted on the old
-   WordPress site, download it and commit it under `public/` (see `public/decisioncamp/rulesfest-*/`
-   for the pattern), then link to the local copy — don't point back at dmcommunity.org. The whole
-   point of this migration is that the new site doesn't depend on the old one staying online.
-4. **Check every outbound link before including it** and set `linkStatus` accordingly — several
-   case-study and resource links on the original site were dead. Don't propagate broken links into
-   the new site. Links to *other* third-party sites (e.g. a vendor's own docs) are fine to keep as
-   external links — it's specifically the old dmcommunity.org site's own pages/files that should be
-   copied in rather than linked to.
-5. Open a PR with a batch of files (a handful at a time is easier to review than hundreds at once).
+1. Check what's already migrated for the year/section you're looking at (the relevant folder under
+   `src/content/` and its README will tell you the schema; just look at what's already there for
+   coverage).
+2. **Copy content in, don't link out.** If the source page has real body content (a write-up, a
+   presentation list, a decision-model description), inline it as Markdown in the new file, in your
+   own words. If it references a downloadable file only hosted on the old site, download it and
+   commit it under `public/`, then link to the local copy.
+3. **Check every outbound link before including it** and set `linkStatus` accordingly.
+4. Open a PR with a batch of files — a handful at a time is easier to review than hundreds at once.
 
 ## Opening the PR
 
