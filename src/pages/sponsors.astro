@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { url } from '../lib/url';
 
 const sponsors = (await getCollection('sponsors'))
   .filter((s) => s.data.active)
@@ -13,7 +14,12 @@ const sponsors = (await getCollection('sponsors'))
   <h2>Current Sponsors</h2>
   <div class="card-grid">
     {sponsors.map((s) => (
-      <div class="card">
+      <div class="card sponsor-card">
+        {s.data.logo && (
+          <a href={s.data.url} target="_blank" rel="noopener" class="sponsor-logo-link">
+            <img class="sponsor-logo" src={url(s.data.logo)} alt={`${s.data.name} logo`} loading="lazy" />
+          </a>
+        )}
         <h3><a href={s.data.url} target="_blank" rel="noopener">{s.data.name}</a></h3>
         <p class="muted">{s.body?.trim()}</p>
       </div>
@@ -36,3 +42,16 @@ const sponsors = (await getCollection('sponsors'))
     <p><strong>To apply:</strong> email a company/product profile (max 150 words), a logo, and the URL the logo should link to, to <a href="mailto:DecisionManagementCommunity@gmail.com">DecisionManagementCommunity@gmail.com</a>. An invoice will be provided.</p>
   </div>
 </BaseLayout>
+
+<style>
+  .sponsor-logo-link {
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .sponsor-logo {
+    max-height: 48px;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: left center;
+  }
+</style>
