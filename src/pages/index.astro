@@ -56,7 +56,7 @@ const stats = [
   <section class="stat-strip">
     {stats.map((s) => (
       <div class="stat">
-        <span class="stat-number">{s.count}</span>
+        <span class="stat-number" data-count-to={s.count}>{s.count}</span>
         <span class="stat-label muted">{s.label}</span>
       </div>
     ))}
@@ -215,3 +215,30 @@ const stats = [
   .link-list { list-style: none; padding: 0; margin: 0.5rem 0 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
   .small { font-size: 0.82rem; }
 </style>
+
+<script>
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const duration = 1000;
+
+  function animateCount(el: HTMLElement) {
+    const target = Number(el.dataset.countTo);
+    if (!Number.isFinite(target) || target <= 0) return;
+
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = String(Math.round(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const statNumbers = document.querySelectorAll<HTMLElement>('.stat-number[data-count-to]');
+  if (prefersReducedMotion) {
+    statNumbers.forEach((el) => { el.textContent = el.dataset.countTo ?? el.textContent; });
+  } else {
+    statNumbers.forEach((el) => { el.textContent = '0'; });
+    requestAnimationFrame(() => statNumbers.forEach(animateCount));
+  }
+</script>
