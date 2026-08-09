@@ -169,6 +169,20 @@ const vendorNews = defineCollection({
   }),
 });
 
+const news = defineCollection({
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/news' }),
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    author: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    // Link to the original source (e.g. the pre-rebuild site, or an external
+    // article being discussed) — most entries here are commentary about, or a
+    // pointer to, something published elsewhere.
+    sourceUrl: z.string().url().optional(),
+  }),
+});
+
 export const collections = {
   pages,
   advisoryBoard,
@@ -182,4 +196,5 @@ export const collections = {
   decisioncamp,
   minicamps,
   vendorNews,
+  news,
 };

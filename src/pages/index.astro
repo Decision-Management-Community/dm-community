@@ -12,6 +12,10 @@ const qaPosts = (await getCollection('qa')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 
+const newsPosts = (await getCollection('news')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
 const vendorNews = (await getCollection('vendorNews')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
@@ -72,6 +76,16 @@ const stats = [
         </>
       ) : <p class="muted">No challenges yet.</p>}
       <a href={url('/challenges/')}>All challenges &rarr;</a>
+    </div>
+
+    <div class="card">
+      <span class="badge">News</span>
+      <ul class="link-list">
+        {newsPosts.slice(0, 3).map((n) => (
+          <li><a href={url(`/news/${n.id}/`)}>{n.data.title}</a></li>
+        ))}
+      </ul>
+      <a href={url('/news/')}>All news &rarr;</a>
     </div>
 
     <div class="card">

@@ -2,11 +2,12 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
 export async function GET(context) {
-  const [challenges, qa, minicamps, vendorNews] = await Promise.all([
+  const [challenges, qa, minicamps, vendorNews, news] = await Promise.all([
     getCollection('challenges'),
     getCollection('qa'),
     getCollection('minicamps'),
     getCollection('vendorNews'),
+    getCollection('news'),
   ]);
 
   const items = [
@@ -34,11 +35,17 @@ export async function GET(context) {
       link: `/vendors-corner/`,
       categories: ["Vendor's Corner", v.data.vendor],
     })),
+    ...news.map((n) => ({
+      title: `News: ${n.data.title}`,
+      pubDate: n.data.date,
+      link: `/news/${n.id}/`,
+      categories: ['News', ...n.data.tags],
+    })),
   ].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 
   return rss({
     title: 'Decision Management Community',
-    description: 'New Challenges, Q&A threads, and MiniCamp sessions from the Decision Management Community.',
+    description: 'New Challenges, Q&A threads, News, and MiniCamp sessions from the Decision Management Community.',
     site: context.site,
     items,
   });
