@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const pages = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),
@@ -11,7 +11,7 @@ const pages = defineCollection({
 });
 
 const advisoryBoard = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/advisory-board' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/advisory-board' }),
   schema: z.object({
     firstName: z.string(),
     lastName: z.string(),
@@ -28,7 +28,7 @@ const advisoryBoard = defineCollection({
 });
 
 const sponsors = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/sponsors' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/sponsors' }),
   schema: z.object({
     name: z.string(),
     url: z.string().url(),
@@ -39,7 +39,7 @@ const sponsors = defineCollection({
 });
 
 const caseStudies = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/case-studies' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/case-studies' }),
   schema: z.object({
     title: z.string(),
     organization: z.string().optional(),
@@ -59,7 +59,7 @@ const caseStudies = defineCollection({
 });
 
 const tools = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/tools' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/tools' }),
   schema: z.object({
     name: z.string(),
     category: z.enum([
@@ -76,7 +76,7 @@ const tools = defineCollection({
 });
 
 const decisionModels = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/decision-models' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/decision-models' }),
   schema: z.object({
     title: z.string(),
     industry: z.enum(['Financial Services', 'Insurance', 'Healthcare', 'Other']),
@@ -87,7 +87,7 @@ const decisionModels = defineCollection({
 });
 
 const challenges = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/challenges' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/challenges' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -106,7 +106,7 @@ const challenges = defineCollection({
 });
 
 const qa = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/qa' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/qa' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -123,7 +123,7 @@ const qa = defineCollection({
 });
 
 const events = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/events' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/events' }),
   schema: z.object({
     title: z.string(),
     startDate: z.coerce.date(),
@@ -134,7 +134,7 @@ const events = defineCollection({
 });
 
 const decisioncamp = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/decisioncamp' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/decisioncamp' }),
   schema: z.object({
     year: z.number(),
     title: z.string(),
@@ -144,7 +144,7 @@ const decisioncamp = defineCollection({
 });
 
 const minicamps = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/minicamps' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/minicamps' }),
   schema: z.object({
     title: z.string(),
     date: z.coerce.date(),
@@ -160,7 +160,7 @@ const minicamps = defineCollection({
 });
 
 const vendorNews = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/vendor-news' }),
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/vendor-news' }),
   schema: z.object({
     title: z.string(),
     vendor: z.string(),

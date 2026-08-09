@@ -6,12 +6,19 @@ optimization, machine learning, and agentic AI.
 
 Built with [Astro](https://astro.build) and Markdown content collections, so most of the site's
 content can be edited or added by anyone via a GitHub pull request — no build tooling required for
-a simple content change.
+a simple content change. This project is intentionally run as an open collaboration: read on, or
+see [CONTRIBUTING.md](./CONTRIBUTING.md) and the site's own [/contribute/](https://dmcommunity.org/contribute/)
+page for the full picture.
 
 ## Contributing content
 
-See [CONTRIBUTING.md](./CONTRIBUTING.md) — you can add a case study, tool, decision model,
-Challenge, Q&A post, or event by adding a Markdown file, no code required.
+**Start with [CONTRIBUTING.md](./CONTRIBUTING.md)** — it explains the process and links to the
+right folder for whatever you're adding.
+
+Every content type lives under `src/content/<type>/`, and **each of those folders has its own
+`README.md`** with the exact frontmatter schema and a copy-pasteable example for that type — open
+the folder on GitHub and it renders right there. No need to reverse-engineer the format from
+existing files.
 
 ## Local development
 
@@ -26,18 +33,20 @@ npm run preview   # serve the built site locally
 
 ```
 src/
-  content.config.ts       # schemas for every content collection
+  content.config.ts        # schemas for every content collection
   content/
-    pages/                 # static prose pages (About, Terms, Standards, ...)
-    advisory-board/         # one file per board member
-    sponsors/                # one file per sponsor
-    case-studies/            # one file per case study (with linkStatus tracking)
-    tools/                   # one file per tool/vendor listing
-    decision-models/         # one file per decision model
-    challenges/               # one file per monthly Challenge
-    qa/                        # one file per Q&A post
-    events/                     # one file per event
-    decisioncamp/                 # one file per DecisionCAMP edition
+    pages/                  # static prose pages (About, Terms, Standards, Contribute, ...)
+    advisory-board/         # one file per board member — see its README.md
+    sponsors/               # one file per sponsor — see its README.md
+    case-studies/           # one file per case study — see its README.md
+    tools/                  # one file per tool/vendor listing — see its README.md
+    decision-models/        # one file per decision model — see its README.md
+    challenges/             # one file per monthly Challenge — see its README.md
+    qa/                     # one file per Q&A post — see its README.md
+    events/                 # one file per event — see its README.md
+    decisioncamp/           # one file per DecisionCAMP/RulesFest edition — see its README.md
+    minicamps/              # one file per MiniCamp session — see its README.md
+    vendor-news/            # one file per Vendor's Corner announcement — see its README.md
   layouts/BaseLayout.astro
   components/Header.astro, Footer.astro
   pages/                    # route definitions
@@ -45,27 +54,29 @@ src/
 
 ## Migration status
 
-This is a rebuild of a long-running WordPress site. Rather than attempt a full 12+ year historical
-migration in one pass, this rebuild ships:
+This is a rebuild of a long-running WordPress site. The historical archive has largely been
+migrated at this point:
 
-- A modern platform with GitHub-based content contribution
-- All current evergreen pages (About, Advisory Board, Sponsors, Resources, Terms)
-- Case studies and resource links, **with every link checked** — broken links from the original
-  site were not silently carried over (they're listed separately, flagged as broken, rather than
-  hidden or trusted)
-- A representative recent sample of Challenges and Q&A posts, establishing the content shape
+- The full Challenges archive (2014–present, ~85 monthly problems with their submitted solutions)
+- The complete Q&A forum (the old site's forum only ever had a handful of threads — this covers
+  all of them)
+- The full Vendor's Corner archive (2014–present)
+- Case studies, tools, and decision models, **with every link checked** — broken links from the
+  original site were not silently carried over (they're listed separately, flagged as broken,
+  rather than hidden or trusted)
 - The RulesFest 2009–2011 presentation archives, **fully migrated with the actual slide PDFs
   hosted directly in this repo** (`public/decisioncamp/rulesfest-*/`) — not linked out to the old
   site, so they no longer depend on it staying online
-- Every decision-model and case-study writeup that had real content (not just a link) is inlined
-  as Markdown here, with any downloadable assets (PDFs, images) copied into `public/` rather than
-  hotlinked to the old site
 
-The rest of the historical archive (remaining years of monthly Challenges, other DecisionCAMP/RulesFest
-editions, and the full Q&A forum) is **not yet migrated**. See
-[CONTRIBUTING.md#backfilling-the-historical-archive](./CONTRIBUTING.md#backfilling-the-historical-archive)
-if you'd like to help. The standing rule for any future migration work: content and files get copied
-into this repo, not linked back to the site being decommissioned.
+What's intentionally *not* migrated: the old site's general blog/opinion posts (hundreds of them,
+with no equivalent content type here — this rebuild is "resources + community process," not a full
+blog mirror), and its old Tools catalogs specifically (~100+ listings hosted on now-dead third-party
+infrastructure — rather than import broken links wholesale, the Tools list here was reseeded with a
+small set of independently-verified, currently-live tools).
+
+See [CONTRIBUTING.md#backfilling-the-historical-archive](./CONTRIBUTING.md#backfilling-the-historical-archive)
+if you find a gap and want to help close it. The standing rule for any migration work: content and
+files get copied into this repo, not linked back to the site being decommissioned.
 
 ## Deployment
 

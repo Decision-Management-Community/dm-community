@@ -13,17 +13,22 @@ routing everything through a single gatekeeper.
 
 1. **Fork this repository** (or create a branch, if you already have write access):
    [github.com/Decision-Management-Community/dm-community](https://github.com/Decision-Management-Community/dm-community)
-2. **Add or edit a Markdown file.** Most contributions — a case study, a tool listing, a Challenge
-   solution, a Q&A post — are just a `.md` file with a bit of frontmatter. No build step required to
-   propose one; you can even create the file directly in the GitHub web UI.
-3. **Open a pull request.** An automated check builds the site and validates your file against its
+2. **Open the folder for what you're adding**, under
+   [`src/content/`](https://github.com/Decision-Management-Community/dm-community/tree/main/src/content)
+   — a Challenge, a Q&A post, a tool listing, whatever it is. **Every one of those folders has its
+   own `README.md`** with the exact frontmatter fields and a copy-pasteable template for that
+   content type; GitHub renders it automatically when you open the folder, so you don't have to
+   guess the format from existing files.
+3. **Add or edit a Markdown file** based on that template. No build step required to propose one —
+   you can create the file directly in the GitHub web UI.
+4. **Open a pull request.** An automated check builds the site and validates your file against its
    schema, so you'll know right away if something's missing before a human ever looks at it.
-4. **A maintainer reviews it.** Right now that's Adam DeJans Jr. or Jacob Feldman — one of us reads
+5. **A maintainer reviews it.** Right now that's Adam DeJans Jr. or Jacob Feldman — one of us reads
    every pull request and either merges it, asks a quick question, or explains why it doesn't fit.
    We'd rather merge something imperfect and iterate than leave a good contribution stuck in review.
 
 See **[CONTRIBUTING.md](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md)**
-for the exact frontmatter schema and a worked example for each content type.
+for the full process and a table linking to every content type's folder.
 
 ## What's worth contributing
 
