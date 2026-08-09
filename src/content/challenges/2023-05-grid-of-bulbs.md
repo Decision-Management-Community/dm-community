@@ -1,0 +1,18 @@
+---
+title: Grid of Bulbs
+date: 2023-05-01
+tags: [optimization, logic-puzzle]
+solutions:
+  - title: OPL/CPLEX
+    author: Alex Fleischer
+    affiliation: IBM
+    url: https://dmcommunity.org/wp-content/uploads/2023/05/challenge2023april.alexfleischer.pdf
+  - title: Python
+    author: Julien Pradier
+    affiliation: IBM
+    url: https://dmcommunity.org/wp-content/uploads/2023/06/challenge2023april.julienpradier.pdf
+---
+
+"Next best action" is a popular decision-making strategy, but how do you actually define the "best" next action? This challenge (adapted from an IBM Research "Ponder This" puzzle) demonstrates it. Consider an NxN grid of lightbulbs where some bulbs start on and some off. At every step, choose a bulb that is currently off: it turns on, and every other bulb in that bulb's row and column toggles (on becomes off, off becomes on). The goal is to reach a grid where every bulb is on — find the sequence of choices that gets there.
+
+Send your solutions to [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com), or [open a pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) to add yours here.
