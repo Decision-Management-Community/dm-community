@@ -41,17 +41,21 @@ const stats = [
         <a class="btn secondary" href={url('/contribute/')}>Contribute</a>
       </div>
     </div>
-    <svg class="hero-art" width="300" height="240" viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M150 40 L90 110 M150 40 L210 110" stroke="var(--color-border)" stroke-width="2" />
-      <path d="M90 110 L55 175 M90 110 L120 175" stroke="var(--color-border)" stroke-width="2" />
-      <path d="M210 110 L180 175 M210 110 L245 175" stroke="var(--color-border)" stroke-width="2" />
-      <path d="M150 22 L168 40 L150 58 L132 40 Z" fill="var(--color-accent)" />
-      <path d="M90 92 L106 110 L90 128 L74 110 Z" fill="var(--color-primary)" />
-      <path d="M210 92 L226 110 L210 128 L194 110 Z" fill="var(--color-primary)" />
-      <circle cx="55" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
-      <circle cx="120" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
-      <circle cx="180" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
-      <circle cx="245" cy="180" r="9" fill="var(--color-bg)" stroke="var(--color-border)" stroke-width="2" />
+    <svg class="hero-art" width="320" height="200" viewBox="0 0 320 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Decision Management Community">
+      <defs>
+        <linearGradient id="heroArrowGradient" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--color-primary)" />
+          <stop offset="100%" stop-color="var(--color-accent)" />
+        </linearGradient>
+      </defs>
+      <text x="8" y="128" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="100" fill="var(--color-text)">DMC</text>
+      <path d="M30 118 L58 100 L82 112" fill="none" stroke="var(--color-text)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <circle cx="30" cy="118" r="5" fill="var(--color-bg)" stroke="var(--color-text)" stroke-width="3" />
+      <circle cx="58" cy="100" r="4" fill="var(--color-text)" />
+      <circle cx="82" cy="112" r="5" fill="var(--color-bg)" stroke="var(--color-text)" stroke-width="3" />
+      <path d="M18 148 C 90 150, 190 145, 235 95 L 280 48" fill="none" stroke="url(#heroArrowGradient)" stroke-width="5" stroke-linecap="round" />
+      <path d="M280 48 L 263 52 M280 48 L 276 65" stroke="var(--color-accent)" stroke-width="5" stroke-linecap="round" fill="none" />
+      <text x="160" y="182" text-anchor="middle" font-family="var(--font-sans)" font-weight="700" font-size="14" letter-spacing="0.1em" fill="var(--color-text-muted)">DECISION MANAGEMENT COMMUNITY</text>
     </svg>
   </section>
 

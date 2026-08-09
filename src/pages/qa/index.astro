@@ -25,11 +25,6 @@ const posts = (await getCollection('qa')).sort((a, b) => b.data.date.valueOf() -
     ))}
   </div>
 
-  <p class="muted">
-    Only a small sample of recent Q&amp;A threads has been migrated so far — the full forum archive
-    hasn't been brought over yet. See
-    <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive">CONTRIBUTING.md</a>.
-  </p>
 </BaseLayout>
 
 <style>

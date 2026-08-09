@@ -8,6 +8,15 @@ const { Content } = await render(entry!);
 const posts = (await getCollection('vendorNews')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const byYear = new Map<number, typeof posts>();
+for (const p of posts) {
+  const year = p.data.date.getUTCFullYear();
+  const list = byYear.get(year) ?? [];
+  list.push(p);
+  byYear.set(year, list);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a);
 ---
 <BaseLayout title="Vendor's Corner" description={entry?.data.description}>
   <h1>{entry?.data.title}</h1>
@@ -16,15 +25,25 @@ const posts = (await getCollection('vendorNews')).sort(
   {posts.length > 0 && (
     <>
       <h2>Announcements</h2>
-      <div class="card-grid">
-        {posts.map((p) => (
-          <div class="card">
-            <span class="badge">{p.data.vendor}</span>
-            <h3>{p.data.url ? <a href={p.data.url} target="_blank" rel="noopener">{p.data.title}</a> : p.data.title}</h3>
-            <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+      {years.length > 1 && (
+        <nav class="year-jump" aria-label="Jump to year">
+          {years.map((year) => <a href={`#y${year}`}>{year}</a>)}
+        </nav>
+      )}
+      {years.map((year) => (
+        <section class="year-section" id={`y${year}`}>
+          <h3 class="year-heading">{year}</h3>
+          <div class="card-grid">
+            {byYear.get(year)!.map((p) => (
+              <div class="card">
+                <span class="badge">{p.data.vendor}</span>
+                <h3>{p.data.url ? <a href={p.data.url} target="_blank" rel="noopener">{p.data.title}</a> : p.data.title}</h3>
+                <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </section>
+      ))}
     </>
   )}
 
@@ -41,4 +60,28 @@ const posts = (await getCollection('vendorNews')).sort(
 
 <style>
   .small { font-size: 0.8rem; }
+  .year-jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.7rem;
+    margin: 1.25rem 0;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-alt);
+    border-radius: 8px;
+  }
+  .year-jump a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+  .year-jump a:hover { color: var(--color-text); }
+  .year-section {
+    margin-top: 2rem;
+  }
+  .year-heading {
+    font-family: var(--font-serif);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
 </style>
