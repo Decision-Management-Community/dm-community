@@ -16,3 +16,5 @@ jobs:
       - run: npm ci
       - name: Validate content collections and build site
         run: npm run build
+      - name: Check internal links
+        run: node scripts/check-links.mjs

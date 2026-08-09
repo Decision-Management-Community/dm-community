@@ -2,19 +2,22 @@
 import { url } from '../lib/url';
 import Logomark from './Logomark.astro';
 
-const nav = [
+const primaryNav = [
   { href: url('/'), label: 'Home' },
   { href: url('/decisioncamp/'), label: 'DecisionCAMP' },
   { href: url('/challenges/'), label: 'Challenges' },
   { href: url('/qa/'), label: 'Q&A' },
   { href: url('/resources/'), label: 'Resources' },
   { href: url('/events/'), label: 'Events' },
+];
+const moreNav = [
   { href: url('/vendors-corner/'), label: "Vendor's Corner" },
   { href: url('/sponsors/'), label: 'Sponsors' },
   { href: url('/advisory-board/'), label: 'Advisory Board' },
   { href: url('/about/'), label: 'About' },
 ];
 const path = Astro.url.pathname;
+const isMoreActive = moreNav.some((item) => item.href === path);
 const pagefindBundlePath = url('/pagefind/');
 const pagefindUiJs = url('/pagefind/pagefind-ui.js');
 const pagefindUiCss = url('/pagefind/pagefind-ui.css');
@@ -26,12 +29,34 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
       <span class="brand-name">Decision Management Community</span>
     </a>
     <nav id="site-nav" class="site-nav">
-      {nav.map((item) => (
+      {primaryNav.map((item) => (
         <a
           href={item.href}
           aria-current={path === item.href ? 'page' : undefined}
         >{item.label}</a>
       ))}
+      <div class="nav-more">
+        <button
+          class="nav-more-toggle"
+          id="nav-more-toggle"
+          aria-expanded="false"
+          aria-controls="nav-more-menu"
+          aria-current={isMoreActive ? 'page' : undefined}
+        >
+          More
+          <svg class="chev" width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="nav-more-menu" id="nav-more-menu" hidden>
+          {moreNav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={path === item.href ? 'page' : undefined}
+            >{item.label}</a>
+          ))}
+        </div>
+      </div>
     </nav>
     <button class="icon-btn" id="search-toggle" aria-expanded="false" aria-controls="search-panel" aria-label="Search">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -98,6 +123,63 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
     color: var(--color-text);
     border-bottom: 2px solid var(--color-accent);
   }
+  .nav-more {
+    position: relative;
+  }
+  .nav-more-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: none;
+    border: none;
+    font-family: inherit;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+    padding: 0.3rem 0;
+    cursor: pointer;
+  }
+  .nav-more-toggle:hover { color: var(--color-text); }
+  .nav-more-toggle[aria-current='page'] {
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-accent);
+  }
+  .nav-more-toggle .chev {
+    transition: transform 0.15s ease;
+  }
+  .nav-more-toggle[aria-expanded='true'] .chev {
+    transform: rotate(180deg);
+  }
+  .nav-more-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.6rem;
+    min-width: 180px;
+    background: var(--color-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: var(--shadow-card);
+    padding: 0.4rem;
+    z-index: 30;
+  }
+  .nav-more-menu:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-more-menu a {
+    padding: 0.55rem 0.6rem;
+    border-radius: 6px;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .nav-more-menu a:hover {
+    background: var(--color-bg);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .nav-more-menu a[aria-current='page'] { color: var(--color-text); }
   .icon-btn {
     display: flex;
     align-items: center;
@@ -144,6 +226,12 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
     }
     .site-nav.open { display: flex; }
     .bar { flex-wrap: wrap; }
+    .nav-more { display: contents; }
+    .nav-more-toggle { display: none; }
+    .nav-more-menu {
+      display: contents !important;
+    }
+    .nav-more-menu a { padding: 0.3rem 0; }
   }
 </style>
 
@@ -153,6 +241,32 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
   navToggle?.addEventListener('click', () => {
     const open = nav?.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  const moreToggle = document.getElementById('nav-more-toggle');
+  const moreMenu = document.getElementById('nav-more-menu');
+  function closeMoreMenu() {
+    moreMenu?.setAttribute('hidden', '');
+    moreToggle?.setAttribute('aria-expanded', 'false');
+  }
+  moreToggle?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const opening = moreMenu?.hasAttribute('hidden');
+    if (opening) {
+      moreMenu?.removeAttribute('hidden');
+      moreToggle.setAttribute('aria-expanded', 'true');
+    } else {
+      closeMoreMenu();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (!moreMenu || moreMenu.hasAttribute('hidden')) return;
+    const target = event.target as Node;
+    if (moreToggle?.contains(target) || moreMenu.contains(target)) return;
+    closeMoreMenu();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMoreMenu();
   });
 </script>
 
