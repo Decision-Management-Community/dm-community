@@ -28,4 +28,4 @@ The oven's capacity varies by time period:
 
 **Goal:** Find a start time for each of the five orders (within the 11-day horizon) so that the oven's time-varying capacity is never exceeded.
 
-Send your solutions to [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com), or [open a pull request](https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md) to add yours here.
+Send your solutions to [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com), or [open a pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) to add yours here.

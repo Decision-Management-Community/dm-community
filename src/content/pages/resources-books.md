@@ -29,4 +29,4 @@ order: 5
 23. *Modeling the World in Data* — Sally Shlaer & Stephen J. Mellor (1988)
 
 *Purchase links (mostly Amazon) were dropped from this migrated list rather than copied blind — add
-them back via [pull request](https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md) once verified, since older editions can go out of print or get relisted under a new URL.*
+them back via [pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) once verified, since older editions can go out of print or get relisted under a new URL.*

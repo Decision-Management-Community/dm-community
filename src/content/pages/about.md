@@ -18,7 +18,7 @@ This website provides a continuously updated collection of resources for the Dec
 
 We welcome your contributions — whether challenges, decision models, tools, events, or other relevant resources. Practitioners of all kinds, from vendors to end users, are encouraged to share news, links, comments, and articles with this community.
 
-The easiest way to contribute today is directly on GitHub: see our [contribution guide](https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md) for how to submit a case study, tool listing, challenge, or Q&A as a Markdown file and open a pull request.
+The easiest way to contribute today is directly on GitHub: see our [contribution guide](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) for how to submit a case study, tool listing, challenge, or Q&A as a Markdown file and open a pull request.
 
 You can also send suggestions to [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).
 

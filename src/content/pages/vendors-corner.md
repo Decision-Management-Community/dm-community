@@ -4,7 +4,7 @@ description: Latest news and product announcements from vendors in the decision 
 order: 1
 ---
 
-Vendors can submit an announcement by [opening a pull request](https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md) or emailing [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com). Dated announcements above also appear in the homepage activity feed and the [RSS feed](/rss.xml).
+Vendors can submit an announcement by [opening a pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) or emailing [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com). Dated announcements above also appear in the homepage activity feed and the [RSS feed](/rss.xml).
 
 ## Prior Announcements (undated)
 
@@ -24,4 +24,4 @@ Vendors can submit an announcement by [opening a pull request](https://github.co
 
 Additional vendors featured in past entries include Sparkling Logic, Sapiens Decision, IBM Automation Decision Services, InRule, Trisotech, FlexRule, and Kogito, among others, with various decision-automation and optimization announcements.
 
-*The full historical archive of Vendor's Corner posts predates this rebuild and hasn't been migrated yet — see [CONTRIBUTING.md](https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive) if you'd like to help bring more of it over.*
+*The full historical archive of Vendor's Corner posts predates this rebuild and hasn't been migrated yet — see [CONTRIBUTING.md](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#backfilling-the-historical-archive) if you'd like to help bring more of it over.*

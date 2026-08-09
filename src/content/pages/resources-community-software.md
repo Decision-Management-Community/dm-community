@@ -11,4 +11,4 @@ decision management.
 - "Search & Replace Across Excel and Word Files" — a small community-contributed utility from the
   original site; its download hasn't been migrated yet.
 
-Know of a useful, freely available package? [Send us a link](https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md) or email [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).
+Know of a useful, freely available package? [Send us a link](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) or email [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).

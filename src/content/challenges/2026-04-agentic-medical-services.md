@@ -39,4 +39,4 @@ Check if the patient is on active medications. If so, check for possible conflic
 
 **Example patient:** 58 years old, 78 kg, creatinine 1.85, penicillin-allergic, currently on Coumadin.
 
-> Several solutions were submitted as external write-ups (e.g. LinkedIn articles) — see the Solutions list below. The original external links weren't reliably resolvable during migration and are omitted rather than republished as possibly-broken links. If you're one of the authors (or know a working link to your write-up), please [open a pull request](https://github.com/addejans/dm-community/blob/main/CONTRIBUTING.md) adding the `url` field back to your solution entry.
+> Several solutions were submitted as external write-ups (e.g. LinkedIn articles) — see the Solutions list below. The original external links weren't reliably resolvable during migration and are omitted rather than republished as possibly-broken links. If you're one of the authors (or know a working link to your write-up), please [open a pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) adding the `url` field back to your solution entry.
