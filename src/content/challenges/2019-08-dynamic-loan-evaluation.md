@@ -8,6 +8,7 @@ solutions:
     url: https://openrules.wordpress.com/2020/07/13/stateful-loan-approval-process-with-aws-lambdaeventbridgesnssqs/
   - title: SparklingLogic
     author: Carole-Ann Berlioz
+    url: https://www.sparklinglogic.com/dm-challenge-dynamic-loan-evaluation/
 ---
 
 Modern decision applications increasingly need to do more than execute one rules-based transaction and forget it — they need to evaluate new facts as they arrive and update earlier conclusions accordingly. This challenge revives a mostly-unresolved [Dec-2016 loan approval challenge](https://dmcommunity.org/challenge/challenge-dec-2016/) and asks: how would you build this as a genuinely stateful, perpetually-running service today?

@@ -2,7 +2,11 @@
 title: A Brick Factory
 date: 2026-07-31
 tags: [scheduling, optimization]
-solutions: []
+solutions:
+  - title: Rule Scheduler
+    author: Jacob Feldman
+    affiliation: OpenRules
+    url: https://openrulesdecisionmanager.com/rule-scheduler-oven/
 ---
 
 A brick factory must schedule five orders (A, B, C, D, E) as single, uninterrupted activities within an 11-day planning horizon. Each order requires a specific number of batches per day for a set duration:

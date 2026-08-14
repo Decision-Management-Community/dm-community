@@ -26,6 +26,9 @@ solutions:
   - title: DT5GL
     author: Jack Jansonius
     url: https://dmcommunity.org/wp-content/uploads/2023/05/challenge2023mar.jj_.pdf
+  - title: ChatGPT
+    author: ChatGPT
+    url: https://dmcommunity.org/wp-content/uploads/2023/03/challenge2023mar.chatgpt4.pdf
 ---
 
 As part of a regulatory process, a government agency wants to determine whether an applicant is eligible for a resident permit using a simple rule: an applicant is eligible if, while married, the applicant and their spouse have shared the same address for at least 7 of the last 10 years.

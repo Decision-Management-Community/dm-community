@@ -9,6 +9,7 @@ solutions:
     url: https://dmcommunity.org/wp-content/uploads/2014/10/who-killed-aunt-agatha-corticon.pdf
   - title: MiniZinc and 22 other solvers
     author: Hakan Kjellerstrand
+    url: https://www.hakank.org/minizinc/who_killed_agatha_dmcommunity_challenge.html
   - title: OpenRules Rule Solver and Excel
     author: Jacob Feldman
     affiliation: OpenRules
