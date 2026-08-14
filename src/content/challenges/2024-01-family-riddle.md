@@ -23,6 +23,11 @@ solutions:
   - title: Prolog
     author: Matteo Redaelli
     url: https://github.com/matteoredaelli/dmcommunity-challenges/blob/main/dmcommunity-2024-01.pl
+  - title: MS Copilot
+    author: Microsoft Copilot
+    url: https://dmcommunity.org/wp-content/uploads/2023/12/trying-to-solve-family-riddle-using-ms-copilot-1.pdf
+  - title: ChatGPT
+    author: ChatGPT
 ---
 
 René and Leo are both heads of household, and, coincidentally, both of their families include three girls and three boys. The youngest child in Leo's family is a girl, and a baby girl (under one year old) has just arrived in René's family. Neither family has twins, nor any children closer in age than a year, and all the children are under age ten. In each family, the sum of the girls' ages equals the sum of the boys' ages — and, in fact, the sum of the squares of the girls' ages equals the sum of the squares of the boys' ages. The sum of the ages of all the children (both families combined) is 60.

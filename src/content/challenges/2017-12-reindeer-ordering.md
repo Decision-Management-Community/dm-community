@@ -30,6 +30,8 @@ solutions:
   - title: DMN
     author: Robert Parker
     url: https://blog.camunda.com/post/2019/07/solving-santas-sequencing-problem-using-dmn/
+  - title: MiniZinc
+    author: Hakan Kjellerstrand
 ---
 
 Santa's elves need to line up nine reindeer — Rudolph, Prancer, Cupid, Comet, Blitzen, Donder, Vixen, Dancer, and Dasher — into a single order to pull the sleigh, following a set of "behind" / "in front of" constraints such as:

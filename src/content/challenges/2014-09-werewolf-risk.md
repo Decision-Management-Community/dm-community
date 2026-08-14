@@ -10,6 +10,7 @@ solutions:
   - title: Sparkling Logic
     author: Carole-Ann Matignon
     affiliation: Sparkling Logic
+    url: https://www.facebook.com/photo.php?fbid=583923521627537
   - title: BiZZdesign
     author: Antonio Plais
     affiliation: CENTUS
