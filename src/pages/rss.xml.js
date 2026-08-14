@@ -2,12 +2,13 @@ import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
 export async function GET(context) {
-  const [challenges, qa, minicamps, vendorNews, news] = await Promise.all([
+  const [challenges, qa, minicamps, vendorNews, news, blog] = await Promise.all([
     getCollection('challenges'),
     getCollection('qa'),
     getCollection('minicamps'),
     getCollection('vendorNews'),
     getCollection('news'),
+    getCollection('blog'),
   ]);
 
   const items = [
@@ -40,6 +41,12 @@ export async function GET(context) {
       pubDate: n.data.date,
       link: `/news/${n.id}/`,
       categories: ['News', ...n.data.tags],
+    })),
+    ...blog.map((b) => ({
+      title: `Blog: ${b.data.title}`,
+      pubDate: b.data.date,
+      link: `/resources/blog/${b.id}/`,
+      categories: ['Blog'],
     })),
   ].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
 

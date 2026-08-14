@@ -34,6 +34,7 @@ npm run dev      # http://localhost:4321
 | Q&A post | [`src/content/qa/`](./src/content/qa/README.md) | No |
 | Tool listing | [`src/content/tools/`](./src/content/tools/README.md) | No |
 | Case study | [`src/content/case-studies/`](./src/content/case-studies/README.md) | No |
+| Blog post | [`src/content/blog/`](./src/content/blog/README.md) | No |
 | Decision model | [`src/content/decision-models/`](./src/content/decision-models/README.md) | No |
 | Event | [`src/content/events/`](./src/content/events/README.md) | No |
 | Vendor's Corner announcement | [`src/content/vendor-news/`](./src/content/vendor-news/README.md) | No |
