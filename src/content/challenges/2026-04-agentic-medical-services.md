@@ -6,19 +6,25 @@ solutions:
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
+    url: "https://www.linkedin.com/pulse/agentic-medical-services-openrules-solution-jacob-feldman-phd-sd29e/"
   - title: Novus-Forge
     author: Jeremiah Connelly
     affiliation: Novus-Forge
+    url: "https://www.linkedin.com/posts/novus-forge_dm-community-challenge-april-2026-ugcPost-7450271652757536769-YRg3"
   - title: Aletyx
     author: Alex Porcelli
     affiliation: Aletyx
+    url: "https://dmcommunity.org/wp-content/uploads/2026/04/challenge2026apr.aletyx.pdf"
   - title: Trisotech
     author: Dr. John Svirbely
     affiliation: Trisotech
+    url: "https://www.trisotech.com/can-you-trust-an-llm/"
   - title: Claude Skills and Python
     author: Gene Weng
+    url: "https://github.com/geneweng/agentic_medical_services_poc"
   - title: DT5GL/SQL/Python
     author: Jack Jansonius
+    url: "https://dmcommunity.org/wp-content/uploads/2026/05/Challenge2026Apr.JJ_.pdf"
 ---
 
 This challenge aims to explore how LLMs orchestrate rule-based decision services. Consider the following three loosely coupled medical services that should be used by an LLM to help a doctor determine a therapy for a patient with Acute Sinusitis.
@@ -38,5 +44,3 @@ CCr [ml/min] = ((140 − age) × Lean Body Weight [kg]) / (PCr × 72)
 Check if the patient is on active medications. If so, check for possible conflicts between recommended and active medications using the file `ConflictingMedications.csv`. All detected conflicts should generate the appropriate warnings.
 
 **Example patient:** 58 years old, 78 kg, creatinine 1.85, penicillin-allergic, currently on Coumadin.
-
-> Several solutions were submitted as external write-ups (e.g. LinkedIn articles) — see the Solutions list below. The original external links weren't reliably resolvable during migration and are omitted rather than republished as possibly-broken links. If you're one of the authors (or know a working link to your write-up), please [open a pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) adding the `url` field back to your solution entry.
