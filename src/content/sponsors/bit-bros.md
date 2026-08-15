@@ -1,7 +1,7 @@
 ---
 name: Bit Bros LLC
 url: https://bitbrosdata.com
-logo: /sponsors/bit-bros.png
+logo: /sponsors/bit-bros-black.svg
 order: 11
 ---
 A boutique applied economics firm specializing in supply chain, with founder experience at companies
