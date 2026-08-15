@@ -29,7 +29,8 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
 
   {years.length > 1 && (
     <nav class="year-jump" aria-label="Jump to year">
-      {years.map((year) => <a href={`#y${year}`}>{year}</a>)}
+      <a href="#news-archive" data-news-year-filter="" aria-current="page">All years</a>
+      {years.map((year) => <a href={`#y${year}`} data-news-year-filter={year}>{year}</a>)}
     </nav>
   )}
 
@@ -50,7 +51,7 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
 
   <div id="news-archive">
   {years.map((year) => (
-    <section class="year-section" id={`y${year}`} data-news-year>
+    <section class="year-section" id={`y${year}`} data-news-year={year}>
       <h2 class="year-heading">{year}</h2>
       <div class="card-grid">
         {byYear.get(year)!.map((p) => (
@@ -87,15 +88,27 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     const topic = document.querySelector('#news-topic');
     const count = document.querySelector('#news-count');
     const more = document.querySelector('#news-more');
+    const yearLinks = [...document.querySelectorAll('[data-news-year-filter]')];
     const pageSize = 60;
     let limit = pageSize;
+    let selectedYear = '';
+
+    const setActiveYear = (year) => {
+      selectedYear = year;
+      for (const link of yearLinks) {
+        if (link.dataset.newsYearFilter === selectedYear) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      }
+    };
 
     const apply = () => {
       const query = search.value.trim().toLocaleLowerCase();
       const selectedTopic = topic.value;
       const matches = cards.filter((card) => {
         const topics = JSON.parse(card.dataset.tags || '[]');
-        return (!query || card.dataset.search.includes(query)) &&
+        const cardYear = card.closest('[data-news-year]')?.dataset.newsYear;
+        return (!selectedYear || cardYear === selectedYear) &&
+          (!query || card.dataset.search.includes(query)) &&
           (!selectedTopic || topics.includes(selectedTopic));
       });
       const matchSet = new Set(matches);
@@ -112,9 +125,24 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
       more.hidden = shown >= matches.length;
     };
 
-    search.addEventListener('input', () => { limit = pageSize; apply(); });
-    topic.addEventListener('change', () => { limit = pageSize; apply(); });
+    for (const link of yearLinks) {
+      link.addEventListener('click', () => {
+        setActiveYear(link.dataset.newsYearFilter || '');
+        search.value = '';
+        topic.value = '';
+        limit = selectedYear ? Number.POSITIVE_INFINITY : pageSize;
+        apply();
+      });
+    }
+    search.addEventListener('input', () => { limit = selectedYear ? Number.POSITIVE_INFINITY : pageSize; apply(); });
+    topic.addEventListener('change', () => { limit = selectedYear ? Number.POSITIVE_INFINITY : pageSize; apply(); });
     more.addEventListener('click', () => { limit += pageSize; apply(); });
+
+    const hashYear = window.location.hash.match(/^#y(\d{4})$/)?.[1];
+    if (hashYear && yearLinks.some((link) => link.dataset.newsYearFilter === hashYear)) {
+      setActiveYear(hashYear);
+      limit = Number.POSITIVE_INFINITY;
+    }
     apply();
   });
 </script>
@@ -136,6 +164,12 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     color: var(--color-text-muted);
   }
   .year-jump a:hover { color: var(--color-text); }
+  .year-jump a[aria-current='page'] {
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
   .year-section {
     margin-top: 2rem;
   }
