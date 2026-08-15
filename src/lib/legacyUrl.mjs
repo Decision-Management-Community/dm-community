@@ -12,6 +12,18 @@ const DIRECT_PATHS = new Map([
   ['/vendors-corner/', '/vendors-corner/'],
 ]);
 
+const SECTION_FALLBACKS = [
+  ['/decisioncamp/minicamps/', '/decisioncamp/minicamps/'],
+  ['/challenge', '/challenges/'],
+  ['/decisioncamp', '/decisioncamp/'],
+  ['/event', '/events/'],
+  ['/resource', '/resources/'],
+  ['/sponsor', '/sponsors/'],
+  ['/vendor', '/vendors-corner/'],
+  ['/qa', '/qa/'],
+  ['/about', '/about/'],
+];
+
 export function isLegacyDmCommunityUrl(value) {
   if (typeof value !== 'string') return false;
   try {
@@ -49,13 +61,19 @@ export function migrateLegacyUrl(value) {
     ? '/'
     : `${parsed.pathname.replace(/\/+$/, '')}/`;
 
-  // WordPress used singular /challenge/... routes for individual challenge
-  // landing pages. Those slugs do not map one-to-one to the migrated challenge
-  // IDs, so keep the navigation self-contained by sending historical challenge
-  // links to the canonical challenge archive rather than the retired host.
-  if (normalizedPath.startsWith('/challenge/')) {
-    return '/challenges/';
+  const direct = DIRECT_PATHS.get(normalizedPath);
+  if (direct) return direct;
+
+  // WordPress also used many one-off slugs for challenge pages, DecisionCAMP
+  // registrations, resource pages, and similar section content. Those slugs do
+  // not map one-to-one to the migrated IDs, so preserve useful navigation by
+  // sending them to the corresponding local section archive.
+  for (const [legacyPrefix, localPath] of SECTION_FALLBACKS) {
+    if (normalizedPath.startsWith(legacyPrefix)) return localPath;
   }
 
-  return DIRECT_PATHS.get(normalizedPath) ?? value;
+  // Any remaining navigable URL on the retired WordPress host is historical
+  // content with no exact route mapping. The local News archive is the safest
+  // self-contained fallback and prevents a runtime dependency on that host.
+  return '/news/';
 }
