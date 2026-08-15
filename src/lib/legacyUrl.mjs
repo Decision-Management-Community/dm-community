@@ -48,5 +48,14 @@ export function migrateLegacyUrl(value) {
   const normalizedPath = parsed.pathname === '/'
     ? '/'
     : `${parsed.pathname.replace(/\/+$/, '')}/`;
+
+  // WordPress used singular /challenge/... routes for individual challenge
+  // landing pages. Those slugs do not map one-to-one to the migrated challenge
+  // IDs, so keep the navigation self-contained by sending historical challenge
+  // links to the canonical challenge archive rather than the retired host.
+  if (normalizedPath.startsWith('/challenge/')) {
+    return '/challenges/';
+  }
+
   return DIRECT_PATHS.get(normalizedPath) ?? value;
 }
