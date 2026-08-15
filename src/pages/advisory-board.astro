@@ -16,18 +16,44 @@ const fullName = (m: (typeof members)[number]) =>
 ---
 <BaseLayout title="Advisory Board" description="Meet the Decision Management Community Advisory Board.">
   <h1>Advisory Board</h1>
-  <p>
-    Our Advisory Board brings together experienced leaders in Decision Management to help guide
-    where our community goes next — ensuring we continue building something genuinely valuable for
-    practitioners.
+  <p class="board-lede">
+    A group of experienced practitioners, researchers, executives, and technology leaders helping
+    shape the direction of the Decision Management Community.
   </p>
-  <p>The Advisory Board plays a key role in:</p>
-  <ul class="prose">
-    <li>Providing strategic guidance on community initiatives</li>
-    <li>Sharing expert perspectives and industry insights</li>
-    <li>Shaping events, content, and new features to better serve members</li>
-    <li>Helping make our community more collaborative, thoughtful, and member-driven</li>
-  </ul>
+  <p class="board-intro">
+    The Advisory Board provides perspective on where the community should invest its attention,
+    helps connect important ideas and people across the field, and keeps our initiatives grounded in
+    the needs of practitioners.
+  </p>
+
+  <div class="board-overview">
+    <section class="board-panel">
+      <h2>Purpose</h2>
+      <p>
+        The board provides strategic guidance on community priorities, contributes expert
+        perspectives, and helps shape events, content, resources, and new initiatives.
+      </p>
+    </section>
+
+    <section class="board-panel">
+      <h2>What We Look For</h2>
+      <p>
+        Members bring meaningful experience in Decision Management or a closely related discipline,
+        an independent point of view, and a willingness to contribute to the broader community. We
+        value a mix of industry, academia, consulting, standards, and technology perspectives.
+      </p>
+    </section>
+
+    <section class="board-panel">
+      <h2>How Members Contribute</h2>
+      <p>
+        Membership is active but intentionally lightweight. Members may advise on priorities,
+        participate in discussions or events, contribute ideas and content, and connect the community
+        with relevant people and work across the field. There is no fixed meeting cadence or formal
+        time commitment.
+      </p>
+    </section>
+  </div>
 
   <h2>Members</h2>
   <div class="card-grid">
@@ -43,10 +69,55 @@ const fullName = (m: (typeof members)[number]) =>
     ))}
   </div>
 
-  <p>Please feel free to connect with the board and contribute your ideas! You can also propose changes to this page directly via a <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md">GitHub pull request</a>.</p>
+  <section class="membership-callout">
+    <h2>Joining the Advisory Board</h2>
+    <p>
+      The board is curated to maintain a useful mix of expertise and perspectives rather than grow
+      for its own sake. New members may be nominated by existing board members or community
+      contributors, and self-nominations are welcome. We consider subject-matter depth, meaningful
+      contributions to the field or community, diversity of perspective, and willingness to
+      participate.
+    </p>
+    <p>
+      Interested in joining or nominating someone? Email
+      <a href="mailto:DecisionManagementCommunity@gmail.com">DecisionManagementCommunity@gmail.com</a>.
+      You can also propose improvements to this page through a
+      <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md">GitHub pull request</a>.
+    </p>
+  </section>
 </BaseLayout>
 
 <style>
+  .board-lede {
+    max-width: 52rem;
+    margin-bottom: 0.6rem;
+    font-size: 1.15rem;
+    line-height: 1.65;
+  }
+  .board-intro {
+    max-width: 52rem;
+    margin-top: 0;
+    color: var(--color-text-muted);
+  }
+  .board-overview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 2rem 0 2.5rem;
+  }
+  .board-panel {
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-bg-alt);
+  }
+  .board-panel h2 {
+    margin: 0 0 0.65rem;
+    font-size: 1.05rem;
+  }
+  .board-panel p {
+    margin: 0;
+  }
   .member-card {
     display: flex;
     align-items: center;
@@ -58,5 +129,23 @@ const fullName = (m: (typeof members)[number]) =>
   .member-card p {
     margin: 0.1rem 0;
     font-size: 0.9rem;
+  }
+  .membership-callout {
+    margin-top: 2.5rem;
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-bg-alt);
+  }
+  .membership-callout h2 {
+    margin-top: 0;
+  }
+  .membership-callout p:last-child {
+    margin-bottom: 0;
+  }
+  @media (max-width: 800px) {
+    .board-overview {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
