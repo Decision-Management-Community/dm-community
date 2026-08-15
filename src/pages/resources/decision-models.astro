@@ -4,8 +4,8 @@ import { getCollection } from 'astro:content';
 import { url } from '../../lib/url';
 import { categoryColor } from '../../lib/categoryColors';
 
-const all = await getCollection('decisionModels');
-const industries = ['Financial Services', 'Insurance', 'Healthcare', 'Other'] as const;
+const all = (await getCollection('decisionModels')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const industries = ['Financial Services', 'Healthcare', 'Insurance', 'Other'] as const;
 ---
 <BaseLayout title="Decision Models" description="Sample decision models by industry.">
   <h1>Decision Models</h1>
