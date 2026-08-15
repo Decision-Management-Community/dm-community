@@ -24,7 +24,7 @@ const sponsors = (await getCollection('sponsors'))
             {sponsors.map((s) => (
               <a class:list={['sponsor-tile', { 'text-only': !s.data.logo }]} href={s.data.url} target="_blank" rel="noopener" aria-label={`Visit ${s.data.name}`}>
                 {s.data.logo ? (
-                  <img src={url(s.data.logo)} alt={`${s.data.name} logo`} loading="lazy" />
+                  <img src={url(s.id === 'bit-bros' ? '/sponsors/bit-bros-horizontal.svg' : s.data.logo)} alt={`${s.data.name} logo`} loading="lazy" />
                 ) : (
                   <span>{s.data.name}</span>
                 )}
@@ -35,7 +35,7 @@ const sponsors = (await getCollection('sponsors'))
             {sponsors.map((s) => (
               <a class:list={['sponsor-tile', { 'text-only': !s.data.logo }]} href={s.data.url} target="_blank" rel="noopener" tabindex="-1">
                 {s.data.logo ? (
-                  <img src={url(s.data.logo)} alt="" loading="lazy" />
+                  <img src={url(s.id === 'bit-bros' ? '/sponsors/bit-bros-horizontal.svg' : s.data.logo)} alt="" loading="lazy" />
                 ) : (
                   <span>{s.data.name}</span>
                 )}
@@ -78,9 +78,7 @@ const sponsors = (await getCollection('sponsors'))
     <div class="maintenance-credit">
       <a class="maintainer" href="https://bitbrosdata.com" target="_blank" rel="noopener">
         <span>Maintained with <span aria-label="love">💙</span> by</span>
-        <span class="maintainer-logo-frame">
-          <img src={url('/sponsors/bit-bros.png')} alt="Bit Bros LLC" loading="lazy" />
-        </span>
+        <span class="maintainer-name">Bit Bros LLC</span>
       </a>
       <span class="credit-dot" aria-hidden="true">·</span>
       <a href={url('/contribute/')}>Open-source contributions welcome</a>
@@ -235,35 +233,19 @@ const sponsors = (await getCollection('sponsors'))
   }
   .maintainer { color: var(--color-text-muted); }
   .maintainer:hover { text-decoration: none; color: var(--color-text); }
-  .maintainer-logo-frame {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
-    min-width: 62px;
-    padding: 0.18rem 0.4rem;
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.97);
+  .maintainer-name {
+    color: #2563eb;
+    font-weight: 750;
+    letter-spacing: 0.01em;
   }
-  .maintainer-logo-frame img {
-    display: block;
-    max-height: 17px;
-    max-width: 76px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    filter: grayscale(1) brightness(0);
-    opacity: 0.88;
-  }
+  .maintainer:hover .maintainer-name { color: #1d4ed8; }
   .credit-dot { color: var(--color-text-muted); }
 
   @media (prefers-color-scheme: dark) {
     .sponsor-band {
       background: color-mix(in srgb, var(--color-card) 72%, transparent);
     }
-    .sponsor-tile,
-    .maintainer-logo-frame {
+    .sponsor-tile {
       /* Keep original brand artwork on a predictable neutral canvas. */
       background: rgba(255, 255, 255, 0.96);
       border-color: rgba(255, 255, 255, 0.12);
@@ -273,6 +255,8 @@ const sponsors = (await getCollection('sponsors'))
       border-color: rgba(221, 165, 83, 0.48);
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
     }
+    .maintainer-name { color: #60a5fa; }
+    .maintainer:hover .maintainer-name { color: #93c5fd; }
   }
 
   @media (prefers-reduced-motion: reduce) {
