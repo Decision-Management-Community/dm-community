@@ -2,8 +2,8 @@
 
 This site is built from plain Markdown files in this repository. You don't need to run any code to
 contribute content — you can add or edit a Markdown file directly in the GitHub web UI and open a
-pull request. Adam DeJans Jr. or Jacob Feldman reviews every pull request and either merges it, asks
-a quick question, or explains why it doesn't fit.
+pull request. Community-content pull requests are reviewed by Adam DeJans Jr., Jacob Feldman, or
+John Elam; core site changes remain owned by Adam.
 
 ## The short version
 
@@ -57,6 +57,8 @@ fails with a specific error telling you what to fix.
 - **Host files you have, don't hotlink files you don't control.** If you have the actual PDF, image,
   or spreadsheet behind an entry, commit it under `public/` (see `public/decisioncamp/rulesfest-*/`
   for the pattern) and link to your local copy rather than an external URL that might disappear.
+- **Never add a dependency on the retired community host.** Historical posts and upload URLs should
+  resolve to content in this repository or to an independent surviving source.
 - **Write summaries in your own words.** Don't paste large verbatim blocks from wherever the content
   originated — a short, accurate restatement is both more useful to readers and keeps the licensing
   situation clean.
@@ -67,18 +69,18 @@ fails with a specific error telling you what to fix.
 ## Backfilling the historical archive
 
 The complete WordPress News archive was imported in August 2026. The GitHub repository is now the
-source of truth for those posts; the original site should only be needed to investigate an import
-problem or recover a missing attachment.
+source of truth for those posts, and the deployed site must remain functional after the legacy host
+is retired.
 
-If you want to help backfill more of it:
+If you discover a genuine gap:
 
 1. Check what's already migrated for the year/section you're looking at (the relevant folder under
    `src/content/` and its README will tell you the schema; just look at what's already there for
    coverage).
 2. **Copy content in, don't link out.** If the source page has real body content (a write-up, a
    presentation list, a decision-model description), inline it as Markdown in the new file, in your
-   own words. If it references a downloadable file only hosted on the old site, download it and
-   commit it under `public/`, then link to the local copy.
+   own words. If a missing downloadable file can still be recovered from an independent source,
+   commit it under `public/` and link to the local copy.
 3. **Check every outbound link before including it** and set `linkStatus` accordingly.
 4. Open a PR with a batch of files — a handful at a time is easier to review than hundreds at once.
 
