@@ -6,6 +6,14 @@ import { url } from '../../lib/url';
 const posts = (await getCollection('articles')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+
+const authorCounts = new Map<string, number>();
+for (const post of posts) {
+  if (post.data.author) {
+    authorCounts.set(post.data.author, (authorCounts.get(post.data.author) ?? 0) + 1);
+  }
+}
+const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
 ---
 <BaseLayout title="Articles" description="Decision Management articles on the science, philosophy, and practice of better decisions.">
   <h1>Articles</h1>
@@ -14,9 +22,30 @@ const posts = (await getCollection('articles')).sort(
     practitioners in the community.
   </p>
 
-  <div class="card-grid">
+  <div class="archive-tools">
+    <label>
+      <span>Search articles</span>
+      <input id="article-search" type="search" placeholder="Search titles, authors, and summaries" autocomplete="off" />
+    </label>
+    <label>
+      <span>Author</span>
+      <select id="article-author">
+        <option value="">All authors</option>
+        {authors.map((author) => <option value={author}>{author} ({authorCounts.get(author)})</option>)}
+      </select>
+    </label>
+    <p id="article-count" class="muted" aria-live="polite">
+      {posts.length} {posts.length === 1 ? 'article' : 'articles'}
+    </p>
+  </div>
+
+  <div id="article-archive" class="card-grid">
     {posts.map((p) => (
-      <div class="card">
+      <article
+        class="card article-card"
+        data-search={`${p.data.title} ${p.data.author ?? ''} ${p.data.summary ?? ''}`.toLocaleLowerCase()}
+        data-author={p.data.author ?? ''}
+      >
         <h3><a href={url(`/resources/articles/${p.id}/`)}>{p.data.title}</a></h3>
         <p class="muted small">
           {p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
@@ -30,11 +59,90 @@ const posts = (await getCollection('articles')).sort(
           )}
         </p>
         {p.data.summary && <p>{p.data.summary}</p>}
-      </div>
+      </article>
     ))}
   </div>
+
+  <button id="article-more" class="show-more" type="button" hidden>Show more articles</button>
 </BaseLayout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = [...document.querySelectorAll('.article-card')];
+    const search = document.querySelector('#article-search');
+    const author = document.querySelector('#article-author');
+    const count = document.querySelector('#article-count');
+    const more = document.querySelector('#article-more');
+    const pageSize = 60;
+    let limit = pageSize;
+
+    const apply = () => {
+      const query = search.value.trim().toLocaleLowerCase();
+      const selectedAuthor = author.value;
+      const matches = cards.filter((card) =>
+        (!query || card.dataset.search.includes(query)) &&
+        (!selectedAuthor || card.dataset.author === selectedAuthor),
+      );
+      const matchSet = new Set(matches);
+      let shown = 0;
+
+      for (const card of cards) {
+        const visible = matchSet.has(card) && shown < limit;
+        card.hidden = !visible;
+        if (visible) shown += 1;
+      }
+
+      count.textContent = `Showing ${shown} of ${matches.length} matching articles (${cards.length} total)`;
+      more.hidden = shown >= matches.length;
+    };
+
+    search.addEventListener('input', () => { limit = pageSize; apply(); });
+    author.addEventListener('change', () => { limit = pageSize; apply(); });
+    more.addEventListener('click', () => { limit += pageSize; apply(); });
+    apply();
+  });
+</script>
 
 <style>
   .small { font-size: 0.8rem; }
+  .archive-tools {
+    display: grid;
+    grid-template-columns: minmax(16rem, 2fr) minmax(12rem, 1fr);
+    gap: 0.9rem 1rem;
+    align-items: end;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg-alt);
+  }
+  .archive-tools label { display: grid; gap: 0.35rem; font-weight: 600; }
+  .archive-tools input,
+  .archive-tools select {
+    width: 100%;
+    min-height: 2.6rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .archive-tools p { grid-column: 1 / -1; margin: 0; }
+  .show-more {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.7rem 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  [hidden] { display: none !important; }
+  @media (max-width: 640px) {
+    .archive-tools { grid-template-columns: 1fr; }
+  }
 </style>
