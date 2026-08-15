@@ -1,7 +1,7 @@
 ---
 name: OpenRules, Inc.
 url: https://openrules.com
-logo: /sponsors/openrules.jpg
+logo: /sponsors/openrules.png
 order: 1
 ---
-Develops business rules and decision management systems, offering an open-source product with consulting and training services utilizing Excel, Google Docs, Eclipse IDE, and cloud frameworks.
+The OpenRules® is a popular Decision Intelligence Platform that integrates business rules, machine learning, optimization, and the latest AI agents. Major corporations and government agencies worldwide have used OpenRules® in their production environments for more than twenty years.
