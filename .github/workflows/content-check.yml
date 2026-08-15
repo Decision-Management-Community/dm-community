@@ -18,3 +18,5 @@ jobs:
         run: npm run build
       - name: Check internal links
         run: node scripts/check-links.mjs
+      - name: Check site metadata
+        run: node scripts/check-site-metadata.mjs
