@@ -2,9 +2,8 @@
 title: "What Is a Policy? Just Ask Anyone Buying a Car."
 date: 2026-07-01
 author: "John Brandon Elam"
-linkedin: "https://www.linkedin.com/in/johnbelam/"
-originalUrl: "https://www.johnbelam.com/2026/07/01/what-is-a-policy/"
-summary: "A policy is the rule you built beforehand that tells you what to do when the pressure shows up. The car lot is a better definition than a sentence."
+tags: ["Commentary"]
+sourceUrl: "https://www.johnbelam.com/2026/07/01/what-is-a-policy/"
 ---
 
 People ask me to define a policy in one sentence. I never give them one. I give them a car lot instead.
@@ -38,3 +37,5 @@ Organizations do not need more decisions made in the moment by tired, pressured 
 Build the policy once, under good conditions. Let it run under bad ones.
 
 That's it. That's a policy.
+
+Connect with me on [LinkedIn](https://www.linkedin.com/in/johnbelam/).

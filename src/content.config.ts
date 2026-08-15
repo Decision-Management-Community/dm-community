@@ -183,18 +183,6 @@ const news = defineCollection({
   }),
 });
 
-const blog = defineCollection({
-  loader: glob({ pattern: '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]-*.md', base: './src/content/blog' }),
-  schema: z.object({
-    title: z.string(),
-    date: z.coerce.date(),
-    author: z.string().optional(),
-    linkedin: z.string().url().optional(),
-    originalUrl: z.string().url().optional(),
-    summary: z.string().optional(),
-  }),
-});
-
 export const collections = {
   pages,
   advisoryBoard,
@@ -209,5 +197,4 @@ export const collections = {
   minicamps,
   vendorNews,
   news,
-  blog,
 };
