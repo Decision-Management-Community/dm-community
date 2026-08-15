@@ -36,7 +36,7 @@ const sourceHref = migratedSource && !isLegacyDmCommunityUrl(migratedSource)
 
   {sourceHref && (
     <p class="muted">
-      Source: <a href={sourceHref} target={sourceHref.startsWith('http') ? '_blank' : undefined} rel={sourceHref.startsWith('http') ? 'noopener' : undefined}>{entry.data.sourceUrl}</a>
+      Source: <a href={sourceHref} target={sourceHref.startsWith('http') ? '_blank' : undefined} rel={sourceHref.startsWith('http') ? 'noopener' : undefined}>View source</a>
     </p>
   )}
 </BaseLayout>
