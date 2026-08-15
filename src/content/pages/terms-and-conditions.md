@@ -32,7 +32,7 @@ We make no representation that the products, services and other materials availa
 
 ## Acceptable Use Policy
 
-This Acceptable Use Policy is intended to promote the integrity, reliability and security of the web site dmcommunity.org. This policy, and the Terms and Conditions for use of our web site, together govern your access to and use of our services. If you do not accept this policy, you may not access or use any of our services. We retain the right to modify this policy at any time by posting the modified policy on our web site.
+This Acceptable Use Policy is intended to promote the integrity, reliability and security of the Decision Management Community website. This policy, and the Terms and Conditions for use of our web site, together govern your access to and use of our services. If you do not accept this policy, you may not access or use any of our services. We retain the right to modify this policy at any time by posting the modified policy on our web site.
 
 ## Disclosure of Information
 

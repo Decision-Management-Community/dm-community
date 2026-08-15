@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getEntry, getCollection, render } from 'astro:content';
+import { url } from '../lib/url';
+import { migrateLegacyUrl } from '../lib/legacyUrl.mjs';
 
 const entry = await getEntry('pages', 'vendors-corner');
 const { Content } = await render(entry!);
@@ -17,6 +19,12 @@ for (const p of posts) {
   byYear.set(year, list);
 }
 const years = [...byYear.keys()].sort((a, b) => b - a);
+
+function vendorNewsHref(value?: string) {
+  if (!value) return undefined;
+  const migrated = migrateLegacyUrl(value);
+  return migrated.startsWith('/') ? url(migrated) : migrated;
+}
 ---
 <BaseLayout title="Vendor's Corner" description={entry?.data.description}>
   <h1>{entry?.data.title}</h1>
@@ -34,13 +42,17 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
         <section class="year-section" id={`y${year}`}>
           <h3 class="year-heading">{year}</h3>
           <div class="card-grid">
-            {byYear.get(year)!.map((p) => (
-              <div class="card">
-                <span class="badge">{p.data.vendor}</span>
-                <h3>{p.data.url ? <a href={p.data.url} target="_blank" rel="noopener">{p.data.title}</a> : p.data.title}</h3>
-                <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-              </div>
-            ))}
+            {byYear.get(year)!.map((p) => {
+              const href = vendorNewsHref(p.data.url);
+              const external = href?.startsWith('http://') || href?.startsWith('https://');
+              return (
+                <div class="card">
+                  <span class="badge">{p.data.vendor}</span>
+                  <h3>{href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{p.data.title}</a> : p.data.title}</h3>
+                  <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                </div>
+              );
+            })}
           </div>
         </section>
       ))}

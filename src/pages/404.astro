@@ -5,10 +5,14 @@ import { url } from '../lib/url';
 <BaseLayout title="Page Not Found">
   <h1>Page not found</h1>
   <p>
-    The page you're looking for doesn't exist here. If you followed a link from the old
-    dmcommunity.org site, that content may not have been migrated yet — see our
-    <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md">contribution guide</a>
-    if you'd like to help bring it over.
+    The page you're looking for doesn't exist at this address. If you followed an older bookmark,
+    the material may now live in one of the migrated archives below.
   </p>
+  <ul>
+    <li><a href={url('/news/')}>Search the complete News archive</a></li>
+    <li><a href={url('/challenges/')}>Browse Challenges</a></li>
+    <li><a href={url('/decisioncamp/')}>Browse DecisionCAMP history</a></li>
+    <li><a href={url('/resources/')}>Browse Resources</a></li>
+  </ul>
   <p><a href={url('/')}>Back to the homepage</a></p>
 </BaseLayout>

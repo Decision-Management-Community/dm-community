@@ -16,8 +16,8 @@ practitioners, retrospectives, industry-report commentary, and similar community
 | `date` | date (`YYYY-MM-DD`) | yes | |
 | `author` | string | no | Who wrote it, if known |
 | `tags` | array of strings | no | Free-form topic tags, e.g. `["AI", "Standards"]` |
-| `sourceUrl` | string (URL) | no | Link to what's being discussed, or the original post on the pre-rebuild site |
-| `legacyPath` | string | no | Original `/YYYY/MM/DD/slug/` WordPress path; used to generate a redirect |
+| `sourceUrl` | string (URL) | no | External source being discussed; do not use the retired community site as a source |
+| `legacyPath` | string | no | Original `/YYYY/MM/DD/slug/` WordPress path retained as migration metadata |
 
 ## Adding a post
 
@@ -38,18 +38,12 @@ worth the community's attention. Link out to the full source rather than reprodu
 
 See [CONTRIBUTING.md](../../../CONTRIBUTING.md) for how to open the pull request itself.
 
-## Re-importing the WordPress archive
+## WordPress migration tooling
 
-The one-time importer is kept at `scripts/import-wordpress-news.py`. It reads the public WordPress
-REST API, preserves existing destination IDs, generates all Markdown entries, downloads referenced
-uploads into `public/news-media/`, rewrites internal post links, and records any missing media.
-
-```bash
-python scripts/import-wordpress-news.py . --audit-media
-python scripts/import-wordpress-news.py . --download-media
-python scripts/pack-news-media.py
-npm run validate-news
-```
+The one-time importer is retained at `scripts/import-wordpress-news.py` for migration provenance.
+It generated the Markdown archive, downloaded referenced uploads into `public/news-media/`, rewrote
+internal post links, and recorded missing media. The deployed site does not call the old WordPress
+API and does not require the legacy site to remain online.
 
 The packed files under `archives/news-media/` are committed to Git. The site build automatically
 extracts them into `public/news-media/`, keeping the deployed archive self-contained without

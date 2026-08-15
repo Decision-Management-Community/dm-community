@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import { url } from '../../lib/url';
+import { migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 
 export async function getStaticPaths() {
   const editions = await getCollection('decisioncamp');
@@ -10,13 +11,16 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const migratedEventUrl = entry.data.url ? migrateLegacyUrl(entry.data.url) : undefined;
+const eventHref = migratedEventUrl?.startsWith('/') ? url(migratedEventUrl) : migratedEventUrl;
+const eventExternal = eventHref?.startsWith('http://') || eventHref?.startsWith('https://');
 ---
 <BaseLayout title={entry.data.title} description={`${entry.data.title} — Decision Management Community`}>
   <a href={url('/decisioncamp/')}>&larr; All DecisionCAMP editions</a>
   <h1>{entry.data.title}</h1>
   {entry.data.location && <p class="muted">{entry.data.location}</p>}
-  {entry.data.url && (
-    <p><a class="btn secondary" href={entry.data.url} target="_blank" rel="noopener">Visit event site &rarr;</a></p>
+  {eventHref && (
+    <p><a class="btn secondary" href={eventHref} target={eventExternal ? '_blank' : undefined} rel={eventExternal ? 'noopener' : undefined}>Event material &rarr;</a></p>
   )}
 
   <article class="prose">

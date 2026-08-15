@@ -1,24 +1,19 @@
 #!/usr/bin/env node
 // Crawls the built dist/ output for broken links: internal links that don't
-// resolve to a file in dist, and external links that fail to load. Run after
-// `npm run build`. Exits non-zero if anything is broken, so it can gate CI.
+// resolve to a file in dist, legacy-domain links that would break after the
+// WordPress site is retired, and optionally external links that fail to load.
+// Run after `npm run build`. Exits non-zero if anything is broken.
 //
 // Usage: node scripts/check-links.mjs [--external] [--concurrency=8]
 
 import { readdir, readFile, stat } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(root, '..', 'dist');
-
-// Mirrors the base-path logic in astro.config.mjs: served under /dm-community/
-// unless public/CNAME is present, in which case it's the domain root. Links in
-// the built HTML include this prefix, but dist/ on disk doesn't, so strip it
-// before resolving a link to a file path.
-const hasCustomDomain = existsSync(path.join(root, '..', 'public', 'CNAME'));
-const base = hasCustomDomain ? '/' : '/dm-community';
+const base = '/dm-community';
+const legacyHosts = new Set(['dmcommunity.org', 'www.dmcommunity.org']);
 
 function stripBase(href) {
   if (base !== '/' && href.startsWith(base)) {
@@ -26,6 +21,24 @@ function stripBase(href) {
     return stripped.startsWith('/') ? stripped : `/${stripped}`;
   }
   return href;
+}
+
+function isLegacyLink(href) {
+  try {
+    return legacyHosts.has(new URL(href).hostname.toLowerCase());
+  } catch {
+    return false;
+  }
+}
+
+function actionsEscape(value) {
+  return String(value).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+}
+
+function annotateError(title, message) {
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    console.log(`::error title=${actionsEscape(title)}::${actionsEscape(message)}`);
+  }
 }
 
 const args = process.argv.slice(2);
@@ -45,16 +58,13 @@ async function walk(dir) {
 }
 
 function extractLinks(html) {
-  // Canonical tags intentionally point at the eventual dmcommunity.org URLs,
-  // which won't resolve until DNS cutover — that's not a broken link, so
-  // strip those tags before looking for real content links. Preconnect
-  // hints are bare origins with no path, which always 404 on their own —
-  // not a real link target either.
+  // Canonical and preconnect tags are metadata rather than navigable content
+  // links, so exclude them from the crawler.
   const cleaned = html
     .replace(/<link[^>]*rel="canonical"[^>]*>/g, '')
     .replace(/<link[^>]*rel="preconnect"[^>]*>/g, '');
   const links = [];
-  const attrPattern = /(?:href|src)="([^"]+)"/g;
+  const attrPattern = /(?:href|src|poster)="([^"]+)"/g;
   let match;
   while ((match = attrPattern.exec(cleaned))) links.push(match[1]);
   return links;
@@ -119,6 +129,7 @@ async function main() {
 
   const files = await walk(distDir);
   const internalBroken = [];
+  const legacyLinks = [];
   const externalLinksByHref = new Map();
 
   for (const file of files) {
@@ -127,6 +138,10 @@ async function main() {
     for (const href of extractLinks(html)) {
       if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('#') || href.startsWith('//')) continue;
       if (href.startsWith('http://') || href.startsWith('https://')) {
+        if (isLegacyLink(href)) {
+          legacyLinks.push({ href, file: relFile });
+          continue;
+        }
         if (!externalLinksByHref.has(href)) externalLinksByHref.set(href, []);
         externalLinksByHref.get(href).push(relFile);
         continue;
@@ -139,9 +154,22 @@ async function main() {
 
   console.log(`Checked ${files.length} pages, ${externalLinksByHref.size} unique external links.`);
 
+  if (legacyLinks.length > 0) {
+    console.log(`\n${legacyLinks.length} rendered link(s) still depend on dmcommunity.org:`);
+    for (const { href, file } of legacyLinks) {
+      console.log(`  ${href}  (in ${file})`);
+      annotateError('Legacy DMCommunity.org dependency', `${href} (in ${file})`);
+    }
+  } else {
+    console.log('No rendered links depend on dmcommunity.org.');
+  }
+
   if (internalBroken.length > 0) {
     console.log(`\n${internalBroken.length} broken internal link(s):`);
-    for (const { href, file } of internalBroken) console.log(`  ${href}  (in ${file})`);
+    for (const { href, file } of internalBroken) {
+      console.log(`  ${href}  (in ${file})`);
+      annotateError('Broken internal link', `${href} (in ${file})`);
+    }
   } else {
     console.log('No broken internal links.');
   }
@@ -155,7 +183,10 @@ async function main() {
       console.log(`\n${externalBroken.length} unreachable external link(s):`);
       for (const href of externalBroken) {
         console.log(`  ${href}`);
-        for (const file of externalLinksByHref.get(href)) console.log(`    in ${file}`);
+        for (const file of externalLinksByHref.get(href)) {
+          console.log(`    in ${file}`);
+          annotateError('Unreachable external link', `${href} (in ${file})`);
+        }
       }
       console.log(
         '\nNote: some sites (LinkedIn especially) block automated HEAD/GET requests and will show up ' +
@@ -170,7 +201,7 @@ async function main() {
     console.log('Skipped external link checks (pass --external to include them).');
   }
 
-  if (internalBroken.length > 0 || externalBroken.length > 0) process.exit(1);
+  if (legacyLinks.length > 0 || internalBroken.length > 0 || externalBroken.length > 0) process.exit(1);
 }
 
 main();
