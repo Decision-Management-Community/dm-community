@@ -3,13 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { categoryColor } from '../../lib/categoryColors';
 
-const all = await getCollection('tools');
+const all = (await getCollection('tools')).sort((a, b) => a.data.name.localeCompare(b.data.name));
 const categories = [
-  'DMN Tools',
-  'Rules Engines',
   'Constraint Solvers',
-  'Optimization Solvers',
   'Decision Intelligence Platforms',
+  'DMN Tools',
+  'Optimization Solvers',
+  'Rules Engines',
 ] as const;
 ---
 <BaseLayout title="Tools" description="DMN tools, rules engines, constraint solvers, optimization solvers, and decision intelligence platforms.">
