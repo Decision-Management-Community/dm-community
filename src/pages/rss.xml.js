@@ -47,7 +47,7 @@ export async function GET(context) {
   return rss({
     title: 'Decision Management Community',
     description: "New Challenges, Q&A threads, News, Vendor's Corner announcements, and MiniCamp sessions from the Decision Management Community.",
-    site: context.site,
+    site: new URL(url('/'), context.site),
     items,
   });
 }
