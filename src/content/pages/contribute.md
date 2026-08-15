@@ -1,55 +1,49 @@
 ---
 title: Contribute
-description: How to contribute content or code to the Decision Management Community site.
+description: Share knowledge, add resources, fix something, or help improve the Decision Management Community.
 order: 2
 ---
 
-This site is open source and community-run. Anyone can propose an addition or a fix — you don't
-need to be a developer, and you don't need permission before you start. The whole point of
-rebuilding it this way is to make it as easy as possible for practitioners to pitch in, rather than
-routing everything through a single gatekeeper.
+## What belongs here
 
-## The short version
+Useful contributions can be large or tiny. A practical case study is valuable, but so is fixing one
+outdated link.
 
-1. **Fork this repository** (or create a branch, if you already have write access):
-   [github.com/Decision-Management-Community/dm-community](https://github.com/Decision-Management-Community/dm-community)
-2. **Open the folder for what you're adding**, under
-   [`src/content/`](https://github.com/Decision-Management-Community/dm-community/tree/main/src/content)
-   — a Challenge, a Q&A post, a tool listing, whatever it is. **Every one of those folders has its
-   own `README.md`** with the exact frontmatter fields and a copy-pasteable template for that
-   content type; GitHub renders it automatically when you open the folder, so you don't have to
-   guess the format from existing files.
-3. **Add or edit a Markdown file** based on that template. No build step required to propose one —
-   you can create the file directly in the GitHub web UI.
-4. **Open a pull request.** An automated check builds the site and validates your file against its
-   schema, so you'll know right away if something's missing before a human ever looks at it.
-5. **A maintainer reviews it.** Community-content pull requests are automatically routed to the
-   relevant code owners. A maintainer reads each contribution and either merges it, asks a quick
-   question, or explains why it doesn't fit. We'd rather merge something useful and iterate than
-   leave a good contribution stuck in review.
+- **Articles and case studies** that teach something useful from real practice
+- **Decision models, tools, and books** that belong in the community resource library
+- **Challenges and Q&A** that give practitioners something concrete to work through or discuss
+- **Events, DecisionCAMP material, and community news** worth preserving or sharing
+- **Vendor's Corner announcements** that are relevant to Decision Management practitioners
+- **Corrections and archive improvements** — dead links, outdated details, typos, or missing historical material
+- **Site and code improvements** to the Astro site itself
 
-See **[CONTRIBUTING.md](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md)**
-for the full process and a table linking to every content type's folder.
+Most content lives as a plain Markdown file under [`src/content/`](https://github.com/Decision-Management-Community/dm-community/tree/main/src/content). Each content folder has its own `README.md` with the exact fields, filename convention, and a copy-pasteable example.
 
-## What's worth contributing
+## A few useful rules
 
-- A **case study**, **tool**, or **decision model** we're missing from the Resources library
-- A solution to a past **Challenge**, or a new Challenge idea
-- A question or discussion topic for **Q&A**
-- An **event** the community should know about
-- A **Vendor's Corner** announcement, if you work at a vendor
-- Corrections — a dead link, an outdated detail, a typo. Small fixes are welcome and usually merge fast.
-- Site or code improvements — this is an ordinary Astro codebase; see the repository's `README.md`
-  to run it locally.
+Keep contributions practical and easy to maintain:
 
-If you're not sure whether something fits, open an issue or a draft pull request and ask — that's a
-completely normal way to start a contribution, not a prerequisite you need to clear first.
+- Write summaries in your own words rather than copying large blocks from another source.
+- Verify outbound links when you can; a missing link is better than a knowingly broken one.
+- If you own a useful PDF, image, spreadsheet, or other file, prefer hosting it in the repository rather than depending on a fragile hotlink.
+- Keep vendor participation relevant and transparent. Sponsorship does not determine editorial content or community guidance.
+- For new Advisory Board members or new sponsorships, start with the community rather than adding the entry directly; the full contribution guide explains those exceptions.
 
-## Why this matters
+The complete rules and folder-by-folder reference live in **[CONTRIBUTING.md](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md)**.
 
-Twelve-plus years of community knowledge lived on the old site, spread across a lot of infrastructure
-only one or two people could touch. Moving to a plain Git repository means anyone can read the entire
-history, propose a change with full transparency about what it does, and see it reviewed in the open.
-That's the goal here — not a smaller version of the old site, but a more collaborative one.
+## Why contribute?
 
-Questions? Email [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).
+Decision Management spans business rules, decision modeling, optimization, machine learning,
+simulation, AI, and the operating practices that connect those methods to real decisions. Useful
+knowledge is spread across disciplines, companies, vendors, research groups, and decades of community
+history. This site works best when that knowledge is not dependent on one person or one platform to
+stay available.
+
+The repository is intentionally open so additions, corrections, and changes can be proposed and
+reviewed in public. The goal is a living practitioner resource that becomes more useful as more people
+put something back into it.
+
+## Questions or not sure where to start?
+
+You do not need permission before proposing something. Open a draft pull request, start a GitHub
+issue, or email [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).
