@@ -1,18 +1,137 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getEntry, render } from 'astro:content';
+import { url } from '../../lib/url';
 
 const entry = await getEntry('pages', 'about');
 const { Content } = await render(entry!);
 ---
 <BaseLayout title="About" description={entry?.data.description}>
-  <article class="prose">
-    <h1>{entry?.data.title}</h1>
-    <Content />
-  </article>
+  <section class="about-hero">
+    <span class="eyebrow">About the community</span>
+    <h1>Better decisions, treated as a discipline.</h1>
+    <p>
+      The Decision Management Community brings together practitioners who design, build, operate,
+      and improve decision systems across rules, modeling, optimization, machine learning, and AI.
+    </p>
+    <div class="principles" aria-label="Community principles">
+      <span>Practitioner-led</span>
+      <span>Open contributions</span>
+      <span>Vendor-inclusive, independent</span>
+    </div>
+  </section>
+
+  <div class="about-layout">
+    <article class="about-content prose">
+      <Content />
+    </article>
+
+    <aside class="about-links" aria-label="Explore the community">
+      <span class="eyebrow">Explore</span>
+      <a href={url('/decisioncamp/')}><strong>DecisionCAMP</strong><span>Community conference and archive</span></a>
+      <a href={url('/challenges/')}><strong>Challenges</strong><span>Practice on real decision problems</span></a>
+      <a href={url('/resources/')}><strong>Resources</strong><span>Books, tools, models, and references</span></a>
+      <a href={url('/advisory-board/')}><strong>Advisory Board</strong><span>People helping guide the community</span></a>
+      <a href={url('/contribute/')}><strong>Contribute</strong><span>Add, improve, or correct community content</span></a>
+    </aside>
+  </div>
 </BaseLayout>
 
 <style>
-  .prose :global(p) { max-width: 72ch; }
-  .prose :global(ul) { max-width: 72ch; }
+  .about-hero {
+    padding: clamp(2rem, 5vw, 3.8rem);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at 90% 12%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 34%),
+      var(--color-card);
+    box-shadow: var(--shadow-card);
+  }
+  .eyebrow {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--color-accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .about-hero h1 {
+    max-width: 16ch;
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.02;
+  }
+  .about-hero > p {
+    max-width: 68ch;
+    margin: 1rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.08rem;
+    line-height: 1.7;
+  }
+  .principles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1.4rem;
+  }
+  .principles span {
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-bg-alt) 78%, transparent);
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+    font-weight: 600;
+  }
+
+  .about-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+    margin-top: 3rem;
+  }
+  .about-content { min-width: 0; }
+  .about-content :global(h2) {
+    margin-top: 2.6rem;
+    padding-top: 0.2rem;
+    font-size: 1.55rem;
+  }
+  .about-content :global(h2:first-child) { margin-top: 0; }
+  .about-content :global(p),
+  .about-content :global(ul) { max-width: 74ch; }
+  .about-content :global(p) { line-height: 1.72; }
+  .about-content :global(li) { margin-bottom: 0.45rem; }
+
+  .about-links {
+    position: sticky;
+    top: 96px;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .about-links > a {
+    display: block;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .about-links > a:first-of-type { border-top: 0; }
+  .about-links > a:hover strong { color: var(--color-primary); }
+  .about-links strong,
+  .about-links span { display: block; }
+  .about-links strong { font-size: 0.9rem; }
+  .about-links a span {
+    margin-top: 0.15rem;
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 820px) {
+    .about-layout { grid-template-columns: 1fr; }
+    .about-links { position: static; }
+  }
 </style>
