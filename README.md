@@ -39,6 +39,7 @@ src/
     advisory-board/         # one file per board member — see its README.md
     sponsors/               # one file per sponsor — see its README.md
     case-studies/           # one file per case study — see its README.md
+    articles/               # one file per article — see its README.md
     tools/                  # one file per tool/vendor listing — see its README.md
     decision-models/        # one file per decision model — see its README.md
     challenges/             # one file per monthly Challenge — see its README.md
