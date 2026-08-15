@@ -1,9 +1,31 @@
 ---
+import { getCollection } from 'astro:content';
 import { url } from '../lib/url';
 
 const year = new Date().getFullYear();
+const sponsors = (await getCollection('sponsors'))
+  .filter((s) => s.data.active)
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
 ---
 <footer class="site-footer">
+  {sponsors.length > 0 && (
+    <div class="wrap sponsor-band" aria-label="Community sponsors">
+      <span class="sponsor-label muted">Supported by</span>
+      <div class="sponsor-list">
+        {sponsors.map((s) => (
+          <a class:list={['sponsor-chip', { 'text-only': !s.data.logo }]} href={s.data.url} target="_blank" rel="noopener" aria-label={`Visit ${s.data.name}`}>
+            {s.data.logo ? (
+              <img src={url(s.data.logo)} alt={`${s.data.name} logo`} loading="lazy" />
+            ) : (
+              <span>{s.data.name}</span>
+            )}
+          </a>
+        ))}
+      </div>
+      <a class="all-sponsors" href={url('/sponsors/')}>All sponsors &rarr;</a>
+    </div>
+  )}
+
   <div class="wrap footer-grid">
     <div>
       <strong>Decision Management Community</strong>
@@ -38,13 +60,65 @@ const year = new Date().getFullYear();
   .site-footer {
     border-top: 1px solid var(--color-border);
     margin-top: 4rem;
-    padding-top: 2.5rem;
+    padding-top: 1.4rem;
     background: var(--color-bg-alt);
+  }
+  .sponsor-band {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .sponsor-label {
+    flex: 0 0 auto;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .sponsor-list {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+  }
+  .sponsor-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0.28rem 0.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background: #fff;
+    text-decoration: none;
+  }
+  .sponsor-chip:hover { border-color: var(--color-primary); text-decoration: none; }
+  .sponsor-chip img {
+    display: block;
+    max-width: 105px;
+    max-height: 24px;
+    width: auto;
+    height: auto;
+  }
+  .sponsor-chip.text-only {
+    background: var(--color-card);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  .all-sponsors {
+    flex: 0 0 auto;
+    font-size: 0.8rem;
+    white-space: nowrap;
   }
   .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 2rem;
+    padding-top: 2rem;
     padding-bottom: 2rem;
   }
   .footer-grid h4 {
@@ -68,6 +142,7 @@ const year = new Date().getFullYear();
     font-size: 0.85rem;
   }
   @media (max-width: 700px) {
+    .sponsor-band { align-items: flex-start; flex-direction: column; }
     .footer-grid { grid-template-columns: 1fr; }
   }
 </style>

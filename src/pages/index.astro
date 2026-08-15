@@ -23,7 +23,11 @@ const vendorNews = (await getCollection('vendorNews')).sort(
 const events = (await getCollection('events')).sort(
   (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
 );
-const upcomingEvents = events.filter((e) => e.data.startDate.valueOf() >= Date.now()).slice(0, 3);
+const now = new Date();
+const todayUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+const upcomingEvents = events
+  .filter((e) => (e.data.endDate ?? e.data.startDate).valueOf() >= todayUtc)
+  .slice(0, 3);
 
 const stats = [
   { label: 'Advisory Board Experts', count: (await getCollection('advisoryBoard')).length, href: url('/advisory-board/') },
@@ -115,8 +119,8 @@ const stats = [
       <ul class="link-list">
         {upcomingEvents.length > 0 ? upcomingEvents.map((e) => (
           <li>
-            <a href={e.data.url} target="_blank" rel="noopener">{e.data.title}</a>
-            <div class="muted small">{e.data.startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}{e.data.location ? ` · ${e.data.location}` : ''}</div>
+            {e.data.url ? <a href={e.data.url} target="_blank" rel="noopener">{e.data.title}</a> : <span>{e.data.title}</span>}
+            <div class="muted small">{e.data.startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}{e.data.location ? ` · ${e.data.location}` : ''}</div>
           </li>
         )) : <li class="muted">No upcoming events listed.</li>}
       </ul>
