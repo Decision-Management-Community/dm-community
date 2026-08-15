@@ -38,4 +38,4 @@ An **Advisory Board** helps bring perspective from across the Decision Managemen
 
 You do not need a formal role to contribute. Share a useful model, submit a challenge, add a tool or event, propose a book, contribute an article, improve an existing page, or join the discussion.
 
-See the [contribution guide](../contribute/) to get started, learn more about the [Advisory Board](../advisory-board/), or email [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).
+Use the Explore links on this page to get started, or email [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com) with a contribution or question.
