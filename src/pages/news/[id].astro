@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import { url } from '../../lib/url';
+import { isLegacyDmCommunityUrl, migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 
 export async function getStaticPaths() {
   const posts = await getCollection('news');
@@ -10,6 +11,11 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+
+const migratedSource = entry.data.sourceUrl ? migrateLegacyUrl(entry.data.sourceUrl) : undefined;
+const sourceHref = migratedSource && !isLegacyDmCommunityUrl(migratedSource)
+  ? (migratedSource.startsWith('/') ? url(migratedSource) : migratedSource)
+  : undefined;
 ---
 <BaseLayout title={entry.data.title} description={`Decision Management Community News: ${entry.data.title}`}>
   <a href={url('/news/')}>&larr; All News</a>
@@ -28,9 +34,9 @@ const { Content } = await render(entry);
     <Content />
   </article>
 
-  {entry.data.sourceUrl && (
+  {sourceHref && (
     <p class="muted">
-      Source: <a href={entry.data.sourceUrl} target="_blank" rel="noopener">{entry.data.sourceUrl}</a>
+      Source: <a href={sourceHref} target={sourceHref.startsWith('http') ? '_blank' : undefined} rel={sourceHref.startsWith('http') ? 'noopener' : undefined}>{entry.data.sourceUrl}</a>
     </p>
   )}
 </BaseLayout>
