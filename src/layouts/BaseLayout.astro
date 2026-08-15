@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import SiteEffects from '../components/SiteEffects.astro';
 import { url } from '../lib/url';
 import '../styles/global.css';
 import '../styles/accessibility.css';
@@ -47,6 +48,7 @@ const socialTitle = `${title} · Decision Management Community`;
       <slot />
     </main>
     <Footer />
+    <SiteEffects />
   </body>
 </html>
 
