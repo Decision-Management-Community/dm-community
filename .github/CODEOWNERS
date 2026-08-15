@@ -4,7 +4,7 @@
 # Default: core site, configuration, workflows, and all other files are owned by Adam.
 * @addejans
 
-# Community-contributed content: Adam, Jacob, and John can review and own these areas.
+# Community-contributed content: Adam, Jacob, and John can review these areas.
 /src/content/articles/**        @addejans @jacob-feldman @JohnBElam
 /src/content/case-studies/**    @addejans @jacob-feldman @JohnBElam
 /src/content/challenges/**      @addejans @jacob-feldman @JohnBElam
