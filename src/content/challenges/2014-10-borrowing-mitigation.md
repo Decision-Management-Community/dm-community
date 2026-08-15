@@ -10,7 +10,6 @@ solutions:
   - title: OpenL Tablets
     author: Hanna Peravalava
     affiliation: EIS Group
-    url: https://dmcommunity.org/wp-content/uploads/2014/10/borrowings-decision-model-challenge-eis.pdf
   - title: Corticon Studio
     author: Maria Jesus Garcia
     affiliation: DECIDE
@@ -26,7 +25,6 @@ solutions:
   - title: IDIOM
     author: Mark Norton
     affiliation: Idiom Software
-    url: https://dmcommunity.org/wp-content/uploads/2014/10/borrowing-decision-challenge-2014-10-idiom.pdf
   - title: Sparkling Logic
     author: Carole-Ann Matignon
     affiliation: Sparkling Logic
