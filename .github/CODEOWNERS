@@ -5,12 +5,12 @@
 * @addejans
 
 # Community-contributed content: Adam, Jacob, and John can review these areas.
-/src/content/articles/**        @addejans @jacob-feldman @JohnBElam
-/src/content/case-studies/**    @addejans @jacob-feldman @JohnBElam
-/src/content/challenges/**      @addejans @jacob-feldman @JohnBElam
+/src/content/articles/** @addejans @jacob-feldman @JohnBElam
+/src/content/case-studies/** @addejans @jacob-feldman @JohnBElam
+/src/content/challenges/** @addejans @jacob-feldman @JohnBElam
 /src/content/decision-models/** @addejans @jacob-feldman @JohnBElam
-/src/content/events/**          @addejans @jacob-feldman @JohnBElam
-/src/content/news/**            @addejans @jacob-feldman @JohnBElam
-/src/content/qa/**              @addejans @jacob-feldman @JohnBElam
-/src/content/tools/**           @addejans @jacob-feldman @JohnBElam
-/src/content/vendor-news/**     @addejans @jacob-feldman @JohnBElam
+/src/content/events/** @addejans @jacob-feldman @JohnBElam
+/src/content/news/** @addejans @jacob-feldman @JohnBElam
+/src/content/qa/** @addejans @jacob-feldman @JohnBElam
+/src/content/tools/** @addejans @jacob-feldman @JohnBElam
+/src/content/vendor-news/** @addejans @jacob-feldman @JohnBElam
