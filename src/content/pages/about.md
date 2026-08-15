@@ -1,25 +1,41 @@
 ---
 title: About
-description: About the Decision Management Community.
+description: What the Decision Management Community is, what we cover, and how to participate.
 order: 1
 ---
 
-**Decision Management (DM)** has become a critical methodological and technological approach for supporting decision-making processes across industries. Thousands of business analysts, developers, technology vendors, consultants, and decision-makers at all levels of the enterprise are emerging as decision practitioners.
+The **Decision Management Community** is an open practitioner community for people who design, build, operate, study, and improve decision systems.
 
-They rely on Decision Intelligence technologies — such as Business Rules, Decision Modeling, Machine Learning, Decision Optimization, and Agentic AI — to power and enhance their day-to-day operations.
+Our focus is practical: how organizations turn data, knowledge, models, uncertainty, and business objectives into repeatable decisions that work in the real world.
 
-This website provides a continuously updated collection of resources for the Decision Management Community. Major topics include, but are not limited to:
+## What we mean by Decision Management
 
-- Decision Intelligence Platforms
-- Decision Modeling Techniques and Standards
-- Business Rules Management
-- Machine Learning and Rules Discovery
-- Decision Optimization
+Decision Management is the discipline of treating decisions as things that can be explicitly designed, modeled, tested, measured, governed, and improved.
 
-We welcome your contributions — whether challenges, decision models, tools, events, or other relevant resources. Practitioners of all kinds, from vendors to end users, are encouraged to share news, links, comments, and articles with this community.
+That can involve business rules and decision tables, Decision Model and Notation (DMN), machine learning, optimization, simulation, probabilistic methods, agentic AI, or combinations of these approaches. The technology matters, but the decision comes first: **what action is being chosen, under what information and uncertainty, and toward what objective?**
 
-The easiest way to contribute today is directly on GitHub: see our [contribution guide](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) for how to submit a case study, tool listing, challenge, or Q&A as a Markdown file and open a pull request.
+## What this community is for
 
-You can also send suggestions to [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).
+This is a place to exchange useful material across disciplines that too often live in separate silos. Business analysts, operations researchers, data scientists, software engineers, architects, product leaders, consultants, academics, technology vendors, and end users all have something to contribute to the same underlying problem: making better decisions at scale.
 
-Visit, comment, participate!
+The community maintains practical resources including:
+
+- **DecisionCAMP** and other community events
+- **Challenges** for hands-on decision modeling and problem solving
+- **Decision models, tools, books, case studies, and learning resources**
+- **Articles, Q&A, and news** from practitioners and researchers
+- **Vendor's Corner** for relevant product and ecosystem announcements
+
+## How we operate
+
+The community is practitioner-led, vendor-inclusive, and independently maintained. Vendors are welcome to participate, sponsor the community, and share relevant announcements, but sponsorship does not determine editorial content or community guidance.
+
+The site is open to contributions. Most content is maintained in a public GitHub repository, making it possible for community members to propose additions, corrections, new resources, and improvements directly.
+
+An **Advisory Board** helps bring perspective from across the Decision Management ecosystem, while the broader community remains deliberately open to people working with different methods, technologies, industries, and points of view.
+
+## Participate
+
+You do not need a formal role to contribute. Share a useful model, submit a challenge, add a tool or event, propose a book, contribute an article, improve an existing page, or join the discussion.
+
+See the [contribution guide](../contribute/) to get started, learn more about the [Advisory Board](../advisory-board/), or email [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com).
