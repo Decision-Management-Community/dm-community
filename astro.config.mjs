@@ -29,6 +29,27 @@ function rehypeBaseLinks() {
         node.properties[attr] = `${basePrefix}${value}`;
       }
     });
+
+    // WordPress content is preserved as raw HTML. Raw nodes bypass the
+    // element visitor above, so their root-relative media URLs would resolve
+    // against the GitHub Pages domain root instead of /dm-community/. Rewrite
+    // URL-bearing attributes in those nodes too; this becomes a no-op when the
+    // custom domain switches the site base back to `/`.
+    visit(tree, 'raw', (node) => {
+      node.value = node.value.replace(
+        /(\b(?:href|src|poster|srcset|data-[\w:-]+)\s*=\s*)(["'])([\s\S]*?)\2/gi,
+        (match, prefix, quote, value) => {
+          if (/srcset\s*=/i.test(prefix)) {
+            const prefixed = value.replace(/(^|,\s*)(\/(?!\/))/g, `$1${basePrefix}$2`);
+            return `${prefix}${quote}${prefixed}${quote}`;
+          }
+          if (value.startsWith('/') && !value.startsWith('//')) {
+            return `${prefix}${quote}${basePrefix}${value}${quote}`;
+          }
+          return match;
+        },
+      );
+    });
   };
 }
 
