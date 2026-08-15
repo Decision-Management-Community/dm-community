@@ -3,23 +3,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const all = (await getCollection('events')).sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf());
-const now = Date.now();
-const upcoming = all.filter((e) => e.data.startDate.valueOf() >= now);
-const past = all.filter((e) => e.data.startDate.valueOf() < now).reverse();
+const now = new Date();
+const todayUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+const upcoming = all.filter((e) => (e.data.endDate ?? e.data.startDate).valueOf() >= todayUtc);
+const past = all.filter((e) => (e.data.endDate ?? e.data.startDate).valueOf() < todayUtc).reverse();
 
 function fmt(d: Date) {
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 }
 ---
 <BaseLayout title="Events" description="Upcoming and past events for the Decision Management Community.">
   <h1>Events</h1>
 
-  <h2>Upcoming</h2>
+  <h2>Upcoming &amp; Ongoing</h2>
   {upcoming.length > 0 ? (
     <div class="card-grid">
       {upcoming.map((e) => (
         <div class="card">
-          <h3><a href={e.data.url} target="_blank" rel="noopener">{e.data.title}</a></h3>
+          <h3>{e.data.url ? <a href={e.data.url} target="_blank" rel="noopener">{e.data.title}</a> : e.data.title}</h3>
           <p class="muted">{fmt(e.data.startDate)}{e.data.endDate ? ` – ${fmt(e.data.endDate)}` : ''}</p>
           {e.data.location && <p class="muted">{e.data.location}</p>}
         </div>
@@ -35,8 +36,8 @@ function fmt(d: Date) {
         <tbody>
           {past.map((e) => (
             <tr>
-              <td><a href={e.data.url} target="_blank" rel="noopener">{e.data.title}</a></td>
-              <td>{fmt(e.data.startDate)}</td>
+              <td>{e.data.url ? <a href={e.data.url} target="_blank" rel="noopener">{e.data.title}</a> : e.data.title}</td>
+              <td>{fmt(e.data.startDate)}{e.data.endDate ? ` – ${fmt(e.data.endDate)}` : ''}</td>
               <td>{e.data.location}</td>
             </tr>
           ))}
