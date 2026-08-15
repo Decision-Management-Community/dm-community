@@ -9,11 +9,10 @@ anything that isn't a Challenge, a Q&A thread, a Vendor's Corner announcement, o
 something worth sharing? Add it directly via a
 [pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md).
 
-## A note on the archive
+## About the archive
 
-The pre-rebuild site (2014–2026) ran as a single WordPress blog of over 1,300 posts, topically tagged
-rather than structurally organized — its own nav even called the homepage "News." Most of that volume
-was general commentary that didn't fit neatly into any of this site's other content types. Rather than
-port the entire archive, the posts below are a curated selection spanning that whole history — notable
-essays, interviews, and milestones. The full historical archive remains browsable at
-[dmcommunity.org](https://dmcommunity.org/).
+The community's WordPress site ran from 2014 through 2026 as a single blog with more than 1,300
+posts, topically tagged rather than structurally organized. That archive is now hosted here: all
+1,327 posts have been migrated with their original dates, authors, categories/tags, and body
+content. Use the search and filters above to browse the complete history without relying on the
+retired WordPress site.
