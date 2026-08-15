@@ -23,9 +23,10 @@ routing everything through a single gatekeeper.
    you can create the file directly in the GitHub web UI.
 4. **Open a pull request.** An automated check builds the site and validates your file against its
    schema, so you'll know right away if something's missing before a human ever looks at it.
-5. **A maintainer reviews it.** Right now that's Adam DeJans Jr. or Jacob Feldman — one of us reads
-   every pull request and either merges it, asks a quick question, or explains why it doesn't fit.
-   We'd rather merge something imperfect and iterate than leave a good contribution stuck in review.
+5. **A maintainer reviews it.** Community-content pull requests are automatically routed to the
+   relevant code owners. A maintainer reads each contribution and either merges it, asks a quick
+   question, or explains why it doesn't fit. We'd rather merge something useful and iterate than
+   leave a good contribution stuck in review.
 
 See **[CONTRIBUTING.md](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md)**
 for the full process and a table linking to every content type's folder.
