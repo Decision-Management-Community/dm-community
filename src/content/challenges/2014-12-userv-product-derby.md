@@ -18,7 +18,6 @@ solutions:
   - title: Sapiens Decision
     author: Gil Segal
     affiliation: Sapiens
-    url: https://dmcommunity.org/wp-content/uploads/2015/05/sapiens-decision-document-userv-product-derby-case-study.pdf
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
@@ -26,17 +25,14 @@ solutions:
   - title: OpenL Tablets
     author: Yuliya Bastun
     affiliation: EIS Group
-    url: https://dmcommunity.org/wp-content/uploads/2015/02/openltablets-userv.pdf
   - title: RuleML
     author: Matthias Tylkowski
     url: http://de.slideshare.net/binarypark/ruleml2014f
   - title: DecisionsFirst with OpenRules
     author: James Taylor
     affiliation: Decision Management Solutions
-    url: https://dmcommunity.org/wp-content/uploads/2015/11/uservdecisionsfirstopenrules.pdf
   - title: 3D Relational Rule Base
     author: Leonid Nisenboym
-    url: https://dmcommunity.org/wp-content/uploads/2021/01/challenge.autoinsurance.nisenboym.pdf
 ---
 
 Over a decade earlier, BR&DM vendors demonstrated their products at Business Rules Forum events using a shared vehicle-insurance case study known as the "UServ Product Derby" — covering policy eligibility, pricing, and cancellation rules for a hypothetical insurer. This challenge revives that use case: given the same detailed business rules, fact model, and test cases, how do today's decision management tools (and the DMN standard, which didn't exist back then) hold up?
