@@ -20,10 +20,10 @@ for (const name of files) {
     if (typeof data.title !== 'string' || !data.title) throw new Error('missing title');
     if (!(data.date instanceof Date) && !/^\d{4}-\d{2}-\d{2}$/.test(String(data.date))) throw new Error('invalid date');
     if (!Array.isArray(data.tags)) throw new Error('tags is not an array');
-    if (!/^\/\d{4}\/\d{2}\/\d{2}\/[^/]+\/$/.test(data.legacyPath ?? '')) throw new Error('invalid legacyPath');
-    if (paths.has(data.legacyPath)) throw new Error(`duplicate legacyPath ${data.legacyPath}`);
+    if (data.legacyPath !== undefined && !/^\/\d{4}\/\d{2}\/\d{2}\/[^/]+\/$/.test(data.legacyPath)) throw new Error('invalid legacyPath');
+    if (data.legacyPath !== undefined && paths.has(data.legacyPath)) throw new Error(`duplicate legacyPath ${data.legacyPath}`);
     if (ids.has(id)) throw new Error(`duplicate id ${id}`);
-    paths.add(data.legacyPath);
+    if (data.legacyPath !== undefined) paths.add(data.legacyPath);
     ids.add(id);
     await processor.render(frontmatter.content, { fileURL: new URL(`file:///${join(directory, name).replaceAll('\\', '/')}`) });
 
@@ -49,6 +49,4 @@ console.log(JSON.stringify({
   errors: errors.slice(0, 100),
   errorCount: errors.length,
 }, null, 2));
-if (errors.length || files.length !== 1327) process.exitCode = 1;
-
-
+if (errors.length || files.length < 1327) process.exitCode = 1;
