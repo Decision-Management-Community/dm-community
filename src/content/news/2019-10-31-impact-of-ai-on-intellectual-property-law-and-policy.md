@@ -1,0 +1,9 @@
+---
+title: "Impact of AI on Intellectual Property Law and Policy"
+date: 2019-10-31
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence"]
+legacyPath: "/2019/10/31/impact-of-ai-on-intellectual-property-law-and-policy/"
+---
+
+<p><a href="/news-media/2019/10/ai-patents.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7322" data-permalink="https://dmcommunity.org/2019/10/31/impact-of-ai-on-intellectual-property-law-and-policy/ai-patents/" data-orig-file="/news-media/2019/10/ai-patents.png" data-orig-size="249,147" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="AI-Patents" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/10/ai-patents.png" class="alignleft size-thumbnail wp-image-7322" src="/news-media/2019/10/ai-patents.png" alt="" width="150" height="89" /></a>The United States Patent and Trademark Office (“USPTO”) is gathering information about the impact of artificial intelligence (“AI”) technologies on the copyright, trademark, and other intellectual property rights. It asks 13 questions like this one: &#8220;<em>Should a work produced by an AI algorithm or process, without the involvement of a natural person contributing expression to the resulting work, qualify as a work of authorship protectable under U.S. copyright law?</em>&#8221; <a href="https://www.federalregister.gov/documents/2019/10/30/2019-23638/request-for-comments-on-intellectual-property-protection-for-artificial-intelligence-innovation" target="_blank" rel="noopener">Link</a></p>

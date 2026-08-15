@@ -1,0 +1,9 @@
+---
+title: "bpmNEXT Conference: Santa Barbara, Apr 17-19"
+date: 2018-03-07
+author: "decisionmanagementcommunity"
+tags: ["Blockchain", "BPM", "DMN", "Events", "Standards"]
+legacyPath: "/2018/03/07/bpmnext-conference-santa-barbara-apr-17-19/"
+---
+
+<p><a href="http://bpmnext.com" target="_blank" rel="noopener"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2694" data-permalink="https://dmcommunity.org/2017/01/14/bpmnext-2017-on-apr-18-20-in-santa-barbara/bpmnext/" data-orig-file="/news-media/2017/01/bpmnext.jpg" data-orig-size="216,83" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="bpmnext" data-image-description="" data-image-caption="" data-large-file="/news-media/2017/01/bpmnext.jpg" class="alignleft size-thumbnail wp-image-2694" src="/news-media/2017/01/bpmnext.jpg" alt="" width="150" height="58" /></a><a href="http://bpmnext.com/" target="_blank" rel="noopener">bpmNEXT</a>-2018 is not a typical conference pitching case studies to newbies. bpmNEXT is for those already neck-deep in this technology revolution and keen to know what’s coming next. Not just hear about it, but see it, touch it, and influence it. This year &#8220;<em>we’re talking about blockchain and smart contracts, standards-based decision services, Internet of Things, and Robotic Process Automation. It’s about enabling business users with low-code/no-code integration and orchestration tools. And a whole lot more.&#8221;</em></p>

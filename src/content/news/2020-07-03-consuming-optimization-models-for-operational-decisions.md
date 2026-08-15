@@ -1,0 +1,9 @@
+---
+title: "Consuming Optimization models for Operational Decisions"
+date: 2020-07-03
+author: "decisionmanagementcommunity"
+tags: ["Constraint Programming", "Decision Modeling", "Decision Optimization", "Optimization", "Scheduling and Resource Allocation"]
+legacyPath: "/2020/07/03/consuming-optimization-models-for-operational-decisions/"
+---
+
+<p><a href="/news-media/2020/07/optfordecisions.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8294" data-permalink="https://dmcommunity.org/2020/07/03/consuming-optimization-models-for-operational-decisions/optfordecisions/" data-orig-file="/news-media/2020/07/optfordecisions.png" data-orig-size="934,722" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="OptForDecisions" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/07/optfordecisions.png" class="alignleft size-thumbnail wp-image-8294" src="/news-media/2020/07/optfordecisions.png" alt="" width="150" height="116" /></a>During <a href="https://www.youtube.com/watch?v=HnoJQLvURvg" target="_blank" rel="noopener">DecisionCAMP-2020</a>, we had several presentations devoted to incorporation of Optimization Engines in Business Decision Models: 1) <a href="https://t.co/rdHQ0f5lph?amp=1" target="_blank" rel="noopener">Developing Decision Optimization Microservices for Real-World Decision-Making Applications</a> by Jacob Feldman; 2)  cDMN: <a href="https://t.co/TXe0KSxny6?amp=1" target="_blank" rel="noopener">Combining DMN with Constraint Reasoning</a> by a KU Leuven&#8217;s team.</p>

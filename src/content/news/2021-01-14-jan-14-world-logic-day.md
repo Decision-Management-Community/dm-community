@@ -1,0 +1,9 @@
+---
+title: "Jan 14 – World Logic Day"
+date: 2021-01-14
+author: "decisionmanagementcommunity"
+tags: ["Events", "Logic and AI"]
+legacyPath: "/2021/01/14/jan-14-world-logic-day/"
+---
+
+<p class="wp-block-paragraph"><a href="/news-media/2021/01/worldlogicday.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8838" data-permalink="https://dmcommunity.org/2021/01/14/jan-14-world-logic-day/worldlogicday/" data-orig-file="/news-media/2021/01/worldlogicday.png" data-orig-size="238,237" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="WorldLogicDay" data-image-description="" data-image-caption="" data-large-file="/news-media/2021/01/worldlogicday.png" width="150" height="150" class="alignleft size-thumbnail wp-image-8838" src="/news-media/2021/01/worldlogicday.png" alt=""></a>On <strong>14 January</strong> 2021, we celebrate <a href="https://logicday.vcla.at/"><strong>World Logic Day</strong></a>. <a href="https://en.unesco.org/commemorations/worldlogicday">UNESCO proclaimed World Logic Day in 2019, </a>in association with the International Council for Philosophy and Human Sciences (CIPSH), to enhance public understanding of logic and its implications for science, technology and innovation. There is a virtual celebration in Vienna, the city of Kurt Gödel and Ludwig Wittgenstein &#8211; <a rel="noopener" href="https://logicday.vcla.at/about-world-logic-day/" target="_blank">Link</a></p>

@@ -1,0 +1,9 @@
+---
+title: "The semantic future of the web"
+date: 2020-12-17
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling"]
+legacyPath: "/2020/12/17/the-semantic-future-of-the-web/"
+---
+
+<p><a href="/news-media/2018/03/dmsw.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4008" data-permalink="https://dmcommunity.org/2018/03/16/decision-management-and-semantic-reasoning/dmsw/" data-orig-file="/news-media/2018/03/dmsw.jpg" data-orig-size="170,193" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DM+SW" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/03/dmsw.jpg" class="alignleft size-thumbnail wp-image-4008" src="/news-media/2018/03/dmsw.jpg" alt="" width="132" height="150" /></a>&#8220;Much of the data currently exchanging hands can be viewed as human-centric. We are not the only consumers of the web though, and someday that data may be made easier to read by those non-human consumers&#8230; we humans can determine the context and meaning from viewing the page, but machines have to perform additional processing to get that same context. Directly encoding structured data eliminates additional complexity for machines to process themselves. There are many different solutions to encode structured data including Open Graph, Microdata, RDFa, and JSON-LD.&#8221; <a href="https://stackoverflow.blog/2020/12/10/the-semantic-future-of-the-web/?utm_source=Iterable&amp;utm_medium=email&amp;utm_campaign=the_overflow_newsletter" target="_blank" rel="noopener">Link</a></p>

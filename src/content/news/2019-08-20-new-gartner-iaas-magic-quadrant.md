@@ -1,0 +1,9 @@
+---
+title: "New Gartner IaaS Magic Quadrant"
+date: 2019-08-20
+author: "decisionmanagementcommunity"
+tags: ["Microservices", "Products", "Serverless", "Trends"]
+legacyPath: "/2019/08/20/new-gartner-iaas-magic-quadrant/"
+---
+
+<p><a href="/news-media/2019/08/gartneriaas2019quadrant.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6934" data-permalink="https://dmcommunity.org/2019/08/20/new-gartner-iaas-magic-quadrant/gartneriaas2019quadrant/" data-orig-file="/news-media/2019/08/gartneriaas2019quadrant.png" data-orig-size="937,1013" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="GartnerIaaS2019Quadrant" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/08/gartneriaas2019quadrant.png" class="alignleft wp-image-6934 size-thumbnail" src="/news-media/2019/08/gartneriaas2019quadrant.png" alt="" width="139" height="150" /></a>On July 19 Gartner published its latest &#8220;<a href="https://www.gartner.com/doc/reprints?id=1-1CMAPXNO&amp;ct=190709&amp;st=sb" target="_blank" rel="noopener">Magic Quadrant for Cloud Infrastructure as a Service, Worldwide</a>&#8220;. AWS is being recognized as the Leader for 9th consecutive year following Microsoft, Google, Alibaba, Oracle, and IBM. The report describes their offerings with strengths and cautions. All these cloud infrastructures are potential destinations for modern Operational Decision Services. <a href="https://www.gartner.com/doc/reprints?id=1-1CMAPXNO&amp;ct=190709&amp;st=sb" target="_blank" rel="noopener">Link</a></p>

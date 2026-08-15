@@ -1,0 +1,9 @@
+---
+title: "Will This AI Boom Also Bust?"
+date: 2016-12-12
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Trends"]
+legacyPath: "/2016/12/12/will-this-ai-boom-also-bust/"
+---
+
+<p><a href="/news-media/2016/12/aiwinter.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2649" data-permalink="https://dmcommunity.org/2016/12/12/will-this-ai-boom-also-bust/aiwinter/" data-orig-file="/news-media/2016/12/aiwinter.jpg" data-orig-size="205,172" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="aiwinter" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/12/aiwinter.jpg" class="alignleft size-thumbnail wp-image-2649" src="/news-media/2016/12/aiwinter.jpg" alt="aiwinter" width="150" height="126" /></a>On Nov 28 Robin Hanson tweeted: &#8220;<em>Good CS expert says: Most firms that think they want advanced AI/ML really just need linear regression on cleaned-up data&#8221; </em>and this tweet went viral. Then Robin published more detail article &#8220;<a href="http://www.overcomingbias.com/2016/12/this-ai-boom-will-also-bust.html" target="_blank">This AI Boom Will Also Bust</a>&#8220;. The majority of comments agree with Robin even saying that &#8220;another AI winter will come.&#8221; See a related article &#8220;<a href="https://www.wired.com/2016/12/artificial-intelligence-artificial-intelligent/" target="_blank">Artificial Intelligence Is More Artificial Than Intelligent</a>&#8220;. What is your opinion?</p>

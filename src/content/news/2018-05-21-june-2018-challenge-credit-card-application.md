@@ -1,0 +1,9 @@
+---
+title: "June-2018 Challenge “Credit Card Application”"
+date: 2018-05-21
+author: "decisionmanagementcommunity"
+tags: ["Challenges", "DMN", "Products"]
+legacyPath: "/2018/05/21/june-2018-challenge-credit-card-application/"
+---
+
+<p><a href="http://dmcommunity.org/challenge/challenge-june-2018/"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4376" data-permalink="https://dmcommunity.org/challenge/challenge-june-2018/credit_card_image/" data-orig-file="/news-media/2018/05/credit_card_image.jpg" data-orig-size="276,183" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="credit_card_image" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/05/credit_card_image.jpg" class="alignleft size-thumbnail wp-image-4376" src="/news-media/2018/05/credit_card_image.jpg" alt="" width="150" height="99" /></a>More than 4 years ago on Jan 8, 2014 <a href="https://www.linkedin.com/in/nickpbroom/" target="_blank" rel="noopener">Nick Broom</a> published one of the first real-world decision model “Credit Card Application” with an objective to demonstrate the newly introduced DMN standard version 1.0. Now, when <a href="http://openjvm.jvmhost.net/DMNtools/" target="_blank" rel="noopener">many vendors</a> announced their support for DMN, we want to use this simple model as <a href="http://dmcommunity.org/challenge/challenge-june-2018/">June-2018 Challenge</a> to compare different implementations using the best DMN practices and the latest versions of your favorite BR&amp;DM tools.</p>

@@ -1,0 +1,10 @@
+---
+title: "Two months after GDPR"
+date: 2018-08-12
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2018/08/12/two-months-after-gdpr/"
+---
+
+<p><a href="/news-media/2018/06/gdprimage.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4475" data-permalink="https://dmcommunity.org/2018/06/04/most-gdpr-emails-unnecessary-and-some-illegal-say-experts/gdprimage/" data-orig-file="/news-media/2018/06/gdprimage.jpg" data-orig-size="1068,713" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="GDPRimage" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/06/gdprimage.jpg" class="alignleft size-thumbnail wp-image-4475" src="/news-media/2018/06/gdprimage.jpg" alt="" width="150" height="100" /></a><a href="http://www.niemanlab.org/2018/08/more-than-1000-u-s-news-sites-are-still-unavailable-in-europe-two-months-after-gdpr-took-effect/?utm_source=Benedict%27s+newsletter&amp;utm_campaign=ff65bd0f77-Benedict%27s+Newsletter_COPY_01&amp;utm_medium=email&amp;utm_term=0_4999ca107f-ff65bd0f77-70388429" target="_blank" rel="noopener">More than 1,000 US news sites are unavailable in Europe</a>, 2 months after the EU’s General Data Protection Regulation (GDPR) took effect on May 25. Websites had two years to get ready for the GDPR. But rather than comply, about a third of the 100 largest U.S. newspapers have instead chosen to block European visitors to their sites. <a href="https://ben-evans.us6.list-manage.com/track/click?u=b98e2de85f03865f1d38de74f&amp;id=be796733f3&amp;e=5ed5cf3782" target="_blank" rel="noopener">Benedict Evans</a>: &#8220;<em>GDPR is such an obvious regulatory own-goal, and such a gift to Google and Facebook</em>&#8221;</p>
+<div class="simple-post-deck"></div>

@@ -1,0 +1,9 @@
+---
+title: "Let the AI Benchmarking Wars Begin"
+date: 2018-05-04
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Machine Learning"]
+legacyPath: "/2018/05/04/let-the-ai-benchmarking-wars-begin/"
+---
+
+<p><a href="https://mlperf.org/" target="_blank" rel="noopener"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4250" data-permalink="https://dmcommunity.org/2018/05/04/let-the-ai-benchmarking-wars-begin/mlperf/" data-orig-file="/news-media/2018/05/mlperf.jpg" data-orig-size="261,161" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="MLPerf" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/05/mlperf.jpg" class="alignleft  wp-image-4250" src="/news-media/2018/05/mlperf.jpg" alt="" width="120" height="75" /></a>On May 2, 2018 a diverse group from academia and industry – Google, Baidu, Intel, AMD, Harvard, and Stanford among them – released <a href="https://mlperf.org/" target="_blank" rel="noopener">MLPerf</a>, a nascent benchmarking tool “for measuring the speed of machine learning software and hardware.” The hope is better, standardized benchmarks will help AI technology developers create such products and allow adopters to make informed AI-enabling technology selections. <a href="https://www.hpcwire.com/2018/05/02/mlperf-will-new-machine-learning-benchmark-help-propel-ai-forward/" target="_blank" rel="noopener">Link</a></p>

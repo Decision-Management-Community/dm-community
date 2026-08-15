@@ -1,0 +1,9 @@
+---
+title: "Real Time Decision Monitoring"
+date: 2019-05-19
+author: "jacobfeldman"
+tags: ["Decision Monitoring"]
+legacyPath: "/2019/05/19/real-time-decision-monitoring/"
+---
+
+<p><a href="/news-media/2019/05/decisionmonitoring.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6716" data-permalink="https://dmcommunity.org/2019/05/19/real-time-decision-monitoring/decisionmonitoring/" data-orig-file="/news-media/2019/05/decisionmonitoring.png" data-orig-size="1763,972" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionMonitoring" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/05/decisionmonitoring.png" class="alignleft  wp-image-6716" src="/news-media/2019/05/decisionmonitoring.png" alt="" width="123" height="68" /></a>The latest release of IBM ODM allows monitoring decision-making in real time. It includes a built-in Decisions dashboard of standard decision metrics such as decisions per second, the number of active rulesets, the number of times a rule or task is executed, and so on. You can also create custom views to get real-time insights about your decisions. For example, for a loan application you could look at the percentage of loan requests your system accepts, and the quality of those requests. <a href="https://community.ibm.com/community/user/automation/blogs/peter-gilliver/2019/03/25/monitor-in-real-time" target="_blank" rel="noopener">Link</a></p>

@@ -1,0 +1,9 @@
+---
+title: "Decision Optimization and Finance: Doing more with less"
+date: 2018-05-07
+author: "decisionmanagementcommunity"
+tags: ["Decision Optimization"]
+legacyPath: "/2018/05/07/decision-optimization-and-finance-doing-more-with-less/"
+---
+
+<p><a href="/news-media/2018/05/optimizingfinance.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4301" data-permalink="https://dmcommunity.org/2018/05/07/decision-optimization-and-finance-doing-more-with-less/optimizingfinance/" data-orig-file="/news-media/2018/05/optimizingfinance.jpg" data-orig-size="800,533" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="OptimizingFinance" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/05/optimizingfinance.jpg" class="alignleft size-thumbnail wp-image-4301" src="/news-media/2018/05/optimizingfinance.jpg" alt="" width="150" height="100" /></a>Alex Fleischer from IBM writes that Optimization (Doing more with less) has been quite a success at many banks and insurances for decades. Along with many finance use cases of <a href="https://www.ibm.com/products/ilog-cplex-optimization-studio" target="_blank" rel="nofollow noopener">CPLEX</a>, he describes 4 recent optimization success stories in international banks. <a href="https://www.linkedin.com/pulse/ai-optimization-finance-do-more-less-banks-alex-fleischer/" target="_blank" rel="noopener">Link</a></p>

@@ -1,12 +1,13 @@
 ---
 title: "IBM Watson: Reflections and Projections"
 date: 2019-10-11
-author: "Decision Management Community"
-tags: ["AI", "Commentary"]
-sourceUrl: "https://dmcommunity.org/2019/10/11/ibm-watson-reflections-and-projections/"
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Products"]
+legacyPath: "/2019/10/11/ibm-watson-reflections-and-projections/"
 ---
 
-IBM Data & AI general manager Rob Thomas published a retrospective on what Watson actually was and
-wasn't, cutting through years of marketing. Data-science commentator Jean-François Puget called it
-"an accurate description of what Watson is," past the "absurdly simplistic ads" — a rare moment of a
-vendor executive publicly resetting expectations rather than hyping them.
+<p><a href="/news-media/2019/10/watson.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7179" data-permalink="https://dmcommunity.org/2019/10/11/ibm-watson-reflections-and-projections/watson/" data-orig-file="/news-media/2019/10/watson.jpg" data-orig-size="194,171" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Watson" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/10/watson.jpg" class="alignleft size-thumbnail wp-image-7179" src="/news-media/2019/10/watson.jpg" alt="" width="150" height="132" /></a>On Oct. 10 Rob Tomas, a General Manager at IBM Data and AI, published &#8220;<a href="https://www.ibm.com/blogs/think/2019/10/what-is-watson/" target="_blank" rel="noopener">IBM Watson: Reflections and Projections</a>&#8221; about which Jean-Francois Puget wrote: &#8220;<em><span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0">At last an accurate description of what Watson is, past the absurdly simplistic ads we had in the past.</span></em>&#8221; So, what is Watson?<!--more--></p>
+<p>&#8220;<em>This is the question I’ve been asked the most since IBM combined its Data and AI software units earlier this year.</em></p>
+<p><em>Let’s start with what it’s not. Watson is not a personal assistant like Alexa, Siri or Google Assistant – its capabilities far exceed those of a consumer AI device. However, consumers likely interact with some form of Watson every day, they just are not aware of it. That’s because Watson was built to enable business-to-business interactions. Watson technology spans everything from powering virtual assistants to embedding AI in business processes across many industries.</em></p>
+<p><em>Watson does not have a voice, gender or personality. Many people associate Watson with the measured male voice used to bring it to life on Jeopardy! and in older TV commercials. We gave it a voice for those instances, but it is not a box that talks back to you. It is a set of composable microservices (software) that live in the cloud. Any cloud, public or private.</em></p>
+<p><em>Put simply, Watson is software capable of making sense of data sets and understanding natural language to provide recommendations, make predictions, and automate work. As we have fine-tuned our approach, the “Watson” name is only used on IBM products and solutions that significantly utilize IBM Watson technology. For products and solutions in which AI is an embedded enhancement, we use the designation “with Watson.</em>”</p>

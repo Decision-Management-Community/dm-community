@@ -1,0 +1,9 @@
+---
+title: "Global Management Decision Market"
+date: 2021-03-17
+author: "decisionmanagementcommunity"
+tags: ["Digital Decisioning", "Trends", "Vendors"]
+legacyPath: "/2021/03/17/global-management-decision-market/"
+---
+
+<p class="wp-block-paragraph"><a href="/news-media/2021/03/decisionmarketgme.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="9208" data-permalink="https://dmcommunity.org/2021/03/17/global-management-decision-market/decisionmarketgme/" data-orig-file="/news-media/2021/03/decisionmarketgme.png" data-orig-size="678,378" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionMarketGME" data-image-description="" data-image-caption="" data-large-file="/news-media/2021/03/decisionmarketgme.png" class="alignleft size-thumbnail wp-image-9208" src="/news-media/2021/03/decisionmarketgme.png" alt="" width="150" height="84" /></a>Global Management Decision Market Research Report &#8211; <strong>Forecasts to 2026</strong> by GME. Includes competitor analysis of FICO, Sparkling Logic, SAS, OpenRules, TIBCO, Decision Management Solutions, Oracle, Parmenides, IBM, Sapiens, Equifax, Experian, Pegasystems, and ACTICO among other vendors. You may request a free sample copy of the report <a href="https://www.globalmarketestimates.com/market-report/global-management-decision-market-2858?fbclid=IwAR1LYBUmsD_aHmZamDFH-DIPKccV6wDJ9BRlczjz7oOOD0umuVVmzlHQeGE" target="_blank" rel="noopener">Link</a> </p>

@@ -1,0 +1,10 @@
+---
+title: "Convergence of Information and Knowledge Management Systems"
+date: 2015-10-02
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2015/10/02/about-convergence-of-information-and-knowledge-management-systems/"
+---
+
+<p>Transformation of data to knowledge is among the most popular discussions nowadays. As modern analytical tools penetrate everyday life of the traditional information management systems, these systems started to converge to what for a long time was known as Knowledge Management (<a href="https://en.wikipedia.org/wiki/Knowledge_management" target="_blank">KM</a>) systems. It is interesting that such convergence naturally occurs first of all around operational business decisions. <!--more-->You may find many images and schemes related to the IS to KM convergences in this <a href="https://caminao.wordpress.com/overview/thr-systems-infoknow/" target="_blank">post</a>  &#8211; here is one of them:</p>
+<p><a href="/news-media/2015/10/fromdatatoknowledge.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="1106" data-permalink="https://dmcommunity.org/2015/10/02/about-convergence-of-information-and-knowledge-management-systems/fromdatatoknowledge/" data-orig-file="/news-media/2015/10/fromdatatoknowledge.jpg" data-orig-size="600,300" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="FromDataToKnowledge" data-image-description="" data-image-caption="" data-large-file="/news-media/2015/10/fromdatatoknowledge.jpg" class="aligncenter size-full wp-image-1106" src="/news-media/2015/10/fromdatatoknowledge.jpg" alt="FromDataToKnowledge" width="600" height="300" /></a></p>

@@ -1,0 +1,9 @@
+---
+title: "BizOps–Aligning Business and IT in Automated Decision-making"
+date: 2020-06-27
+author: "decisionmanagementcommunity"
+tags: ["Decision Making", "DevOps", "Digital Transformation", "Human-Machine Interaction"]
+legacyPath: "/2020/06/27/bizops-aligning-business-and-it-in-automated-decision-making/"
+---
+
+<p><a href="/news-media/2020/06/bizops.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8252" data-permalink="https://dmcommunity.org/2020/06/27/bizops-aligning-business-and-it-in-automated-decision-making/bizops/" data-orig-file="/news-media/2020/06/bizops.png" data-orig-size="142,72" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="BizOps" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/06/bizops.png" class="alignleft size-full wp-image-8252" src="/news-media/2020/06/bizops.png" alt="" width="142" height="72" /></a>In his <a href="https://www.linkedin.com/pulse/bizops-aligning-business-automated-decision-making-tom-davenport/?trackingId=Rs1O%2Bm6EemzxvAa%2FiFINyA%3D%3D" target="_blank" rel="noopener">post</a> with this title,Tom Davenport talks about “BizOps”—a new effort to address and improve the relationship between IT and business. Like other “Ops”—DevOps, AIOps, RevOps, etc.— it’s an aspirational attempt to combine two processes and cultures—business and technology. <a href="https://www.linkedin.com/pulse/bizops-aligning-business-automated-decision-making-tom-davenport/?trackingId=Rs1O%2Bm6EemzxvAa%2FiFINyA%3D%3D" target="_blank" rel="noopener">Link</a></p>

@@ -1,0 +1,9 @@
+---
+title: "Success Stories of Decision Optimization"
+date: 2019-11-29
+author: "decisionmanagementcommunity"
+tags: ["Decision Optimization"]
+legacyPath: "/2019/11/29/success-stories-of-decision-optimization/"
+---
+
+<p class=" text-center"><a href="/news-media/2019/11/optimaldecisions-1.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7410" data-permalink="https://dmcommunity.org/2019/11/29/success-stories-of-decision-optimization/optimaldecisions/" data-orig-file="/news-media/2019/11/optimaldecisions-1.png" data-orig-size="158,119" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="OptimalDecisions" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/11/optimaldecisions-1.png" class="alignleft size-thumbnail wp-image-7410" src="/news-media/2019/11/optimaldecisions-1.png" alt="" width="150" height="113" /></a>From lifesaving discoveries, to increased efficiencies, to billions in savings realized, Operations Research (OR) and Analytics are making significant impact every day by optimizing real-world decisions. See  success stories described at the INFORMS <a href="https://www.informs.org/Impact?utm_campaign=General%20INFORMS%20Content&amp;utm_content=106509731&amp;utm_medium=social&amp;utm_source=twitter&amp;hss_channel=tw-24923980" target="_blank" rel="noopener">website</a> and <a href="https://www.ibmbigdatahub.com/blog/optimization-technology-and-ai-real-world-operational-efficiency-stories" target="_blank" rel="noopener">IBM</a>.</p>

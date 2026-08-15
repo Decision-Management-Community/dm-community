@@ -1,0 +1,9 @@
+---
+title: "Knowledge Graphs"
+date: 2018-08-21
+author: "decisionmanagementcommunity"
+tags: ["Semantic Web"]
+legacyPath: "/2018/08/21/knowledge-graphs/"
+---
+
+<p><a href="/news-media/2018/08/kg1.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="5193" data-permalink="https://dmcommunity.org/2018/08/21/knowledge-graphs/kg/" data-orig-file="/news-media/2018/08/kg1.png" data-orig-size="479,206" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="KG" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/08/kg1.png" class="alignleft size-thumbnail wp-image-5193" src="/news-media/2018/08/kg1.png" alt="" width="150" height="65" /></a>Knowledge Graphs are becoming increasingly important to support decision and process augmentation based on linked data. &#8220;<em>It’s all about things, not strings: A Knowledge Graph represents a knowledge domain. It connects things of different types in a systematic way. Knowledge graphs encode knowledge arranged in a network of nodes and links rather than tables of rows and columns. By that, people and machines can benefit from a dynamically growing semantic network of facts about things and can use it for data integration, knowledge discovery, and in-depth analyses</em>.&#8221; <a href="https://www.linkedin.com/pulse/knowledge-graphs-connecting-dots-increasingly-complex-blumauer/" target="_blank" rel="noopener">Link</a></p>

@@ -1,0 +1,9 @@
+---
+title: "IBM Research launches explainable AI toolkit"
+date: 2019-08-10
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Explanations"]
+legacyPath: "/2019/08/10/ibm-research-launches-explainable-ai-toolkit/"
+---
+
+<p><a href="/news-media/2018/02/decisionexplanation.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="3800" data-permalink="https://dmcommunity.org/2018/02/12/explainable-decisions/decisionexplanation/" data-orig-file="/news-media/2018/02/decisionexplanation.jpg" data-orig-size="282,179" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionExplanation" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/02/decisionexplanation.jpg" class="alignleft  wp-image-3800" src="/news-media/2018/02/decisionexplanation.jpg" alt="" width="111" height="70" /></a>IBM Research introduced <a href="http://aix360.mybluemix.net/" target="_blank" rel="noopener noreferrer">AI Explainability 360</a>, an open source collection of state-of-the-art algorithms that use a range of techniques to explain AI model decision-making. “<em>That’s fundamentally important, because we know people in organizations will not use or deploy AI technologies unless they really trust their decisions. </em>” <a href="https://venturebeat.com/2019/08/08/ibm-research-launches-explainable-ai-toolkit/" target="_blank" rel="noopener">Link</a></p>

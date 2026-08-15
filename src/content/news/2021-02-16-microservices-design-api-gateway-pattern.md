@@ -1,0 +1,9 @@
+---
+title: "Microservices Design – API Gateway Pattern"
+date: 2021-02-16
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling", "Microservices", "Serverless"]
+legacyPath: "/2021/02/16/microservices-design-api-gateway-pattern/"
+---
+
+<p><a href="/news-media/2019/05/decisionmicroservices.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6686" data-permalink="https://dmcommunity.org/2019/05/10/decision-microservices/decisionmicroservices/" data-orig-file="/news-media/2019/05/decisionmicroservices.jpg" data-orig-size="321,253" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionMicroservices" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/05/decisionmicroservices.jpg" class="alignleft size-thumbnail wp-image-6686" src="/news-media/2019/05/decisionmicroservices.jpg" alt="" width="150" height="118" /></a>Decision Microservices and Serverless Architecture quickly become the de-facto approach<em> for many modern decision-making applications.  &#8220;The goal of the microservices is to sufficiently decompose/decouple the application into loosely coupled microservices/modules in contrast to monolithic applications where modules are highly coupled and deployed as a single big chunk.</em>&#8221;  <a href="https://medium.com/dev-genius/microservices-design-api-gateway-pattern-980e8d02bdd5" target="_blank" rel="noopener">Link</a></p>

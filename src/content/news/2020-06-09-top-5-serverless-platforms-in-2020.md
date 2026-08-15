@@ -1,0 +1,9 @@
+---
+title: "Top 5 Serverless Platforms in 2020"
+date: 2020-06-09
+author: "decisionmanagementcommunity"
+tags: ["Architecture", "Cloud Platforms", "Microservices", "Serverless"]
+legacyPath: "/2020/06/09/top-5-serverless-platforms-in-2020/"
+---
+
+<p><a href="/news-media/2019/04/serverless.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6611" data-permalink="https://dmcommunity.org/2019/04/17/serverless-architectures-2/serverless/" data-orig-file="/news-media/2019/04/serverless.png" data-orig-size="660,704" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="serverless" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/04/serverless.png" class="alignleft wp-image-6611 " src="/news-media/2019/04/serverless.png" alt="" width="96" height="102" /></a>Companies transfer to serverless computing to become more agile, scalable, and efficient. Instead of maintaining their own server infrastructure and investing in storage space, businesses can cooperate with professional vendors who specialize in providing safe, fast, and reliable computing infrastructure. This <a href="https://blog.techmagic.co/top-5-serverless-platforms-in-2020/" target="_blank" rel="noopener">article</a> describe pros and cons of the top 5 platforms: 1) AWS Lambda 2) Google Cloud Functions + Firebase 3) Microsoft Azure 4) Alibaba Functions 5) IBM Bluemix/OpenWhisk   <a href="https://blog.techmagic.co/top-5-serverless-platforms-in-2020/" target="_blank" rel="noopener">Link</a></p>

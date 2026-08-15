@@ -1,0 +1,9 @@
+---
+title: "NEOS Server: State-of-the-Art Optimization Solvers"
+date: 2016-09-12
+author: "decisionmanagementcommunity"
+tags: ["Decision Optimization", "Products"]
+legacyPath: "/2016/09/12/neos-server-state-of-the-art-optimization-solvers/"
+---
+
+<p><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2301" data-permalink="https://dmcommunity.org/2016/09/12/neos-server-state-of-the-art-optimization-solvers/optimization/" data-orig-file="/news-media/2016/09/optimization.jpg" data-orig-size="279,173" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="optimization" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/09/optimization.jpg" class="  wp-image-2301 alignleft" src="/news-media/2016/09/optimization.jpg" alt="optimization" width="195" height="121" />The <b>NEOS Server </b>(<a href="https://neos-server.org/neos/" target="_blank">Network-Enabled Optimization System</a>)<b> </b>is a free internet-based service for solving numerical optimization problems. Hosted by the <a href="http://www.discovery.wisc.edu/">University of Wisconsin in Madison</a>, the NEOS Server provides access to more than 60 state-of-the-art solvers in more than a dozen optimization categories. The NEOS Server offers a variety of interfaces for accessing the solvers, and jobs run on distributed high-performance machines. <i>The NEOS Server is available free of charge for everyone, anywhere in the world.</i></p>

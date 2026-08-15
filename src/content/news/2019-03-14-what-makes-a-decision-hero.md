@@ -1,0 +1,9 @@
+---
+title: "What Makes a Decision Hero?"
+date: 2019-03-14
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling"]
+legacyPath: "/2019/03/14/what-makes-a-decision-hero/"
+---
+
+<p><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6492" data-permalink="https://dmcommunity.org/2019/03/14/what-makes-a-decision-hero/decisionhero/" data-orig-file="/news-media/2019/03/decisionhero.jpg" data-orig-size="322,227" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionHero" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/03/decisionhero.jpg" class="alignleft wp-image-6492 size-thumbnail" src="/news-media/2019/03/decisionhero.jpg" alt="DecisionHero" width="150" height="106" />&#8220;<em>Gone are the days when we could assume that application, bureau and master file data would be enough to automate client decisions! We now see a rich array of data sources used in <strong>automated decisioning</strong>—whether it be click-through data, or even “tone of voice” data collected during calls.&#8221; &#8220;Sometimes our clients are so close to their problems that it’s hard for them to find the best solutions. An outsider can bring a unique perspective and new insights into tough challenges to help ensure competitiveness.&#8221; </em>Meet FICO&#8217;s <a href="https://community.fico.com/s/decision-heroes" target="_blank" rel="noopener noreferrer">Decision Heroes</a></p>

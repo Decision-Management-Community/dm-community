@@ -1,0 +1,9 @@
+---
+title: "No future without maths"
+date: 2018-08-24
+author: "decisionmanagementcommunity"
+tags: ["Misc", "Trends"]
+legacyPath: "/2018/08/24/no-future-without-maths/"
+---
+
+<p><em><a href="/news-media/2018/08/math.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="5245" data-permalink="https://dmcommunity.org/2018/08/24/no-future-without-maths/math/" data-orig-file="/news-media/2018/08/math.jpg" data-orig-size="266,190" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Math" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/08/math.jpg" class="alignleft wp-image-5245" src="/news-media/2018/08/math.jpg" alt="" width="116" height="83" /></a>&#8220;Today’s and tomorrow’s jobs will require more and more mathematics; and yet the level of students in the West seems to be consistently dropping. What can we tech companies do about this? Maths seems to have worked its way into all fields, from financial markets to medicine, urban planning, transportation, and of course everything IT. Not only is this discipline at the heart of technological innovations that will transform the face of society; its teaching is also a major driver of growth – countries whose inhabitants are good at maths also tend to fare much better economically&#8221;, </em>&#8211; writes Patrice Caine, Thales Chairman and CEO<em>. </em><a href="https://www.linkedin.com/pulse/mathematisation-world-paradoxically-goes-hand-loss-interest-caine/" target="_blank" rel="noopener">Link</a></p>

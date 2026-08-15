@@ -1,0 +1,9 @@
+---
+title: "Decision Simulation"
+date: 2019-01-20
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling"]
+legacyPath: "/2019/01/20/decision-simulation/"
+---
+
+<p><a href="/news-media/2019/01/decisionsimulation.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6265" data-permalink="https://dmcommunity.org/2019/01/20/decision-simulation/decisionsimulation/" data-orig-file="/news-media/2019/01/decisionsimulation.jpg" data-orig-size="509,287" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="decisionsimulation" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/01/decisionsimulation.jpg" class="alignleft size-thumbnail wp-image-6265" src="/news-media/2019/01/decisionsimulation.jpg" alt="" width="150" height="85" /></a>&#8220;Decision services can have unintended results that may or may not be consistent with the original intent of the business. The best way to gauge the impact of a new model once it goes into production is to first run a simulation, using software that sends pertinent data through the decision service and analyzes the results. Business users can then access these simulations to validate the decision logic and business rules and assess potential business impact prior to deployment into a production environment.&#8221; <a href="https://community.fico.com/s/blog-post/a5Q2E000000DtFGUA0/fico1482?utm_campaign=DMS_Community_Social_Email_Dec4&amp;utm_medium=Twitter&amp;utm_source=Social" target="_blank" rel="noopener">Link</a></p>

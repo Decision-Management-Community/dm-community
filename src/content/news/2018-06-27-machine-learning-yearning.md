@@ -1,0 +1,9 @@
+---
+title: "Machine Learning Yearning"
+date: 2018-06-27
+author: "decisionmanagementcommunity"
+tags: ["Machine Learning"]
+legacyPath: "/2018/06/27/machine-learning-yearning/"
+---
+
+<p><a href="/news-media/2018/06/mlyearning.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4574" data-permalink="https://dmcommunity.org/2018/06/27/machine-learning-yearning/mlyearning/" data-orig-file="/news-media/2018/06/mlyearning.jpg" data-orig-size="233,267" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="MLYearning" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/06/mlyearning.jpg" class="alignleft size-thumbnail wp-image-4574" src="/news-media/2018/06/mlyearning.jpg" alt="" width="131" height="150" /></a>Andrew Ng is regularly updating a draft of his book &#8220;<a href="https://gallery.mailchimp.com/dc3a7ef4d750c0abfc19202a3/files/0d2d4a3b-96ab-4a8e-aa15-9320a70852b8/NG_MLY01_10.pdf" target="_blank" rel="noopener">ML Yearning</a>&#8220;. &#8220;<em>Machine learning is the foundation of countless important applications, including web search, email anti-spam, speech recognition, product recommendations, and more. I assume that you or your team is working on a machine learning application, and that you want to make rapid progress. This book will help you do so.</em>&#8221; Prerequisites: the first three weeks of videos in the Machine Learning course at <a href="http://ml-class.org" target="_blank" rel="noopener">http://ml-class.org</a></p>

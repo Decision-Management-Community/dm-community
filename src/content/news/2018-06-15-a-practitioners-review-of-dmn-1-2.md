@@ -1,0 +1,9 @@
+---
+title: "A Practitioner’s Review of DMN 1.2"
+date: 2018-06-15
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling", "DMN", "Standards"]
+legacyPath: "/2018/06/15/a-practitioners-review-of-dmn-1-2/"
+---
+
+<p><a href="/news-media/2018/06/dmn1-2.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4458" data-permalink="https://dmcommunity.org/2018/06/01/whats-new-in-dmn-1-2/dmn1-2/" data-orig-file="/news-media/2018/06/dmn1-2.jpg" data-orig-size="112,100" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DMN1.2" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/06/dmn1-2.jpg" class="alignleft  wp-image-4458" src="/news-media/2018/06/dmn1-2.jpg" alt="" width="86" height="77" /></a>Jan Purchase, a well-known DM practitioner and co-author of &#8220;<a href="https://www.amazon.com/Real-World-Decision-Modeling-James-Taylor/dp/0929652592/ref=sr_1_1?ie=UTF8&amp;qid=1479926614&amp;sr=8-1&amp;keywords=Real-World+Decision+Modeling+with+Dmn" target="_blank" rel="noopener">Real-World Decision Modeling with DMN</a>&#8220;, reviewed new features of the upcoming <a href="/news/2018-06-01-whats-new-in-dmn-1-2/" target="_blank" rel="noopener">DMN Release 1.2</a>. Which features will be genuinely useful and which are still missing? Read Jan&#8217;s <a href="http://www.luxmagi.com/2018/06/a-practitioners-review-of-dmn-1-2/?platform=hootsuite" target="_blank" rel="noopener">article</a>.</p>

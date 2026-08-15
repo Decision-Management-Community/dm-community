@@ -1,0 +1,9 @@
+---
+title: "Association Rule Mining"
+date: 2019-06-24
+author: "decisionmanagementcommunity"
+tags: ["Data Science", "Machine Learning"]
+legacyPath: "/2019/06/24/association-rule-mining/"
+---
+
+<p><strong><a href="/news-media/2019/06/associationrules.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6826" data-permalink="https://dmcommunity.org/2019/06/24/association-rule-mining/associationrules/" data-orig-file="/news-media/2019/06/associationrules.jpg" data-orig-size="631,334" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="AssociationRules" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/06/associationrules.jpg" class="alignleft size-thumbnail wp-image-6826" src="/news-media/2019/06/associationrules.jpg" alt="" width="150" height="79" /></a>Users who bought this… Also bought this…</strong>‘ can be considered as the statement of this generation. There is not a single shopping application not showcasing this feature to gain more from the buyers. We humans always look for more similar things which we like. This rule is another by-product of Machine Learning called ‘Association Rules’. Association Rule Mining is based on two set of rules:  1) Look for the transactions where there is a bundle or relevance of association of secondary items to the primary items above a certain threshold of frequency; 2) Convert them into ‘Association Rules’. <a href="https://www.datasciencecentral.com/profiles/blogs/machine-learning-association-rule-mining" target="_blank" rel="noopener">Link</a></p>

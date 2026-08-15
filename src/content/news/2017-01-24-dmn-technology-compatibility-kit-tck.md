@@ -1,0 +1,9 @@
+---
+title: "DMN Technology Compatibility Kit (TCK)"
+date: 2017-01-24
+author: "decisionmanagementcommunity"
+tags: ["Decision Models", "Standards"]
+legacyPath: "/2017/01/24/dmn-technology-compatibility-kit-tck/"
+---
+
+<p><a href="/news-media/2017/01/dmn-tck.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2697" data-permalink="https://dmcommunity.org/2017/01/24/dmn-technology-compatibility-kit-tck/dmn-tck/" data-orig-file="/news-media/2017/01/dmn-tck.jpg" data-orig-size="596,408" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="dmn-tck" data-image-description="" data-image-caption="" data-large-file="/news-media/2017/01/dmn-tck.jpg" class="alignleft size-thumbnail wp-image-2697" src="/news-media/2017/01/dmn-tck.jpg" alt="dmn-tck" width="150" height="103" /></a>Any technical standard needs a Technology Compatibility Kit (TCK) similar to those used by <a href="http://jcp.org" target="_blank">JCP </a>(Java Community Process). &#8220;At the 2016 bpmNEXT conference we decided to form a TCK for DMN. The goal is simple: DMN offers to be a standard way of expressing conditional logic, and we need to assure that that logic runs the same on every implementation. What we need then is simply a set of test cases: a sample DMN diagram, with some context data, and the expected results.&#8221; The TCK already includes an initial set of DMN models, along with input values, expected outputs, and supporting software. Read <a href="https://social-biz.org/2017/01/18/dmn-technology-compatibility-kit-tck/" target="_blank">more</a></p>

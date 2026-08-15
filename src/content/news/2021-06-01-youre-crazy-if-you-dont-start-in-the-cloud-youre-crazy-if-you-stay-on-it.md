@@ -1,0 +1,9 @@
+---
+title: "“You’re crazy if you don’t start in the cloud; you’re crazy if you stay on it”"
+date: 2021-06-01
+author: "decisionmanagementcommunity"
+tags: ["Architecture", "Cloud Platforms", "Containers"]
+legacyPath: "/2021/06/01/youre-crazy-if-you-dont-start-in-the-cloud-youre-crazy-if-you-stay-on-it/"
+---
+
+<p class="wp-block-paragraph">This <a rel="noreferrer noopener" href="https://a16z.com/2021/05/27/cost-of-cloud-paradox-market-cap-cloud-lifecycle-scale-growth-repatriation-optimization/?utm_source=Benedict%27s+Newsletter&amp;utm_campaign=8f20a69b2f-Benedict%27s+newsletter_COPY_01&amp;utm_medium=email&amp;utm_term=0_4999ca107f-8f20a69b2f-70388429" target="_blank">A16Z article</a> argues that SaaS companies should move back from the cloud to their own data centres once they scale. &#8220;<em>Cloud is cheaper and better early on and more costly later in a company’s evolution&#8230;  Make sure your system architects are aware of the potential for repatriation early on, because by the time cloud costs start to catch up to or even outpace revenue growth, it’s too late. Even modest or more modular architectural investment early on — including architecting to be able to move workloads to the optimal location and not get locked in — reduces the work needed to repatriate workloads in the future. The popularity of Kubernetes and the <a rel="noreferrer noopener" href="https://a16z.com/2015/01/22/containers/" target="_blank">containerization</a> of software, which makes workloads more portable, was in part a reaction to companies not wanting to be locked into a specific cloud.</em>&#8221; <a rel="noreferrer noopener" href="https://a16z.com/2021/05/27/cost-of-cloud-paradox-market-cap-cloud-lifecycle-scale-growth-repatriation-optimization/?utm_source=Benedict%27s+Newsletter&amp;utm_campaign=8f20a69b2f-Benedict%27s+newsletter_COPY_01&amp;utm_medium=email&amp;utm_term=0_4999ca107f-8f20a69b2f-70388429" target="_blank">Link</a></p>

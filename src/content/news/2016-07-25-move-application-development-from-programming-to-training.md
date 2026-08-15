@@ -1,0 +1,16 @@
+---
+title: "Move Application Development From Programming to Training"
+date: 2016-07-25
+author: "decisionmanagementcommunity"
+tags: ["Business Analytics", "Trends"]
+legacyPath: "/2016/07/25/move-application-development-from-programming-to-training/"
+---
+
+<p>Rob Thomas and Jean-Francois Puget published an interesting article &#8220;<a href="http://www.robdthomas.com/2016/07/a-practical-guide-to-machine-learning.html" target="_blank">A Practical Guide to Machine Learning: Understand, Differentiate, and Apply</a>&#8220;. In particular,  they write:</p>
+<p><span style="line-height:1.5;">&#8220;</span><em style="color:#444444;line-height:1.5;">Machine Learning  moves application development from programming to training: instead of writing new code, the application developer trains the same application with new data. This is a fundamental shift in application development, because new, updated applications can be obtained automatically on a weekly, if not daily basis. This shift is at the core of the cognitive era in IT</em><span style="line-height:1.5;">.&#8221;</span></p>
+<p><!--more--></p>
+<p style="text-align:center;">Machine Learning with Feedback Loop</p>
+<p><a href="/news-media/2016/07/ml-feedbackloop.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2232" data-permalink="https://dmcommunity.org/2016/07/25/move-application-development-from-programming-to-training/ml-feedbackloop/" data-orig-file="/news-media/2016/07/ml-feedbackloop.jpg" data-orig-size="849,272" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ML.FeedbackLoop" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/07/ml-feedbackloop.jpg" class="wp-image-2232 size-full aligncenter" src="/news-media/2016/07/ml-feedbackloop.jpg" alt="ML.FeedbackLoop" width="640" height="205" /></a></p>
+<p><em>&#8220;With a feedback loop, the system learns continuously by monitoring the effectiveness of predictions and retraining when needed. Monitoring and using the resulting feedback are at the core of machine learning. This is no different than how humans perform a new task. We learn from our mistakes, adjust, and act. Machine learning is no different.&#8221;</em></p>
+<p>&#8220;<em>A common trap is to believe that data is all that is needed for successful machine learning project. Data is essential, but machine learning requires more than data. Machine learning projects that start with a large amount of data, but lack a clear business goal or outcome, are likely to fail. Projects that start with little or no data, yet have a clear and measurable business goal are more likely to succeed. The business goal should dictate the collection of relevant data and also guide the development of machine learning models. This approach provides a mechanism for assessing the effectiveness of machine learning models</em>&#8221; &#8211; that bring us to Decision Management!</p>
+<p>&nbsp;</p>

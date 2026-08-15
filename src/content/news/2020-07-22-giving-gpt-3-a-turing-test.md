@@ -1,0 +1,10 @@
+---
+title: "Giving GPT-3 a Turing Test"
+date: 2020-07-22
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Natural Language Processing"]
+legacyPath: "/2020/07/22/giving-gpt-3-a-turing-test/"
+---
+
+<p><a href="/news-media/2018/11/nlp.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6106" data-permalink="https://dmcommunity.org/2018/11/21/progress-in-natural-language-processing/nlp/" data-orig-file="/news-media/2018/11/nlp.png" data-orig-size="2292,1410" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="NLP" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/11/nlp.png" class="alignleft size-thumbnail wp-image-6106" src="/news-media/2018/11/nlp.png" alt="" width="150" height="92" /></a><a href="https://arxiv.org/abs/2005.14165" target="_blank" rel="noopener">GPT-3</a> is a general language model, trained on a large amount of uncategorized text from the internet. It isn’t specific to a conversational format, and it isn’t trained to answer any specific type of question. The only thing it does is, given some text, guess what text comes next.<br />
+Ofer Razon <a href="https://www.linkedin.com/posts/orazon_gpt3-mlmonitoring-aiassurance-activity-6691579338321600512-JV8G" target="_blank" rel="noopener">wrote</a>: <em>GPT-3 discussions are all over the network now, and while we all see some mind-blowing use cases that tease our mind what can come next, we also get to see the pitfall of AI/ML systems. Put in simple words &#8211; it doesn’t know how to say “I don’t know”.  This article &#8220;Giving GPT-3 a Turing Test&#8221; is a must-read</em>!  <a href="http://lacker.io/ai/2020/07/06/giving-gpt-3-a-turing-test.html" target="_blank" rel="noopener">Link</a></p>

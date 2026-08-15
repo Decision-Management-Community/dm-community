@@ -1,0 +1,9 @@
+---
+title: "The Rise of Digital Humans in Social Media"
+date: 2018-05-07
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2018/05/07/the-rise-of-digital-humans-in-social-media/"
+---
+
+<p><a href="/news-media/2018/05/digitalhuman.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4287" data-permalink="https://dmcommunity.org/2018/05/07/the-rise-of-digital-humans-in-social-media/digitalhuman/" data-orig-file="/news-media/2018/05/digitalhuman.jpg" data-orig-size="582,582" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DigitalHuman" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/05/digitalhuman.jpg" class="alignleft wp-image-4287" src="/news-media/2018/05/digitalhuman.jpg" alt="" width="89" height="89" /></a><a href="https://www.wired.com/story/lil-miquela-digital-humans/?mbid=social_twitter_onsiteshare" target="_blank" rel="noopener">WIRED</a> just published an article &#8220;<em>CGI ‘Influencers’ Like Lil Miquela Are About to Flood Your Feeds</em>&#8220;. Here is what happened. An Instagram influencer named &#8220;Bermuda&#8221; hacked the account of fellow influencer &#8220;Lil Miquela&#8221;, who has over a million followers. Not a big deal? But the truth being that Miquela is not a human being.  Neither is Bermuda. Both are CGI creations. And no one could definitively say who or what was behind them. <a href="https://www.wired.com/story/lil-miquela-digital-humans/?mbid=social_twitter_onsiteshare" target="_blank" rel="noopener">Link</a></p>

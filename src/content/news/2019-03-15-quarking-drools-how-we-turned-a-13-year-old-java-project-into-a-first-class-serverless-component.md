@@ -1,0 +1,12 @@
+---
+title: "Moving Drools toward a polyglot world"
+date: 2019-03-15
+author: "decisionmanagementcommunity"
+tags: ["Rule Engines and BRMS", "Serverless"]
+legacyPath: "/2019/03/15/quarking-drools-how-we-turned-a-13-year-old-java-project-into-a-first-class-serverless-component/"
+---
+
+<p>Mario Fusco, the project lead of highly popular Red Hat open source BRMS <a href="https://www.drools.org/" target="_blank" rel="noopener noreferrer">Drools</a>, <a href="https://developers.redhat.com/blog/2019/03/14/quarking-drools-how-we-turned-a-13-year-old-java-project-into-a-first-class-serverless-component/" target="_blank" rel="noopener noreferrer">describes</a> &#8220;how they are changing Drools to make it part of the cloud and serverless revolution&#8221;. &#8220;<em>Our main goal was to make the core of the rule engine lighter, isolated, easily portable across different platforms, and well-suited to run in a container. The software development landscape has changed a lot in the past 20 years. We are moving more and more toward a polyglot world</em>&#8221; supported by <a href="https://www.graalvm.org/" target="_blank" rel="noopener noreferrer">GraalVM</a> and <a href="https://developers.redhat.com/blog/2019/03/07/quarkus-next-generation-kubernetes-native-java-framework/" target="_blank" rel="noopener noreferrer">Quarkus</a>. <!--more--></p>
+<p class="selectionShareable">To make Drools compatible with Graal requires getting rid of runtime reflection, dynamic class loading, and other wildly used features in the existing implementation. Mario describes how it&#8217;s done and reports the first impressive benefits.</p>
+<p>&#8220;These days, rule engines are seldom a matter of discussion. This is because they <i>just work</i>. A rule engine is not necessarily antithetical to a cloud environment, but work might be needed to fit the new paradigm. This was the story of our journey. We started with courage and curiosity. In the next few months, we will push this work forward to become more than a simple prototype, to realize a complete suite of business automation tools ready for the cloud. The name of the initiative is <b>Submarine, </b>from the famous Dijkstra quote. So, sit tight, and get ready to dive in.&#8221; <a href="https://developers.redhat.com/blog/2019/03/14/quarking-drools-how-we-turned-a-13-year-old-java-project-into-a-first-class-serverless-component/" target="_blank" rel="noopener noreferrer">Read more</a></p>
+<p>&nbsp;</p>

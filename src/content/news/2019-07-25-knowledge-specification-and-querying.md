@@ -1,0 +1,9 @@
+---
+title: "Knowledge Specification and Querying"
+date: 2019-07-25
+author: "jacobfeldman"
+tags: ["Natural Language Processing", "Reasoning", "Semantic Web"]
+legacyPath: "/2019/07/25/knowledge-specification-and-querying/"
+---
+
+<p><a href="/news-media/2019/07/reasoningqna.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6870" data-permalink="https://dmcommunity.org/2019/07/25/knowledge-specification-and-querying/reasoningqna/" data-orig-file="/news-media/2019/07/reasoningqna.jpg" data-orig-size="249,166" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;1&quot;}" data-image-title="ReasoningQnA" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/07/reasoningqna.jpg" class="alignleft size-thumbnail wp-image-6870" src="/news-media/2019/07/reasoningqna.jpg" alt="" width="150" height="100" /></a>Our colleagues from the <a href="https://rulemlrr19.inf.unibz.it/">Rules and Reasoning community</a> have just reported interesting results. They built a system that achieves 100% accuracy on an extensive test suite of movie-related questions, e.g. “<em>Who appears in a Steven Spielberg directed film?</em>”. Their approach utilizes a <a href="https://www.aclweb.org/anthology/J14-1005">Controlled Natural Language</a> (CNL) that could enable domain experts, who are not trained logicians, to both create formal knowledge and query it. They contrasted their approach with a machine learning approach based on neural networks, which falls far short of this high mark. <a href="https://arxiv.org/pdf/1907.08176.pdf">Link</a></p>

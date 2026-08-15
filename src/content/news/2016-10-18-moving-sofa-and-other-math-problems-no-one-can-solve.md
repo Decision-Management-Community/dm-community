@@ -1,0 +1,9 @@
+---
+title: "Moving Sofa and Other Math Problems No One Can Solve"
+date: 2016-10-18
+author: "decisionmanagementcommunity"
+tags: ["Challenges"]
+legacyPath: "/2016/10/18/moving-sofa-and-other-math-problems-no-one-can-solve/"
+---
+
+<p><a href="/news-media/2016/10/movingsofa.gif"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2447" data-permalink="https://dmcommunity.org/2016/10/18/moving-sofa-and-other-math-problems-no-one-can-solve/movingsofa/" data-orig-file="/news-media/2016/10/movingsofa.gif" data-orig-size="280,200" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="movingsofa" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/10/movingsofa.gif" class="alignleft size-thumbnail wp-image-2447" src="/news-media/2016/10/movingsofa.gif" alt="movingsofa" width="150" height="107" /></a>So you&#8217;re moving into your new apartment, and you&#8217;re trying to bring your sofa. The problem is, the hallway turns and you have to fit your sofa around a corner. If it&#8217;s a small sofa, that might not be a problem, but a really big sofa is sure to get stuck. If you&#8217;re a mathematician, you ask yourself: What&#8217;s the largest sofa you could possibly fit around the corner? It doesn&#8217;t have to be a rectangular sofa either, it can be any shape. <a href="http://www.popularmechanics.com/science/g2816/5-simple-math-problems/" target="_blank">Read about this and other math problems</a> that anyone can understand, but nobody has been able to solve.</p>

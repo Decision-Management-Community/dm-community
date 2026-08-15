@@ -1,0 +1,17 @@
+---
+title: "“Hidden Gem” of Decision Optimization"
+date: 2026-01-17
+author: "decisionmanagementcommunity"
+tags: ["Decision Optimization", "Human-Machine Interaction", "Products"]
+legacyPath: "/2026/01/17/hidden-gem-of-decision-optimization/"
+---
+
+<p class="wp-block-paragraph">Jacob Feldman wrote a <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7418026190306705409/" target="_blank" rel="noreferrer noopener">post</a> about the importance of the <a href="https://www.linkedin.com/posts/johnbelam_just-got-an-email-from-gurobi-optimization-activity-7379160675010617345-N9T9?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAFIMoBtgF6zELsOiwFm0hGYH1dIteE6pQ&amp;lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3BAlOIKSTZSKKqFGNvqdUqsQ%3D%3D" target="_blank" rel="noreferrer noopener">Solution Pools</a> called &#8220;hidden gems&#8221; of optimization solvers. However, they usually require programming expertise, while <strong>at decision time, it&#8217;s subject matter experts, not programmers, who use already tested and deployed decision models. </strong>These business users need to add <strong>last-minute constraints</strong> on the fly, particularly when there&#8217;s no time or technical expertise available to modify the underlying decision model. Jacob asks the question: &#8220;<em>How do we unlock this hidden gem and put it in the hands of decision-makers when they need it most?</em>&#8220;</p>
+
+
+<div class="wp-block-image">
+<figure class="alignright size-full is-resized"><a href="/news-media/2026/01/decisionplaygroundimage.png"><img data-recalc-dims="1" loading="lazy" decoding="async" width="542" height="276" data-attachment-id="14847" data-permalink="https://dmcommunity.org/2026/01/17/hidden-gem-of-decision-optimization/decisionplaygroundimage/" data-orig-file="/news-media/2026/01/decisionplaygroundimage.png" data-orig-size="542,276" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionPlaygroundImage" data-image-description="" data-image-caption="" data-large-file="/news-media/2026/01/decisionplaygroundimage.png" src="/news-media/2026/01/decisionplaygroundimage.png" alt="" class="wp-image-14847" style="aspect-ratio:1.9638618625040094;width:293px;height:auto" /></a></figure>
+</div>
+
+
+<p class="wp-block-paragraph" id="ember1487">&#8220;<em>Today, there&#8217;s a growing consensus among optimization experts: constraint and linear/MIP solvers deliver greater real-world value when embedded in modern <a href="https://www.gartner.com/reviews/market/decision-intelligence-platforms"><strong>Decision Intelligence Platforms</strong></a> that seamlessly integrate rule engines, machine learning, and optimization. The logical evolution for Decision Intelligence Platforms is to provide graphical <strong>Decision Pools</strong>—making Solution Pools accessible to business users. The newest <a href="https://openrulesdecisionmanager.com/graphical-decision-modeling/decision-playground/"><strong>OpenRules Decision Playground</strong></a> brings this vision to life</em>.&#8221; <a href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7418026190306705409/">Link</a></p>

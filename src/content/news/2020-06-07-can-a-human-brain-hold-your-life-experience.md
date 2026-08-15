@@ -1,0 +1,9 @@
+---
+title: "Can a human brain hold your life experience?"
+date: 2020-06-07
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Human-Machine Interaction"]
+legacyPath: "/2020/06/07/can-a-human-brain-hold-your-life-experience/"
+---
+
+<p><a href="/news-media/2020/06/brain.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8169" data-permalink="https://dmcommunity.org/2020/06/07/can-a-human-brain-hold-your-life-experience/brain/" data-orig-file="/news-media/2020/06/brain.png" data-orig-size="92,92" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="brain" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/06/brain.png" class="alignleft size-full wp-image-8169" src="/news-media/2020/06/brain.png" alt="" width="92" height="92" /></a>A <a href="https://handwiki.org/wiki/Biology:Human_brain" rel="nofollow">human brain</a> is an amazing instrument. It combines huge data storage with massive real-time processing. According to Scientific American <a href="https://www.cnsnevada.com/what-is-the-memory-capacity-of-a-human-brain/" rel="nofollow">[1]</a>, the memory capacity of the human brain was reported to have the equivalent of 2.5 petabytes (2500 TB) of memory capacity. This number was obtained by estimating how much information can be stored by 125 trillion synapses in the cerebral cortex. <a href="https://www.datasciencecentral.com/profiles/blogs/can-a-human-brain-hold-your-life-experience" target="_blank" rel="noopener">Link</a></p>

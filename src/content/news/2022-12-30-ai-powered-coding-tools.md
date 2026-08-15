@@ -1,0 +1,9 @@
+---
+title: "AI-powered Coding Tools"
+date: 2022-12-30
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Human-Machine Interaction"]
+legacyPath: "/2022/12/30/ai-powered-coding-tools/"
+---
+
+<p class="wp-block-paragraph"><a rel="noreferrer noopener" href="https://www.deeplearning.ai/the-batch/issue-176/" target="_blank">Andrew NG</a> summarized the state of AI-powered code generators including eBay&#8217;s <a rel="noreferrer noopener" href="https://www.protocol.com/enterprise/ebay-ai-mekel-bobrov" target="_blank">low-code</a>, DeepMind introduced <a rel="noreferrer noopener" href="https://www.deeplearning.ai/the-batch/competitive-coder/" target="_blank">AlphaCode</a>, GitHub&#8217;s <a rel="noreferrer noopener" href="https://github.com/features/copilot?utm_campaign=The%20Batch&amp;utm_source=hs_email&amp;utm_medium=email&amp;_hsenc=p2ANqtz-8HbXG-ZkwAj82Nv49uUrBwOHz4zUj3mkyjIfEd5lU7h3JHZR0pEG5OpkUCPPqwWvqMbjWl" target="_blank">Copilot</a> that autocompletes your code in real time, and OpenAI&#8217;s <a href="https://twitter.com/sharifshameem/status/1282676454690451457?utm_campaign=The%20Batch&amp;utm_source=hs_email&amp;utm_medium=email&amp;_hsenc=p2ANqtz-8HbXG-ZkwAj82Nv49uUrBwOHz4zUj3mkyjIfEd5lU7h3JHZR0pEG5OpkUCPPqwWvqMbjWl" target="_blank" rel="noreferrer noopener">GPT-3</a>. &#8220;<em>The widely available versions of this technology aren’t yet able to write complex programs. Often their output looks right at first glance but turns out to be buggy. Moreover, their legal status may be in jeopardy of violating open source licensing agreements. AI-powered coding tools aren’t likely to replace human programmers in the near future, but they may replace the tech question-and-answer site Stack Overflow as the developer’s favorite crutch.</em>&#8221; <a rel="noreferrer noopener" href="https://www.deeplearning.ai/the-batch/issue-176/" target="_blank">Link</a></p>

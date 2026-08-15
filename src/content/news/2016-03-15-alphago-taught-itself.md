@@ -1,12 +1,9 @@
 ---
 title: "AlphaGo Taught Itself"
 date: 2016-03-15
-author: "Decision Management Community"
-tags: ["AI", "Machine Learning"]
-sourceUrl: "https://dmcommunity.org/2016/03/15/alphago-taught-itself/"
+author: "decisionmanagementcommunity"
+tags: ["Business Analytics", "Trends"]
+legacyPath: "/2016/03/15/alphago-taught-itself/"
 ---
 
-Coverage of DeepMind's AlphaGo defeating the world Go champion, with commentary from the project's lead
-on how the system improved by playing millions of games against itself rather than being explicitly
-programmed with strategy. At the time, it was one of the clearest public demonstrations that
-self-play and reinforcement learning could out-perform hand-built rules in a genuinely hard domain.
+<p>The computer program that defeated the world Go champion taught itself how to improve its game by playing millions of matches against itself, according to the head of the Google subsidiary that developed the software. &#8220;<em>In AlphaGo’s case, that involved splitting itself in half and playing millions of matches against itself, learning from each victory and loss. In one day alone, AlphaGo was able to play itself more than a million times, gaining more practical experience than a human player could hope to gain in a lifetime. In essence, AlphaGo got better at Go simply by thinking extremely hard about the problem.</em>&#8221; Read <a href="http://www.theguardian.com/technology/2016/mar/15/alphago-what-does-google-advanced-software-go-next?CMP=twt_gu" target="_blank">more</a></p>

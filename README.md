@@ -69,23 +69,20 @@ migrated at this point:
   hosted directly in this repo** (`public/decisioncamp/rulesfest-*/`) — not linked out to the old
   site, so they no longer depend on it staying online
 
-Two areas are deliberately **not** a full 1:1 migration, because the source material is much larger
-than what's worth carrying over verbatim:
+The WordPress News archive is now fully migrated:
+
+- **News** contains all 1,327 posts published from May 2014 through July 2026, with original dates,
+  authors, categories/tags, body content, and legacy permalink redirects. Media referenced from the
+  old site's upload library is packed under `archives/news-media/` and automatically extracted to
+  `public/news-media/` for deployment wherever the source file still exists.
+
+One area remains deliberately selective:
 
 - **Vendor's Corner** covers the vendor/product announcements that were clearly tagged as such on
   the old site — not every post in its loosely-tagged "Products" category, several of which were
   actually sponsor announcements, analyst-report commentary, or general essays that belong in News
   instead.
-- **News** is a curated selection (not the full archive) of commentary, interviews, and milestones
-  from the pre-rebuild site, which ran for 12+ years as a single WordPress blog of 1,300+ posts
-  tagged only by loose topic, not by structural type. The full historical archive remains browsable
-  at [dmcommunity.org](https://dmcommunity.org/). See
-  [CONTRIBUTING.md](./CONTRIBUTING.md#backfilling-the-historical-archive) if you'd like to help pull
-  more of it in.
-
-What's intentionally *not* migrated: the old site's general blog/opinion posts (hundreds of them,
-with no equivalent content type here — this rebuild is "resources + community process," not a full
-blog mirror), and its old Tools catalogs specifically (~100+ listings hosted on now-dead third-party
+What's intentionally *not* migrated: the old Tools catalogs specifically (~100+ listings hosted on now-dead third-party
 infrastructure — rather than import broken links wholesale, the Tools list here was reseeded with a
 small set of independently-verified, currently-live tools).
 

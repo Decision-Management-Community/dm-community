@@ -1,0 +1,9 @@
+---
+title: "Challenge Sep-2020: Compressing Decision Tables"
+date: 2020-09-09
+author: "decisionmanagementcommunity"
+tags: ["Challenges", "Decision Modeling"]
+legacyPath: "/2020/09/09/challenge-sep-2020-compressing-decision-tables/"
+---
+
+<p><a href="/news-media/2020/09/compressingbusinessrules.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8578" data-permalink="https://dmcommunity.org/2020/09/09/challenge-sep-2020-compressing-decision-tables/compressingbusinessrules/" data-orig-file="/news-media/2020/09/compressingbusinessrules.png" data-orig-size="131,124" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="CompressingBusinessRules" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/09/compressingbusinessrules.png" class="alignleft size-full wp-image-8578" src="/news-media/2020/09/compressingbusinessrules.png" alt="" width="131" height="124" /></a>Using common sense people can replace larger decision tables with smaller ones. However, when a decision table includes more attributes (columns), the manual compression of the decision table becomes difficult or impossible even if you allow a certain level of unsuccessful results. In most cases, you need some special tools provided by digital decisioning products. This challenge gives you an opportunity to try. <a href="http://dmcommunity.org/challenge/challenge-sep-2020/">Link</a></p>

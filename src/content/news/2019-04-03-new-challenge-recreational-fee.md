@@ -1,0 +1,9 @@
+---
+title: "New Challenge “Recreational Fee”"
+date: 2019-04-03
+author: "decisionmanagementcommunity"
+tags: ["Business Rules", "Challenges", "Decision Modeling"]
+legacyPath: "/2019/04/03/new-challenge-recreational-fee/"
+---
+
+<p><a href="/news-media/2019/04/recreationalfee.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6567" data-permalink="https://dmcommunity.org/challenge/challenge-apr-2019/recreationalfee/" data-orig-file="/news-media/2019/04/recreationalfee.jpg" data-orig-size="803,196" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="RecreationalFee" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/04/recreationalfee.jpg" class="alignleft size-thumbnail wp-image-6567" src="/news-media/2019/04/recreationalfee.jpg" alt="" width="150" height="37" /></a>We&#8217;ve just published a simple challenge offered by <a href="http://www.brcommunity.com/a2019/b987.html" target="_blank" rel="noopener">Ron Ross</a>. A city has created a decision table to determine appropriate usage fees for its recreational facilities based on length of usage and when the usage occurs. The city also has the following behavioral business rule: <em>A senior citizen must not be charged a recreational fee for use of facilities.</em> Send us your models of this problem and we will ask Ron to compare different solutions. <a href="http://dmcommunity.org/challenge/challenge-apr-2019/" target="_blank" rel="noopener">Link</a></p>

@@ -1,0 +1,14 @@
+---
+title: "Diagram-based Engineering"
+date: 2023-12-03
+author: "decisionmanagementcommunity"
+tags: ["Diagramming", "LowCode/NoCode"]
+legacyPath: "/2023/12/03/diagram-based-engineering/"
+---
+
+<div class="wp-block-image">
+<figure class="alignleft size-large is-resized"><a href="/news-media/2023/12/diagrambasedengineering.png"><img data-recalc-dims="1" loading="lazy" decoding="async" width="523" height="294" data-attachment-id="12299" data-permalink="https://dmcommunity.org/2023/12/03/diagram-based-engineering/diagrambasedengineering/" data-orig-file="/news-media/2023/12/diagrambasedengineering.png" data-orig-size="523,294" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="diagrambasedengineering" data-image-description="" data-image-caption="" data-large-file="/news-media/2023/12/diagrambasedengineering.png" src="/news-media/2023/12/diagrambasedengineering.png" alt="" class="wp-image-12299" style="width:195px;height:auto" /></a></figure>
+</div>
+
+
+<p class="wp-block-paragraph"><a href="https://www.linkedin.com/in/vincentlextrait/" target="_blank" rel="noreferrer noopener">Vincent Lextrait</a> started an interesting <a href="https://www.linkedin.com/feed/update/urn:li:activity:7135752993487900672/" target="_blank" rel="noreferrer noopener">discussion </a>at LinkedIn about why &#8220;diagram-based engineering&#8221;, an approach Low code/No code belongs to, has been tried every 20 years, and always failed. &#8220;Just ask Grady Booch who co-invented UML. He&#8217;ll tell you that the failure is due to the fact that diagrams are inherently imprecise. Granted they are more precise than natural language, but they still fall short to capture the complexity of business applications. Nobody will try as hard as Grady. It&#8217;s just that the industry has forgotten now, it was 20 years ago (the same idea with flow charts 20 years before failed too). Oh you can deliver stuff, but it&#8217;ll be simple, not future-proof and you&#8217;ll enjoy short happiness. And bad performance. To reach the right level of finesse (and exceed it), you need text-based input: code. This is why math people invented their own language, because natural language was an obstacle to progress.&#8221; <a href="https://www.linkedin.com/feed/update/urn:li:activity:7135752993487900672/">Li</a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7135752993487900672/" target="_blank" rel="noreferrer noopener">n</a><a href="https://www.linkedin.com/feed/update/urn:li:activity:7135752993487900672/">k</a></p>

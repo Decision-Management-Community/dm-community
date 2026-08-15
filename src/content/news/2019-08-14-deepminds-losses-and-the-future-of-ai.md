@@ -1,0 +1,9 @@
+---
+title: "DeepMind’s Losses and the Future of AI"
+date: 2019-08-14
+author: "jacobfeldman"
+tags: ["Artificial Intelligence", "Trends"]
+legacyPath: "/2019/08/14/deepminds-losses-and-the-future-of-ai/"
+---
+
+<p><a href="/news-media/2019/08/wired.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6928" data-permalink="https://dmcommunity.org/2019/08/14/deepminds-losses-and-the-future-of-ai/wired/" data-orig-file="/news-media/2019/08/wired.png" data-orig-size="143,26" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Wired" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/08/wired.png" class="alignleft size-full wp-image-6928" src="/news-media/2019/08/wired.png" alt="" width="143" height="26" /></a>Wired just published an <a href="https://www.wired.com/story/deepminds-losses-future-artificial-intelligence/" target="_blank" rel="noopener">article</a> that analyzes  how the recent DeepMind’s losses will affect AI in general. &#8220;<em>The investment community notices significant losses; if DeepMind’s losses were to continue to roughly double each year, even Alphabet might eventually feel compelled to pull out. And it’s not just the money. There’s also the lack of tangible financial results thus far. At some point, investors might be forced to recalibrate their enthusiasm for AI</em>.&#8221; <a href="https://www.wired.com/story/deepminds-losses-future-artificial-intelligence/" target="_blank" rel="noopener">Link</a></p>

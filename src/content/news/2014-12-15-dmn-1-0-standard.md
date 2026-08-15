@@ -1,12 +1,9 @@
 ---
-title: "DMN 1.0 Becomes an Official Standard"
+title: "DMN 1.0 is an official Standard Now!"
 date: 2014-12-15
-author: "Decision Management Community"
-tags: ["Standards", "DMN"]
-sourceUrl: "https://dmcommunity.org/2014/12/15/dmn-1-0-is-an-official-standard-now/"
+author: "decisionmanagementcommunity"
+tags: ["Standards"]
+legacyPath: "/2014/12/15/dmn-1-0-is-an-official-standard-now/"
 ---
 
-On December 12, 2014, the Object Management Group's Architecture Board formally approved Decision
-Model and Notation (DMN) 1.0. Minor revisions from the OMG's Revision Task Force were still expected,
-but DMN's status as an official standard for modeling and interchanging decision logic was locked in —
-a milestone the community had been tracking closely.
+<p>On Dec. 12, 2014 the OMG® Architecture Board officially approved the Decision Model &amp; Notation Standard™ (<a href="http://www.omg.org/spec/DMN/1.0/Alpha/PDF/" target="_blank">DMN 1.0</a>). While the OMG Revision Task Force is expected to provide additional comments, DMN 1.0 has become an official standard!</p>

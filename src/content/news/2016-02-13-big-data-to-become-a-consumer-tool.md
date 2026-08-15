@@ -1,0 +1,9 @@
+---
+title: "Big Data to Become a Consumer Tool"
+date: 2016-02-13
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2016/02/13/big-data-to-become-a-consumer-tool/"
+---
+
+<p>Today big data is enterprise technology used to analyze markets, risk, fraud, consumers, energy sources, and more. But soon, it will be a consumer tool helping regular people to make better, wiser everyday decisions. For example, Google Now already is able to tell me when to leave for my appointment because it knows where I am, what’s in my calendar, and what road conditions are like. Big data + Smart agents + New Human-Machine Interfaces will be nothing short of transformative for our species, &#8211; predicts <a href="mailto:https://medium.com/@acroll/the-trifecta-driving-the-next-decade-of-tech-7295a07302fd#.ijn85pbva" target="_blank">Alistair Croll.</a><!--more--><a href="/news-media/2016/02/trifesta.png" rel="attachment wp-att-1585"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="1585" data-permalink="https://dmcommunity.org/2016/02/13/big-data-to-become-a-consumer-tool/trifesta/" data-orig-file="/news-media/2016/02/trifesta.png" data-orig-size="800,651" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Trifesta" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/02/trifesta.png" class="alignleft size-full wp-image-1585" src="/news-media/2016/02/trifesta.png" alt="Trifesta" width="640" height="521" /></a></p>

@@ -1,0 +1,9 @@
+---
+title: "Ethical Use of Artificial Intelligence"
+date: 2019-09-29
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Human-Machine Interaction", "Innovation"]
+legacyPath: "/2019/09/29/ethical-use-of-artificial-intelligence/"
+---
+
+<p><a href="/news-media/2019/09/ethicalai.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7079" data-permalink="https://dmcommunity.org/2019/09/29/ethical-use-of-artificial-intelligence/ethicalai/" data-orig-file="/news-media/2019/09/ethicalai.jpg" data-orig-size="259,194" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="EthicalAI" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/09/ethicalai.jpg" class="alignleft size-thumbnail wp-image-7079" src="/news-media/2019/09/ethicalai.jpg" alt="" width="150" height="112" /></a>The topic of the Ethical Use of AI and Digital Decisioning came up many times during <a href="https://decisioncamp2019.wordpress.com/" target="_blank" rel="noopener">DecisionCAMP</a>-2019 and <a href="https://brain2019.inf.unibz.it/" target="_blank" rel="noopener">BRAIN-2019</a> a week ago. Probably our readers would be interested to read this report &#8220;<a href="https://www.soa.org/globalassets/assets/files/resources/research-report/2019/ethics-ai.pdf" target="_blank" rel="noopener">Ethical Use of Artificial Intelligence for Actuaries</a>&#8221; written by Neil Raden.</p>

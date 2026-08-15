@@ -1,0 +1,14 @@
+---
+title: "Decision Modeling and Fairness"
+date: 2024-07-08
+author: "decisionmanagementcommunity"
+tags: ["Algortithms", "Decision Intelligence", "Decision Making", "Fairness", "Optimization"]
+legacyPath: "/2024/07/08/decision-modeling-and-fairness/"
+---
+
+<div class="wp-block-image">
+<figure class="alignleft size-thumbnail"><a href="/news-media/2024/07/image-1.png"><img data-recalc-dims="1" loading="lazy" decoding="async" width="356" height="257" data-attachment-id="12995" data-permalink="https://dmcommunity.org/2024/07/08/decision-modeling-and-fairness/image-19/" data-orig-file="/news-media/2024/07/image-1.png" data-orig-size="356,257" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image" data-image-description="" data-image-caption="" data-large-file="/news-media/2024/07/image-1.png" src="/news-media/2024/07/image-1.png" alt="" class="wp-image-12995" /></a></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Could we achieve fairness in our automatic decision-making? This question was actively discussed in the presentation “<a href="https://www.youtube.com/watch?v=i3Pn8ysPazU">How to make optimal decisions (that are unfair, biased and non-objective</a>)” given by Dr. Guido Tack in May of 2024. While Guido used the famous <a href="https://en.wikipedia.org/wiki/Stable_marriage_problem" target="_blank" rel="noreferrer noopener">Stable Marriage</a> problem as an example, similar problems are everywhere: allocating teachers to classes, service personnel to customers, nurses to shifts, students to universities, donated organs to patients, etc. Guido pointed out that our decisioning algorithms may introduce bias and unfairness in subtle ways. He is discussing different ways to represent fairness as an optimization objective and makes attempts to achieve it following 3 approaches specified by <a href="https://en.wikipedia.org/wiki/Corrado_Gini" target="_blank" rel="noreferrer noopener">Corrago Gini</a>, <a href="https://en.wikipedia.org/wiki/John_Rawls" target="_blank" rel="noreferrer noopener">John Rawls</a>, and <a href="https://en.wikipedia.org/wiki/John_Forbes_Nash_Jr." target="_blank" rel="noreferrer noopener">John Nash</a>. Guido&#8217;s conclusion is not very optimistic: each particular problem may requires its own solution. Still this discussion brings some light to quite complex problems in decision modeling and it&#8217;s already incentivized our <a href="https://dmcommunity.org/challenge/challenge-june-2024/" target="_blank" rel="noreferrer noopener">June-2024 Challenge</a>.</p>

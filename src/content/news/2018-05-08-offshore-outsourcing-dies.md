@@ -1,0 +1,9 @@
+---
+title: "Offshore Outsourcing is Dying"
+date: 2018-05-08
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2018/05/08/offshore-outsourcing-dies/"
+---
+
+<p><a href="/news-media/2018/05/offshore-slowdown.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4311" data-permalink="https://dmcommunity.org/2018/05/08/offshore-outsourcing-dies/offshore-slowdown/" data-orig-file="/news-media/2018/05/offshore-slowdown.jpg" data-orig-size="600,338" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Offshore-Slowdown" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/05/offshore-slowdown.jpg" class="alignleft size-thumbnail wp-image-4311" src="/news-media/2018/05/offshore-slowdown.jpg" alt="" width="150" height="85" /></a>A new <a href="https://www.enterpriseirregulars.com/126855/offshore-outsourcing-died-with-trump-now-value-based-partnerships-are-rising-from-the-ashes/" target="_blank" rel="noopener">research</a> shows that enterprise use of offshore outsourcing is slowing considerably in the US with the last election. Highest performing enterprises are replacing traditional IT outsourcing with value-based partnerships. <a href="https://www.enterpriseirregulars.com/126855/offshore-outsourcing-died-with-trump-now-value-based-partnerships-are-rising-from-the-ashes/" target="_blank" rel="noopener">Link</a></p>

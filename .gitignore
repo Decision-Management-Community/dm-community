@@ -1,5 +1,6 @@
 # build output
 dist/
+public/news-media/
 
 # generated types
 .astro/

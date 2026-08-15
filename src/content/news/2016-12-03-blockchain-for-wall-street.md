@@ -1,0 +1,9 @@
+---
+title: "Blockchain for Wall Street"
+date: 2016-12-03
+author: "decisionmanagementcommunity"
+tags: ["Blockchain", "Trends"]
+legacyPath: "/2016/12/03/blockchain-for-wall-street/"
+---
+
+<p><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2634" data-permalink="https://dmcommunity.org/2016/12/03/blockchain-for-wall-street/blockchain-wallstreet/" data-orig-file="/news-media/2016/12/blockchain-wallstreet.jpg" data-orig-size="166,143" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="blockchain-wallstreet" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/12/blockchain-wallstreet.jpg" class="  wp-image-2634 alignleft" src="/news-media/2016/12/blockchain-wallstreet.jpg" alt="blockchain-wallstreet" width="142" height="122" />A new article &#8220;<a href="http://www.coindesk.com/blockchain-smart-contracts-looming-challenges/" target="_blank">Blockchain Pros Debate &#8216;Looming Challenges&#8217; for Smart Contracts</a>&#8221; talks about Wall Street insiders and blockchain innovators who are trying to sort through when a <a href="http://www.coindesk.com/research/smart-contracts-report/" target="_blank">smart contract</a> is a bad idea, when it&#8217;s a good idea and what stands in the way of widespread proliferation of the technology. Read also about <a href="http://www.wsba.co/" target="_blank">Wall Street Blockchain Alliance</a></p>
