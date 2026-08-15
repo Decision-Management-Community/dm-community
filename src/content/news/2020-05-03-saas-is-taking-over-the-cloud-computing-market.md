@@ -1,0 +1,9 @@
+---
+title: "SaaS is taking over the cloud computing market"
+date: 2020-05-03
+author: "decisionmanagementcommunity"
+tags: ["Challenges", "Cloud Platforms"]
+legacyPath: "/2020/05/03/saas-is-taking-over-the-cloud-computing-market/"
+---
+
+<p><a href="/news-media/2020/05/payasyougo.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7999" data-permalink="https://dmcommunity.org/challenge/challenge-may-2020/payasyougo/" data-orig-file="/news-media/2020/05/payasyougo.png" data-orig-size="276,119" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="PayAsYouGo" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/05/payasyougo.png" class="alignleft size-thumbnail wp-image-7999" src="/news-media/2020/05/payasyougo.png" alt="" width="150" height="65" /></a>SaaS (Software as a Service) is taking over the cloud computing <a href="https://www.superoffice.com/blog/saas/" target="_blank" rel="noopener">market</a>. According to Gartner, SaaS growth is averaging $200 billion in year. Customers like SaaS as they only need to pay for what they actually use without owning the underlying infrastructure. Cloud vendors offer very flexible <strong>pay-as-you-go pricing models</strong>, however their implementations could be quite tricky. Our <a href="http://dmcommunity.org/challenge/challenge-may-2020/">May-2020 Challenge</a> offers you to implement a typical example of pay-as-you-go pricing rules. <a href="http://dmcommunity.org/challenge/challenge-may-2020/">Link</a></p>

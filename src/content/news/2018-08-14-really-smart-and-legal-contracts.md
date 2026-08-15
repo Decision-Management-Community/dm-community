@@ -1,0 +1,9 @@
+---
+title: "REALLY Smart (and Legal!) Contracts"
+date: 2018-08-14
+author: "decisionmanagementcommunity"
+tags: ["Blockchain", "Events"]
+legacyPath: "/2018/08/14/really-smart-and-legal-contracts/"
+---
+
+<p><a href="/news-media/2018/08/smartconstracts.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="5128" data-permalink="https://dmcommunity.org/2018/08/14/really-smart-and-legal-contracts/smartconstracts/" data-orig-file="/news-media/2018/08/smartconstracts.jpg" data-orig-size="318,159" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="SmartConstracts" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/08/smartconstracts.jpg" class="alignleft size-thumbnail wp-image-5128" src="/news-media/2018/08/smartconstracts.jpg" alt="" width="150" height="75" /></a>In this <a href="mailto:https://medium.com/@Clause/really-smart-and-legal-contracts-a77fcd1d0d10" target="_blank" rel="noopener">article</a> Dan Selman introduces &#8220;really&#8221; smart <em class="markup--em markup--p-em">legal</em>  contracts as well as the Open Source <a class="markup--anchor markup--p-anchor" href="https://www.accordproject.org/" target="_blank" rel="nofollow noopener">Accord Project</a>. Dan will be among outstanding <a href="https://decisioncamp2018.wordpress.com/presenters/" target="_blank" rel="noopener">presenters</a> during the upcoming <a href="https://decisioncamp2018.wordpress.com/program/#DanSelman" target="_blank" rel="noopener">DecisionCAMP-2018</a> in Luxembourg on Sep. 17-19.</p>

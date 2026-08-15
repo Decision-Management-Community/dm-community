@@ -1,12 +1,9 @@
 ---
-title: "GPT-3: What Was the Big Deal?"
+title: "GPT-3, the latest evolution in language technology – What is the big deal?"
 date: 2020-09-28
-author: "Decision Management Community"
-tags: ["AI", "Machine Learning"]
-sourceUrl: "https://dmcommunity.org/2020/09/28/gpt-3-the-latest-evolution-in-language-technology-what-is-the-big-deal/"
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Human-Machine Interaction", "Knowledge Representation", "Languages", "Natural Language Processing"]
+legacyPath: "/2020/09/28/gpt-3-the-latest-evolution-in-language-technology-what-is-the-big-deal/"
 ---
 
-When OpenAI's GPT-3 started making the rounds in summer 2020, both AI researchers and the general public
-were sharing examples of what it could produce. This post rounded up the reaction and asked, in
-retrospect a genuinely prescient question, what a much larger language model would actually mean for
-software — years before "LLM" became a household term.
+<p class="wp-block-paragraph"><a href="/news-media/2020/09/gpt-3.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8536" data-permalink="https://dmcommunity.org/2020/09/28/gpt-3-the-latest-evolution-in-language-technology-what-is-the-big-deal/gpt-3/" data-orig-file="/news-media/2020/09/gpt-3.png" data-orig-size="312,218" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="GPT-3" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/09/gpt-3.png" class="alignleft size-thumbnail wp-image-8536" src="/news-media/2020/09/gpt-3.png" alt="" width="150" height="105" /></a>Over the summer 2020, the latest language model from OpenAI, called <a href="https://en.wikipedia.org/wiki/GPT-3" target="_blank" rel="noopener">GPT-3</a>, created a lot of buzz around the internet. Both within the AI community and outside people shared links to numerous examples on what GPT-3 could do, ranging from writing poetry and generating HTML code to answering philosophical questions on the meaning of life. <a href="https://www.ai.se/en/news/gpt-3-latest-evolution-language-technology-what-big-deal" target="_blank" rel="noopener">Link</a></p>

@@ -1,12 +1,13 @@
 ---
 title: "The Rise of Small Language Models (SLMs)"
 date: 2025-07-11
-author: "Decision Management Community"
-tags: ["AI", "LLM"]
-sourceUrl: "https://dmcommunity.org/2025/07/11/the-rise-of-small-language-models-slms/"
+author: "decisionmanagementcommunity"
+tags: ["Gen AI", "LLM", "SLM"]
+legacyPath: "/2025/07/11/the-rise-of-small-language-models-slms/"
 ---
 
-A pointer to Armand Ruiz's writing on why specialized small language models are starting to out-perform
-generalist giants on narrow tasks: cheaper inference, faster iteration, fine-tuning in hours instead of
-weeks, and the ability to run locally and privately. Relevant to anyone weighing whether a
-decision-automation use case really needs a frontier-scale model at all.
+<p class="wp-block-paragraph">Specialized small language models (SLMs) can outperform large, generalist models. Want to learn how? Read Armand Ruiz&#8217;s <a href="https://www.linkedin.com/posts/armand-ruiz_the-rise-of-small-language-models-slms-activity-7349392320657575936-i_da?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAFIMoBtgF6zELsOiwFm0hGYH1dIteE6pQ" target="_blank" rel="noreferrer noopener">post</a> on LinkedIn: &#8220;<em>Inference is cheaper. Iteration is faster. Fine-tuning takes hours, not weeks. SLMs can run locally, privately, and securely and no datacenter needed</em>&#8220;. See the related <a href="https://arxiv.org/abs/2506.02153v1" target="_blank" rel="noreferrer noopener">research</a> paper stating that &#8220;<em>SLMs are sufficiently powerful, inherently more suitable, and necessarily more economical for many invocations in agentic systems, and are therefore the future of agentic AI</em>&#8220;.</p>
+
+
+
+<p class="wp-block-paragraph"></p>

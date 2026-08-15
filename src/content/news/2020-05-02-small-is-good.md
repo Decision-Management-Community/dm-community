@@ -1,0 +1,9 @@
+---
+title: "Small is Good"
+date: 2020-05-02
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2020/05/02/small-is-good/"
+---
+
+<p><a href="/news-media/2020/05/agileend.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7995" data-permalink="https://dmcommunity.org/2020/05/02/small-is-good/agileend/" data-orig-file="/news-media/2020/05/agileend.png" data-orig-size="481,320" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="AgileEnd" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/05/agileend.png" class="alignleft  wp-image-7995" src="/news-media/2020/05/agileend.png" alt="" width="107" height="71" /></a>In his article &#8220;<a href="https://www.forbes.com/sites/cognitiveworld/2019/08/23/the-end-of-agile/#228003fc2071" target="_blank" rel="noopener">The End of Agile</a>&#8221; Kurt Cagle wrote: &#8220;<em>The Agile Manifesto, like most such screeds, started out as a really good idea. The core principle was simple &#8211; you didn&#8217;t really need large groups of people working on software projects to get them done. If anything, beyond a certain point extra people just added to the communication impedance and slowed a project down.</em>&#8221; What did go wrong?  Read <a href="https://www.forbes.com/sites/cognitiveworld/2019/08/23/the-end-of-agile/#228003fc2071" target="_blank" rel="noopener">here</a></p>

@@ -1,0 +1,9 @@
+---
+title: "From “Decision Support” to “Reengineering Decision Making”"
+date: 2022-06-22
+author: "decisionmanagementcommunity"
+tags: ["Business Analytics", "Decision Making", "Events"]
+legacyPath: "/2022/06/22/from-decision-support-to-reengineering-decision-making/"
+---
+
+<p class="wp-block-paragraph">In Nov-2020, Gartner published a report ‘<a rel="noreferrer noopener" href="https://www.gartner.com/en/documents/3993169/the-future-of-data-and-analytics-reengineering-the-decis" target="_blank"><em>The Future of Data and Analytics: Reengineering the Decision, 2025</em></a>’. It stated, “Decision making is becoming more connected, more contextual and more continuous. The current state of decision making is unsustainable. We define reengineering decision making as the fundamental rethinking of business decisions to achieve dramatic improvements in critical, contemporary measures of performance, such as business value, cost, quality, service and speed.” In <a rel="noreferrer noopener" href="https://www.gartner.com/en/conferences/na/symposium-us/agenda?utm_campaign=EVT_NA_2022_SYM32_BB_E3_Prospect_MSE_Agenda&amp;utm_medium=email&amp;utm_source=Eloqua&amp;cm_mmc=Eloqua-_-Email-_-LM_EVT_NA_2022_SYM32_BB_E3_Prospect_MSE_Agenda-_-0000" target="_blank">Oct-2022</a>, Frank Buytendijk from Gartner will present &#8220;<strong>The Future of Data and Analytics: Reengineering the Decision 2025</strong>&#8221; that states: &#8220;Decisions complexity needs to be mastered. How can you make decision-making a competitive differentiator?&#8221; <a href="https://www.gartner.com/en/conferences/na/symposium-us/agenda?utm_campaign=EVT_NA_2022_SYM32_BB_E3_Prospect_MSE_Agenda&amp;utm_medium=email&amp;utm_source=Eloqua&amp;cm_mmc=Eloqua-_-Email-_-LM_EVT_NA_2022_SYM32_BB_E3_Prospect_MSE_Agenda-_-0000" target="_blank" rel="noreferrer noopener">Link</a></p>

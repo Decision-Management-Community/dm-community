@@ -1,0 +1,10 @@
+---
+title: "Assessing Cardiovascular Risk Factors with Computer Vision"
+date: 2018-03-15
+author: "decisionmanagementcommunity"
+tags: ["Machine Learning"]
+legacyPath: "/2018/03/15/assessing-cardiovascular-risk-factors-with-computer-vision/"
+---
+
+<p>Google Brain Team: &#8220;<em>Recently, we’ve seen many examples of how deep learning techniques can help to increase the accuracy of diagnoses for medical imaging, especially for <a href="https://research.googleblog.com/2016/11/deep-learning-for-detection-of-diabetic.html" target="_blank" rel="noopener">diabetic eye disease</a>. In “<a href="http://rdcu.be/Hlzy" target="_blank" rel="noopener">Prediction of Cardiovascular (CV) Risk Factors from Retinal Fundus Photographs via Deep Learning</a>” we show that in addition to detecting eye disease, images of the eye can very accurately predict other indicators of CV health. This discovery is particularly exciting because it suggests we might discover even more ways to diagnose health issues from retinal images.</em>&#8221; <!--more--><br />
+&#8220;<em>Using deep learning algorithms trained on data from 284,335 patients, we were able to predict CV risk factors from retinal images with surprisingly high accuracy for patients from two independent datasets of 12,026 and 999 patients. For example, our algorithm could distinguish the retinal images of a smoker from that of a non-smoker 71% of the time. In addition, while doctors can typically distinguish between the retinal images of patients with severe high blood pressure and normal patients, our algorithm could go further to predict the systolic blood pressure within 11 mmHg on average for patients overall, including those with and without high blood pressure.</em>&#8221; Read <a href="https://research.googleblog.com/2018/02/assessing-cardiovascular-risk-factors.html?utm_source=Benedict%27s+newsletter&amp;utm_campaign=8ee6c5147d-Benedict%27s+Newsletter&amp;utm_medium=email&amp;utm_term=0_4999ca107f-8ee6c5147d-70388429" target="_blank" rel="noopener">more</a></p>

@@ -1,0 +1,9 @@
+---
+title: "Intelligent Chatboats for Commercial Interactions"
+date: 2018-11-15
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Human-Machine Interaction", "Natural Language Processing"]
+legacyPath: "/2018/11/15/intelligent-chatboats-for-commercial-interactions/"
+---
+
+<p><a href="/news-media/2018/11/chatbot.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6081" data-permalink="https://dmcommunity.org/2018/11/15/intelligent-chatboats-for-commercial-interactions/chatbot/" data-orig-file="/news-media/2018/11/chatbot.jpg" data-orig-size="569,799" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Chatbot" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/11/chatbot.jpg" class="alignleft wp-image-6081" src="/news-media/2018/11/chatbot.jpg" alt="" width="93" height="130" /></a>The NY Times Magazine published an article called &#8220;INTELLIGENT CHATBOTS COULD AUTOMATE AWAY NEARLY ALL OF OUR COMMERCIAL INTERACTIONS&#8221;. Andrew NG tweeted today: &#8220;<em>Great article about how chatbots like HiWoebot will be one of the most important applications of NLP. It feels like we&#8217;re over the chatbot hype, but the movement continues to take off.</em> &#8221; Read the <a href="https://www.nytimes.com/interactive/2018/11/14/magazine/tech-design-ai-chatbot.html" target="_blank" rel="noopener">article</a></p>

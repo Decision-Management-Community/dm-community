@@ -1,0 +1,9 @@
+---
+title: "Learning to Learn"
+date: 2020-01-04
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Machine Learning"]
+legacyPath: "/2020/01/04/learning-to-learn/"
+---
+
+<p class="speakable-paragraph"><a href="/news-media/2020/01/learningtolearn.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7522" data-permalink="https://dmcommunity.org/2020/01/04/learning-to-learn/learningtolearn/" data-orig-file="/news-media/2020/01/learningtolearn.png" data-orig-size="336,197" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="LearningToLearn" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/01/learningtolearn.png" class="alignleft size-thumbnail wp-image-7522" src="/news-media/2020/01/learningtolearn.png" alt="" width="150" height="88" /></a>We humans have the unique ability to learn from any situation or surrounding. We adapt our learning. We can figure out how we can learn. To acquire this kind of flexibility in learning, AI needs to have an effective and efficient way to learn about the learning process. The “learning to learn” problem (or Meta-Learning) appeared when technologists are trying to solve the exponential increase in computing power, as AI started to infer from data with increasing complexity. Read <a href="https://www.forbes.com/sites/cognitiveworld/2019/11/16/can-artificial-intelligence-learn-tolearn/#4629d0733df7" target="_blank" rel="noopener">more</a></p>

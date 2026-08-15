@@ -1,0 +1,9 @@
+---
+title: "Lex Fridman: Escaping the Local Optimum of Low Expectation"
+date: 2020-04-03
+author: "jacobfeldman"
+tags: ["Artificial Intelligence"]
+legacyPath: "/2020/04/03/lex-fridman-escaping-the-local-optimum-of-low-expectation/"
+---
+
+<p><a href="/news-media/2020/04/lexfridman.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7823" data-permalink="https://dmcommunity.org/2020/04/03/lex-fridman-escaping-the-local-optimum-of-low-expectation/lexfridman/" data-orig-file="/news-media/2020/04/lexfridman.jpg" data-orig-size="200,200" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="LexFridman" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/04/lexfridman.jpg" class="alignleft  wp-image-7823" src="/news-media/2020/04/lexfridman.jpg" alt="" width="94" height="94" /></a>Many of well-known experts in the knowledge representation, decision management, machine learning, and AI in general are interested to know what is in the mind of the next generation of AI researchers. <a href="https://www.linkedin.com/in/lexfridman/" target="_blank" rel="noopener">Lex Fridman</a> is a young but already well-known researcher in human-centered AI, autonomous vehicles, and deep learning whom many of us like to listen and to learn from.  His latest revelations can be found in this <a href="https://www.youtube.com/watch?v=5qjA8HPJl_0" target="_blank" rel="noopener">video</a>.</p>

@@ -1,0 +1,9 @@
+---
+title: "DMN 1.3 Approved"
+date: 2019-12-10
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling", "DMN", "Standards"]
+legacyPath: "/2019/12/10/dmn-1-3-approved/"
+---
+
+<p><a href="/news-media/2019/12/dmn13.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7449" data-permalink="https://dmcommunity.org/2019/12/10/dmn-1-3-approved/dmn13/" data-orig-file="/news-media/2019/12/dmn13.png" data-orig-size="103,103" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DMN13" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/12/dmn13.png" class="alignleft size-full wp-image-7449" src="/news-media/2019/12/dmn13.png" alt="" width="103" height="103" /></a>The new version 1.3 of the Decision Modeling and Notation (<a href="https://www.omg.org/spec/DMN" target="_blank" rel="noopener">DMN</a>) standard<span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0"> was approved by the OMG AB on Dec. 9, 2019. Apart from numerous corrections and clarifications, it gives us visual grouping, <a href="https://decisioncamp2019.files.wordpress.com/2019/09/dc2019.denisgagne-1.pdf" target="_blank" rel="noopener">temporal reasoning</a>, and better examples. It should be published in 2-3 months; until then OMG members can see it <a href="https://t.co/bnGsKyihJx?amp=1" target="_blank" rel="noopener">here.</a></span></p>

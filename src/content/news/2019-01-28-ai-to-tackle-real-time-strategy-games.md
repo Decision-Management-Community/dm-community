@@ -1,0 +1,9 @@
+---
+title: "AI to Tackle Real-Time Strategy Games"
+date: 2019-01-28
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Games"]
+legacyPath: "/2019/01/28/ai-to-tackle-real-time-strategy-games/"
+---
+
+<p><a href="/news-media/2019/01/alphastar.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6295" data-permalink="https://dmcommunity.org/2019/01/28/ai-to-tackle-real-time-strategy-games/alphastar/" data-orig-file="/news-media/2019/01/alphastar.jpg" data-orig-size="614,529" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="alphastar" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/01/alphastar.jpg" class="alignleft size-thumbnail wp-image-6295" src="/news-media/2019/01/alphastar.jpg" alt="" width="150" height="129" /></a>Google&#8217;s Deepmind has released an attempt at tackling StarCraft, considered to be one of the most challenging Real-Time Strategy (RTS) games, that has emerged by consensus as a “grand challenge” for AI research. Starcraft has many more complex elements than Chess or Go: lots of different things going on, information is imperfect and you have to pay in real time against the opponent. So, the new AI techniques become applicable to more real-world situations. <a href="https://deepmind.com/blog/alphastar-mastering-real-time-strategy-game-starcraft-ii" target="_blank" rel="noopener">Link</a></p>

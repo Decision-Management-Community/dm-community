@@ -1,12 +1,9 @@
 ---
-title: "The Dawn of Digital Decisioning — A Forrester Report"
+title: "The Dawn of Digital Decisioning – A Forrester Report"
 date: 2018-04-19
-author: "Decision Management Community"
-tags: ["Analyst Report", "Decision Intelligence"]
-sourceUrl: "https://dmcommunity.org/2018/04/19/the-dawn-of-digital-decisioning-a-forrester-report/"
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling", "Products", "Trends"]
+legacyPath: "/2018/04/19/the-dawn-of-digital-decisioning-a-forrester-report/"
 ---
 
-James Taylor summarized a Forrester Research report, "The Dawn Of Digital Decisioning," which argued for
-treating decisions — not just processes — as first-class things worth managing deliberately, and offered
-recommendations for how organizations should approach that shift. The full report was paywalled, but the
-community discussion focused on how well its framing matched what practitioners were already seeing.
+<p><a href="/news-media/2018/04/forrester.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4191" data-permalink="https://dmcommunity.org/2018/04/19/the-dawn-of-digital-decisioning-a-forrester-report/forrester/" data-orig-file="/news-media/2018/04/forrester.jpg" data-orig-size="138,43" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Forrester" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/04/forrester.jpg" class="alignleft size-full wp-image-4191" src="/news-media/2018/04/forrester.jpg" alt="" width="138" height="43" /></a>James Taylor provides a brief <a href="http://jtonedm.com/2018/04/19/the-dawn-of-digital-decisioning-a-forrester-report/" target="_blank" rel="noopener">overview</a> of the just published Forrester Research report  &#8220;<a id="m_4241529969093126832LPlnk904010" class="m_4241529969093126832OWAAutoLink" href="http://www.forrester.com/go?objectid=RES141568" target="_blank" rel="noopener"></a><a href="http://www.forrester.com/go?objectid=RES141568" target="_blank" rel="noopener">The Dawn Of Digital Decisioning</a>&#8221; <span style="font-size:small;">($499)</span> that makes great points about the power of Decision Management and provides recommendations about how best to approach Digital Decisioning: &#8220;<em>When and how will vendors step up to provide platforms that simplify delivery of digital decisioning? Which vendors are leading the trend? This research will define digital decisions and their requirements, setting the stage for assessments of the vendor landscape and leading digital decisioning platforms in a Forrester Wave™</em>&#8220;.</p>

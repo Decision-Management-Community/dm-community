@@ -1,0 +1,9 @@
+---
+title: "IBM Decision Optimization Community"
+date: 2020-05-05
+author: "decisionmanagementcommunity"
+tags: ["Decision Optimization"]
+legacyPath: "/2020/05/05/ibm-decision-optimization-community/"
+---
+
+<p><span class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0"><a href="/news-media/2020/05/ibm.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8041" data-permalink="https://dmcommunity.org/2020/05/05/ibm-decision-optimization-community/ibm/" data-orig-file="/news-media/2020/05/ibm.png" data-orig-size="75,46" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="IBM" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/05/ibm.png" class="alignleft size-full wp-image-8041" src="/news-media/2020/05/ibm.png" alt="" width="75" height="46" /></a>IBM announced a new Decision Optimization Community that consolidates all old related groups. This community is dedicated to all topics related to Decision Optimization, ranging from CPLEX and CP Optimizer to OPL, DOcplex, model development in Watson Studio and deployment in Watson Machine Learning. You can join this community for free at </span><a class="css-4rbku5 css-18t94o4 css-901oao css-16my406 r-1n1174f r-1loqt21 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutc0" title="http://ibm.biz/DOcommunity" role="link" href="https://t.co/Wr2AvBOXaf?amp=1" target="_blank" rel="noopener noreferrer"><span class="css-901oao css-16my406 r-1qd0xha r-hiw28u r-ad9z0x r-bcqeeo r-qvutc0" aria-hidden="true">http://</span>ibm.biz/DOcommunity</a></p>

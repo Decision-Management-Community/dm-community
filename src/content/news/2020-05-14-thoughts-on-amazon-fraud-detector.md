@@ -1,0 +1,9 @@
+---
+title: "Thoughts on Amazon Fraud Detector"
+date: 2020-05-14
+author: "decisionmanagementcommunity"
+tags: ["AWS", "Fraud Prevention"]
+legacyPath: "/2020/05/14/thoughts-on-amazon-fraud-detector/"
+---
+
+<p><a href="/news-media/2017/01/fraud.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2704" data-permalink="https://dmcommunity.org/challenge/challenge-feb-2017/fraud/" data-orig-file="/news-media/2017/01/fraud.jpg" data-orig-size="216,162" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fraud" data-image-description="" data-image-caption="" data-large-file="/news-media/2017/01/fraud.jpg" class="alignleft size-thumbnail wp-image-2704" src="/news-media/2017/01/fraud.jpg" alt="" width="150" height="113" /></a>Kenny Shi, a fraud prevention professional,  shares his thoughts on AWS&#8217;s offering of  <a href="https://docs.aws.amazon.com/frauddetector/index.html" target="_blank" rel="noopener">Amazon Fraud Detector.</a> Besides many interesting capabilities, it includes a simplified Fraud Detector&#8217;s expression language: &#8220;<em>When writing decision rules, the available variables include those supplied in the training data set (email, time, IP), plus the model score. What would be exciting is to offer the augmented and transformed variables, which AWS has added insight to, to rule writing as well</em>.&#8221;  <a href="https://www.linkedin.com/pulse/thoughts-amazon-fraud-detector-kenny-shi/?trackingId=8kIUF9WF2spDwg%2B8UfeHPg%3D%3D" target="_blank" rel="noopener">Link</a></p>

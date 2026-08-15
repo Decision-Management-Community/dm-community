@@ -1,0 +1,9 @@
+---
+title: "Listen AI Song that Mimics the Beatles"
+date: 2016-09-27
+author: "decisionmanagementcommunity"
+tags: ["Misc", "Trends"]
+legacyPath: "/2016/09/27/listen-ai-song-that-mimics-the-beatles/"
+---
+
+<p><a href="https://www.youtube.com/watch?v=LSHZ_b05W7o" target="_blank"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2346" data-permalink="https://dmcommunity.org/2016/09/27/listen-ai-song-that-mimics-the-beatles/robotmusic/" data-orig-file="/news-media/2016/09/robotmusic.jpg" data-orig-size="276,180" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="robotmusic" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/09/robotmusic.jpg" class="alignleft  wp-image-2346" src="/news-media/2016/09/robotmusic.jpg" alt="robotmusic" width="227" height="148" /></a>&#8220;Yes, it seems that the scientific brains in Sony’s CSL Research Laboratory have been busy reinventing the notion of a “hit factory” with their latest project, FlowMachines. Feeding their invention a rich database of songs from a wide array of genres, FlowMachines has managed not only to learn and display its knowledge of these different musical styles, but actually have the capacity to put its own computer-y spin on it.&#8221; Read <a href="https://inews.co.uk/opinion/first-song-written-artificial-intelligence-mimics-beatles-quite-good/" target="_blank">more </a></p>

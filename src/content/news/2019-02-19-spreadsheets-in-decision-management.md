@@ -1,0 +1,9 @@
+---
+title: "Spreadsheets in Decision Management"
+date: 2019-02-19
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling", "Spreadsheets"]
+legacyPath: "/2019/02/19/spreadsheets-in-decision-management/"
+---
+
+<p><a href="/news-media/2019/02/spreadsheets.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6369" data-permalink="https://dmcommunity.org/2019/02/19/spreadsheets-in-decision-management/spreadsheets/" data-orig-file="/news-media/2019/02/spreadsheets.jpg" data-orig-size="300,282" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="spreadsheets" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/02/spreadsheets.jpg" class="alignleft  wp-image-6369" src="/news-media/2019/02/spreadsheets.jpg" alt="" width="120" height="113" /></a>On March 14 Carole-Ann Berlioz from Sparkling Logic will run the webinar  &#8220;<a href="http://www.anymeeting.com/PIID=ED58DD89884B3F" target="_blank" rel="noopener noreferrer">Spreadsheets in Decision Management</a>&#8220;: &#8220;<em>In some cases, spreadsheets are translated into business rules, in others, they remain the format of choice for maintenance, while systems must learn how to interpret them at runtime</em>&#8221; <a href="https://www.sparklinglogic.com/webinar/spreadsheets-in-decision-management/" target="_blank" rel="noopener noreferrer">Link</a>  <a href="https://decisioncamp2018.files.wordpress.com/2018/09/decisioncamp2018-sparkling-logic.pdf" target="_blank" rel="noopener noreferrer">Presentation</a> at DecisionCAMP-2018</p>

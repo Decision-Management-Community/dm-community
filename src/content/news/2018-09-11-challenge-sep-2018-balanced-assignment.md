@@ -1,0 +1,9 @@
+---
+title: "Challenge Sep-2018 “Balanced Assignment”"
+date: 2018-09-11
+author: "decisionmanagementcommunity"
+tags: ["Business Analytics", "Challenges", "Decision Modeling", "Decision Optimization"]
+legacyPath: "/2018/09/11/challenge-sep-2018-balanced-assignment/"
+---
+
+<p><a href="http://dmcommunity.org/challenge/challenge-sep-2018/"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="5388" data-permalink="https://dmcommunity.org/challenge/challenge-sep-2018/balancedassignment/" data-orig-file="/news-media/2018/09/balancedassignment.jpg" data-orig-size="318,159" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="BalancedAssignment" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/09/balancedassignment.jpg" class="alignleft size-thumbnail wp-image-5388" src="/news-media/2018/09/balancedassignment.jpg" alt="" width="150" height="75" /></a>This <a href="http://dmcommunity.org/challenge/challenge-sep-2018/" rel="noopener">challenge </a>deals with assignment of people to certain activities, for instance: assigning students to project groups or assigning professors to offices.  We are using the problem formulation and test data provided by Prof. Robert Fourer (<a href="http://www.ampl.com" target="_blank" rel="noopener">AMPL</a>). We expect that not only special optimization tools like AMPL but traditional business decision modeling tools can be used to define and solve the problem. See the <a href="http://dmcommunity.org/challenge/challenge-sep-2018/" rel="noopener">challenge</a></p>

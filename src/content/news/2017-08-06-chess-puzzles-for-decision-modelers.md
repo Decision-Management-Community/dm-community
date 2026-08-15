@@ -1,0 +1,9 @@
+---
+title: "Chess Puzzles for Decision Modelers"
+date: 2017-08-06
+author: "decisionmanagementcommunity"
+tags: ["Challenges", "Misc"]
+legacyPath: "/2017/08/06/chess-puzzles-for-decision-modelers/"
+---
+
+<p><a href="/news-media/2017/08/fools_mate_animation.gif"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="3253" data-permalink="https://dmcommunity.org/2017/08/06/chess-puzzles-for-decision-modelers/fools_mate_animation/" data-orig-file="/news-media/2017/08/fools_mate_animation.gif" data-orig-size="244,248" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Fools_mate_animation" data-image-description="" data-image-caption="" data-large-file="/news-media/2017/08/fools_mate_animation.gif" class="alignleft  wp-image-3253" src="/news-media/2017/08/fools_mate_animation.gif" alt="" width="188" height="191" /></a>Sometimes <a href="/news/2017-03-27-retrograde-analysis-and-decision-modeling/">complex business logic reminds chess puzzles</a>. So, we decided from time to time to publish chess puzzles for decision modelers who are tired of solving complex decision modeling problems.  Some puzzles are very simple while others may be more complex, but you don’t have to be a chess master to solve the most of them like you don’t have to be an experienced developer to represent your business decision logic. Visit our new page <a href="http://dmcommunity.org/challenge/chess-puzzles/">Chess Puzzles</a> and enjoy!</p>

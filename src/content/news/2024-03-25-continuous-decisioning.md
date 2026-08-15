@@ -1,0 +1,14 @@
+---
+title: "Continuous Decisioning"
+date: 2024-03-25
+author: "decisionmanagementcommunity"
+tags: ["CI/CD", "Decision Intelligence", "Decision Modeling"]
+legacyPath: "/2024/03/25/continuous-decisioning/"
+---
+
+<div class="wp-block-image">
+<figure class="alignleft size-thumbnail"><a href="/news-media/2024/03/continuousdecisionmaking.png"><img data-recalc-dims="1" loading="lazy" decoding="async" width="640" height="349" data-attachment-id="12632" data-permalink="https://dmcommunity.org/2024/03/25/continuous-decisioning/continuousdecisionmaking/" data-orig-file="/news-media/2024/03/continuousdecisionmaking.png" data-orig-size="695,379" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="continuousdecisionmaking" data-image-description="" data-image-caption="" data-large-file="/news-media/2024/03/continuousdecisionmaking.png" src="/news-media/2024/03/continuousdecisionmaking.png" alt="" class="wp-image-12632" /></a></figure>
+</div>
+
+
+<p class="wp-block-paragraph">Arash Aghlara started a good discussion at <a href="https://www.linkedin.com/posts/arashaghlara_decisionintelligence-decisionintelligence-activity-7177763612776624128-rUaj?utm_source=share&amp;utm_medium=member_desktop" target="_blank" rel="noreferrer noopener">LinkedIn</a>: &#8220;<em>Many times, based on the decisions that we execute on a specific case, we influence the future of the case. Although the case is the same but, it belongs to an altered situation where the decision we had executed has changed the situation of the case. Now, in this new state of the case, the already applied decision is either still applicable or we need a set of new decision models based on the new states of the case and the new situations the case belongs to.<br><br>The fact is that the case&#8217;s final outcome has not yet been determined by the first cycle of decision execution. We still need to continuously execute more decisions on the case until the final outcome is conclusive. Or we determine the outcome is inconclusive, so we need an alternative approach (manual review, domain expert input, marking the case infeasible, etc.) to finalize the case and find the best outcome for the case</em>.&#8221; <a href="https://www.linkedin.com/posts/arashaghlara_decisionintelligence-decisionintelligence-activity-7177763612776624128-rUaj?utm_source=share&amp;utm_medium=member_desktop" target="_blank" rel="noreferrer noopener">Link</a></p>

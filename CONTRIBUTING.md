@@ -66,10 +66,9 @@ fails with a specific error telling you what to fix.
 
 ## Backfilling the historical archive
 
-This rebuild intentionally migrated a modern platform plus a growing set of historical content,
-rather than trying to move twelve-plus years of the old WordPress site in one pass. The original
-site (dmcommunity.org's WordPress install) is still the source of truth for whatever hasn't been
-migrated yet.
+The complete WordPress News archive was imported in August 2026. The GitHub repository is now the
+source of truth for those posts; the original site should only be needed to investigate an import
+problem or recover a missing attachment.
 
 If you want to help backfill more of it:
 

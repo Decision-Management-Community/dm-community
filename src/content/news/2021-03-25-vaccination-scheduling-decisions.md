@@ -1,0 +1,9 @@
+---
+title: "Vaccination Scheduling Decisions"
+date: 2021-03-25
+author: "decisionmanagementcommunity"
+tags: ["Constraint Programming", "Coronavirus", "Decision Modeling", "Optimization", "Scheduling and Resource Allocation"]
+legacyPath: "/2021/03/25/vaccination-scheduling-decisions/"
+---
+
+<p style="text-align:left;"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="9222" data-permalink="https://dmcommunity.org/2021/03/25/vaccination-scheduling-decisions/vaccinationscheduling/" data-orig-file="/news-media/2021/03/vaccinationscheduling.png" data-orig-size="852,607" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="VaccinationScheduling" data-image-description="" data-image-caption="" data-large-file="/news-media/2021/03/vaccinationscheduling.png" class="wp-image-9222 alignleft" src="/news-media/2021/03/vaccinationscheduling.png" alt="VaccinationScheduling" width="130" height="93" /><a href="https://www.linkedin.com/posts/ge0ffrey_user-friendly-vaccination-appointment-scheduling-activity-6780553159728214016-2H2D" target="_blank" rel="noopener">Geoffrey De Smet</a> created a vaccination scheduling software. He discovered an interesting Vaccination Appointment Scheduling Paradox<em>: It&#8217;s more user friendly if people can NOT choose their own appointment</em>. Watch <a href="https://www.youtube.com/watch?v=1LIXoxUwPXY&amp;t=1s" target="_blank" rel="noopener">video</a></p>

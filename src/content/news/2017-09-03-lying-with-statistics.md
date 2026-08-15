@@ -1,0 +1,9 @@
+---
+title: "Lying with Statistics"
+date: 2017-09-03
+author: "decisionmanagementcommunity"
+tags: ["Business Analytics", "Misc", "Trends"]
+legacyPath: "/2017/09/03/lying-with-statistics/"
+---
+
+<p><a href="https://www.amazon.com/How-Lie-Statistics-Darrell-Huff/dp/0393310728/?tag=flowingdata-20" target="_blank" rel="noopener"></a><a href="/news-media/2017/09/lyingwithstatistics.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="3303" data-permalink="https://dmcommunity.org/2017/09/03/lying-with-statistics/lyingwithstatistics/" data-orig-file="/news-media/2017/09/lyingwithstatistics.png" data-orig-size="2180,950" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="LyingWithStatistics" data-image-description="" data-image-caption="" data-large-file="/news-media/2017/09/lyingwithstatistics.png" class="alignleft size-thumbnail wp-image-3303" src="/news-media/2017/09/lyingwithstatistics.png" alt="" width="150" height="65" /></a><a href="https://www.amazon.com/How-Lie-Statistics-Darrell-Huff/dp/0393310728/?tag=flowingdata-20" target="_blank" rel="noopener">Lying with statistics</a> has been a thing for a long time, but charts tend to spread far and wide these days. There’s a lot of them. Some don’t tell the truth. Maybe you glance at it and that’s it, but a simple message sticks and builds. Read &#8220;<a href="https://flowingdata.com/2017/02/09/how-to-spot-visualization-lies/" target="_blank" rel="noopener">How to Spot Visualization Lies</a>&#8221; to keep your eyes open.</p>

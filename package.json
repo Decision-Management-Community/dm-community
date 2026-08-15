@@ -4,11 +4,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/extract-news-media.mjs",
     "dev": "astro dev",
+    "prestart": "node scripts/extract-news-media.mjs",
     "start": "astro dev",
+    "prebuild": "node scripts/extract-news-media.mjs",
     "build": "astro check && astro build && pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
+    "validate-news": "node scripts/validate-news.mjs",
+    "pack-news-media": "python scripts/pack-news-media.py",
     "check-links": "node scripts/check-links.mjs"
   },
   "dependencies": {

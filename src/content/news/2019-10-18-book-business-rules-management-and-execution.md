@@ -1,0 +1,13 @@
+---
+title: "Book “Business Rules: Management and Execution”"
+date: 2019-10-18
+author: "jacobfeldman"
+tags: ["Books", "Business Rules", "Case Studies"]
+legacyPath: "/2019/10/18/book-business-rules-management-and-execution/"
+---
+
+<p><a href="/news-media/2019/10/bookbr.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7209" data-permalink="https://dmcommunity.org/2019/10/18/book-business-rules-management-and-execution/bookbr/" data-orig-file="/news-media/2019/10/bookbr.png" data-orig-size="250,352" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="BookBR" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/10/bookbr.png" class="alignleft size-thumbnail wp-image-7209" src="/news-media/2019/10/bookbr.png" alt="" width="107" height="150" /></a>This book &#8220;<a href="https://www.amazon.com/dp/0986321486" target="_blank" rel="noopener">Business Rules: Management and Execution</a>&#8221; has been just published at <a href="https://www.amazon.com/dp/0986321486" target="_blank" rel="noopener">Amazon</a>.  It consists of 2 parts:<br />
+Part 1: Business Rules Management<br />
+Part 2: Execution. Award Winning Case Studies</p>
+<p><a href="https://www.amazon.com/dp/0986321486" target="_blank" rel="noopener">Link</a> <!--more--></p>
+<p><a href="/news-media/2019/10/bookbrbackcover.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="7211" data-permalink="https://dmcommunity.org/2019/10/18/book-business-rules-management-and-execution/bookbrbackcover/" data-orig-file="/news-media/2019/10/bookbrbackcover.png" data-orig-size="544,759" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="BookBRbackcover" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/10/bookbrbackcover.png" class="alignleft size-full wp-image-7211" src="/news-media/2019/10/bookbrbackcover.png" alt="" width="544" height="759" /></a></p>

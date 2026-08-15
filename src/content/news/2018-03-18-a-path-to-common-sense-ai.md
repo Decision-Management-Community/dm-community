@@ -1,0 +1,9 @@
+---
+title: "A Path to Common Sense AI?"
+date: 2018-03-18
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence"]
+legacyPath: "/2018/03/18/a-path-to-common-sense-ai/"
+---
+
+<p><a href="/news-media/2018/03/commonsenseai.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4014" data-permalink="https://dmcommunity.org/2018/03/18/a-path-to-common-sense-ai/commonsenseai/" data-orig-file="/news-media/2018/03/commonsenseai.jpg" data-orig-size="1111,670" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="CommonSenseAI" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/03/commonsenseai.jpg" class="alignleft size-thumbnail wp-image-4014" src="/news-media/2018/03/commonsenseai.jpg" alt="" width="150" height="90" /></a>Our recent <a href="/news/2018-03-06-paul-allen-wants-to-teach-machines-common-sense/">post</a> talks about Paul Allen&#8217;s intention to teach computers common sense. This LinkedIn&#8217;s <a href="https://www.linkedin.com/pulse/machine-learning-reading-path-paul-allens-common-ai-berkan-ph-d/?trackingId=fsIWVBLtOsouhRv1t6e%2BKw%3D%3D" target="_blank" rel="noopener">post</a> is attempting to define a path for common sense reasoning (click on the image): &#8220;<em>For computers to operate at the &#8220;common sense&#8221; level, they are required to resolve (1) common sense reasoning from logic, (2) logic from available knowledge, (3) knowledge from available information, and (4) information from available data.</em>&#8220;</p>

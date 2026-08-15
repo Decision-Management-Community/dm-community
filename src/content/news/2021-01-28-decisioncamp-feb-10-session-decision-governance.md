@@ -1,0 +1,9 @@
+---
+title: "DecisionCAMP Feb-10 Session “Decision Governance”"
+date: 2021-01-28
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling"]
+legacyPath: "/2021/01/28/decisioncamp-feb-10-session-decision-governance/"
+---
+
+<p><a href="/news-media/2020/11/decisioncampmonthlysession.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8629" data-permalink="https://dmcommunity.org/decisioncamp/minicamps/decisioncampmonthlysession/" data-orig-file="/news-media/2020/11/decisioncampmonthlysession.png" data-orig-size="160,98" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionCAMPMonthlySession" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/11/decisioncampmonthlysession.png" class="alignleft size-thumbnail wp-image-8629" src="/news-media/2020/11/decisioncampmonthlysession.png" alt="" width="150" height="92" /></a>On <strong>Feb 10, 2021 at 12:00 PM EST</strong> Larry Goldberg from Sapiens Decision will present <strong>“Decision Governance”. </strong>“<em>Today we understand that decisions made in business systems at scale determine not only the financial success of each organization, but indeed its very character. Consequently, governance over the design, testing and deployment of those decisions becomes critical to the success of the enterprise. This talk discusses the principals of governance in Sapiens Decision, and the means for its implementation.</em>” ‌‌‌<a href="http://dmcommunity.org/decisioncamp/decisioncamp-session-on-february-10/">Register</a></p>

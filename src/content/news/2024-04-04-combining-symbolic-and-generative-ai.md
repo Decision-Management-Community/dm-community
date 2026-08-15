@@ -1,0 +1,14 @@
+---
+title: "Combining Symbolic and Generative AI"
+date: 2024-04-04
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Decision Intelligence", "Knowledge Representation"]
+legacyPath: "/2024/04/04/combining-symbolic-and-generative-ai/"
+---
+
+<div class="wp-block-image">
+<figure class="alignleft size-thumbnail is-resized"><a href="/news-media/2024/04/image-1.png"><img data-recalc-dims="1" loading="lazy" decoding="async" width="414" height="339" data-attachment-id="12660" data-permalink="https://dmcommunity.org/2024/04/04/combining-symbolic-and-generative-ai/image-1-5/" data-orig-file="/news-media/2024/04/image-1.png" data-orig-size="414,339" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="image-1" data-image-description="" data-image-caption="" data-large-file="/news-media/2024/04/image-1.png" src="/news-media/2024/04/image-1.png" alt="" class="wp-image-12660" style="width:169px;height:auto" /></a></figure>
+</div>
+
+
+<p class="wp-block-paragraph">From an <a href="https://www.linkedin.com/in/jeromeboyer/" target="_blank" rel="noreferrer noopener">expert </a>working on cutting edge neuro symbolic AI solutions, integrating LLM and decision management systems to bring real AI value to the enterprises: &#8220;<em>Enterprise should not consider Gen AI as the solution to implement their interactive, customer facing, conversation agents. This is too risky business as of today. Rule-based systems have been deployed in the industries for more than 25 years, and are taking millions of decisions per day. Symbolic AI based on deep learning models, such as Generative AI, should be combined with knowledge graph, inference rules and ontologies as they make precise, reasoned, and explainable decisions</em>.&#8221; <a href="https://www.linkedin.com/posts/jeromeboyer_generativeai-operationaldecisions-businessrules-activity-7181020071761178624-Af3k?utm_source=share&amp;utm_medium=member_desktop" target="_blank" rel="noreferrer noopener">Link</a> Related articles:  <a href="https://www.linkedin.com/pulse/neuro-symbolic-ai-bridging-gap-between-traditional-modern-chamoli/" target="_blank" rel="noreferrer noopener">&#8220;Neuro-Symbolic AI&#8221;</a> &#8220;<a href="https://www.linkedin.com/posts/david-ferrucci_ai-generativeai-neurosymbolicai-activity-7181639650279608320-9sL9?utm_source=share&amp;utm_medium=member_desktop" target="_blank" rel="noreferrer noopener">How does neuro-symbolic AI actually work?</a>&#8220;</p>

@@ -1,0 +1,9 @@
+---
+title: "The Darker Side of Machine Learning"
+date: 2016-11-12
+author: "decisionmanagementcommunity"
+tags: ["Artificial Intelligence", "Trends"]
+legacyPath: "/2016/11/12/the-darker-side-of-machine-learning/"
+---
+
+<p><a href="https://techcrunch.com/2016/10/26/the-darker-side-of-machine-learning/" target="_blank"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="2551" data-permalink="https://dmcommunity.org/2016/11/12/the-darker-side-of-machine-learning/troubleswithai/" data-orig-file="/news-media/2016/11/troubleswithai.jpg" data-orig-size="183,110" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="troubleswithai" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/11/troubleswithai.jpg" class="alignleft wp-image-2551 size-full" src="/news-media/2016/11/troubleswithai.jpg" alt="troubleswithai" width="183" height="110" /></a>While machine learning is introducing innovation and change to <a href="https://techcrunch.com/2016/07/01/exploiting-machine-learning-in-cybersecurity/" target="_blank">many</a> <a href="https://techcrunch.com/2016/07/13/how-iot-and-machine-learning-can-make-our-roads-safer/" target="_blank">sectors</a>, it also is bringing trouble and worries to others. One of the most worrying aspects of emerging machine learning technologies is their invasiveness on user privacy. This TechCrunch&#8217;s <a href="https://techcrunch.com/2016/10/26/the-darker-side-of-machine-learning/" target="_blank">article</a> provides many alerting examples</p>

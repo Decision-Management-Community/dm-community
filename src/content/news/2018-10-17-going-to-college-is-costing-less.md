@@ -1,0 +1,9 @@
+---
+title: "Going to college is costing less"
+date: 2018-10-17
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2018/10/17/going-to-college-is-costing-less/"
+---
+
+<p><a href="https://www.linkedin.com/feed/news/going-to-college-is-costing-less-3127170/?lipi=urn%3Ali%3Apage%3Ad_flagship3_pulse_read%3BOTNkU%2BdDSWmb87jUOStNjQ%3D%3D" target="_blank" rel="noopener"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="5866" data-permalink="https://dmcommunity.org/2018/10/17/going-to-college-is-costing-less/college/" data-orig-file="/news-media/2018/10/college.jpg" data-orig-size="181,121" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="college" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/10/college.jpg" class="alignleft size-thumbnail wp-image-5866" src="/news-media/2018/10/college.jpg" alt="" width="150" height="100" /></a>After decades of increasing tuition, universities are going the other way — either by flattening costs or bringing them right down.The combination of<strong> </strong>fewer students applying for college and more grants being out given means that higher education is not as expensive as it used to be. Yet, according to the College Board, the “sticker price,” or the actual price of college, continues to rise — it&#8217;s just fewer students are paying it. <a href="https://www.wsj.com/articles/net-college-costs-flat-to-down-after-years-of-growth-1539682200?mod=hp_lead_pos8" target="_blank" rel="noopener">Link</a></p>

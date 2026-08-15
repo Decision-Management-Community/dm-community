@@ -1,0 +1,9 @@
+---
+title: "DecisionCAMP Video Channel"
+date: 2020-10-25
+author: "decisionmanagementcommunity"
+tags: ["Digital Decisioning", "Events"]
+legacyPath: "/2020/10/25/decisioncamp-video-channel/"
+---
+
+<p class="wp-block-paragraph"><a href="/news-media/2020/10/decisioncampvideos.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8601" data-permalink="https://dmcommunity.org/2020/10/25/decisioncamp-video-channel/decisioncampvideos/" data-orig-file="/news-media/2020/10/decisioncampvideos.png" data-orig-size="412,122" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionCAMPVideos" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/10/decisioncampvideos.png" class="alignleft size-thumbnail wp-image-8601" src="/news-media/2020/10/decisioncampvideos.png" alt="" width="150" height="44" /></a>You may find many (25) interesting recorded sessions devoted to Decision Management technologies at the DecisionCAMP&#8217;s YouTube <a href="https://www.youtube.com/c/DecisionCAMP" target="_blank" rel="noopener">channel</a>. We started them before <a href="https://decisioncamp2020.home.blog/" target="_blank" rel="noopener">DecisionCAMP-2020</a> in June and now we continue with <a href="https://dmcommunity.org/decisioncamp/monthly-online-sessions/" target="_blank" rel="noopener">Monthly Online Sessions</a>. Don&#8217;t miss the upcoming mini-events &#8211; the next one &#8220;Rules+Workflow&#8221; is on November 5. <a href="https://www.youtube.com/c/DecisionCAMP" target="_blank" rel="noopener">Link</a></p>

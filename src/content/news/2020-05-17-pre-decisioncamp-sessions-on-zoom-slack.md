@@ -1,0 +1,10 @@
+---
+title: "Pre-DecisionCAMP Sessions on Zoom/Slack"
+date: 2020-05-17
+author: "decisionmanagementcommunity"
+tags: ["Events"]
+legacyPath: "/2020/05/17/pre-decisioncamp-sessions-on-zoom-slack/"
+---
+
+<p><a href="https://decisioncamp2020.home.blog/program/" target="_blank" rel="noopener"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6750" data-permalink="https://dmcommunity.org/2019/05/29/forresters-mike-gualtieri-keynote-speaker/decisioncamp-mini/" data-orig-file="/news-media/2019/05/decisioncamp.mini_.jpg" data-orig-size="75,71" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="DecisionCAMP.Mini" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/05/decisioncamp.mini_.jpg" class="alignleft size-full wp-image-6750" src="/news-media/2019/05/decisioncamp.mini_.jpg" alt="" width="75" height="71" /></a>DecisionCAMP LIVE will start on June 29 &#8211; see the <a href="https://decisioncamp2020.home.blog/program/" target="_blank" rel="noopener">Program</a>. We decided to run several online Zoom/Slack sessions before the Camp to give our presenters and attendees an opportunity to get used to the online format. It is also a good opportunity for BR&amp;DM practitioners worldwide to share their latest achievements and real-life challenges.</p>
+<p>Our first pre-conference session will be held on Friday May 22 at 12:00 PM EST. Baljeet Singh from Rulematix will present &#8220;Excel based Decision Services Testing Framework&#8221;. We will send Zoom invites to everybody who registered on Slack. Anyone can use this link to join DecisionCAMP on Slack: <a href="https://join.slack.com/t/decisioncamp/shared_invite/zt-eer4z3eb-Ev4lbqgc6lmuntCXfvXgvA" target="_blank" rel="noopener">Join</a></p>

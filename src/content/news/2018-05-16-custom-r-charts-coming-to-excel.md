@@ -1,0 +1,9 @@
+---
+title: "Custom R charts coming to Excel"
+date: 2018-05-16
+author: "decisionmanagementcommunity"
+tags: ["Business Analytics", "Machine Learning"]
+legacyPath: "/2018/05/16/custom-r-charts-coming-to-excel/"
+---
+
+<p><a href="/news-media/2018/05/excelr.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4349" data-permalink="https://dmcommunity.org/2018/05/16/custom-r-charts-coming-to-excel/excelr/" data-orig-file="/news-media/2018/05/excelr.jpg" data-orig-size="112,107" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ExcelR" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/05/excelr.jpg" class="alignleft size-full wp-image-4349" src="/news-media/2018/05/excelr.jpg" alt="" width="112" height="107" /></a>This week at the BUILD conference, Microsoft <a href="https://dev.office.com/blogs/azure-machine-learning-javascript-custom-functions-and-power-bi-custom-visuals-further-expand-developers-capabilities-with-excel" target="_blank" rel="noopener">announced</a> that Power BI custom visuals will soon be available as charts with Excel. You&#8217;ll be able to choose a range of data within an Excel workbook, and pass those data to one of the built-in Power BI custom visuals, or one you&#8217;ve created yourself using the API. <a href="http://blog.revolutionanalytics.com/2018/05/powerbi-custom-visuals-in-excel.html" target="_blank" rel="noopener">Link</a></p>

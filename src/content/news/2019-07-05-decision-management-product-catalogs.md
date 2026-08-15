@@ -1,0 +1,9 @@
+---
+title: "Decision Management Product Catalogs"
+date: 2019-07-05
+author: "decisionmanagementcommunity"
+tags: ["Products"]
+legacyPath: "/2019/07/05/decision-management-product-catalogs/"
+---
+
+<p><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="289" data-permalink="https://dmcommunity.org/tools/adding-your-product-to-catalogs/catalog-2/" data-orig-file="/news-media/2014/05/catalog2.jpg" data-orig-size="91,80" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="Catalog" data-image-description="" data-image-caption="" data-large-file="/news-media/2014/05/catalog2.jpg" class=" wp-image-289 size-full alignleft" src="/news-media/2014/05/catalog2.jpg" alt="Catalog" width="91" height="80" /><span style="color:var(--color-text);">This website maintains </span><a href="http://dmcommunity.org/tools/">Live Catalogs of Decision Management tools</a><span style="color:var(--color-text);"> that allow practitioners to compare different products feature-by-feature and to choose Decision Management products that are the most suitable for their particular needs. Product profiles are submitted and maintained exclusively by product developers who are solely responsible for correctness of the provided information and for keeping it up-to-date. All Catalogs have been moved to Amazon EC2 and work much faster now. We ask all product authors to update the profiles of their products. If you forgot your access attributes, send us a request to </span><a href="mailto:decisionmanagementcommunity@gmail.org.">decisionmanagementcommunity@gmail.org.</a></p>

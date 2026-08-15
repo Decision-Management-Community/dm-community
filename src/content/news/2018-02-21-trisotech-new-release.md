@@ -1,0 +1,9 @@
+---
+title: "Trisotech New Release"
+date: 2018-02-21
+author: "decisionmanagementcommunity"
+tags: ["DMN", "Products"]
+legacyPath: "/2018/02/21/trisotech-new-release/"
+---
+
+<p><a href="/news-media/2016/02/trisotech3.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="1613" data-permalink="https://dmcommunity.org/sponsors/current-sponsors/trisotech/" data-orig-file="/news-media/2016/02/trisotech3.jpg" data-orig-size="160,57" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Trisotech" data-image-description="" data-image-caption="" data-large-file="/news-media/2016/02/trisotech3.jpg" class="alignleft size-thumbnail wp-image-1613" src="/news-media/2016/02/trisotech3.jpg" alt="" width="150" height="53" /></a>Trisotech announced a new release of its Digital Enterprise Suite. &#8220;<em>This new release focus on the ease of creation of DMN decision logic by contextualizing the choices offered and removing invalid choices. We have also greatly improved the refactoring of Decision to and from Business Knowledge Model (BKM) by automatically converting the decision logic on morphing. Finally, we have added examples to the FEEL functions documentation buttons in the DMN Ribbon bar and we now support the new enhanced for loops of DMN 1.2</em>&#8220;. Read <a href="http://mailer.trisotech.com/l/gQacyw3Knx7I3OeZ9okfjA/akwkzXAJmTgdbP6DbFq2FQ/nR4aXXyWnwtJpCYumSjUbQ" target="_blank" rel="noopener">more</a></p>

@@ -1,0 +1,9 @@
+---
+title: "Microsoft confirms GitHub acquisition"
+date: 2018-06-04
+author: "decisionmanagementcommunity"
+tags: ["Misc", "Trends"]
+legacyPath: "/2018/06/04/microsoft-confirms-github-acquisition/"
+---
+
+<p><a href="/news-media/2018/06/msgithub.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="4482" data-permalink="https://dmcommunity.org/2018/06/04/microsoft-confirms-github-acquisition/msgithub/" data-orig-file="/news-media/2018/06/msgithub.png" data-orig-size="490,258" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="MSGitHub" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/06/msgithub.png" class="alignleft size-thumbnail wp-image-4482" src="/news-media/2018/06/msgithub.png" alt="" width="150" height="79" /></a>Microsoft is confirming the rumors that it is acquiring the software development platform GitHub are true. Microsoft has announced it is acquiring GitHub for $7.5 billion in Microsoft stock. According to GitHub, as of March 2018 it has more than 27 million developers with 80 million repositories hosted. <a href="https://sdtimes.com/msft/microsoft-confirms-github-acquisition/?utm_campaign=News%20on%20Monday&amp;utm_source=hs_email&amp;utm_medium=email&amp;utm_content=63479971&amp;_hsenc=p2ANqtz-9FSOS_ltzFMgZ6onMiuV9hTJqt8UFuycT_KENbxNx4CggMHTPz1WFpE2PbRV_8mkef5fSiilPEZSvw0-zjrSGsF9YganEx3CI9slISYaTcpQyeeXc&amp;_hsmi=63479971" target="_blank" rel="noopener">Link</a></p>

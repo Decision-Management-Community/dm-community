@@ -1,0 +1,9 @@
+---
+title: "Lifetime Achievement Award in Decision Management goes to Dr. Charles Forgy"
+date: 2018-09-19
+author: "decisionmanagementcommunity"
+tags: ["Events", "Most Influential", "Rule Engines and BRMS"]
+legacyPath: "/2018/09/19/lifetime-achievement-award-in-decision-management-goes-to-dr-charles-forgy/"
+---
+
+<p><a href="/news-media/2018/09/lifetimeachievementaward2018.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="5537" data-permalink="https://dmcommunity.org/2018/09/19/lifetime-achievement-award-in-decision-management-goes-to-dr-charles-forgy/lifetimeachievementaward2018/" data-orig-file="/news-media/2018/09/lifetimeachievementaward2018.jpg" data-orig-size="507,920" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="LifetimeAchievementAward2018" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/09/lifetimeachievementaward2018.jpg" class="alignleft size-thumbnail wp-image-5537" src="/news-media/2018/09/lifetimeachievementaward2018.jpg" alt="" width="83" height="150" /></a>The first Lifetime Achievement Award in Decision Management goes to Dr. Charles Forgy, the father of rule engines! It was just announced at <a href="https://decisioncamp2018.wordpress.com/schedule/">DecisionCAMP-2018</a> – see the <a href="https://decisioncamp2018.files.wordpress.com/2018/09/decisioncamp2018-award.pdf">presentation</a>. Congratulations and a big THANK YOU to Dr. Forgy from all members of the  <a href="http://www.dmcommunity.org/">Decision Management Community.</a></p>

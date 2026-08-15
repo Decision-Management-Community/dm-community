@@ -1,0 +1,9 @@
+---
+title: "Pragmatic Approach to Predictive Decision Automation"
+date: 2020-12-10
+author: "jacobfeldman"
+tags: ["Artificial Intelligence", "Decision Making", "Decision Modeling", "Decision Monitoring", "Decision Optimization", "Machine Learning"]
+legacyPath: "/2020/12/10/pragmatic-approach-to-predictive-decision-automation/"
+---
+
+<p><a href="/news-media/2020/12/redhatai.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8759" data-permalink="https://dmcommunity.org/2020/12/10/pragmatic-approach-to-predictive-decision-automation/redhatai/" data-orig-file="/news-media/2020/12/redhatai.png" data-orig-size="865,448" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="RedHatAI" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/12/redhatai.png" class="alignleft size-thumbnail wp-image-8759" src="/news-media/2020/12/redhatai.png" alt="" width="150" height="78" /></a>In this webinar Red Hat specialists explain how explainable Predictive Decisioning can help us trust AI. Their  approach combines AI/ML, decision optimization, and traditional business rules to better understand the factors that contribute to an automated decision. They use the latest standards for representing decision logic, and demonstrate an XAI solution built from open source components to answer questions about why an automated decision was made. <a href="https://www.youtube.com/watch?v=PyUBEFe1CCc&amp;feature=youtu.be" target="_blank" rel="noopener">Link</a></p>

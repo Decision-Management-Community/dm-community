@@ -1,0 +1,9 @@
+---
+title: "KISS Principle for Decision Modeling"
+date: 2021-04-23
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling"]
+legacyPath: "/2021/04/23/kiss-principle-for-decision-modeling/"
+---
+
+<p><a href="/news-media/2019/05/kiss.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="6702" data-permalink="https://dmcommunity.org/2021/04/23/kiss-principle-for-decision-modeling/kiss/" data-orig-file="/news-media/2019/05/kiss.png" data-orig-size="209,210" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="KISS" data-image-description="" data-image-caption="" data-large-file="/news-media/2019/05/kiss.png" class="alignleft wp-image-6702" src="/news-media/2019/05/kiss.png" alt="" width="103" height="104"></a>The KISS is an abbreviation of &#8220;Keep It Short and Simple&#8221; or &#8220;Keep It Simple, Stupid&#8221;. This principle has been a key, and a huge success in years of software engineering. A common problem among software engineers and developers is that they tend to over complicate problems. The modern decision models created and maintained by business people frequently suffer the same problem especially when very powerful BR&amp;DM tools provoke them to do that. So, it could be very helpful for them to apply the old but good KISS principle to business decision modeling. Here is a useful <a href="https://people.apache.org/~fhanik/kiss.html" target="_blank" rel="noopener">link</a>.</p>

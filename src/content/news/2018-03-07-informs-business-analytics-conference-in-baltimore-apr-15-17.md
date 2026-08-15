@@ -1,0 +1,9 @@
+---
+title: "INFORMS Business Analytics Conference, Baltimore Apr 15-17"
+date: 2018-03-07
+author: "decisionmanagementcommunity"
+tags: ["Business Analytics", "Events"]
+legacyPath: "/2018/03/07/informs-business-analytics-conference-in-baltimore-apr-15-17/"
+---
+
+<p><a href="/news-media/2018/03/2018informsanalytics.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="3930" data-permalink="https://dmcommunity.org/2018/03/07/informs-business-analytics-conference-in-baltimore-apr-15-17/2018informsanalytics/" data-orig-file="/news-media/2018/03/2018informsanalytics.jpg" data-orig-size="202,202" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="2018InformsAnalytics" data-image-description="" data-image-caption="" data-large-file="/news-media/2018/03/2018informsanalytics.jpg" class="alignleft size-thumbnail wp-image-3930" src="/news-media/2018/03/2018informsanalytics.jpg" alt="" width="150" height="150" /></a><a href="http://meetings2.informs.org/wordpress/analytics2018/" target="_blank" rel="noopener">INFORMS Analytics Conference 2018</a> will be held on April 15-17 in Baltimore, MD.  It brings together 1,000 leading analytics professionals and industry experts who will hear over 150 talks and perspectives on topics such as Real Time Decision Systems, Managing Risk, Supply Chain/Logistics, Revenue Management and more. See <a href="http://meetings2.informs.org/wordpress/analytics2018/speakers-tracks/" target="_blank" rel="noopener">Tracks &amp; Speakers</a></p>

@@ -1,0 +1,9 @@
+---
+title: "Dynamic Questionnaires from Sparkling Logic"
+date: 2019-03-26
+author: "decisionmanagementcommunity"
+tags: ["Human-Machine Interaction", "Products"]
+legacyPath: "/2019/03/26/dynamic-questionnaires-from-sparkling-logic/"
+---
+
+<p><a href="/news-media/2014/05/sparklinglogic.jpg"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="57" data-permalink="https://dmcommunity.org/2019/03/26/dynamic-questionnaires-from-sparkling-logic/sparklinglogic/" data-orig-file="/news-media/2014/05/sparklinglogic.jpg" data-orig-size="185,66" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="SparklingLogic" data-image-description="" data-image-caption="" data-large-file="/news-media/2014/05/sparklinglogic.jpg" class="alignleft size-thumbnail wp-image-57" src="/news-media/2014/05/sparklinglogic.jpg" alt="" width="150" height="54" /></a><a href="https://www.sparklinglogic.com/news/sparkling-logic-introduces-dynamic-questionnaires-with-latest-release/" target="_blank" rel="noopener noreferrer">Sparkling Logic</a> introduces Dynamic Questionnaires (DQs) for web applications that collect information for making near real-time decisions based on user responses and business policies. Learn more about the latest <a href="https://www.sparklinglogic.com/news/sparkling-logic-introduces-dynamic-questionnaires-with-latest-release/" target="_blank" rel="noopener noreferrer">Sparkling Logic’s</a> release and register for the upcoming <a href="https://www.sparklinglogic.com/webinar/" target="_blank" rel="noopener noreferrer">webinar</a>.</p>

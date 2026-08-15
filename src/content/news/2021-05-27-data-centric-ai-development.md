@@ -1,0 +1,13 @@
+---
+title: "Data-centric AI development"
+date: 2021-05-27
+author: "decisionmanagementcommunity"
+tags: ["Decision Modeling"]
+legacyPath: "/2021/05/27/data-centric-ai-development/"
+---
+
+<p class="wp-block-paragraph"><a rel="noreferrer noopener" href="https://info.deeplearning.ai/the-batch-face-recognition-for-the-masses-labeling-libel-documenting-datasets-what-machines-want-to-see?ecid=ACsprvvVDLeGossjPBu_ZkfsbPO0_s4fuzwgUoiDHMh-PtuX1dZKQ9EXOvpceCgrp6ruqF0vEaif&amp;utm_campaign=The%20Batch&amp;utm_medium=email&amp;_hsmi=129751117&amp;_hsenc=p2ANqtz-85lgCM2iDDjj-UjsY_WVN8040TTiZA5sJNMhbiSIp5Lg5QnxZc0cxLsYZjWSx-BlVWZ_WFxWcZ4yr0BYKlslztqhiMKhKWuG24_ML0TMZVLBIE4y4&amp;utm_content=129751117&amp;utm_source=hs_email" target="_blank">Andrew Ng</a> writes that ML research mainly concentrates on algorithms while the real-world applications deal more with data quality. &#8220;<em>Benchmarks and competitions in which teams are asked to improve the data rather than the code would better reflect the workloads of many practical applications. I hope that such benchmarks also will spur research and help engineers gain experience working on data.</em>&#8221;  <a rel="noreferrer noopener" href="https://info.deeplearning.ai/the-batch-face-recognition-for-the-masses-labeling-libel-documenting-datasets-what-machines-want-to-see?ecid=ACsprvvVDLeGossjPBu_ZkfsbPO0_s4fuzwgUoiDHMh-PtuX1dZKQ9EXOvpceCgrp6ruqF0vEaif&amp;utm_campaign=The%20Batch&amp;utm_medium=email&amp;_hsmi=129751117&amp;_hsenc=p2ANqtz-85lgCM2iDDjj-UjsY_WVN8040TTiZA5sJNMhbiSIp5Lg5QnxZc0cxLsYZjWSx-BlVWZ_WFxWcZ4yr0BYKlslztqhiMKhKWuG24_ML0TMZVLBIE4y4&amp;utm_content=129751117&amp;utm_source=hs_email" target="_blank">Link</a></p>
+
+
+
+<figure class="wp-block-image size-medium is-style-default"><a href="/news-media/2021/05/aicodeplusdata.png"><img data-recalc-dims="1" loading="lazy" decoding="async" width="574" height="290" data-attachment-id="9488" data-permalink="https://dmcommunity.org/aicodeplusdata/" data-orig-file="/news-media/2021/05/aicodeplusdata.png" data-orig-size="574,290" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="aicodeplusdata" data-image-description="" data-image-caption="" data-large-file="/news-media/2021/05/aicodeplusdata.png" src="/news-media/2021/05/aicodeplusdata.png" alt="" class="wp-image-9488" /></a></figure>

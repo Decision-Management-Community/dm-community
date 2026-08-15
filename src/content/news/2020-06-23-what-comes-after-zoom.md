@@ -1,0 +1,9 @@
+---
+title: "What comes after Zoom?"
+date: 2020-06-23
+author: "decisionmanagementcommunity"
+tags: ["Trends"]
+legacyPath: "/2020/06/23/what-comes-after-zoom/"
+---
+
+<p><a href="/news-media/2020/06/zoom.png"><img data-recalc-dims="1" loading="lazy" decoding="async" data-attachment-id="8237" data-permalink="https://dmcommunity.org/2020/06/23/what-comes-after-zoom/zoom/" data-orig-file="/news-media/2020/06/zoom.png" data-orig-size="171,116" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Zoom" data-image-description="" data-image-caption="" data-large-file="/news-media/2020/06/zoom.png" class="alignleft size-thumbnail wp-image-8237" src="/news-media/2020/06/zoom.png" alt="" width="150" height="102" /></a>Benedict Evans: &#8220;<em>There will be video in everything, just as there is voice in everything, and&#8230; then it will disappear inside. You don’t necessarily need an account to join a call, and you generally don’t need an application either, especially on the desktop &#8211; you just click on a link in your calendar and the call opens in the browser. Indeed, the calendar is often the aggregation layer &#8211; you don’t need to know what service the next call uses, just when it is.</em>&#8221; <a href="https://www.ben-evans.com/benedictevans/2020/6/22/zoom-and-the-next-video?utm_source=Benedict%27s+Newsletter&amp;utm_campaign=572ddc8a01-Benedict%27s+Newsletter+341&amp;utm_medium=email&amp;utm_term=0_4999ca107f-572ddc8a01-70388429&amp;mc_cid=572ddc8a01&amp;mc_eid=5ed5cf3782" target="_blank" rel="noopener">Link</a></p>

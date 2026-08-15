@@ -1,0 +1,9 @@
+---
+title: "More about Decision Fairness"
+date: 2024-07-25
+author: "decisionmanagementcommunity"
+tags: ["Decision Intelligence", "Decision Making", "Fairness"]
+legacyPath: "/2024/07/25/more-about-decision-fairness/"
+---
+
+<p class="wp-block-paragraph">The question &#8220;<a href="/news/2024-07-08-decision-modeling-and-fairness/" target="_blank" rel="noreferrer noopener">Could we achieve fairness in our automatic decision-making?</a>&#8221; continues to be on minds of many decision intelligence partitioners. <a href="https://www.linkedin.com/feed/update/urn:li:activity:7217170619883237376/" target="_blank" rel="noreferrer noopener">Jacob Feldman</a> in his new post &#8220;<a href="https://openrules.blog/2024/07/10/how-decision-models-deal-with-fairness/" target="_blank" rel="noreferrer noopener">How decision models deal with fairness</a>&#8221; looks at 7 real-world decision-making applications in development of which he was involved. Majority of these applications dealt with complex business problems in which &#8220;fairness&#8221; was presented (or not) in clearly defined business objectives. <a href="https://www.linkedin.com/posts/ge0ffrey_load-balancing-and-fairness-in-constraints-activity-7221761210508029952-kiyf?utm_source=share&amp;utm_medium=member_desktop" target="_blank" rel="noreferrer noopener">Geoffrey De Smet</a> considers &#8220;What is fair?&#8221; in the context of employee scheduling. From cashiers to nurses to police officers: everyone demands a fair shift schedule. He refers to the new article &#8220;<a href="https://timefold.ai/blog/load-balancing-and-fairness" target="_blank" rel="noreferrer noopener">Load balancing and fairness in constraints</a>&#8221; from Timefold in which they define constraints that penalize possible solutions based on their unfairness. The overwhelming interest in the above publications shows that decision fairness will continue to be a hot topic.</p>
