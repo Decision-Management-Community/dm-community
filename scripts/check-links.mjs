@@ -31,6 +31,16 @@ function isLegacyLink(href) {
   }
 }
 
+function actionsEscape(value) {
+  return String(value).replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+}
+
+function annotateError(title, message) {
+  if (process.env.GITHUB_ACTIONS === 'true') {
+    console.log(`::error title=${actionsEscape(title)}::${actionsEscape(message)}`);
+  }
+}
+
 const args = process.argv.slice(2);
 const checkExternal = args.includes('--external');
 const concurrencyArg = args.find((a) => a.startsWith('--concurrency='));
@@ -146,14 +156,20 @@ async function main() {
 
   if (legacyLinks.length > 0) {
     console.log(`\n${legacyLinks.length} rendered link(s) still depend on dmcommunity.org:`);
-    for (const { href, file } of legacyLinks) console.log(`  ${href}  (in ${file})`);
+    for (const { href, file } of legacyLinks) {
+      console.log(`  ${href}  (in ${file})`);
+      annotateError('Legacy DMCommunity.org dependency', `${href} (in ${file})`);
+    }
   } else {
     console.log('No rendered links depend on dmcommunity.org.');
   }
 
   if (internalBroken.length > 0) {
     console.log(`\n${internalBroken.length} broken internal link(s):`);
-    for (const { href, file } of internalBroken) console.log(`  ${href}  (in ${file})`);
+    for (const { href, file } of internalBroken) {
+      console.log(`  ${href}  (in ${file})`);
+      annotateError('Broken internal link', `${href} (in ${file})`);
+    }
   } else {
     console.log('No broken internal links.');
   }
@@ -167,7 +183,10 @@ async function main() {
       console.log(`\n${externalBroken.length} unreachable external link(s):`);
       for (const href of externalBroken) {
         console.log(`  ${href}`);
-        for (const file of externalLinksByHref.get(href)) console.log(`    in ${file}`);
+        for (const file of externalLinksByHref.get(href)) {
+          console.log(`    in ${file}`);
+          annotateError('Unreachable external link', `${href} (in ${file})`);
+        }
       }
       console.log(
         '\nNote: some sites (LinkedIn especially) block automated HEAD/GET requests and will show up ' +
