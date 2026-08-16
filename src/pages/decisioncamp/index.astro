@@ -6,6 +6,15 @@ import { url } from '../../lib/url';
 const editions = (await getCollection('decisioncamp')).sort((a, b) => b.data.year - a.data.year);
 const recent = editions.filter((e) => e.data.year >= 2023);
 const earlier = editions.filter((e) => e.data.year < 2023);
+const searchIndex = new Map(
+  editions.map((edition) => [
+    edition.id,
+    [edition.data.title, edition.data.year, edition.data.location, edition.body ?? '']
+      .filter(Boolean)
+      .join(' ')
+      .toLocaleLowerCase(),
+  ]),
+);
 ---
 <BaseLayout title="DecisionCAMP" description="DecisionCAMP — the annual conference for Decision Intelligence practitioners.">
   <section class="decisioncamp-hero">
@@ -39,35 +48,82 @@ const earlier = editions.filter((e) => e.data.year < 2023);
   </p>
   </div>
 
-  <h2>Recent Editions</h2>
-  <div class="card-grid">
-    {recent.map((e) => (
-      <div class="card">
-        <h3><a href={url(`/decisioncamp/${e.id}/`)}>{e.data.title}</a></h3>
-        {e.data.location && <p class="muted">{e.data.location}</p>}
-      </div>
-    ))}
-  </div>
+  <section class="decisioncamp-search">
+    <label id="decisioncamp-search-label" for="decisioncamp-search-input">Search the conference archive</label>
+    <input
+      id="decisioncamp-search-input"
+      type="search"
+      placeholder="Search by presenter, topic, year, or location"
+      autocomplete="off"
+    />
+    <p id="decisioncamp-search-status" class="muted" aria-live="polite">
+      Search across conference programs, including presenter names.
+    </p>
+  </section>
 
-  <h2>Earlier Conferences</h2>
-  <table>
-    <thead><tr><th>Year</th><th>Event</th><th>Location</th></tr></thead>
-    <tbody>
-      {earlier.map((e) => (
-        <tr>
-          <td>{e.data.year}</td>
-          <td><a href={url(`/decisioncamp/${e.id}/`)}>{e.data.title}</a></td>
-          <td>{e.data.location}</td>
-        </tr>
+  <section data-camp-group="recent">
+    <h2>Recent Editions</h2>
+    <div class="card-grid">
+      {recent.map((e) => (
+        <div class="card" data-camp data-search={searchIndex.get(e.id)}>
+          <h3><a href={url(`/decisioncamp/${e.id}/`)}>{e.data.title}</a></h3>
+          {e.data.location && <p class="muted">{e.data.location}</p>}
+        </div>
       ))}
-    </tbody>
-  </table>
+    </div>
+  </section>
+
+  <section data-camp-group="earlier">
+    <h2>Earlier Conferences</h2>
+    <table>
+      <thead><tr><th>Year</th><th>Event</th><th>Location</th></tr></thead>
+      <tbody>
+        {earlier.map((e) => (
+          <tr data-camp data-search={searchIndex.get(e.id)}>
+            <td>{e.data.year}</td>
+            <td><a href={url(`/decisioncamp/${e.id}/`)}>{e.data.title}</a></td>
+            <td>{e.data.location}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </section>
 
   <p class="muted">
     Historical announcements, conference notes, and presentation roundups are also preserved in the
     <a href={url('/news/')}>complete News archive</a>.
   </p>
 </BaseLayout>
+
+<script>
+  const input = document.querySelector<HTMLInputElement>('#decisioncamp-search-input');
+  const status = document.querySelector<HTMLElement>('#decisioncamp-search-status');
+  const camps = Array.from(document.querySelectorAll<HTMLElement>('[data-camp]'));
+  const groups = Array.from(document.querySelectorAll<HTMLElement>('[data-camp-group]'));
+
+  function applySearch() {
+    if (!input || !status) return;
+
+    const query = input.value.trim().toLocaleLowerCase();
+    let matches = 0;
+
+    camps.forEach((camp) => {
+      const visible = !query || (camp.dataset.search ?? '').includes(query);
+      camp.hidden = !visible;
+      if (visible) matches += 1;
+    });
+
+    groups.forEach((group) => {
+      group.hidden = Boolean(query) && !group.querySelector('[data-camp]:not([hidden])');
+    });
+
+    status.textContent = query
+      ? `Showing ${matches} ${matches === 1 ? 'conference' : 'conferences'} matching “${input.value.trim()}”.`
+      : 'Search across conference programs, including presenter names.';
+  }
+
+  input?.addEventListener('input', applySearch);
+</script>
 
 <style>
   .decisioncamp-hero {
@@ -113,6 +169,32 @@ const earlier = editions.filter((e) => e.data.year < 2023);
   }
   .decisioncamp-intro { margin-top: 2.5rem; }
   .decisioncamp-intro > p { max-width: 74ch; line-height: 1.72; }
+  .decisioncamp-search {
+    max-width: 48rem;
+    margin: 2.5rem 0;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-card);
+  }
+  .decisioncamp-search label { display: block; font-weight: 750; }
+  .decisioncamp-search input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0.65rem;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .decisioncamp-search input:focus {
+    outline: 3px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+    outline-offset: 2px;
+  }
+  .decisioncamp-search p { margin: 0.7rem 0 0; }
+  [data-camp-group][hidden], [data-camp][hidden] { display: none !important; }
 
   @media (max-width: 760px) {
     .decisioncamp-hero > div { padding-right: 0; }
