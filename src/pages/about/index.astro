@@ -9,7 +9,7 @@ const { Content } = await render(entry!);
 <BaseLayout title="About" description={entry?.data.description}>
   <section class="about-hero">
     <span class="eyebrow">About the community</span>
-    <h1>Better decisions, treated as a discipline.</h1>
+    <h1>Towards Better Operational Decisions.</h1>
     <p>
       The Decision Management Community brings together practitioners who design, build, operate,
       and improve decision systems across rules, modeling, optimization, machine learning, and AI.
@@ -19,6 +19,7 @@ const { Content } = await render(entry!);
       <span>Open contributions</span>
       <span>Vendor-inclusive, independent</span>
     </div>
+    <img class="about-logo" src={url('/hero-dm-circle.png')} alt="Decision Management Community" />
   </section>
 
   <div class="about-layout">
@@ -39,6 +40,7 @@ const { Content } = await render(entry!);
 
 <style>
   .about-hero {
+    position: relative;
     padding: clamp(2rem, 5vw, 3.8rem);
     border: 1px solid var(--color-border);
     border-radius: 16px;
@@ -57,13 +59,15 @@ const { Content } = await render(entry!);
     text-transform: uppercase;
   }
   .about-hero h1 {
-    max-width: 16ch;
+    max-width: 17ch;
+    padding-right: clamp(6rem, 15vw, 11rem);
     margin: 0;
     font-size: clamp(2.2rem, 5vw, 4rem);
     line-height: 1.02;
   }
   .about-hero > p {
     max-width: 68ch;
+    padding-right: clamp(6rem, 15vw, 11rem);
     margin: 1rem 0 0;
     color: var(--color-text-muted);
     font-size: 1.08rem;
@@ -74,6 +78,14 @@ const { Content } = await render(entry!);
     flex-wrap: wrap;
     gap: 0.55rem;
     margin-top: 1.4rem;
+  }
+  .about-logo {
+    position: absolute;
+    top: clamp(1.5rem, 4vw, 2.5rem);
+    right: clamp(1.5rem, 4vw, 2.5rem);
+    width: clamp(100px, 12vw, 132px);
+    height: auto;
+    object-fit: contain;
   }
   .principles span {
     padding: 0.35rem 0.6rem;
@@ -133,5 +145,15 @@ const { Content } = await render(entry!);
   @media (max-width: 820px) {
     .about-layout { grid-template-columns: 1fr; }
     .about-links { position: static; }
+  }
+  @media (max-width: 620px) {
+    .about-hero h1,
+    .about-hero > p { padding-right: 0; }
+    .about-logo {
+      position: static;
+      display: block;
+      width: min(132px, 35%);
+      margin: 1.5rem 0 0 auto;
+    }
   }
 </style>
