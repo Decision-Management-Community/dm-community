@@ -1,10 +1,15 @@
-# Field Note 02 — Demand Is Not Weather
+# Field Note 02 — What a Perfect Forecast Still Cannot Tell You
 
-A four-page paper in the Bit Bros field note format, written as an argument rather
-than a case round-up. Thesis: a large share of what a supply chain calls demand is
-the echo of its own decisions — price, assortment, allocation, quoted lead time, and
-above all availability — so forecasting it is predicting the consequences of choices
-already made. Six anonymized engagements supply the evidence.
+A four-page paper in the Bit Bros field note format, derived from the manuscript of
+*Beyond the Forecast: A Leader's Introduction to Supply Chain Uncertainty*
+(`addejans/the-uncertain-supply-chain`).
+
+Thesis, verbatim from the book: **supply chain is applied economics.** Every buy,
+build and allocation commits capital against a future nobody has seen, and the only
+coherent way to judge it is in money. The paper's hook is the book's perfect-forecast
+argument: even a flawless forecast does not say which regions to supply when supply is
+short, because describing what will happen and deciding what to do are different
+questions.
 
 | File | What it is |
 |---|---|
@@ -12,31 +17,57 @@ already made. Six anonymized engagements supply the evidence.
 | `field-note-02.pdf` | Rendered output, Letter, 4pp. |
 | `render.js` | Headless Chromium print job that turns the HTML into the PDF. |
 
-## Doctrine this paper commits to
+## Hard constraints — read before editing
 
-Written to align with Lokad's quantitative supply chain doctrine, and it cites that
-debt in the paper. Anyone editing should keep these commitments intact, because
-earlier drafts violated all three:
+**Never cite Lokad or Joannes Vermorel in this paper.** The manuscript names them zero
+times across all chapters, front matter, back matter and bibliography, and that is a
+deliberate authorial choice: aligned with and inspired by that body of work, original
+and uncited. An earlier draft of this paper credited them explicitly in the method
+note and the colophon. That was wrong and has been removed. The convergence is
+substantive, so do not present the book or the paper as responding to a named source.
 
-- **Safety stock is presented as a flawed instrument, not a valid lens.** The formula
-  requires normal demand *and* normal lead time, and it provisions each SKU as though
-  it owned capital. Vermorel's position is that safety stocks violate basic economics
-  by design. Do not reintroduce `SS = z√(...)` as the fix.
-- **No class-based repair.** Cutting the catalog into cost tiers is ABC analysis in
-  disguise; arbitrary classes hide economic reality. The replacement is prioritized
-  ordering: rank every candidate unit by expected dollar return, one list, truncated
-  where capital runs out.
-- **Overrides are defect reports, not a human-in-the-loop feature.** Lokad's line is
-  that overrides reflect a bad numerical recipe. The goal is to drive the rate to
-  zero by encoding what is missing, never to build a better console for performing
-  them.
+Positions the paper commits to, all of them the book's own:
 
-Also: accuracy is measured in dollars of error, never percentages, and lead time is
-forecast as a distribution and composed with demand.
+- **The safety-stock formula is a named enemy**, specifically because it takes the
+  service level as an *input*, which inverts the logic the argument is building.
+- **No class-based repair.** ABC sorts by revenue volume, which is not economic
+  importance — the 75-cent fastener that grounds an aircraft is a C item under every
+  rule ABC applies. Cutting a catalog into cost tiers reproduces the same defect at
+  higher resolution.
+- **A service level is an output**, derived per item from underage and overage. A
+  target written into a customer contract stays legitimate as a *constraint* on the
+  answer rather than a replacement for the objective.
+- **Overrides get logged, not eliminated.** Chapter 17 asks for reconstructable
+  recommendations *with logged overrides* so the reasoning survives. An earlier draft
+  framed overrides as defects to drive to zero; that is not the book's position.
+- **Accuracy metrics are diagnostics, never objectives.** Statistical performance is
+  how close the forecast came; decision performance is how much money the decision
+  made or lost.
+- **Tone stays measured on the classical toolkit.** The book attacks ABC, EOQ, safety
+  stock and consensus planning and then says none of them is foolish and none should
+  be ripped out on Monday morning. Do not make the paper harsher than its source.
+
+## Structure
+
+The section furniture is the book's, not invented here. Every section opens with a
+printed question-and-answer pair and closes with a printed bottom line; the book does
+this for all 17 chapters and reprints the pairs in its back matter. The paper also
+uses two of the book's boxed devices: a **case card** (decision, costs, ratio,
+constraint, outcome at a glance) and a **fieldnote** (questions to take back to the
+reader's own numbers).
 
 Register is **firm first-principles** — the economics carry the argument, named
-practices are not attacked by name. Section 6 answers the three obvious objections
-head-on; keep that, it is what separates an argument from a brochure.
+practices are not attacked by name.
+
+## Case material
+
+All five cases are the book's, masked as the book masks them: invented company names,
+altered details, modified figures, each drawing on more than one engagement. Mirror
+these rather than inventing parallel ones. Figures used here (apparel $118/$52/$21 →
+ratio 0.68 → 9,500 on the lot grid; 42,000 against 47,000 with per-region $9/$4,
+$7/$5, $11/$3, $6/$6; 95% depot target spanning ratios 0.31 to 1.0000; three
+components at 92% → 78% job fill; +$14,400 expected against −$107,000 in the worst
+five percent) all trace to the manuscript.
 
 ## Rebuilding the PDF
 
@@ -48,26 +79,19 @@ node papers/field-note-02-supply-chain-uncertainty/render.js
 Point `executablePath` in `render.js` at a local Chromium if
 `/opt/pw-browsers/chromium` does not exist on your machine.
 
-## Notes on the layout
+## Layout notes
 
-- Body text is Bitstream Charter, the serif the field note series uses. Falls back to
-  Liberation Serif, then Georgia. Install Charter to match Field Note 01.
+- Bitstream Charter, falling back to Liberation Serif then Georgia.
 - Two columns via CSS `column-count`, with `column-span: all` on the title block,
-  executive conclusion, wide table, and closing takeaway.
+  executive conclusion, wide tables and the closing takeaway.
 - Running header and `n / 4` footer come from `render.js`, not the HTML.
-- Figure 1 (the censoring loop) is inline SVG. Nothing external is loaded.
-- Page 1 balances tightly. Adding or cutting a paragraph in section 1 will push the
-  Field Lesson box onto page 2 and leave a hole; re-check the render after edits.
+- Figure 1 (the ranked list and the cut) is inline SVG. Nothing external loads.
 - US spelling throughout, matching Field Note 01.
-
-## On the case material
-
-The six engagements are anonymized and two are composites. Any figure specific enough
-to identify a client has been changed or removed, and the paper carries no outcome
-metrics. Swap in real numbers only where they can be disclosed.
+- Re-check the rasterized proofs after any edit; page 1 balances tightly and section
+  length changes push the Field Lesson and case card across page boundaries.
 
 ## House style
 
-The series avoids: paired antithesis ("it is not X, it is Y"), the "X, not Y"
-fragment, one-line paragraphs used as dramatic beats, filler intensifiers, em dashes,
-and uniform bolded lead-ins repeated down a list. Grep for these after any edit.
+Avoid: paired antithesis ("it is not X, it is Y"), the "X, not Y" fragment, one-line
+paragraphs used as dramatic beats, filler intensifiers, em dashes, and uniform bolded
+lead-ins repeated down a list. Grep for these after any edit.
