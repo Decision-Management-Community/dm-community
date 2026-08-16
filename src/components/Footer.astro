@@ -6,8 +6,59 @@ const year = new Date().getFullYear();
 const sponsors = (await getCollection('sponsors'))
   .filter((s) => s.data.active)
   .sort((a, b) => a.data.name.localeCompare(b.data.name));
+const siteLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/decisioncamp/', label: 'DecisionCAMP' },
+  { href: '/challenges/', label: 'Challenges' },
+  { href: '/news/', label: 'News' },
+  { href: '/resources/', label: 'Resources' },
+  { href: '/qa/', label: 'Q&A' },
+  { href: '/events/', label: 'Events' },
+  { href: '/vendors-corner/', label: "Vendor's Corner" },
+  { href: '/sponsors/', label: 'Sponsors' },
+  { href: '/advisory-board/', label: 'Advisory Board' },
+  { href: '/about/', label: 'About' },
+  { href: '/contribute/', label: 'Contribute' },
+];
 ---
 <footer class="site-footer">
+  <nav class="page-marquee" aria-label="Explore major pages">
+    <div class="page-track">
+      <div class="page-set">
+        {siteLinks.map((item) => <a href={url(item.href)}>{item.label}</a>)}
+      </div>
+      <div class="page-set page-set-copy" aria-hidden="true">
+        {siteLinks.map((item) => <a href={url(item.href)} tabindex="-1">{item.label}</a>)}
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap footer-grid">
+    <div>
+      <strong>Decision Management Community</strong>
+      <p class="muted">For practitioners, by practitioners. Business rules, decision modeling, optimization, machine learning, and agentic AI for decision-making.</p>
+    </div>
+    <div>
+      <h4>Community</h4>
+      <ul>
+        <li><a href={url('/advisory-board/')}>Advisory Board</a></li>
+        <li><a href={url('/sponsors/')}>Sponsors</a></li>
+        <li><a href="https://groups.google.com/forum/#!forum/dmcommunity">Google Discussion Group</a></li>
+        <li><a href="https://www.linkedin.com/in/decision-management-community-b0537a96">LinkedIn</a></li>
+        <li><a href="https://x.com/DecisionMgtCom">X / Twitter</a></li>
+        <li><a href={url('/rss.xml')}>RSS Feed</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contribute</h4>
+      <ul>
+        <li><a href={url('/contribute/')}>How to contribute</a></li>
+        <li><a href="mailto:DecisionManagementCommunity@gmail.com">Email the community</a></li>
+        <li><a href={url('/about/terms-and-conditions/')}>Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+
   {sponsors.length > 0 && (
     <section class="sponsor-band" aria-labelledby="sponsor-heading">
       <div class="wrap sponsor-heading-row">
@@ -47,32 +98,6 @@ const sponsors = (await getCollection('sponsors'))
     </section>
   )}
 
-  <div class="wrap footer-grid">
-    <div>
-      <strong>Decision Management Community</strong>
-      <p class="muted">For practitioners, by practitioners. Business rules, decision modeling, optimization, machine learning, and agentic AI for decision-making.</p>
-    </div>
-    <div>
-      <h4>Community</h4>
-      <ul>
-        <li><a href={url('/advisory-board/')}>Advisory Board</a></li>
-        <li><a href={url('/sponsors/')}>Sponsors</a></li>
-        <li><a href="https://groups.google.com/forum/#!forum/dmcommunity">Google Discussion Group</a></li>
-        <li><a href="https://www.linkedin.com/in/decision-management-community-b0537a96">LinkedIn</a></li>
-        <li><a href="https://x.com/DecisionMgtCom">X / Twitter</a></li>
-        <li><a href={url('/rss.xml')}>RSS Feed</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>Contribute</h4>
-      <ul>
-        <li><a href={url('/contribute/')}>How to contribute</a></li>
-        <li><a href="mailto:DecisionManagementCommunity@gmail.com">Email the community</a></li>
-        <li><a href={url('/about/terms-and-conditions/')}>Terms &amp; Conditions</a></li>
-      </ul>
-    </div>
-  </div>
-
   <div class="wrap sub">
     <span class="muted">&copy; {year} Decision Management Community</span>
     <div class="maintenance-credit">
@@ -95,8 +120,51 @@ const sponsors = (await getCollection('sponsors'))
     overflow: hidden;
   }
 
+  .page-marquee {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 72%, #fff);
+    background: var(--color-primary-dark);
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  }
+  .page-track {
+    display: flex;
+    width: max-content;
+    animation: page-scroll 38s linear infinite;
+    will-change: transform;
+  }
+  .page-set {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0.75rem 1.5rem 0.78rem 0;
+  }
+  .page-set a {
+    position: relative;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .page-set a::after {
+    position: absolute;
+    left: calc(100% + 0.68rem);
+    color: var(--color-accent);
+    content: '◆';
+    font-size: 0.52rem;
+    top: 0.22rem;
+  }
+  .page-set a:hover,
+  .page-set a:focus-visible { color: #f5c57d; text-decoration: underline; }
+  .page-marquee:hover .page-track,
+  .page-marquee:focus-within .page-track { animation-play-state: paused; }
+
   .sponsor-band {
     padding: 1.25rem 0 1.35rem;
+    border-top: 1px solid var(--color-border);
     border-bottom: 1px solid var(--color-border);
     background: color-mix(in srgb, var(--color-card) 55%, transparent);
   }
@@ -192,6 +260,10 @@ const sponsors = (await getCollection('sponsors'))
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
+  @keyframes page-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 
   .footer-grid {
     display: grid;
@@ -260,13 +332,16 @@ const sponsors = (await getCollection('sponsors'))
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .page-marquee,
     .sponsor-marquee {
       overflow-x: auto;
       -webkit-mask-image: none;
       mask-image: none;
       scrollbar-width: thin;
     }
+    .page-track,
     .sponsor-track { animation: none; }
+    .page-set-copy,
     .sponsor-set-copy { display: none; }
     .sponsor-tile { transition: none; }
   }
