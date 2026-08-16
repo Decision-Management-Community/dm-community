@@ -18,9 +18,20 @@ const categoryInfo = {
     functional categories and shown in alphabetical order below.
   </p>
   <p>
-    Missing your tool or want to adjust its description?
+    Missing your tool or want to adjust its categories?
     <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#adding-a-tool">Do it via pull request</a>.
   </p>
+
+  <div class="tool-search">
+    <label for="tool-search">Search tools</label>
+    <input
+      id="tool-search"
+      type="search"
+      placeholder="Search by name…"
+      autocomplete="off"
+      aria-controls="tool-list"
+    />
+  </div>
 
   <div class="tool-filters" role="group" aria-label="Filter tools by functional category">
     <button type="button" data-tool-filter="" aria-pressed="true">All</button>
@@ -34,7 +45,7 @@ const categoryInfo = {
 
   <div class="card-grid" id="tool-list">
     {all.map((tool) => (
-      <article class="card tool-card" data-tool data-categories={tool.data.categories.join(' ')}>
+      <article class="card tool-card" data-tool data-name={tool.data.name.toLocaleLowerCase()} data-categories={tool.data.categories.join(' ')}>
         <h2>{tool.data.url ? <a href={tool.data.url} target="_blank" rel="noopener">{tool.data.name}</a> : tool.data.name}</h2>
         <div class="tool-categories" aria-label="Supported categories">
           {tool.data.categories.map((key) => (
@@ -52,32 +63,66 @@ const categoryInfo = {
   document.addEventListener('DOMContentLoaded', () => {
     const buttons = [...document.querySelectorAll('[data-tool-filter]')];
     const cards = [...document.querySelectorAll('[data-tool]')];
+    const search = document.querySelector('#tool-search');
     const count = document.querySelector('#tool-count');
+    let selectedCategory = '';
+
+    const applyFilters = () => {
+      const query = search.value.trim().toLocaleLowerCase();
+      let visible = 0;
+
+      for (const card of cards) {
+        const categories = (card.dataset.categories || '').split(' ');
+        const matchesCategory = !selectedCategory || categories.includes(selectedCategory);
+        const matchesSearch = !query || (card.dataset.name || '').includes(query);
+        card.hidden = !(matchesCategory && matchesSearch);
+        if (!card.hidden) visible += 1;
+      }
+
+      const categoryText = selectedCategory ? ` supporting ${selectedCategory}` : '';
+      const searchText = query ? ` matching “${search.value.trim()}”` : '';
+      count.textContent = `Showing ${visible} of ${cards.length} tools${categoryText}${searchText}`;
+    };
 
     for (const button of buttons) {
       button.addEventListener('click', () => {
-        const selected = button.dataset.toolFilter || '';
-        let visible = 0;
+        selectedCategory = button.dataset.toolFilter || '';
         for (const candidate of buttons) candidate.setAttribute('aria-pressed', String(candidate === button));
-        for (const card of cards) {
-          const categories = (card.dataset.categories || '').split(' ');
-          card.hidden = Boolean(selected) && !categories.includes(selected);
-          if (!card.hidden) visible += 1;
-        }
-        count.textContent = selected
-          ? `Showing ${visible} of ${cards.length} tools supporting ${selected}`
-          : `Showing ${cards.length} tools`;
+        applyFilters();
       });
     }
+
+    search.addEventListener('input', applyFilters);
   });
 </script>
 
 <style>
+  .tool-search {
+    display: grid;
+    gap: 0.35rem;
+    max-width: 32rem;
+    margin-top: 1.5rem;
+  }
+  .tool-search label { font-weight: 700; }
+  .tool-search input {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .tool-search input:focus-visible {
+    outline: 3px solid color-mix(in srgb, #2563eb 35%, transparent);
+    outline-offset: 2px;
+  }
   .tool-filters {
     display: flex;
     flex-wrap: wrap;
     gap: 0.6rem;
-    margin: 1.5rem 0 0.75rem;
+    margin: 1rem 0 0.75rem;
   }
   .tool-filters button {
     display: inline-flex;
