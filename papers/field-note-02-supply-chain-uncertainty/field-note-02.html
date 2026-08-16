@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Every Supply Chain Already Has an Uncertainty Model</title>
+<style>
+  @page { size: Letter; margin: 0.78in 0.72in 0.72in 0.72in; }
+
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body {
+    font-family: "Bitstream Charter", Charter, "Liberation Serif", Georgia, serif;
+    font-size: 9.15pt;
+    line-height: 1.335;
+    color: #000;
+    margin: 0;
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
+  .doc { column-count: 2; column-gap: 0.30in; }
+
+  p { margin: 0 0 0.40em 0; text-indent: 0; }
+  p + p { margin-top: 0; }
+
+  /* ---------- title block (spans both columns) ---------- */
+  .titleblock { column-span: all; margin: 0 0 13pt 0; }
+
+  .kicker {
+    font-size: 7.1pt;
+    letter-spacing: 0.115em;
+    text-transform: uppercase;
+    color: #444;
+    margin: 0 0 7pt 0;
+    text-align: left;
+    border-bottom: 0.6pt solid #bdbdbd;
+    padding-bottom: 4pt;
+  }
+
+  h1.title {
+    font-size: 19.5pt;
+    line-height: 1.10;
+    font-weight: 700;
+    letter-spacing: -0.012em;
+    margin: 0 0 5pt 0;
+    text-align: left;
+  }
+
+  .subtitle {
+    font-size: 9.9pt;
+    font-style: italic;
+    color: #2b2b2b;
+    line-height: 1.30;
+    margin: 0 0 10pt 0;
+    text-align: left;
+    max-width: 6.05in;
+  }
+
+  .byline {
+    font-size: 7.6pt;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    color: #555;
+    border-top: 0.6pt solid #bdbdbd;
+    padding-top: 5pt;
+    text-align: left;
+  }
+
+  /* ---------- executive conclusion (spans) ---------- */
+  .exec {
+    column-span: all;
+    border-top: 1.4pt solid #000;
+    border-bottom: 0.6pt solid #000;
+    padding: 7pt 0 8pt 0;
+    margin: 0 0 12pt 0;
+  }
+  .exec .lab {
+    font-size: 7.1pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 5pt;
+  }
+  .exec .lede {
+    font-size: 10.4pt;
+    line-height: 1.28;
+    font-weight: 700;
+    margin: 0 0 5pt 0;
+    text-align: left;
+  }
+  .exec p { font-size: 8.9pt; margin-bottom: 6pt; }
+
+  .points {
+    display: flex;
+    gap: 0.26in;
+    border-top: 0.5pt solid #cfcfcf;
+    padding-top: 6pt;
+    margin-top: 2pt;
+  }
+  .points div {
+    flex: 1;
+    font-size: 8.35pt;
+    line-height: 1.26;
+    text-align: left;
+  }
+  .points b { display: block; font-size: 7pt; letter-spacing: 0.1em; color: #555; margin-bottom: 2.5pt; }
+
+  /* ---------- headings ---------- */
+  h2 {
+    font-size: 10.4pt;
+    line-height: 1.18;
+    font-weight: 700;
+    margin: 11pt 0 4pt 0;
+    text-align: left;
+    break-after: avoid;
+  }
+  h2:first-child { margin-top: 0; }
+  h2 .num { color: #777; margin-right: 0.28em; }
+
+  h3 {
+    font-size: 9.15pt;
+    font-style: italic;
+    font-weight: 400;
+    margin: 8.5pt 0 3pt 0;
+    text-align: left;
+    break-after: avoid;
+  }
+
+  /* ---------- inline furniture ---------- */
+  .lesson { }
+  .lesson b { font-variant: small-caps; letter-spacing: 0.03em; }
+
+  .absorbers { margin: 4pt 0 6pt 0; }
+  .absorbers p { margin-bottom: 2.6pt; text-align: left; }
+  .absorbers i { font-style: italic; }
+
+  ol.steps { margin: 3pt 0 5pt 0; padding-left: 1.05em; }
+  ol.steps li { margin-bottom: 3.2pt; text-align: left; }
+
+  .eq {
+    text-align: center;
+    font-style: italic;
+    font-size: 9.5pt;
+    margin: 6pt 0 6pt 0;
+    break-inside: avoid;
+  }
+  .sub { font-size: 0.72em; vertical-align: -0.28em; font-style: normal; }
+  .sup { font-size: 0.68em; vertical-align: 0.45em; font-style: normal; }
+  .eq .rad { font-style: normal; }
+
+  /* ---------- callout boxes ---------- */
+  .box {
+    background: #f2f0ec;
+    border-left: 2pt solid #000;
+    padding: 6.5pt 8pt 6.5pt 8pt;
+    margin: 8pt 0 9pt 0;
+    break-inside: avoid;
+  }
+  .box .lab {
+    font-size: 6.8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 3.5pt;
+  }
+  .box p { font-size: 8.7pt; line-height: 1.29; margin: 0; text-align: left; }
+
+  .takeaway {
+    column-span: all;
+    border-top: 1.4pt solid #000;
+    border-bottom: 1.4pt solid #000;
+    padding: 8pt 0 9pt 0;
+    margin: 12pt 0 11pt 0;
+    break-inside: avoid;
+  }
+  .takeaway .lab {
+    font-size: 7.1pt; letter-spacing: 0.14em; text-transform: uppercase;
+    font-weight: 700; margin-bottom: 4pt;
+  }
+  .takeaway p {
+    font-size: 11.2pt; line-height: 1.27; font-weight: 700; margin: 0; text-align: left;
+    max-width: 6.3in;
+  }
+
+  /* ---------- tables ---------- */
+  table { width: 100%; border-collapse: collapse; margin: 5pt 0 8pt 0; break-inside: avoid; }
+  table.wide { column-span: all; margin: 9pt 0 12pt 0; }
+  table.audit { margin: 4pt 0 13pt 0; }
+  table.audit td:first-child { width: 13%; }
+  table.audit tbody tr:first-child td { border-top: 1.1pt solid #000; }
+  caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 7pt;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding-bottom: 4pt;
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 3.1pt 7pt 3.1pt 0;
+    font-size: 8.05pt;
+    line-height: 1.24;
+  }
+  thead th {
+    border-top: 1.1pt solid #000;
+    border-bottom: 0.5pt solid #000;
+    font-weight: 700;
+    font-size: 7.7pt;
+  }
+  tbody tr:last-child td { border-bottom: 1.1pt solid #000; }
+  tbody td:first-child { font-weight: 700; }
+  td:last-child, th:last-child { padding-right: 0; }
+
+  /* ---------- figure ---------- */
+  figure { margin: 6pt 0 8pt 0; break-inside: avoid; }
+  figure svg { width: 100%; height: auto; display: block; }
+  figcaption {
+    font-size: 7.5pt;
+    line-height: 1.25;
+    color: #333;
+    margin-top: 4pt;
+    text-align: left;
+  }
+  figcaption b { font-weight: 700; }
+
+  /* ---------- closing ---------- */
+  .colophon { column-span: all; border-top: 0.6pt solid #bdbdbd; padding-top: 7pt; margin-top: 4pt; }
+  .colophon-grid { display: flex; gap: 0.30in; }
+  .colophon-grid > div { flex: 1; }
+  .colophon h4 {
+    font-size: 7.1pt; letter-spacing: 0.13em; text-transform: uppercase;
+    font-weight: 700; margin: 0 0 4pt 0;
+  }
+  .colophon p { font-size: 8.2pt; line-height: 1.27; text-align: left; }
+  .colophon .contact { font-weight: 700; }
+
+  .nb { font-size: 8.35pt; line-height: 1.28; }
+  .nb p { text-align: left; }
+
+  b, strong { font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="doc">
+
+  <div class="titleblock">
+    <div class="kicker">Client Learning Paper &nbsp;/&nbsp; Supply Chain Under Uncertainty</div>
+    <h1 class="title">Every Supply Chain Already Has an Uncertainty Model</h1>
+    <div class="subtitle">Nobody wrote it down. Six engagements on where variability gets absorbed, what the absorption costs, and who decided.</div>
+    <div class="byline">Adam DeJans Jr. &nbsp;&middot;&nbsp; Bit Bros LLC &nbsp;&middot;&nbsp; August 2026</div>
+  </div>
+
+  <div class="exec">
+    <div class="lab">Executive Conclusion</div>
+    <p class="lede">Safety stock, planning fences, min/max levels, expedite budgets, and the overrides planners apply by hand are not the furniture around the forecast. Together they are a complete, running model of uncertainty and what it costs.</p>
+    <p>In most organizations that model was assembled one crisis at a time, has never been revalidated, and outranks anything the analytics team produces. So the first useful deliverable in a supply chain engagement is rarely a better forecast. It is a written account of the buffers already operating the business, and the prices they imply.</p>
+    <div class="points">
+      <div><b>01</b>Variability is absorbed somewhere. Find out where before you model it.</div>
+      <div><b>02</b>Every buffer implies a price. Recover it, then check whether anyone still agrees with it.</div>
+      <div><b>03</b>Stability and recourse are decisions. Left out of the objective, they are free, and they get spent.</div>
+    </div>
+  </div>
+
+  <div class="nb">
+    <h2>On these cases</h2>
+    <p>Six engagements are described below, drawn from advisory and delivery work in distribution, discrete manufacturing, retail, consumer goods, and field service. Details have been changed, two are merged from more than one client, and any figure specific enough to identify a company has been altered or removed.</p>
+    <p>This is not a study. Six is not a sample, the selection was not random, and a consultant&rsquo;s caseload is biased toward companies that already suspected something was wrong. What makes the pattern worth writing down is that it recurred across engagements with almost nothing else in common: different industries, different planning software, different maturity, different presenting symptoms.</p>
+  </div>
+
+  <h2><span class="num">1.</span>Variability does not disappear. It gets absorbed.</h2>
+
+  <p>Demand moves. Suppliers slip. Yields vary, trucks miss appointments, and a customer triples an order in the last week of a quarter. Planning does not destroy any of that. It relocates it. And there are only five places it can go.</p>
+
+  <div class="absorbers">
+    <p><i>Inventory.</i> Safety stock, cycle stock, in-transit, consignment, and the pallet a branch manager keeps behind a curtain.</p>
+    <p><i>Capacity.</i> Overtime, a second shift, equipment held idle on purpose, contract labor, reserved carrier space.</p>
+    <p><i>Time.</i> Quoted lead times, frozen horizons, planning fences, and the days a planner quietly adds to a promise date.</p>
+    <p><i>Cash.</i> Expedite premiums, spot freight, air instead of ocean, concessions to keep an account calm.</p>
+    <p><i>The customer.</i> Backorders, substitutions, split shipments, partial fills, and dates that move without a conversation.</p>
+  </div>
+
+  <p>Every supply chain uses all five. Very few choose the proportions on purpose. The mix is usually residue: whoever held the budget during the last serious disruption decided which absorber got funded, the setting was entered into a system, and the reasoning left with the person.</p>
+
+  <p>That observation turns into a specific first exercise, which we now run before any modeling. Take one recurring, high-value decision. For each source of variability touching it, ask three questions. Where does the variability land today? Who owns that absorber? What does a unit of it cost?</p>
+
+  <p>The fifth line is the hard one. Inventory sits on the balance sheet. Overtime shows up in the labor report. Expedite premiums land in freight accruals. The cost of a missed date rarely lives anywhere at all, and the cost of a substitution the customer accepted this time almost never does. A model built on the four visible absorbers will optimize against them and push variability onto the fifth, because in the objective the fifth is free.</p>
+
+  <figure>
+    <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" font-family="Charter, Georgia, serif">
+      <text x="0" y="9" font-size="6.4" letter-spacing="1.0" fill="#666">VARIABILITY IN</text>
+      <g fill="#000" font-size="8">
+        <text x="0" y="34">Demand</text>
+        <text x="0" y="49">Supply</text>
+        <text x="0" y="64">Execution</text>
+      </g>
+      <g stroke="#000" stroke-width="0.7" fill="none">
+        <path d="M50 31 H 74 L 88 45"/>
+        <path d="M50 46 H 88"/>
+        <path d="M50 61 H 74 L 88 47"/>
+      </g>
+
+      <rect x="90" y="31" width="72" height="31" fill="none" stroke="#000" stroke-width="1.2"/>
+      <text x="126" y="44" text-anchor="middle" font-size="8" font-weight="bold">Planning</text>
+      <text x="126" y="55" text-anchor="middle" font-size="8" font-weight="bold">decision</text>
+
+      <text x="200" y="9" font-size="6.4" letter-spacing="1.0" fill="#666">ABSORBED BY</text>
+
+      <g stroke="#000" stroke-width="0.7" fill="none">
+        <path d="M162 46 H 186"/>
+        <path d="M186 23 V 78"/>
+        <path d="M186 23 H 200"/><path d="M186 41 H 200"/>
+        <path d="M186 59 H 200"/><path d="M186 78 H 200"/>
+      </g>
+      <path d="M186 78 V 101 H 200" stroke="#000" stroke-width="0.7" fill="none" stroke-dasharray="2.2 2"/>
+
+      <g font-size="8">
+        <rect x="200" y="15.5" width="116" height="15" fill="#ededea" stroke="#000" stroke-width="0.5"/>
+        <text x="206" y="26">Inventory</text>
+        <rect x="200" y="33.5" width="116" height="15" fill="#ededea" stroke="#000" stroke-width="0.5"/>
+        <text x="206" y="44">Capacity</text>
+        <rect x="200" y="51.5" width="116" height="15" fill="#ededea" stroke="#000" stroke-width="0.5"/>
+        <text x="206" y="62">Time</text>
+        <rect x="200" y="70.5" width="116" height="15" fill="#ededea" stroke="#000" stroke-width="0.5"/>
+        <text x="206" y="81">Cash</text>
+        <rect x="200" y="93.5" width="116" height="15" fill="none" stroke="#000" stroke-width="0.9" stroke-dasharray="2.2 2"/>
+        <text x="206" y="104" font-weight="bold">The customer</text>
+      </g>
+
+      <line x1="0" y1="120" x2="340" y2="120" stroke="#cfcfcf" stroke-width="0.5"/>
+      <g font-size="6.6" fill="#333">
+        <rect x="0" y="126" width="9" height="6.5" fill="#ededea" stroke="#000" stroke-width="0.5"/>
+        <text x="13" y="132">Recorded somewhere a person reviews it</text>
+        <rect x="176" y="126" width="9" height="6.5" fill="none" stroke="#000" stroke-width="0.8" stroke-dasharray="2 1.6"/>
+        <text x="189" y="132">Absorbed anyway, rarely measured</text>
+      </g>
+    </svg>
+    <figcaption><b>Figure 1. The absorption ledger.</b> Variability has to land somewhere. Four absorbers sit in a system somebody reviews. The fifth usually does not, which is exactly why optimizers find it.</figcaption>
+  </figure>
+
+  <div class="box">
+    <div class="lab">Field Lesson</div>
+    <p>A company that cannot price a missed customer date is running its largest uncertainty absorber off the books. Any optimizer you hand it will find that account and draw on it.</p>
+  </div>
+
+  <h2><span class="num">2.</span>Every buffer already contains a number</h2>
+
+  <h3>The four weeks nobody set</h3>
+
+  <p>A durables importer and distributor asked for a better demand forecast. Their safety stock was four weeks of cover, applied across effectively the entire catalog. The four weeks dated to a port disruption several years earlier. By the time we arrived, three of the four people who had been in the room were gone.</p>
+
+  <p>Safety stock under both demand and lead time variability is standard:</p>
+
+  <div class="eq">SS = z <span class="rad">&radic;</span><span style="border-top:0.6pt solid #000; padding:0 0.15em 0 0.15em;">L&#772;&thinsp;&sigma;<span class="sub">D</span><span class="sup">2</span> + D&#772;<span class="sup">2</span>&thinsp;&sigma;<span class="sub">L</span><span class="sup">2</span></span></div>
+
+  <p>The reason to write it out is the second term. With their own numbers, lead time variance rather than demand variance accounted for most of the buffer. A better demand forecast would have moved the smaller term.</p>
+
+  <p>It got more specific than that. Their ERP recorded a single lead time, purchase order to receipt, so lead time variance was one opaque number covering a chain of very different things. Split into stages &mdash; supplier confirmation, production, ocean transit, customs, drayage and DC appointment &mdash; ocean transit turned out to be among the better-behaved stages. Two carried long right tails: customs clearance on a subset of tariff codes, and appointment scheduling at their own distribution center.</p>
+
+  <p>The second one was theirs. They were financing inventory to absorb a scheduling problem inside their own four walls.</p>
+
+  <p>None of this needed new mathematics. It needed a variance term measured at a level where somebody could act on it.</p>
+
+  <p class="lesson"><b>Lesson.</b> Before improving a forecast, work out which variance term the buffer is paying for. Demand error is the variance that shows up on a dashboard, so it is the one that gets requested. It is frequently not the expensive one.</p>
+
+  <h3>A service level is a price you have not written down</h3>
+
+  <p>A specialty retailer held a 98% fill rate target across the assortment. The number appeared in the supply chain scorecard, in vendor agreements, and in a board deck.</p>
+
+  <p>For a single-period stocking decision, the optimal service level is the critical ratio:</p>
+
+  <div class="eq">q* = C<span class="sub">u</span> &frasl; (C<span class="sub">u</span> + C<span class="sub">o</span>)</div>
+
+  <p>where C<span class="sub">u</span> is the cost of being one unit short and C<span class="sub">o</span> the cost of being one unit long. Committing to 98% is committing to a ratio of 49 to 1. One unit short costs forty-nine times what one unit long costs.</p>
+
+  <p>We put that ratio in front of the merchandising and finance leads for a handful of representative items. For the hero item anchoring a category and pulling attachments, nobody argued; the true ratio may well have been higher. For a commodity item with a near-identical substitute two feet away on the same shelf, the honest ratio was nearer three, and a stockout mostly moved the sale rather than losing it. For a seasonal item eight weeks from markdown, C<span class="sub">o</span> was climbing every week while the target sat still.</p>
+
+  <p>The target had come from a director&rsquo;s previous employer, in a different category, roughly a decade earlier.</p>
+
+  <p>The finding was not that 98% was wrong. It was that a single number was doing the work of several hundred, and that the assortment had been quietly cross-subsidizing itself: substitutable items over-served with working capital the margin drivers needed.</p>
+
+  <p class="lesson"><b>Lesson.</b> A service level is a price you have agreed to pay without writing the price down. Read it back as a ratio and see who flinches.</p>
+
+  <h2><span class="num">3.</span>Stability and recourse cost nothing until you price them</h2>
+
+  <h3>Nervousness is not a forecasting problem</h3>
+
+  <p>A tier-one automotive supplier ran weekly MRP regeneration and got materially different plans out of nearly identical inputs. Released quantities moved, sequencing moved, supplier releases followed. Planners had responded the way planners do: maintained spreadsheets, a private set of rules, and the habit of running the official plan through personal judgment before anything went out the door.</p>
+
+  <p>The scoped project was forecast improvement, on the theory that a steadier forecast would produce a steadier plan.</p>
+
+  <p>The planning run re-optimized from scratch every cycle. It carried no term for the cost of changing a commitment it had already made. Changing a plan is not free. It costs setup and changeover, it burns credibility with suppliers who staffed to the last release, it disrupts labor scheduling, and it teaches everyone downstream that the plan is provisional. But the objective said change was free, so the solver spent it freely, chasing small theoretical gains off noise in the inputs.</p>
+
+  <p>The structural fix is a term, not a program:</p>
+
+  <div class="eq">min &nbsp;&Sigma;<span class="sub">t</span>&thinsp;c<span class="sub">t</span>&thinsp;x<span class="sub">t</span> &nbsp;+&nbsp; &lambda;&thinsp;&Sigma;<span class="sub">t</span>&thinsp;| x<span class="sub">t</span> &minus; x&#771;<span class="sub">t</span> |</div>
+
+  <p>where x&#771; is the plan already communicated and &lambda; is the price of changing it. &lambda; is not a smoothing knob invented to make output look calmer. It is a real cost, and when we asked the planners to estimate it, they produced a defensible figure in about an hour, because they had been paying it for years.</p>
+
+  <p>Churn fell against a small and now-measurable loss in theoretical optimality. That trade had been happening the whole time. It had simply been running in the wrong direction, invisibly, and nobody had been asked to approve it.</p>
+
+  <p class="lesson"><b>Lesson.</b> An optimizer will trade away anything you left out of the objective. Stability is the thing most often left out, and nervousness is the symptom people report instead.</p>
+
+  <h3>Punishing recourse destroys the evidence</h3>
+
+  <p>An industrial distributor tracked expedited freight as an unfavorable variance and reviewed branch managers on it monthly.</p>
+
+  <p>What followed was predictable and, from the branch&rsquo;s point of view, entirely rational. Expedites were split below reporting thresholds, reclassified into other freight categories, arranged directly with carriers outside the TMS, or pre-empted by holding extra stock that nobody had authorized and no model knew about. The variance line improved. The underlying cost did not.</p>
+
+  <p>Expediting is recourse: the second-stage action in a problem where you commit, observe, then correct. Under real uncertainty, some recourse is optimal. A distributor with near-zero expedite spend is almost certainly over-buffered somewhere else and paying more for the privilege, in inventory that will not look like a failure until the day it gets written down.</p>
+
+  <p>Moving expedite from a variance line to a budgeted recourse line with an explicit unit price changed two things. The spend became legitimate, so it got recorded. And once it was recorded at lane and item level, it became one of the more useful datasets in the company: a self-reported map, updated daily by the people closest to the problem, of exactly where the buffers were wrong.</p>
+
+  <p class="lesson"><b>Lesson.</b> Make a recourse action shameful and you will not remove it. You will lose the data and keep the cost.</p>
+
+  <h2><span class="num">4.</span>The organization is already telling you what the model is missing</h2>
+
+  <h3>A metric that cannot move will be moved anyway</h3>
+
+  <p>A telecom field services group forecast spare parts demand and was managed on MAPE. Much of the catalog was intermittent: parts that moved a handful of times a year, at a particular site, with long runs of zeros in between.</p>
+
+  <p>MAPE on intermittent series is close to useless. It is undefined at zero and unstable near it, and the team understood this perfectly well. So they reported at region and month, where the series aggregate into something with a stable denominator and the metric looks respectable.</p>
+
+  <p>The stocking decision was made at site and week.</p>
+
+  <p>Nobody was gaming anything in a way they would have recognized as gaming. They were responding correctly to a measurement that could not be improved honestly at the level where the decision lived. Meanwhile the real question was binary and local &mdash; stock this part at this site, or don&rsquo;t &mdash; and it turned on the cost of a truck roll against a part sitting on a shelf for two years, weighted by what the asset does to the customer when it is down. Criticality, not accuracy.</p>
+
+  <p class="lesson"><b>Lesson.</b> A metric that cannot be moved honestly gets moved by changing the level of aggregation. When a forecasting team spends more time defending its metric than using it, check whether the metric can move at all at the granularity of the decision.</p>
+
+  <h3>Overrides are labeled data</h3>
+
+  <p>A consumer goods manufacturer had a working allocation optimizer and a planner override rate high enough that leadership had scoped the next phase as adoption: training, a redesigned interface, a communications plan. The override was applied in a downstream screen and retained nowhere. Once the plan published, the recommendation it replaced was gone.</p>
+
+  <p>Capturing overrides with a short reason code took a few days of work.</p>
+
+  <p>They clustered immediately. The large majority traced to a handful of causes: named-account allocation commitments made by sales, promotional protection for accounts in a live program, and a minimum-shipment convention with two customers whose receiving operations could not handle partial pallets. All of it real. None of it in the model.</p>
+
+  <p>The planners had not been rejecting the optimizer. They had been repairing it by hand, every day, for free, and the company had been throwing away the repair log.</p>
+
+  <p class="lesson"><b>Lesson.</b> Overrides are labeled data about a missing constraint. Adoption problems are specification problems most of the time, and the ones that genuinely are about change management get much easier to recognize once the specification problems are gone.</p>
+
+  <table class="wide">
+    <caption>The six engagements</caption>
+    <thead>
+      <tr>
+        <th style="width:17%">Setting</th>
+        <th style="width:22%">Presenting ask</th>
+        <th style="width:31%">What was actually binding</th>
+        <th style="width:30%">What changed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Durables importer &amp; distributor</td>
+        <td>Improve the demand forecast</td>
+        <td>Lead time variance, concentrated in customs clearance and in appointment scheduling at their own DC</td>
+        <td>Lead time decomposed into stages; buffer re-derived against the stage that carried the tail</td>
+      </tr>
+      <tr>
+        <td>Specialty retailer</td>
+        <td>Hit a 98% fill rate more efficiently</td>
+        <td>One service target standing in for several hundred distinct cost ratios</td>
+        <td>Cost tiers, each with an explicit and defended critical ratio</td>
+      </tr>
+      <tr>
+        <td>Automotive tier-one supplier</td>
+        <td>Steadier forecast, to steady the plan</td>
+        <td>No price on changing a plan the business had already communicated</td>
+        <td>Change penalty added to the planning objective, with &lambda; estimated by the planners</td>
+      </tr>
+      <tr>
+        <td>Industrial distributor</td>
+        <td>Reduce expedite spend</td>
+        <td>Recourse treated as failure, so it was hidden rather than reduced</td>
+        <td>Expedite budgeted and priced as recourse; spend logged by lane and item</td>
+      </tr>
+      <tr>
+        <td>Telecom field services</td>
+        <td>Improve spare parts forecast accuracy</td>
+        <td>A metric that could not move honestly at the granularity of the stocking decision</td>
+        <td>Stocking reframed as truck roll versus holding cost, weighted by asset criticality</td>
+      </tr>
+      <tr>
+        <td>Consumer goods manufacturer</td>
+        <td>Improve planner adoption</td>
+        <td>Contractual and promotional commitments that were real, binding, and absent from the model</td>
+        <td>Overrides captured with reason codes, then promoted into constraints</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2><span class="num">5.</span>Where we start now</h2>
+
+  <p>A first pass does not require rebuilding anything. It requires being stubborn about six things, in order.</p>
+
+  <ol class="steps">
+    <li><b>Pick one recurring decision that moves real money</b>, at the granularity someone actually makes it. Not &ldquo;inventory management.&rdquo; An order quantity, for an item, at a location, on a cadence.</li>
+    <li><b>Trace a single unit end to end</b>, from the signal that triggered the decision to the realized outcome and whoever saw that outcome.</li>
+    <li><b>List every buffer touching the decision.</b> For each one: who set it, when, and against which event.</li>
+    <li><b>Recover the implied price behind each buffer</b> and read it back to the person accountable for it. When somebody disagrees with a number they own, that is the finding.</li>
+    <li><b>Ask where variability lands when the buffer is not enough</b>, and whether that landing is measured anywhere at all.</li>
+    <li><b>Find the spreadsheet, the override, and the side process.</b> They mark the edges of the model more reliably than any interview will.</li>
+  </ol>
+
+  <div class="box">
+    <div class="lab">A Useful Trigger</div>
+    <p>If your planners maintain a spreadsheet, the spreadsheet is the specification. Read it before you scope anything.</p>
+  </div>
+
+  <h2><span class="num">6.</span>A different sequence</h2>
+
+  <p>Most supply chain analytics programs run in technology order: data, then forecast, then optimization, then a dashboard, then adoption. Every step is defensible, which is part of why the sequence feels inevitable.</p>
+
+  <p>The order we now prefer starts somewhere else.</p>
+
+  <ol class="steps">
+    <li><b>Name the decision.</b> Who decides what, at what granularity, on what cadence.</li>
+    <li><b>Locate the absorption.</b> Where does variability land today, and whose budget pays for it.</li>
+    <li><b>Recover the prices.</b> Shortage, excess, delay, change, expediting, and the customer&rsquo;s patience.</li>
+    <li><b>Choose the policy.</b> The simplest rule that holds up under repeated application, not the most sophisticated one available.</li>
+    <li><b>Design the recourse.</b> What happens when the plan is wrong, who may act, and at what price.</li>
+    <li><b>Close the loop.</b> Outcomes, overrides, and exceptions become inputs to the next cycle rather than exhaust.</li>
+  </ol>
+
+  <p>Forecast improvement is still on the list. It simply enters where it earns its place, which is after somebody can say which decision it would change and by how much. In two of the six engagements above, the answer to that question was a genuine, well-specified forecasting project &mdash; and it was a better project for having been asked second.</p>
+
+  <div class="takeaway">
+    <div class="lab">The Core Takeaway</div>
+    <p>Your buffers already encode a theory of what can go wrong and what it costs. The useful question is not whether that theory is sophisticated. It is whether anyone in the building still agrees with it.</p>
+  </div>
+
+  <table class="wide audit">
+    <caption>What a Supply Chain Uncertainty Audit tests</caption>
+    <tbody>
+      <tr><td>Decision</td><td>Is the recurring choice defined at the granularity, timing, and unit at which somebody actually makes it?</td></tr>
+      <tr><td>Absorption</td><td>Where does variability land today &mdash; inventory, capacity, time, cash, or the customer &mdash; and whose budget carries it?</td></tr>
+      <tr><td>Prices</td><td>Are shortage, excess, delay, change, and expediting priced explicitly, or standing behind a target that nobody has re-derived?</td></tr>
+      <tr><td>Rules</td><td>Which constraints are physical or contractual, and which are inherited convention that has never been tested?</td></tr>
+      <tr><td>Recourse</td><td>When the plan is wrong, who may act, at what price, and is the action recorded in a form the next cycle can use?</td></tr>
+      <tr><td>Learning</td><td>Do realized outcomes and overrides reach the next decision, or do they stop at a report?</td></tr>
+    </tbody>
+  </table>
+
+  <div class="colophon">
+    <div class="colophon-grid">
+      <div>
+        <h4>About Bit Bros</h4>
+        <p>Bit Bros is a boutique applied economics firm working on supply chain and decision systems, at the intersection of optimization, simulation, forecasting, and AI. Founder experience includes Amazon, Toyota, Gurobi, and AT&amp;T. We work on the operating mechanism around the model: how decisions are specified, priced, tested, deployed, and improved.</p>
+        <p>Field Note 01, <i>When Better Models Stop Creating Better Decisions</i>, sets out the general decision-system version of this argument. This paper is the supply chain case.</p>
+      </div>
+      <div>
+        <h4>Supply Chain Uncertainty Audit</h4>
+        <p>For teams about to fund a forecasting, inventory optimization, or planning system initiative, we run the diagnostic above before significant engineering is committed. It is short, it is deliberately narrow, and the output is a prioritized list of what to fix, simplify, test, or leave alone &mdash; not another transformation roadmap.</p>
+        <p class="contact">Start a conversation: BitBrosData.com</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
