@@ -15,7 +15,6 @@ const latestChallenges = challenges.slice(0, 2);
 ---
 <BaseLayout title="Home" description="Decision Management Community — practitioners designing, building, operating, and improving decision systems.">
   <section class="hero">
-    <img class="hero-logo" src={url('/hero-dm-circle.png')} alt="Decision Management Community" />
     <div class="hero-copy">
       <span class="kicker">Decision Management, in practice</span>
       <h1>A community hub for better decisions.</h1>
@@ -27,6 +26,9 @@ const latestChallenges = challenges.slice(0, 2);
         Explore ideas, methods, tools, and real-world practice across Business Rules, Decision Modeling,
         Decision Optimization, Machine Learning, and Agentic AI — maintained by practitioners for practitioners.
       </p>
+    </div>
+    <div class="hero-actions">
+      <img class="hero-logo" src={url('/hero-dm-circle.png')} alt="Decision Management Community" />
       <nav class="hero-links" aria-label="Explore the community">
         <a href={url('/news/')}>News</a>
         <a href={url('/challenges/')}>Challenges</a>
@@ -86,7 +88,7 @@ const latestChallenges = challenges.slice(0, 2);
   }
   .hero-copy {
     max-width: 76ch;
-    padding-right: 8rem;
+    padding-right: 12rem;
   }
   .hero-copy h1 {
     max-width: 17ch;
@@ -113,21 +115,29 @@ const latestChallenges = challenges.slice(0, 2);
   .intro { margin-top: 1.25rem; font-size: 1.08rem; }
   .lede { font-size: 1rem; }
 
-  .hero-logo {
+  .hero-actions {
     position: absolute;
     top: clamp(1.5rem, 4vw, 2.5rem);
     right: clamp(1.5rem, 4vw, 2.5rem);
+    display: flex;
+    width: 150px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-logo {
     width: clamp(100px, 12vw, 132px);
     height: clamp(100px, 12vw, 132px);
     object-fit: contain;
   }
   .hero-links {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    flex-direction: column;
     gap: 0.55rem;
-    margin-top: 1.35rem;
   }
   .hero-links a {
+    width: 100%;
     padding: 0.38rem 0.7rem;
     border: 1px solid var(--color-border);
     border-radius: 999px;
@@ -135,6 +145,7 @@ const latestChallenges = challenges.slice(0, 2);
     color: var(--color-primary);
     font-size: 0.82rem;
     font-weight: 700;
+    text-align: center;
   }
   .hero-links a:hover,
   .hero-links a:focus-visible {
@@ -187,8 +198,13 @@ const latestChallenges = challenges.slice(0, 2);
   }
   @media (max-width: 600px) {
     .hero { padding: 1.4rem; }
-    .hero-copy { padding-top: 5.2rem; padding-right: 0; }
-    .hero-logo { top: 1rem; right: 1rem; width: 82px; height: 82px; }
+    .hero-copy { padding-right: 0; }
+    .hero-actions {
+      position: static;
+      width: min(100%, 180px);
+      margin: 1.5rem 0 0 auto;
+    }
+    .hero-logo { width: 92px; height: 92px; }
     .latest-grid { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
