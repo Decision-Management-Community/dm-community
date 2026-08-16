@@ -17,7 +17,7 @@ const sponsors = (await getCollection('sponsors'))
   <h2>Current Sponsors</h2>
   <div class="card-grid sponsor-grid">
     {sponsors.map((s) => (
-      <div class="card sponsor-card">
+      <div class:list={['card', 'sponsor-card', { 'sponsor-card-bit-bros': s.id === 'bit-bros' }]}>
         <a
           href={s.data.url}
           target="_blank"
@@ -129,8 +129,8 @@ const sponsors = (await getCollection('sponsors'))
     text-align: center;
   }
 
-  /* Bit Bros is stationary on this page, so give the mark one brief spotlight
-     moment per cycle and leave it quiet the rest of the time. */
+  /* Bit Bros still gets the occasional passive spotlight, but hovering anywhere
+     on its card (or focusing a link inside it) triggers the treatment immediately. */
   .sponsor-logo-link-bit-bros {
     animation: bit-bros-stage-spotlight 14s ease-in-out infinite;
     will-change: background-color, border-color, box-shadow;
@@ -139,6 +139,43 @@ const sponsors = (await getCollection('sponsors'))
     transform-origin: center;
     animation: bit-bros-logo-spotlight 14s ease-in-out infinite;
     will-change: filter, transform;
+  }
+
+  .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros,
+  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros {
+    animation: none;
+    background-color: #0f172a;
+    border-color: rgba(15, 23, 42, 0.34);
+    box-shadow: 0 9px 24px rgba(15, 23, 42, 0.16);
+    transform: translateY(-1px);
+  }
+  .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros .sponsor-logo,
+  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo {
+    animation: bit-bros-card-highlight 460ms ease-out both;
+    filter: invert(1) brightness(1.08);
+  }
+
+  @keyframes bit-bros-card-highlight {
+    0% {
+      filter: invert(0) brightness(1);
+      transform: rotate(0deg) scale(1);
+    }
+    30% {
+      filter: invert(0.75) brightness(1.04);
+      transform: rotate(-2deg) scale(1.03);
+    }
+    55% {
+      filter: invert(1) brightness(1.08);
+      transform: rotate(2.4deg) scale(1.05);
+    }
+    75% {
+      filter: invert(1) brightness(1.08);
+      transform: rotate(-1.2deg) scale(1.05);
+    }
+    100% {
+      filter: invert(1) brightness(1.08);
+      transform: rotate(0deg) scale(1.05);
+    }
   }
 
   @keyframes bit-bros-stage-spotlight {
@@ -212,6 +249,16 @@ const sponsors = (await getCollection('sponsors'))
     .sponsor-logo-link-bit-bros,
     .sponsor-logo-link-bit-bros .sponsor-logo {
       animation: none;
+    }
+    .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros,
+    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros {
+      transform: none;
+    }
+    .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros .sponsor-logo,
+    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo {
+      animation: none;
+      filter: invert(1) brightness(1.08);
+      transform: none;
     }
   }
 
