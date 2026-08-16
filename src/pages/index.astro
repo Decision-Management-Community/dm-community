@@ -17,7 +17,7 @@ const latestChallenges = challenges.slice(0, 2);
   <section class="hero">
     <div class="hero-copy">
       <span class="kicker">Decision Management, in practice</span>
-    <h1>Towards Better Operational Decisions</h1>
+      <h1>Towards Better Operational Decisions</h1>
       <p class="intro">
         The Decision Management Community brings together practitioners who design, build, operate,
         and improve decision systems across multiple industries.
@@ -70,6 +70,11 @@ const latestChallenges = challenges.slice(0, 2);
 <style>
   .hero {
     position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 720px) 150px;
+    justify-content: start;
+    align-items: start;
+    gap: clamp(1.25rem, 2.5vw, 2rem);
     padding: clamp(2rem, 5vw, 3.8rem);
     border: 1px solid var(--color-border);
     border-radius: 16px;
@@ -79,8 +84,7 @@ const latestChallenges = challenges.slice(0, 2);
     box-shadow: var(--shadow-card);
   }
   .hero-copy {
-    max-width: 76ch;
-    padding-right: 12rem;
+    max-width: 72ch;
   }
   .hero-copy h1 {
     max-width: 17ch;
@@ -108,9 +112,6 @@ const latestChallenges = challenges.slice(0, 2);
   .lede { font-size: 1rem; }
 
   .hero-actions {
-    position: absolute;
-    top: calc(clamp(1.5rem, 4vw, 2.5rem) + 5.5rem);
-    right: clamp(1.5rem, 4vw, 2.5rem);
     display: flex;
     width: 150px;
     flex-direction: column;
@@ -173,18 +174,23 @@ const latestChallenges = challenges.slice(0, 2);
   .compact-card h3 { margin: 0 0 0.4rem; }
   .meta { margin: 0.25rem 0; color: var(--color-text-muted); font-size: 0.82rem; }
 
-  @media (max-width: 840px) {
+  @media (max-width: 940px) {
+    .hero {
+      grid-template-columns: minmax(0, 1fr) 145px;
+      gap: 1.25rem;
+    }
     .latest-grid { grid-template-columns: 1fr; }
-    .hero { padding-top: 2.5rem; }
     .hero-copy h1 { max-width: 16ch; }
   }
-  @media (max-width: 600px) {
-    .hero { padding: 1.4rem; }
-    .hero-copy { padding-right: 0; }
+  @media (max-width: 700px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 1.4rem;
+    }
     .hero-actions {
-      position: static;
       width: min(100%, 180px);
-      margin: 1.5rem 0 0 auto;
+      margin-top: 0.5rem;
+      justify-self: start;
     }
     .hero-logo { width: 92px; height: 92px; }
     .latest-grid { grid-template-columns: 1fr; gap: 2rem; }
