@@ -22,14 +22,9 @@ const siteLinks = [
 ];
 ---
 <footer class="site-footer">
-  <nav class="page-marquee" aria-label="Explore major pages">
-    <div class="page-track">
-      <div class="page-set">
-        {siteLinks.map((item) => <a href={url(item.href)}>{item.label}</a>)}
-      </div>
-      <div class="page-set page-set-copy" aria-hidden="true">
-        {siteLinks.map((item) => <a href={url(item.href)} tabindex="-1">{item.label}</a>)}
-      </div>
+  <nav class="page-links" aria-label="Explore major pages">
+    <div class="wrap page-links-inner">
+      {siteLinks.map((item) => <a href={url(item.href)}>{item.label}</a>)}
     </div>
   </nav>
 
@@ -112,47 +107,45 @@ const siteLinks = [
     overflow: hidden;
   }
 
-  .page-marquee {
+  .page-links {
     width: 100%;
-    overflow: hidden;
-    border-bottom: 1px solid color-mix(in srgb, var(--color-primary) 72%, #fff);
-    background: var(--color-primary-dark);
-    -webkit-mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
-    mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-card) 68%, var(--color-bg-alt));
   }
-  .page-track {
+  .page-links-inner {
     display: flex;
-    width: max-content;
-    animation: page-scroll 38s linear infinite;
-    will-change: transform;
-  }
-  .page-set {
-    display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1.5rem;
-    padding: 0.75rem 1.5rem 0.78rem 0;
+    justify-content: center;
+    gap: 0.45rem 0.5rem;
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
   }
-  .page-set a {
-    position: relative;
-    color: #fff;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.025em;
+  .page-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0.34rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-card) 88%, transparent);
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+    font-weight: 650;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
     text-decoration: none;
     white-space: nowrap;
+    transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease;
   }
-  .page-set a::after {
-    position: absolute;
-    left: calc(100% + 0.68rem);
-    color: var(--color-accent);
-    content: '◆';
-    font-size: 0.52rem;
-    top: 0.22rem;
+  .page-links a:hover,
+  .page-links a:focus-visible {
+    border-color: color-mix(in srgb, var(--color-primary) 48%, var(--color-border));
+    background: color-mix(in srgb, var(--color-primary) 7%, var(--color-card));
+    color: var(--color-text);
+    text-decoration: none;
   }
-  .page-set a:hover,
-  .page-set a:focus-visible { color: #f5c57d; text-decoration: underline; }
-  .page-marquee:hover .page-track,
-  .page-marquee:focus-within .page-track { animation-play-state: paused; }
 
   .sponsor-band {
     padding: 1.25rem 0 1.35rem;
@@ -252,10 +245,6 @@ const siteLinks = [
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
-  @keyframes page-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
 
   .footer-grid {
     display: grid;
@@ -312,21 +301,29 @@ const siteLinks = [
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .page-marquee,
     .sponsor-marquee {
       overflow-x: auto;
       -webkit-mask-image: none;
       mask-image: none;
       scrollbar-width: thin;
     }
-    .page-track,
     .sponsor-track { animation: none; }
-    .page-set-copy,
     .sponsor-set-copy { display: none; }
-    .sponsor-tile { transition: none; }
+    .sponsor-tile,
+    .page-links a { transition: none; }
   }
 
   @media (max-width: 700px) {
+    .page-links-inner {
+      gap: 0.4rem;
+      padding-top: 0.65rem;
+      padding-bottom: 0.65rem;
+    }
+    .page-links a {
+      min-height: 30px;
+      padding: 0.32rem 0.62rem;
+      font-size: 0.73rem;
+    }
     .sponsor-heading-row { align-items: flex-start; }
     .sponsor-tile { width: 132px; height: 50px; }
     .footer-grid { grid-template-columns: 1fr; }
