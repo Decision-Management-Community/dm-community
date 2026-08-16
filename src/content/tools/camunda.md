@@ -1,6 +1,6 @@
 ---
-name: "Aletyx"
+name: "Camunda"
 categories: ["BR","LLM"]
-url: "https://aletyx.com/"
+url: "https://camunda.com/"
 linkStatus: ok
 ---

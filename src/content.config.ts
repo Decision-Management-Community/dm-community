@@ -62,16 +62,9 @@ const tools = defineCollection({
   loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/tools' }),
   schema: z.object({
     name: z.string(),
-    category: z.enum([
-      'DMN Tools',
-      'Rules Engines',
-      'Constraint Solvers',
-      'Optimization Solvers',
-      'Decision Intelligence Platforms',
-    ]),
+    categories: z.array(z.enum(['BR', 'ML', 'OPT', 'LLM'])).min(1),
     url: z.string().url().optional(),
     linkStatus: z.enum(['ok', 'broken', 'unverified']).default('unverified'),
-    summary: z.string().optional(),
   }),
 });
 

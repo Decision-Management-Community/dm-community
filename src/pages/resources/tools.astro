@@ -1,56 +1,159 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { categoryColor } from '../../lib/categoryColors';
 
 const all = (await getCollection('tools')).sort((a, b) => a.data.name.localeCompare(b.data.name));
-const categories = [
-  'Constraint Solvers',
-  'Decision Intelligence Platforms',
-  'DMN Tools',
-  'Optimization Solvers',
-  'Rules Engines',
-] as const;
+const categoryKeys = ['BR', 'ML', 'OPT', 'LLM'] as const;
+const categoryInfo = {
+  BR: { label: 'Business Rules', color: '#2563eb' },
+  ML: { label: 'Machine Learning', color: '#16815d' },
+  OPT: { label: 'Optimization', color: '#c05b12' },
+  LLM: { label: 'Agentic AI', color: '#7c3aed' },
+} as const;
 ---
-<BaseLayout title="Tools" description="DMN tools, rules engines, constraint solvers, optimization solvers, and decision intelligence platforms.">
+<BaseLayout title="Tools" description="Business rules, machine learning, optimization, and Agentic AI tools for decision management.">
   <h1>Tools</h1>
   <p>
-    A community-maintained catalog of decision management tooling. <strong>Note:</strong> the
-    original site's five tool catalogs (DMN Tools, BRMS, Constraint Solvers, LP/MIP Solvers, and
-    Machine Learning Tools — over 100 products combined) were hosted on a third-party server that
-    has since gone permanently offline, so that data could not be recovered for this migration.
-    The list below is a fresh start, seeded with tools known to be active in the community.
+    A community-maintained catalog of decision management tooling. All tools are classified by four
+    functional categories and shown in alphabetical order below.
   </p>
   <p>
-    Missing your tool? <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#adding-a-tool">Add it via pull request</a> — this is exactly the kind of content this rebuild makes easy to contribute.
+    Missing your tool or want to adjust its categories?
+    <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md#adding-a-tool">Do it via pull request</a>
+    or sending email to <a href="mailto:decisionmanagementcommunity@gmail.com">decisionmanagementcommunity@gmail.com</a>.
   </p>
 
-  {categories.map((cat) => {
-    const items = all.filter((t) => t.data.category === cat);
-    if (items.length === 0) return null;
-    const color = categoryColor(cat);
-    return (
-      <>
-        <h2><span class="dot" style={`background:${color};`}></span>{cat}</h2>
-        <div class="card-grid">
-          {items.map((t) => (
-            <div class="card" style={`border-left: 3px solid ${color};`}>
-              <h3>{t.data.url ? <a href={t.data.url} target="_blank" rel="noopener">{t.data.name}</a> : t.data.name}</h3>
-              {t.data.summary && <p class="muted">{t.data.summary}</p>}
-            </div>
+  <div class="tool-search">
+    <label for="tool-search">Search tools</label>
+    <input
+      id="tool-search"
+      type="search"
+      placeholder="Search by name…"
+      autocomplete="off"
+      aria-controls="tool-list"
+    />
+  </div>
+
+  <div class="tool-filters" role="group" aria-label="Filter tools by functional category">
+    <button type="button" data-tool-filter="" aria-pressed="true">All</button>
+    {categoryKeys.map((key) => (
+      <button type="button" data-tool-filter={key} aria-pressed="false" style={`--filter-color:${categoryInfo[key].color}`}>
+        <strong>{key}</strong><span>{categoryInfo[key].label}</span>
+      </button>
+    ))}
+  </div>
+  <p id="tool-count" class="muted" aria-live="polite">Showing {all.length} tools</p>
+
+  <div class="card-grid" id="tool-list">
+    {all.map((tool) => (
+      <article class="card tool-card" data-tool data-name={tool.data.name.toLocaleLowerCase()} data-categories={tool.data.categories.join(' ')}>
+        <h2>{tool.data.url ? <a href={tool.data.url} target="_blank" rel="noopener">{tool.data.name}</a> : tool.data.name}</h2>
+        <div class="tool-categories" aria-label="Supported categories">
+          {tool.data.categories.map((key) => (
+            <span class="tool-category" style={`--category-color:${categoryInfo[key].color}`} title={categoryInfo[key].label}>
+              {key}
+            </span>
           ))}
         </div>
-      </>
-    );
-  })}
+      </article>
+    ))}
+  </div>
 </BaseLayout>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = [...document.querySelectorAll('[data-tool-filter]')];
+    const cards = [...document.querySelectorAll('[data-tool]')];
+    const search = document.querySelector('#tool-search');
+    const count = document.querySelector('#tool-count');
+    let selectedCategory = '';
+
+    const applyFilters = () => {
+      const query = search.value.trim().toLocaleLowerCase();
+      let visible = 0;
+
+      for (const card of cards) {
+        const categories = (card.dataset.categories || '').split(' ');
+        const matchesCategory = !selectedCategory || categories.includes(selectedCategory);
+        const matchesSearch = !query || (card.dataset.name || '').includes(query);
+        card.hidden = !(matchesCategory && matchesSearch);
+        if (!card.hidden) visible += 1;
+      }
+
+      const categoryText = selectedCategory ? ` supporting ${selectedCategory}` : '';
+      const searchText = query ? ` matching “${search.value.trim()}”` : '';
+      count.textContent = `Showing ${visible} of ${cards.length} tools${categoryText}${searchText}`;
+    };
+
+    for (const button of buttons) {
+      button.addEventListener('click', () => {
+        selectedCategory = button.dataset.toolFilter || '';
+        for (const candidate of buttons) candidate.setAttribute('aria-pressed', String(candidate === button));
+        applyFilters();
+      });
+    }
+
+    search.addEventListener('input', applyFilters);
+  });
+</script>
+
 <style>
-  .dot {
-    display: inline-block;
-    width: 0.6em;
-    height: 0.6em;
-    border-radius: 50%;
-    margin-right: 0.5em;
+  .tool-search {
+    display: grid;
+    gap: 0.35rem;
+    max-width: 32rem;
+    margin-top: 1.5rem;
   }
+  .tool-search label { font-weight: 700; }
+  .tool-search input {
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .tool-search input:focus-visible {
+    outline: 3px solid color-mix(in srgb, #2563eb 35%, transparent);
+    outline-offset: 2px;
+  }
+  .tool-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0 0.75rem;
+  }
+  .tool-filters button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.5rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--filter-color, var(--color-text-muted));
+    border-radius: 999px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+  }
+  .tool-filters button[aria-pressed='true'] {
+    background: var(--color-bg-alt);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--filter-color, var(--color-text)) 35%, transparent);
+  }
+  .tool-filters button span { color: var(--color-text-muted); }
+  .tool-card { border-top: 3px solid var(--color-border); }
+  .tool-card h2 { margin-top: 0; font-size: 1.15rem; }
+  .tool-categories { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.5rem 0; }
+  .tool-category {
+    padding: 0.15rem 0.45rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--category-color) 16%, transparent);
+    color: var(--category-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  [hidden] { display: none !important; }
 </style>
