@@ -8,13 +8,21 @@ const recent = editions.filter((e) => e.data.year >= 2023);
 const earlier = editions.filter((e) => e.data.year < 2023);
 ---
 <BaseLayout title="DecisionCAMP" description="DecisionCAMP — the annual conference for Decision Intelligence practitioners.">
-  <h1>DecisionCAMP</h1>
-  <p>
-    DecisionCAMP is one of the leading annual events devoted to Decision Intelligence
-    Technologies. The conference targets digital-decisioning practitioners — including business
-    analysts, domain experts, developers, and architects — who work with decision intelligence
-    tools such as business rules, decision modeling, optimization, and machine learning.
-  </p>
+  <section class="decisioncamp-hero">
+    <div>
+      <span class="eyebrow">Annual conference and archive</span>
+      <h1>DecisionCAMP</h1>
+      <p>
+        DecisionCAMP is one of the leading annual events devoted to Decision Intelligence
+        Technologies. The conference targets digital-decisioning practitioners — including business
+        analysts, domain experts, developers, and architects — who work with decision intelligence
+        tools such as business rules, decision modeling, optimization, and machine learning.
+      </p>
+    </div>
+    <img class="decisioncamp-logo" src={url('/decisioncamp/decisioncamp-logo.png')} alt="DecisionCAMP" />
+  </section>
+
+  <div class="decisioncamp-intro">
   <p>
     The conference series began with RulesFest, continued as IntelliFest in 2012, and has been known
     as DecisionCAMP since 2013. The year-by-year archive below is the community's canonical history
@@ -29,6 +37,7 @@ const earlier = editions.filter((e) => e.data.year < 2023);
     Between annual editions, the community also runs <a href={url('/decisioncamp/minicamps/')}>MiniCamps</a> —
     shorter online sessions with decision intelligence practitioners.
   </p>
+  </div>
 
   <h2>Recent Editions</h2>
   <div class="card-grid">
@@ -59,3 +68,59 @@ const earlier = editions.filter((e) => e.data.year < 2023);
     <a href={url('/news/')}>complete News archive</a>.
   </p>
 </BaseLayout>
+
+<style>
+  .decisioncamp-hero {
+    position: relative;
+    padding: clamp(2rem, 5vw, 3.8rem);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at 90% 12%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 34%),
+      var(--color-card);
+    box-shadow: var(--shadow-card);
+  }
+  .decisioncamp-hero > div { padding-right: clamp(11rem, 32vw, 25rem); }
+  .eyebrow {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: var(--color-accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .decisioncamp-hero h1 {
+    max-width: 16ch;
+    margin: 0;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1.02;
+  }
+  .decisioncamp-hero p {
+    max-width: 64ch;
+    margin: 1rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.08rem;
+    line-height: 1.7;
+  }
+  .decisioncamp-logo {
+    position: absolute;
+    top: clamp(1.5rem, 4vw, 2.5rem);
+    right: clamp(1.5rem, 4vw, 2.5rem);
+    width: clamp(180px, 28vw, 360px);
+    height: auto;
+    object-fit: contain;
+  }
+  .decisioncamp-intro { margin-top: 2.5rem; }
+  .decisioncamp-intro > p { max-width: 74ch; line-height: 1.72; }
+
+  @media (max-width: 760px) {
+    .decisioncamp-hero > div { padding-right: 0; }
+    .decisioncamp-logo {
+      position: static;
+      display: block;
+      width: min(280px, 80%);
+      margin: 1.5rem 0 0 auto;
+    }
+  }
+</style>
