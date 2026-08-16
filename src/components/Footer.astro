@@ -108,7 +108,10 @@ const siteLinks = [
     let isActive = false;
 
     const resetSpotlight = () => {
-      bitBrosTiles.forEach((tile) => tile.style.setProperty('--center-focus', '0'));
+      bitBrosTiles.forEach((tile) => {
+        tile.style.setProperty('--center-focus', '0');
+        tile.style.setProperty('--logo-wiggle', '0deg');
+      });
     };
 
     const updateSpotlight = () => {
@@ -116,14 +119,21 @@ const siteLinks = [
 
       const viewportCenter = window.innerWidth / 2;
       const focusRadius = Math.max(180, Math.min(window.innerWidth * 0.28, 360));
+      const wiggleAmplitude = window.innerWidth <= 700 ? 2 : 2.6;
 
       bitBrosTiles.forEach((tile) => {
         const rect = tile.getBoundingClientRect();
         const tileCenter = rect.left + rect.width / 2;
-        const distance = Math.abs(tileCenter - viewportCenter);
+        const signedDistance = tileCenter - viewportCenter;
+        const distance = Math.abs(signedDistance);
         const proximity = Math.max(0, 1 - distance / focusRadius);
         const eased = proximity * proximity * (3 - 2 * proximity);
+        const wiggleEnvelope = Math.max(0, (eased - 0.55) / 0.45);
+        const normalizedOffset = signedDistance / focusRadius;
+        const wiggle = Math.sin(normalizedOffset * Math.PI * 7) * wiggleEnvelope * wiggleAmplitude;
+
         tile.style.setProperty('--center-focus', eased.toFixed(3));
+        tile.style.setProperty('--logo-wiggle', `${wiggle.toFixed(2)}deg`);
       });
 
       animationFrame = window.requestAnimationFrame(updateSpotlight);
@@ -303,6 +313,7 @@ const siteLinks = [
   }
   .sponsor-tile[data-sponsor-id='bit-bros'] {
     --center-focus: 0;
+    --logo-wiggle: 0deg;
     --tile-scale: calc(1 + (var(--center-focus) * 0.22));
     position: relative;
     z-index: 1;
@@ -317,6 +328,9 @@ const siteLinks = [
   }
   .sponsor-tile[data-sponsor-id='bit-bros'] img {
     filter: invert(var(--center-focus)) brightness(calc(1 + (var(--center-focus) * 0.08)));
+    transform: rotate(var(--logo-wiggle));
+    transform-origin: center;
+    will-change: filter, transform;
   }
 
   @keyframes sponsor-scroll {
@@ -404,6 +418,7 @@ const siteLinks = [
     .page-links a { transition: none; }
     .sponsor-tile[data-sponsor-id='bit-bros'] {
       --center-focus: 0 !important;
+      --logo-wiggle: 0deg !important;
     }
   }
 
