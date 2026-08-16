@@ -180,7 +180,7 @@ const siteLinks = [
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 32px;
+    min-height: 36px;
     padding: 0.34rem 0.7rem;
     border: 1px solid var(--color-border);
     border-radius: 999px;
@@ -232,7 +232,10 @@ const siteLinks = [
     margin: 0;
   }
   .all-sponsors {
+    display: inline-flex;
+    align-items: center;
     flex: 0 0 auto;
+    min-height: 40px;
     font-size: 0.78rem;
     white-space: nowrap;
   }
@@ -341,7 +344,12 @@ const siteLinks = [
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.15rem;
+  }
+  .footer-grid li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
   }
   .sub {
     border-top: 1px solid var(--color-border);
@@ -400,23 +408,43 @@ const siteLinks = [
   }
 
   @media (max-width: 700px) {
+    .site-footer { margin-top: 3rem; }
     .page-links-inner {
       gap: 0.4rem;
       padding-top: 0.65rem;
       padding-bottom: 0.65rem;
     }
     .page-links a {
-      min-height: 30px;
-      padding: 0.32rem 0.62rem;
+      min-height: 40px;
+      padding: 0.36rem 0.65rem;
       font-size: 0.73rem;
     }
-    .sponsor-heading-row { align-items: flex-start; }
     .sponsor-tile { width: 132px; height: 50px; }
     .sponsor-tile[data-sponsor-id='bit-bros'] {
       --tile-scale: calc(1 + (var(--center-focus) * 0.17));
     }
-    .footer-grid { grid-template-columns: 1fr; }
-    .sub { align-items: flex-start; flex-direction: column; }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+    }
+    .footer-grid li a { min-height: 40px; }
+    .sub {
+      align-items: flex-start;
+      flex-direction: column;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
     .maintenance-credit { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 480px) {
+    .sponsor-heading-row {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .all-sponsors { min-height: 36px; }
   }
 </style>

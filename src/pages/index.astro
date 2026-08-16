@@ -131,7 +131,11 @@ const latestChallenges = challenges.slice(0, 2);
     margin-top: 0.55rem;
   }
   .hero-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
+    min-height: 44px;
     padding: 0.38rem 0.7rem;
     border: 1px solid var(--color-border);
     border-radius: 999px;
@@ -165,6 +169,7 @@ const latestChallenges = challenges.slice(0, 2);
   }
   .latest-column > h3 { margin: 0; }
   .compact-card {
+    min-width: 0;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background: var(--color-card);
@@ -188,11 +193,26 @@ const latestChallenges = challenges.slice(0, 2);
       padding: 1.4rem;
     }
     .hero-actions {
-      width: min(100%, 180px);
-      margin-top: 0.5rem;
-      justify-self: start;
+      width: 100%;
+      margin-top: 0.35rem;
+      align-items: flex-start;
+      justify-self: stretch;
     }
-    .hero-logo { width: 92px; height: 92px; }
+    .hero-logo { width: 84px; height: 84px; }
+    .hero-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin-top: 0;
+    }
+    .hero-links a { width: auto; }
+    .hero-links a:last-child { grid-column: 1 / -1; }
     .latest-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .section-block { padding-top: 2.5rem; }
+  }
+
+  @media (max-width: 380px) {
+    .hero-links { grid-template-columns: 1fr; }
+    .hero-links a:last-child { grid-column: auto; }
   }
 </style>
