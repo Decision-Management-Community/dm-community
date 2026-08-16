@@ -2,13 +2,6 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const localBookCovers = [
-    ['bridging decision problems, volume i: framing the problem', 'books/bridging-decision-problems-vol-1.webp'],
-    ['the decision factory: a novel about decisions under uncertainty', 'books/the-decision-factory.webp'],
-    ['the milp optimization handbook for practitioners', 'books/milp-optimization-handbook.webp'],
-    ['business decision modeling with openrules', 'books/business-decision-modeling-openrules.webp'],
-  ] as const;
-
   function attachGlow() {
     if (!finePointer.matches || reducedMotion.matches) return;
 
@@ -29,49 +22,11 @@
     });
   }
 
-  function attachLocalBookCovers() {
-    document.querySelectorAll<HTMLElement>('[data-book]').forEach((row) => {
-      const searchText = row.dataset.search ?? '';
-      const match = localBookCovers.find(([title]) => searchText.startsWith(title));
-      if (!match) return;
-
-      const slot = row.querySelector<HTMLElement>('.book-cover-slot');
-      if (!slot || slot.querySelector('.local-book-cover')) return;
-
-      // These user-supplied local covers take precedence over any remote cover.
-      slot.querySelectorAll<HTMLImageElement>('.book-cover').forEach((image) => {
-        image.hidden = true;
-      });
-
-      const image = document.createElement('img');
-      image.className = 'local-book-cover';
-      image.src = `${import.meta.env.BASE_URL}${match[1]}`;
-      image.alt = '';
-      image.loading = 'lazy';
-      slot.appendChild(image);
-    });
-  }
-
   attachGlow();
-  attachLocalBookCovers();
-  document.addEventListener('astro:page-load', () => {
-    attachGlow();
-    attachLocalBookCovers();
-  });
+  document.addEventListener('astro:page-load', attachGlow);
 </script>
 
 <style is:global>
-  .book-cover-slot .local-book-cover {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: var(--color-bg-alt);
-  }
-
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
     .card {
       --glow-x: 50%;
