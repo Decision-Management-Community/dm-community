@@ -1,9 +1,15 @@
-# Field Note 02 — Every Supply Chain Already Has an Uncertainty Model
+# Field Note 02 — When the Buffer Is the Policy
 
-A four-page client learning paper in the Bit Bros field note format, companion to
-Field Note 01 (*When Better Models Stop Creating Better Decisions*). Six composite
-supply chain engagements, organised around one finding: the buffers already in place
-are the organisation's uncertainty model, and nobody wrote it down.
+A four-page client learning paper in the Bit Bros field note format. Six composite
+supply chain engagements, organised around one finding: safety stock settings,
+planning fences, min/max levels and expedite approvals *are* the operating policy,
+and most of them were written during a bad week and never reopened.
+
+Sits between two other things. *The Decision Factory* (DeJans & Elam, 2026) argues
+for policies built in calm conditions to run under pressure; this paper documents the
+inverse, which is what supply chains mostly contain. Field Note 01, *When Better
+Models Stop Creating Better Decisions*, is the general decision-system version of the
+same argument.
 
 | File | What it is |
 |---|---|
@@ -14,7 +20,7 @@ are the organisation's uncertainty model, and nobody wrote it down.
 ## Rebuilding the PDF
 
 `render.js` needs `playwright-core` and a Chromium binary. Neither is a dependency of
-this site, so install them outside the project or with `npx`:
+this site, so install them outside the project:
 
 ```sh
 npm install --no-save playwright-core
@@ -34,10 +40,19 @@ Point `executablePath` in `render.js` at a local Chromium if
   Chromium supplies them through `headerTemplate` / `footerTemplate`.
 - Figure 1 is inline SVG. No external assets, fonts, or scripts are loaded, so the
   HTML renders identically offline.
+- Page 1 balances tightly. Adding or cutting a paragraph in section 1 will push the
+  Field Lesson box onto page 2 and leave a hole; re-check the render after edits.
 
 ## On the case material
 
-Per the paper's own method note, the six engagements are anonymised and two are
-composites. Any figure specific enough to identify a client has been changed or
-removed, and the paper carries no outcome metrics. Swap in real numbers only where
-they can be disclosed.
+The six engagements are anonymised and two are composites, per the paper's own method
+note. Any figure specific enough to identify a client has been changed or removed, and
+the paper carries no outcome metrics. Swap in real numbers only where they can be
+disclosed.
+
+## House style
+
+The series avoids a handful of constructions on purpose: paired antithesis ("it is not
+X, it is Y"), the "X, not Y" fragment, one-line paragraphs used as dramatic beats, and
+uniform bolded lead-ins repeated down a list. Every case study is deliberately ended a
+different way. Worth re-checking after any edit.

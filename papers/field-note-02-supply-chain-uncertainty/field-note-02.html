@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Every Supply Chain Already Has an Uncertainty Model</title>
+<title>When the Buffer Is the Policy</title>
 <style>
   @page { size: Letter; margin: 0.78in 0.72in 0.72in 0.72in; }
 
@@ -128,11 +128,10 @@
   }
 
   /* ---------- inline furniture ---------- */
-  .lesson { }
   .lesson b { font-variant: small-caps; letter-spacing: 0.03em; }
 
   .absorbers { margin: 4pt 0 6pt 0; }
-  .absorbers p { margin-bottom: 2.6pt; text-align: left; }
+  .absorbers p { margin-bottom: 2.3pt; text-align: left; }
   .absorbers i { font-style: italic; }
 
   ol.steps { margin: 3pt 0 5pt 0; padding-left: 1.05em; }
@@ -153,8 +152,8 @@
   .box {
     background: #f2f0ec;
     border-left: 2pt solid #000;
-    padding: 6.5pt 8pt 6.5pt 8pt;
-    margin: 8pt 0 9pt 0;
+    padding: 6pt 8pt 6pt 8pt;
+    margin: 5pt 0 8pt 0;
     break-inside: avoid;
   }
   .box .lab {
@@ -216,7 +215,7 @@
   td:last-child, th:last-child { padding-right: 0; }
 
   /* ---------- figure ---------- */
-  figure { margin: 6pt 0 8pt 0; break-inside: avoid; }
+  figure { margin: 4pt 0 6pt 0; break-inside: avoid; }
   figure svg { width: 100%; height: auto; display: block; }
   figcaption {
     font-size: 7.5pt;
@@ -250,45 +249,45 @@
 
   <div class="titleblock">
     <div class="kicker">Client Learning Paper &nbsp;/&nbsp; Supply Chain Under Uncertainty</div>
-    <h1 class="title">Every Supply Chain Already Has an Uncertainty Model</h1>
-    <div class="subtitle">Nobody wrote it down. Six engagements on where variability gets absorbed, what the absorption costs, and who decided.</div>
+    <h1 class="title">When the Buffer Is the Policy</h1>
+    <div class="subtitle">Six supply chain engagements on rules that were written during a bad week, never reopened, and still running the business.</div>
     <div class="byline">Adam DeJans Jr. &nbsp;&middot;&nbsp; Bit Bros LLC &nbsp;&middot;&nbsp; August 2026</div>
   </div>
 
   <div class="exec">
     <div class="lab">Executive Conclusion</div>
-    <p class="lede">Safety stock, planning fences, min/max levels, expedite budgets, and the overrides planners apply by hand are not the furniture around the forecast. Together they are a complete, running model of uncertainty and what it costs.</p>
-    <p>In most organizations that model was assembled one crisis at a time, has never been revalidated, and outranks anything the analytics team produces. So the first useful deliverable in a supply chain engagement is rarely a better forecast. It is a written account of the buffers already operating the business, and the prices they imply.</p>
+    <p class="lede">Ask a planning organization for its policies and you get a document. Ask where its decisions come from and you get safety stock settings, planning fences, min/max levels, expedite approvals, and a spreadsheet on somebody&rsquo;s second monitor.</p>
+    <p>Those settings are the policy. Most were written in the middle of a bad week by whoever was in the room, and most have not been opened since. A rule built under pressure and left to run in calm conditions behaves very differently from one built in calm conditions to run under pressure. Supply chains are full of the first kind, and the analytics budget almost always goes somewhere else.</p>
     <div class="points">
-      <div><b>01</b>Variability is absorbed somewhere. Find out where before you model it.</div>
-      <div><b>02</b>Every buffer implies a price. Recover it, then check whether anyone still agrees with it.</div>
-      <div><b>03</b>Stability and recourse are decisions. Left out of the objective, they are free, and they get spent.</div>
+      <div><b>01</b>Ask when each buffer was set and what was going wrong that week. The answer explains more than the data will.</div>
+      <div><b>02</b>Every buffer carries a price. Recover it, say it out loud in a room with finance, and watch who disagrees.</div>
+      <div><b>03</b>Plan stability and expediting are policy choices. Leave them out of the objective and the solver spends them for free.</div>
     </div>
   </div>
 
   <div class="nb">
     <h2>On these cases</h2>
-    <p>Six engagements are described below, drawn from advisory and delivery work in distribution, discrete manufacturing, retail, consumer goods, and field service. Details have been changed, two are merged from more than one client, and any figure specific enough to identify a company has been altered or removed.</p>
-    <p>This is not a study. Six is not a sample, the selection was not random, and a consultant&rsquo;s caseload is biased toward companies that already suspected something was wrong. What makes the pattern worth writing down is that it recurred across engagements with almost nothing else in common: different industries, different planning software, different maturity, different presenting symptoms.</p>
+    <p>Six engagements are described here, from distribution, discrete manufacturing, retail, consumer goods, and field service. Names are gone, two are welded together from more than one client, and any number specific enough to identify a company has been changed.</p>
+    <p>Six engagements make a caseload rather than a sample. Selection was never random, and consulting work skews toward companies that already suspect something is off, so treat what follows as a hypothesis with some mileage on it. What gives it weight is that it turned up in shops with different industries, different planning systems, different maturity, and different complaints.</p>
   </div>
 
-  <h2><span class="num">1.</span>Variability does not disappear. It gets absorbed.</h2>
+  <h2><span class="num">1.</span>Where the policy actually lives</h2>
 
-  <p>Demand moves. Suppliers slip. Yields vary, trucks miss appointments, and a customer triples an order in the last week of a quarter. Planning does not destroy any of that. It relocates it. And there are only five places it can go.</p>
+  <p>Demand moves. Suppliers slip. Yields wander, trucks miss appointments, and a customer triples an order in the last week of a quarter. Planning moves that variability around the network. Somebody still ends up absorbing it, and there are five candidates for the job.</p>
 
   <div class="absorbers">
     <p><i>Inventory.</i> Safety stock, cycle stock, in-transit, consignment, and the pallet a branch manager keeps behind a curtain.</p>
     <p><i>Capacity.</i> Overtime, a second shift, equipment held idle on purpose, contract labor, reserved carrier space.</p>
-    <p><i>Time.</i> Quoted lead times, frozen horizons, planning fences, and the days a planner quietly adds to a promise date.</p>
+    <p><i>Time.</i> Quoted lead times, frozen horizons, planning fences, and the days a planner adds to a promise date without telling anyone.</p>
     <p><i>Cash.</i> Expedite premiums, spot freight, air instead of ocean, concessions to keep an account calm.</p>
     <p><i>The customer.</i> Backorders, substitutions, split shipments, partial fills, and dates that move without a conversation.</p>
   </div>
 
-  <p>Every supply chain uses all five. Very few choose the proportions on purpose. The mix is usually residue: whoever held the budget during the last serious disruption decided which absorber got funded, the setting was entered into a system, and the reasoning left with the person.</p>
+  <p>Every supply chain runs all five. The proportions are rarely chosen. They are sediment: whoever controlled a budget during the last serious disruption decided which absorber got funded, the number went into a system, and the reasoning walked out with the person.</p>
 
-  <p>That observation turns into a specific first exercise, which we now run before any modeling. Take one recurring, high-value decision. For each source of variability touching it, ask three questions. Where does the variability land today? Who owns that absorber? What does a unit of it cost?</p>
+  <p>So the first exercise on most engagements now happens before any modeling. Take one recurring decision with money on it. For each source of variability that touches it, ask where the variability lands, who owns that absorber, and what a unit of it costs.</p>
 
-  <p>The fifth line is the hard one. Inventory sits on the balance sheet. Overtime shows up in the labor report. Expedite premiums land in freight accruals. The cost of a missed date rarely lives anywhere at all, and the cost of a substitution the customer accepted this time almost never does. A model built on the four visible absorbers will optimize against them and push variability onto the fifth, because in the objective the fifth is free.</p>
+  <p>Four of the five answers come back inside a week. Inventory sits on the balance sheet, overtime is in the labor report, expedite premiums land in freight accruals, and quoted lead times live in the order promising rules. The fifth line takes months, because the cost of a missed date usually lives in one senior person&rsquo;s memory, and the cost of a substitution the customer swallowed this quarter lives nowhere at all. Build a model on the four you can see and it will push variability onto the one you cannot, which is where the solver will go looking.</p>
 
   <figure>
     <svg viewBox="0 0 340 140" xmlns="http://www.w3.org/2000/svg" font-family="Charter, Georgia, serif">
@@ -339,171 +338,159 @@
         <text x="189" y="132">Absorbed anyway, rarely measured</text>
       </g>
     </svg>
-    <figcaption><b>Figure 1. The absorption ledger.</b> Variability has to land somewhere. Four absorbers sit in a system somebody reviews. The fifth usually does not, which is exactly why optimizers find it.</figcaption>
+    <figcaption><b>Figure 1. The five absorbers.</b> Four of them sit in a system somebody reviews. The fifth usually sits in a customer&rsquo;s patience, where the solver will find it and spend it.</figcaption>
   </figure>
 
   <div class="box">
     <div class="lab">Field Lesson</div>
-    <p>A company that cannot price a missed customer date is running its largest uncertainty absorber off the books. Any optimizer you hand it will find that account and draw on it.</p>
+    <p>A company that cannot price a missed customer date is running its largest buffer off the books. Hand that company an optimizer and it will find the account and draw on it.</p>
   </div>
 
-  <h2><span class="num">2.</span>Every buffer already contains a number</h2>
+  <h2><span class="num">2.</span>The number inside the buffer</h2>
 
-  <h3>The four weeks nobody set</h3>
+  <h3>The four weeks</h3>
 
-  <p>A durables importer and distributor asked for a better demand forecast. Their safety stock was four weeks of cover, applied across effectively the entire catalog. The four weeks dated to a port disruption several years earlier. By the time we arrived, three of the four people who had been in the room were gone.</p>
+  <p>A durables importer asked for a better demand forecast. Safety stock stood at four weeks of cover across effectively the whole catalog. Asked where four weeks came from, the planning manager said it was what they went to after the port thing. Three of the four people who had been in that room had left the company.</p>
 
-  <p>Safety stock under both demand and lead time variability is standard:</p>
+  <p>Safety stock under demand and lead time variability is standard:</p>
 
   <div class="eq">SS = z <span class="rad">&radic;</span><span style="border-top:0.6pt solid #000; padding:0 0.15em 0 0.15em;">L&#772;&thinsp;&sigma;<span class="sub">D</span><span class="sup">2</span> + D&#772;<span class="sup">2</span>&thinsp;&sigma;<span class="sub">L</span><span class="sup">2</span></span></div>
 
-  <p>The reason to write it out is the second term. With their own numbers, lead time variance rather than demand variance accounted for most of the buffer. A better demand forecast would have moved the smaller term.</p>
+  <p>The second term is the reason to write it out. On their numbers, lead time variance carried most of the buffer, which put a demand forecasting project to work on the smaller term.</p>
 
-  <p>It got more specific than that. Their ERP recorded a single lead time, purchase order to receipt, so lead time variance was one opaque number covering a chain of very different things. Split into stages &mdash; supplier confirmation, production, ocean transit, customs, drayage and DC appointment &mdash; ocean transit turned out to be among the better-behaved stages. Two carried long right tails: customs clearance on a subset of tariff codes, and appointment scheduling at their own distribution center.</p>
+  <p>Their ERP recorded one lead time, purchase order to receipt, so lead time variance arrived as a single opaque number covering a chain of unrelated things. Broken into supplier confirmation, production, ocean transit, customs, and drayage into the DC, ocean transit came out among the better-behaved stages. Two carried long right tails: customs clearance on a subset of tariff codes, and appointment scheduling at their own building. They were financing inventory to cover a calendar problem forty feet from the receiving door.</p>
 
-  <p>The second one was theirs. They were financing inventory to absorb a scheduling problem inside their own four walls.</p>
+  <p class="lesson"><b>Lesson.</b> Work out which variance term the buffer is paying for before improving a forecast. Demand error shows up on a dashboard, so it gets requested first. The expensive term is often somewhere with no dashboard at all.</p>
 
-  <p>None of this needed new mathematics. It needed a variance term measured at a level where somebody could act on it.</p>
+  <h3>The ratio behind the service level</h3>
 
-  <p class="lesson"><b>Lesson.</b> Before improving a forecast, work out which variance term the buffer is paying for. Demand error is the variance that shows up on a dashboard, so it is the one that gets requested. It is frequently not the expensive one.</p>
+  <p>A specialty retailer held a 98% fill rate across the assortment. The number appeared in the supply chain scorecard, in vendor agreements, and in a board deck.</p>
 
-  <h3>A service level is a price you have not written down</h3>
-
-  <p>A specialty retailer held a 98% fill rate target across the assortment. The number appeared in the supply chain scorecard, in vendor agreements, and in a board deck.</p>
-
-  <p>For a single-period stocking decision, the optimal service level is the critical ratio:</p>
+  <p>For a single-period stocking decision the optimal service level is the critical ratio:</p>
 
   <div class="eq">q* = C<span class="sub">u</span> &frasl; (C<span class="sub">u</span> + C<span class="sub">o</span>)</div>
 
-  <p>where C<span class="sub">u</span> is the cost of being one unit short and C<span class="sub">o</span> the cost of being one unit long. Committing to 98% is committing to a ratio of 49 to 1. One unit short costs forty-nine times what one unit long costs.</p>
+  <p>with C<span class="sub">u</span> the cost of one unit short and C<span class="sub">o</span> the cost of one unit long. A 98% target is a standing claim that C<span class="sub">u</span> divided by C<span class="sub">o</span> equals 49. One unit short costs forty-nine times what one unit long costs.</p>
 
-  <p>We put that ratio in front of the merchandising and finance leads for a handful of representative items. For the hero item anchoring a category and pulling attachments, nobody argued; the true ratio may well have been higher. For a commodity item with a near-identical substitute two feet away on the same shelf, the honest ratio was nearer three, and a stockout mostly moved the sale rather than losing it. For a seasonal item eight weeks from markdown, C<span class="sub">o</span> was climbing every week while the target sat still.</p>
+  <p>We took that ratio to merchandising and finance for a dozen representative items. On the hero item that anchored a category and pulled attachments, nobody argued, and the honest number was arguably higher. On a commodity item with a near-identical substitute two feet away on the same shelf, the ratio was closer to three, since a stockout mostly moved the sale rather than losing it. On a seasonal item eight weeks from markdown, C<span class="sub">o</span> climbed every week while the target held still.</p>
 
-  <p>The target had come from a director&rsquo;s previous employer, in a different category, roughly a decade earlier.</p>
+  <p>The 98% had come from a director&rsquo;s previous employer, in a different category, roughly a decade earlier.</p>
 
-  <p>The finding was not that 98% was wrong. It was that a single number was doing the work of several hundred, and that the assortment had been quietly cross-subsidizing itself: substitutable items over-served with working capital the margin drivers needed.</p>
+  <p>It was defensible for perhaps a tenth of the catalog. The rest of the assortment was being run on a number borrowed from items it had nothing in common with, and the cross-subsidy ran one direction: substitutable goods held working capital that the margin drivers needed. They went to four cost tiers, a ratio for each, and a name against every ratio.</p>
 
-  <p class="lesson"><b>Lesson.</b> A service level is a price you have agreed to pay without writing the price down. Read it back as a ratio and see who flinches.</p>
+  <h2><span class="num">3.</span>What the objective leaves out</h2>
 
-  <h2><span class="num">3.</span>Stability and recourse cost nothing until you price them</h2>
+  <h3>Where nervousness comes from</h3>
 
-  <h3>Nervousness is not a forecasting problem</h3>
-
-  <p>A tier-one automotive supplier ran weekly MRP regeneration and got materially different plans out of nearly identical inputs. Released quantities moved, sequencing moved, supplier releases followed. Planners had responded the way planners do: maintained spreadsheets, a private set of rules, and the habit of running the official plan through personal judgment before anything went out the door.</p>
+  <p>A tier-one automotive supplier ran weekly MRP regeneration and got materially different plans out of nearly identical inputs. Released quantities moved, sequencing moved, and supplier releases followed. The planners had built the usual defenses: a set of maintained spreadsheets, a private set of rules, and the habit of running the official plan through personal judgment before anything left the building. One of them called his workbook the real plan, and he meant it literally.</p>
 
   <p>The scoped project was forecast improvement, on the theory that a steadier forecast would produce a steadier plan.</p>
 
-  <p>The planning run re-optimized from scratch every cycle. It carried no term for the cost of changing a commitment it had already made. Changing a plan is not free. It costs setup and changeover, it burns credibility with suppliers who staffed to the last release, it disrupts labor scheduling, and it teaches everyone downstream that the plan is provisional. But the objective said change was free, so the solver spent it freely, chasing small theoretical gains off noise in the inputs.</p>
+  <p>The planning run re-optimized from scratch every cycle with no term for the cost of changing a commitment it had already made. Changing a plan costs setup and changeover, credibility with suppliers who staffed to the last release, labor scheduling, and the standing belief downstream that a release means something. The objective priced change at zero, so the solver spent it chasing small theoretical gains off noise in the inputs.</p>
 
-  <p>The structural fix is a term, not a program:</p>
+  <p>The fix is a term:</p>
 
   <div class="eq">min &nbsp;&Sigma;<span class="sub">t</span>&thinsp;c<span class="sub">t</span>&thinsp;x<span class="sub">t</span> &nbsp;+&nbsp; &lambda;&thinsp;&Sigma;<span class="sub">t</span>&thinsp;| x<span class="sub">t</span> &minus; x&#771;<span class="sub">t</span> |</div>
 
-  <p>where x&#771; is the plan already communicated and &lambda; is the price of changing it. &lambda; is not a smoothing knob invented to make output look calmer. It is a real cost, and when we asked the planners to estimate it, they produced a defensible figure in about an hour, because they had been paying it for years.</p>
+  <p>where x&#771; is the plan already communicated and &lambda; prices the change. &lambda; has a dollar value. The planners produced a defensible one in about an hour, because they had been paying it for years.</p>
 
-  <p>Churn fell against a small and now-measurable loss in theoretical optimality. That trade had been happening the whole time. It had simply been running in the wrong direction, invisibly, and nobody had been asked to approve it.</p>
+  <p>Churn dropped against a small and now-visible loss in theoretical optimality. That trade had been running the whole time, in the wrong direction, with nobody&rsquo;s signature on it.</p>
 
-  <p class="lesson"><b>Lesson.</b> An optimizer will trade away anything you left out of the objective. Stability is the thing most often left out, and nervousness is the symptom people report instead.</p>
+  <p class="lesson"><b>Lesson.</b> A solver spends whatever you leave out of the objective. Stability is the line item most often left out, and nervousness is the complaint that arrives in its place.</p>
 
-  <h3>Punishing recourse destroys the evidence</h3>
+  <h3>What happens when recourse is punished</h3>
 
-  <p>An industrial distributor tracked expedited freight as an unfavorable variance and reviewed branch managers on it monthly.</p>
+  <p>An industrial distributor tracked expedited freight as an unfavorable variance and reviewed branch managers on it every month.</p>
 
-  <p>What followed was predictable and, from the branch&rsquo;s point of view, entirely rational. Expedites were split below reporting thresholds, reclassified into other freight categories, arranged directly with carriers outside the TMS, or pre-empted by holding extra stock that nobody had authorized and no model knew about. The variance line improved. The underlying cost did not.</p>
+  <p>The branches responded rationally. Expedites got split below reporting thresholds, booked into other freight categories, arranged straight with carriers outside the TMS, or pre-empted by holding extra stock that no model knew about and nobody had authorized. The variance line improved every quarter while the freight bill held steady.</p>
 
-  <p>Expediting is recourse: the second-stage action in a problem where you commit, observe, then correct. Under real uncertainty, some recourse is optimal. A distributor with near-zero expedite spend is almost certainly over-buffered somewhere else and paying more for the privilege, in inventory that will not look like a failure until the day it gets written down.</p>
+  <p>Expediting is recourse, the second-stage action in a problem where you commit, watch, then correct. Under real uncertainty some recourse is optimal. A distributor with near-zero expedite spend is over-buffered somewhere else and paying more for the privilege, in inventory that will look fine right up until the day it gets written down.</p>
 
-  <p>Moving expedite from a variance line to a budgeted recourse line with an explicit unit price changed two things. The spend became legitimate, so it got recorded. And once it was recorded at lane and item level, it became one of the more useful datasets in the company: a self-reported map, updated daily by the people closest to the problem, of exactly where the buffers were wrong.</p>
+  <p>Moving expedite from a variance line to a budgeted recourse line with a unit price did two things. The spend became legitimate, so it got recorded. Recorded at lane and item level, it turned into the most useful dataset in the company: a map of where the buffers were wrong, updated daily by the people closest to the problem, at no cost. Shame an action and you lose the record of it while continuing to pay for it.</p>
 
-  <p class="lesson"><b>Lesson.</b> Make a recourse action shameful and you will not remove it. You will lose the data and keep the cost.</p>
+  <h2><span class="num">4.</span>What the floor is already telling you</h2>
 
-  <h2><span class="num">4.</span>The organization is already telling you what the model is missing</h2>
+  <h3>A metric with nowhere to go</h3>
 
-  <h3>A metric that cannot move will be moved anyway</h3>
+  <p>A telecom field services group forecast spare parts and was managed on MAPE. Much of the catalog was intermittent: parts moving a handful of times a year, at a particular site, with long runs of zeros in between.</p>
 
-  <p>A telecom field services group forecast spare parts demand and was managed on MAPE. Much of the catalog was intermittent: parts that moved a handful of times a year, at a particular site, with long runs of zeros in between.</p>
+  <p>MAPE on intermittent series is undefined at zero and unstable near it, and the team knew this perfectly well. They reported at region and month, where the series aggregate into a stable denominator and the metric looks respectable. The stocking decision was made at site and week.</p>
 
-  <p>MAPE on intermittent series is close to useless. It is undefined at zero and unstable near it, and the team understood this perfectly well. So they reported at region and month, where the series aggregate into something with a stable denominator and the metric looks respectable.</p>
+  <p>Nobody there would have called it gaming. They were responding correctly to a measurement with no honest room to improve at the level where the decision lived. The question in front of them was binary and local: stock this part at this site, or leave it. It turned on the cost of a truck roll against a part sitting on a shelf for two years, weighted by what the asset does to a customer while it is down.</p>
 
-  <p>The stocking decision was made at site and week.</p>
+  <p class="lesson"><b>Lesson.</b> A metric with no honest room to improve gets moved by changing the level of aggregation. When a forecasting team spends more time defending a number than using it, check whether the number can move at the granularity of the decision.</p>
 
-  <p>Nobody was gaming anything in a way they would have recognized as gaming. They were responding correctly to a measurement that could not be improved honestly at the level where the decision lived. Meanwhile the real question was binary and local &mdash; stock this part at this site, or don&rsquo;t &mdash; and it turned on the cost of a truck roll against a part sitting on a shelf for two years, weighted by what the asset does to the customer when it is down. Criticality, not accuracy.</p>
+  <h3>The repair log</h3>
 
-  <p class="lesson"><b>Lesson.</b> A metric that cannot be moved honestly gets moved by changing the level of aggregation. When a forecasting team spends more time defending its metric than using it, check whether the metric can move at all at the granularity of the decision.</p>
+  <p>A consumer goods manufacturer had a working allocation optimizer and an override rate high enough that leadership had scoped the next phase as adoption: training, a redesigned interface, a communications plan. The override was applied in a downstream screen and kept nowhere. Once the plan published, the recommendation it replaced was gone.</p>
 
-  <h3>Overrides are labeled data</h3>
+  <p>Capturing overrides with a short reason code took a few days of work. Within a month the codes had collapsed into five buckets, three of which accounted for most of the volume: named-account allocation commitments made by sales, promotional protection for accounts in a live program, and a minimum-shipment convention with two customers whose receiving docks could not handle partial pallets. All of it real, all of it contractual, none of it in the model.</p>
 
-  <p>A consumer goods manufacturer had a working allocation optimizer and a planner override rate high enough that leadership had scoped the next phase as adoption: training, a redesigned interface, a communications plan. The override was applied in a downstream screen and retained nowhere. Once the plan published, the recommendation it replaced was gone.</p>
+  <p>The planners were repairing the optimizer by hand, every day, for free, and the repair log was being deleted nightly.</p>
 
-  <p>Capturing overrides with a short reason code took a few days of work.</p>
-
-  <p>They clustered immediately. The large majority traced to a handful of causes: named-account allocation commitments made by sales, promotional protection for accounts in a live program, and a minimum-shipment convention with two customers whose receiving operations could not handle partial pallets. All of it real. None of it in the model.</p>
-
-  <p>The planners had not been rejecting the optimizer. They had been repairing it by hand, every day, for free, and the company had been throwing away the repair log.</p>
-
-  <p class="lesson"><b>Lesson.</b> Overrides are labeled data about a missing constraint. Adoption problems are specification problems most of the time, and the ones that genuinely are about change management get much easier to recognize once the specification problems are gone.</p>
+  <p class="lesson"><b>Lesson.</b> Overrides are labeled data about a missing constraint. Most adoption problems turn out to be specification problems, and the ones that really are about people get easier to see once the specification is right.</p>
 
   <table class="wide">
     <caption>The six engagements</caption>
     <thead>
       <tr>
         <th style="width:17%">Setting</th>
-        <th style="width:22%">Presenting ask</th>
-        <th style="width:31%">What was actually binding</th>
+        <th style="width:22%">What they asked for</th>
+        <th style="width:31%">What was binding</th>
         <th style="width:30%">What changed</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Durables importer &amp; distributor</td>
-        <td>Improve the demand forecast</td>
-        <td>Lead time variance, concentrated in customs clearance and in appointment scheduling at their own DC</td>
-        <td>Lead time decomposed into stages; buffer re-derived against the stage that carried the tail</td>
+        <td>Durables importer</td>
+        <td>A better demand forecast</td>
+        <td>Lead time variance, sitting in customs clearance and in appointment scheduling at their own DC</td>
+        <td>Lead time split into five stages; buffer re-derived against the stage carrying the tail</td>
       </tr>
       <tr>
         <td>Specialty retailer</td>
-        <td>Hit a 98% fill rate more efficiently</td>
+        <td>A 98% fill rate, more cheaply</td>
         <td>One service target standing in for several hundred distinct cost ratios</td>
-        <td>Cost tiers, each with an explicit and defended critical ratio</td>
+        <td>Four cost tiers, a critical ratio for each, an owner against each ratio</td>
       </tr>
       <tr>
-        <td>Automotive tier-one supplier</td>
-        <td>Steadier forecast, to steady the plan</td>
-        <td>No price on changing a plan the business had already communicated</td>
-        <td>Change penalty added to the planning objective, with &lambda; estimated by the planners</td>
+        <td>Automotive tier one</td>
+        <td>A steadier forecast, to steady the plan</td>
+        <td>Zero price on changing a release the business had already communicated</td>
+        <td>Change penalty in the planning objective, with &lambda; estimated by the planners</td>
       </tr>
       <tr>
         <td>Industrial distributor</td>
-        <td>Reduce expedite spend</td>
-        <td>Recourse treated as failure, so it was hidden rather than reduced</td>
-        <td>Expedite budgeted and priced as recourse; spend logged by lane and item</td>
+        <td>Less expedite spend</td>
+        <td>Recourse booked as failure, so it moved off the books instead of down</td>
+        <td>Expedite budgeted and priced; spend logged by lane and item</td>
       </tr>
       <tr>
         <td>Telecom field services</td>
-        <td>Improve spare parts forecast accuracy</td>
-        <td>A metric that could not move honestly at the granularity of the stocking decision</td>
-        <td>Stocking reframed as truck roll versus holding cost, weighted by asset criticality</td>
+        <td>Better spare parts forecast accuracy</td>
+        <td>A metric with no honest room to improve at the granularity of the stocking decision</td>
+        <td>Stocking framed as truck roll against holding cost, weighted by asset criticality</td>
       </tr>
       <tr>
-        <td>Consumer goods manufacturer</td>
-        <td>Improve planner adoption</td>
-        <td>Contractual and promotional commitments that were real, binding, and absent from the model</td>
+        <td>Consumer goods maker</td>
+        <td>Better planner adoption</td>
+        <td>Contractual and promotional commitments that were real, binding, and missing from the model</td>
         <td>Overrides captured with reason codes, then promoted into constraints</td>
       </tr>
     </tbody>
   </table>
 
-  <h2><span class="num">5.</span>Where we start now</h2>
+  <h2><span class="num">5.</span>Where we start</h2>
 
-  <p>A first pass does not require rebuilding anything. It requires being stubborn about six things, in order.</p>
+  <p>A first pass fits in about two weeks and touches nothing in production. It comes down to being stubborn about six things.</p>
 
   <ol class="steps">
-    <li><b>Pick one recurring decision that moves real money</b>, at the granularity someone actually makes it. Not &ldquo;inventory management.&rdquo; An order quantity, for an item, at a location, on a cadence.</li>
-    <li><b>Trace a single unit end to end</b>, from the signal that triggered the decision to the realized outcome and whoever saw that outcome.</li>
-    <li><b>List every buffer touching the decision.</b> For each one: who set it, when, and against which event.</li>
-    <li><b>Recover the implied price behind each buffer</b> and read it back to the person accountable for it. When somebody disagrees with a number they own, that is the finding.</li>
-    <li><b>Ask where variability lands when the buffer is not enough</b>, and whether that landing is measured anywhere at all.</li>
-    <li><b>Find the spreadsheet, the override, and the side process.</b> They mark the edges of the model more reliably than any interview will.</li>
+    <li><b>One decision, named properly.</b> An order quantity, for an item, at a location, on a cadence. &ldquo;Inventory management&rdquo; is a department.</li>
+    <li><b>One unit, traced end to end</b>, from the signal that triggered the decision through to the outcome and whoever saw it.</li>
+    <li><b>Every buffer that touches it.</b> Who set it, what week, and what was going wrong at the time.</li>
+    <li><b>The price behind each buffer, read back to its owner.</b> Somebody disagreeing with a number they own is the finding, and it happens more often than you would expect.</li>
+    <li>Where the variance goes when the buffer runs out, and whether anyone measures the landing.</li>
+    <li><b>The spreadsheet, the override, and the side process.</b> They mark the edges of the model better than any interview.</li>
   </ol>
 
   <div class="box">
@@ -511,37 +498,37 @@
     <p>If your planners maintain a spreadsheet, the spreadsheet is the specification. Read it before you scope anything.</p>
   </div>
 
-  <h2><span class="num">6.</span>A different sequence</h2>
+  <h2><span class="num">6.</span>A different order of operations</h2>
 
-  <p>Most supply chain analytics programs run in technology order: data, then forecast, then optimization, then a dashboard, then adoption. Every step is defensible, which is part of why the sequence feels inevitable.</p>
+  <p>Most supply chain analytics programs run in technology order: data, forecast, optimization, dashboard, adoption. Every step is defensible, which is part of why the sequence survives contact with a steering committee.</p>
 
-  <p>The order we now prefer starts somewhere else.</p>
+  <p>The order we work in now:</p>
 
   <ol class="steps">
     <li><b>Name the decision.</b> Who decides what, at what granularity, on what cadence.</li>
-    <li><b>Locate the absorption.</b> Where does variability land today, and whose budget pays for it.</li>
-    <li><b>Recover the prices.</b> Shortage, excess, delay, change, expediting, and the customer&rsquo;s patience.</li>
-    <li><b>Choose the policy.</b> The simplest rule that holds up under repeated application, not the most sophisticated one available.</li>
+    <li><b>Locate the absorption.</b> Where variability lands today, and whose budget carries it.</li>
+    <li><b>Price the consequences.</b> Shortage, excess, delay, change, expediting, and the customer&rsquo;s patience.</li>
+    <li>Pick the simplest policy that survives repeated application.</li>
     <li><b>Design the recourse.</b> What happens when the plan is wrong, who may act, and at what price.</li>
-    <li><b>Close the loop.</b> Outcomes, overrides, and exceptions become inputs to the next cycle rather than exhaust.</li>
+    <li>Close the loop, so outcomes and overrides reach the next cycle.</li>
   </ol>
 
-  <p>Forecast improvement is still on the list. It simply enters where it earns its place, which is after somebody can say which decision it would change and by how much. In two of the six engagements above, the answer to that question was a genuine, well-specified forecasting project &mdash; and it was a better project for having been asked second.</p>
+  <p>Forecast improvement stays on the list and enters once somebody can name the decision it would change. On two of these six engagements it produced a real forecasting project, better specified for having been asked second.</p>
 
   <div class="takeaway">
     <div class="lab">The Core Takeaway</div>
-    <p>Your buffers already encode a theory of what can go wrong and what it costs. The useful question is not whether that theory is sophisticated. It is whether anyone in the building still agrees with it.</p>
+    <p>Somebody set that number. Find out who, find out what week it was, and ask whether the conditions that produced it are still in the building.</p>
   </div>
 
   <table class="wide audit">
     <caption>What a Supply Chain Uncertainty Audit tests</caption>
     <tbody>
       <tr><td>Decision</td><td>Is the recurring choice defined at the granularity, timing, and unit at which somebody actually makes it?</td></tr>
-      <tr><td>Absorption</td><td>Where does variability land today &mdash; inventory, capacity, time, cash, or the customer &mdash; and whose budget carries it?</td></tr>
-      <tr><td>Prices</td><td>Are shortage, excess, delay, change, and expediting priced explicitly, or standing behind a target that nobody has re-derived?</td></tr>
-      <tr><td>Rules</td><td>Which constraints are physical or contractual, and which are inherited convention that has never been tested?</td></tr>
-      <tr><td>Recourse</td><td>When the plan is wrong, who may act, at what price, and is the action recorded in a form the next cycle can use?</td></tr>
-      <tr><td>Learning</td><td>Do realized outcomes and overrides reach the next decision, or do they stop at a report?</td></tr>
+      <tr><td>Absorption</td><td>Where does variability land today, across inventory, capacity, time, cash, and the customer, and whose budget carries it?</td></tr>
+      <tr><td>Prices</td><td>Are shortage, excess, delay, change, and expediting priced, or standing behind a target nobody has re-derived?</td></tr>
+      <tr><td>Rules</td><td>Which constraints are physical or contractual, and which are convention that has never been tested?</td></tr>
+      <tr><td>Recourse</td><td>When the plan is wrong, who may act, at what price, and does the action survive in a form the next cycle can use?</td></tr>
+      <tr><td>Learning</td><td>Do realized outcomes and overrides reach the next decision, or stop at a report?</td></tr>
     </tbody>
   </table>
 
@@ -549,12 +536,12 @@
     <div class="colophon-grid">
       <div>
         <h4>About Bit Bros</h4>
-        <p>Bit Bros is a boutique applied economics firm working on supply chain and decision systems, at the intersection of optimization, simulation, forecasting, and AI. Founder experience includes Amazon, Toyota, Gurobi, and AT&amp;T. We work on the operating mechanism around the model: how decisions are specified, priced, tested, deployed, and improved.</p>
-        <p>Field Note 01, <i>When Better Models Stop Creating Better Decisions</i>, sets out the general decision-system version of this argument. This paper is the supply chain case.</p>
+        <p>Bit Bros is a boutique applied economics firm working on supply chain and decision systems, at the intersection of optimization, simulation, forecasting, and AI. Founder experience includes Amazon, Toyota, Gurobi, and AT&amp;T. We work on the operating mechanism around the model: how decisions get specified, priced, tested, deployed, and revisited.</p>
+        <p><i>The Decision Factory</i> (DeJans and Elam, 2026) tells this story as a novel. Field Note 01, <i>When Better Models Stop Creating Better Decisions</i>, gives the general decision-system version. This paper is the supply chain case.</p>
       </div>
       <div>
         <h4>Supply Chain Uncertainty Audit</h4>
-        <p>For teams about to fund a forecasting, inventory optimization, or planning system initiative, we run the diagnostic above before significant engineering is committed. It is short, it is deliberately narrow, and the output is a prioritized list of what to fix, simplify, test, or leave alone &mdash; not another transformation roadmap.</p>
+        <p>For teams about to fund a forecasting, inventory optimization, or planning system initiative, we run the diagnostic above before significant engineering is committed. It is short, it is narrow on purpose, and it ends in a prioritized list of what to fix, simplify, test, or leave alone.</p>
         <p class="contact">Start a conversation: BitBrosData.com</p>
       </div>
     </div>
