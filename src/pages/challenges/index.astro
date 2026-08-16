@@ -5,6 +5,21 @@ import { url } from '../../lib/url';
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 
 const challenges = (await getCollection('challenges')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const searchIndex = new Map(
+  challenges.map((challenge) => [
+    challenge.id,
+    [
+      challenge.data.title,
+      challenge.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' }),
+      ...challenge.data.tags,
+      ...challenge.data.solutions.flatMap((solution) => [solution.title, solution.author, solution.affiliation]),
+      challenge.body ?? '',
+    ]
+      .filter(Boolean)
+      .join(' ')
+      .toLocaleLowerCase(),
+  ]),
+);
 
 const byYear = new Map<number, typeof challenges>();
 for (const c of challenges) {
@@ -28,16 +43,29 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     or add them directly via a <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md">pull request</a>.
   </p>
 
+  <section class="challenge-search">
+    <label for="challenge-search-input">Search all challenges</label>
+    <input
+      id="challenge-search-input"
+      type="search"
+      placeholder="Search by title, topic, tag, solution author, or challenge text"
+      autocomplete="off"
+    />
+    <p id="challenge-search-status" class="muted" aria-live="polite">
+      Search across the complete Challenges archive.
+    </p>
+  </section>
+
   <nav class="year-jump" aria-label="Jump to year">
-    {years.map((year) => <a href={`#y${year}`}>{year}</a>)}
+    {years.map((year) => <a href={`#y${year}`} data-year-jump={year}>{year}</a>)}
   </nav>
 
   {years.map((year) => (
-    <section class="year-section" id={`y${year}`}>
+    <section class="year-section" id={`y${year}`} data-challenge-year={year}>
       <h2>{year}</h2>
       <div class="card-grid">
         {byYear.get(year)!.map((c) => (
-          <div class="card">
+          <div class="card" data-challenge data-search={searchIndex.get(c.id)}>
             <h3><a href={url(`/challenges/${c.id}/`)}>{c.data.title}</a></h3>
             <p class="muted">{c.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
             {c.data.tags.length > 0 && (
@@ -51,9 +79,69 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
   ))}
 </BaseLayout>
 
+<script>
+  const input = document.querySelector<HTMLInputElement>('#challenge-search-input');
+  const status = document.querySelector<HTMLElement>('#challenge-search-status');
+  const challenges = Array.from(document.querySelectorAll<HTMLElement>('[data-challenge]'));
+  const years = Array.from(document.querySelectorAll<HTMLElement>('[data-challenge-year]'));
+  const yearLinks = Array.from(document.querySelectorAll<HTMLElement>('[data-year-jump]'));
+
+  function applySearch() {
+    if (!input || !status) return;
+
+    const query = input.value.trim().toLocaleLowerCase();
+    let matches = 0;
+
+    challenges.forEach((challenge) => {
+      const visible = !query || (challenge.dataset.search ?? '').includes(query);
+      challenge.hidden = !visible;
+      if (visible) matches += 1;
+    });
+
+    years.forEach((year) => {
+      year.hidden = Boolean(query) && !year.querySelector('[data-challenge]:not([hidden])');
+    });
+    yearLinks.forEach((link) => {
+      const year = document.querySelector<HTMLElement>(`#y${link.dataset.yearJump}`);
+      link.hidden = Boolean(query) && Boolean(year?.hidden);
+    });
+
+    status.textContent = query
+      ? `Showing ${matches} ${matches === 1 ? 'challenge' : 'challenges'} matching “${input.value.trim()}”.`
+      : 'Search across the complete Challenges archive.';
+  }
+
+  input?.addEventListener('input', applySearch);
+</script>
+
 <style>
   .small { font-size: 0.8rem; }
   .tag { margin: 0.2rem 0.3rem 0.2rem 0; }
+  .challenge-search {
+    max-width: 48rem;
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-card);
+  }
+  .challenge-search label { display: block; font-weight: 750; }
+  .challenge-search input {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 0.65rem;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .challenge-search input:focus {
+    outline: 3px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+    outline-offset: 2px;
+  }
+  .challenge-search p { margin: 0.7rem 0 0; }
   .year-jump {
     display: flex;
     flex-wrap: wrap;
@@ -78,4 +166,5 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     padding-bottom: 0.4rem;
     margin-bottom: 1.25rem;
   }
+  [data-challenge-year][hidden], [data-challenge][hidden], [data-year-jump][hidden] { display: none !important; }
 </style>
