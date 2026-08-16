@@ -9,21 +9,13 @@ const newsPosts = (await getCollection('news')).sort(
 const challenges = (await getCollection('challenges')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
-const events = (await getCollection('events')).sort(
-  (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
-);
 
 const latestNews = newsPosts.slice(0, 2);
 const latestChallenges = challenges.slice(0, 2);
-
-const now = new Date();
-const todayUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-const upcomingEvents = events
-  .filter((event) => (event.data.endDate ?? event.data.startDate).valueOf() >= todayUtc)
-  .slice(0, 3);
 ---
 <BaseLayout title="Home" description="Decision Management Community — practitioners designing, building, operating, and improving decision systems.">
   <section class="hero">
+    <img class="hero-logo" src={url('/hero-dm-circle.png')} alt="Decision Management Community" />
     <div class="hero-copy">
       <span class="kicker">Decision Management, in practice</span>
       <h1>A community hub for better decisions.</h1>
@@ -35,17 +27,14 @@ const upcomingEvents = events
         Explore ideas, methods, tools, and real-world practice across Business Rules, Decision Modeling,
         Decision Optimization, Machine Learning, and Agentic AI — maintained by practitioners for practitioners.
       </p>
+      <nav class="hero-links" aria-label="Explore the community">
+        <a href={url('/news/')}>News</a>
+        <a href={url('/challenges/')}>Challenges</a>
+        <a href={url('/decisioncamp/')}>DecisionCAMP</a>
+        <a href={url('/resources/')}>Resources</a>
+        <a href={url('/contribute/')}>Contribute</a>
+      </nav>
     </div>
-
-    <aside class="hero-guide" aria-label="Start here">
-      <img class="hero-logo" src={url('/hero-dm-circle.png')} alt="Decision Management Community" />
-      <span class="badge">Start here</span>
-      <h2>What are you looking for?</h2>
-      <a href={url('/news/')}><span>Ideas &amp; perspectives</span><strong>News &rarr;</strong></a>
-      <a href={url('/resources/')}><span>Something useful</span><strong>Resources &rarr;</strong></a>
-      <a href={url('/challenges/')}><span>A problem to solve</span><strong>Challenges &rarr;</strong></a>
-      <a href={url('/contribute/')}><span>Contribute to the community</span><strong>Start here &rarr;</strong></a>
-    </aside>
   </section>
 
   <section class="section-block">
@@ -82,57 +71,11 @@ const upcomingEvents = events
     </div>
   </section>
 
-  <section class="section-block split-section">
-    <div>
-      <span class="kicker">Coming up</span>
-      <h2>Events</h2>
-      {upcomingEvents.length > 0 ? (
-        <div class="event-list">
-          {upcomingEvents.map((event) => (
-            <article class="event-row">
-              <time datetime={event.data.startDate.toISOString()}>
-                <strong>{event.data.startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</strong>
-                <span>{event.data.startDate.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'UTC' })}</span>
-              </time>
-              <div>
-                <h3>
-                  {event.data.url
-                    ? <a href={event.data.url} target="_blank" rel="noopener">{event.data.title}</a>
-                    : event.data.title}
-                </h3>
-                {event.data.location && <p class="meta">{event.data.location}</p>}
-              </div>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <p class="muted">No upcoming events are listed yet.</p>
-      )}
-      <a class="card-arrow" href={url('/events/')}>Browse all events &rarr;</a>
-    </div>
-
-    <aside class="participate-card">
-      <span class="kicker">Make it better</span>
-      <h2>This is a community project.</h2>
-      <p>
-        The most useful version of this site is the one practitioners build together. Share your writing,
-        add a resource, submit news, contribute a challenge, or improve an existing entry.
-      </p>
-      <div class="participate-links">
-        <a href={url('/contribute/')}><strong>How to contribute</strong><span>Start here &rarr;</span></a>
-        <a href={url('/news/')}><strong>Submit news</strong><span>See recent news &rarr;</span></a>
-        <a href={url('/advisory-board/')}><strong>Meet the community</strong><span>Advisory Board &rarr;</span></a>
-      </div>
-    </aside>
-  </section>
 </BaseLayout>
 
 <style>
   .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
-    gap: clamp(2rem, 5vw, 4rem);
-    align-items: center;
+    position: relative;
     padding: clamp(2rem, 5vw, 3.8rem);
     border: 1px solid var(--color-border);
     border-radius: 16px;
@@ -140,6 +83,10 @@ const upcomingEvents = events
       radial-gradient(circle at 92% 10%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 32%),
       var(--color-card);
     box-shadow: var(--shadow-card);
+  }
+  .hero-copy {
+    max-width: 76ch;
+    padding-right: 8rem;
   }
   .hero-copy h1 {
     max-width: 17ch;
@@ -166,37 +113,36 @@ const upcomingEvents = events
   .intro { margin-top: 1.25rem; font-size: 1.08rem; }
   .lede { font-size: 1rem; }
 
-  .hero-guide {
-    position: relative;
-    padding: 1.5rem;
-    padding-top: 5.8rem;
-    border: 1px solid var(--color-border);
-    border-top: 4px solid var(--color-accent);
-    border-radius: var(--radius);
-    background: var(--color-card);
-    box-shadow: var(--shadow-card);
-  }
   .hero-logo {
     position: absolute;
-    top: 0.8rem;
-    right: 0.9rem;
-    width: 78px;
-    height: 78px;
+    top: clamp(1.5rem, 4vw, 2.5rem);
+    right: clamp(1.5rem, 4vw, 2.5rem);
+    width: clamp(100px, 12vw, 132px);
+    height: clamp(100px, 12vw, 132px);
     object-fit: contain;
   }
-  .hero-guide h2 { margin: 0.7rem 0 1rem; font-size: 1.45rem; }
-  .hero-guide > a {
+  .hero-links {
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-top: 1px solid var(--color-border);
-    color: inherit;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-top: 1.35rem;
   }
-  .hero-guide > a:hover { text-decoration: none; }
-  .hero-guide > a:hover strong { color: var(--color-accent-dark); }
-  .hero-guide > a span { color: var(--color-text-muted); }
-  .hero-guide > a strong { color: var(--color-primary); font-size: 0.9rem; white-space: nowrap; }
+  .hero-links a {
+    padding: 0.38rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-bg-alt) 72%, transparent);
+    color: var(--color-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .hero-links a:hover,
+  .hero-links a:focus-visible {
+    border-color: var(--color-accent);
+    background: var(--color-card);
+    color: var(--color-accent-dark);
+    text-decoration: none;
+  }
 
   .section-block { padding: 3.5rem 0 0; }
   .section-heading {
@@ -232,49 +178,8 @@ const upcomingEvents = events
   .compact-card h3 { margin: 0 0 0.4rem; }
   .meta { margin: 0.25rem 0; color: var(--color-text-muted); font-size: 0.82rem; }
 
-  .split-section {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-    gap: clamp(2rem, 5vw, 4rem);
-    padding-bottom: 1rem;
-  }
-  .split-section h2 { margin: 0.3rem 0 1rem; }
-  .event-list { border-top: 1px solid var(--color-border); }
-  .event-row {
-    display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: 1rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-  .event-row time { display: flex; flex-direction: column; color: var(--color-text-muted); font-size: 0.8rem; }
-  .event-row time strong { color: var(--color-accent-dark); font-size: 1rem; }
-  .event-row h3 { margin: 0 0 0.2rem; font-size: 1.1rem; }
-
-  .participate-card {
-    align-self: start;
-    padding: 1.7rem;
-    border-radius: var(--radius);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-  }
-  .participate-card > p { color: var(--color-text-muted); }
-  .participate-links { margin-top: 1.25rem; border-top: 1px solid var(--color-border); }
-  .participate-links a {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--color-border);
-    color: inherit;
-  }
-  .participate-links a:hover { text-decoration: none; }
-  .participate-links span { color: var(--color-primary); font-size: 0.85rem; white-space: nowrap; }
-
   @media (max-width: 840px) {
-    .hero,
-    .latest-grid,
-    .split-section { grid-template-columns: 1fr; }
+    .latest-grid { grid-template-columns: 1fr; }
     .hero { padding-top: 2.5rem; }
     .hero-copy h1 { max-width: 16ch; }
     .section-heading { align-items: start; flex-direction: column; gap: 0.4rem; }
@@ -282,6 +187,8 @@ const upcomingEvents = events
   }
   @media (max-width: 600px) {
     .hero { padding: 1.4rem; }
+    .hero-copy { padding-top: 5.2rem; padding-right: 0; }
+    .hero-logo { top: 1rem; right: 1rem; width: 82px; height: 82px; }
     .latest-grid { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
