@@ -42,10 +42,7 @@ const siteLinks = [
       <h4>Community</h4>
       <ul>
         <li><a href={url('/advisory-board/')}>Advisory Board</a></li>
-        <li><a href={url('/sponsors/')}>Sponsors</a></li>
-        <li><a href="https://groups.google.com/forum/#!forum/dmcommunity">Google Discussion Group</a></li>
         <li><a href="https://www.linkedin.com/in/decision-management-community-b0537a96">LinkedIn</a></li>
-        <li><a href="https://x.com/DecisionMgtCom">X / Twitter</a></li>
         <li><a href={url('/rss.xml')}>RSS Feed</a></li>
       </ul>
     </div>
@@ -101,11 +98,6 @@ const siteLinks = [
   <div class="wrap sub">
     <span class="muted">&copy; {year} Decision Management Community</span>
     <div class="maintenance-credit">
-      <a class="maintainer" href="https://bitbrosdata.com" target="_blank" rel="noopener">
-        <span>Maintained with <span aria-label="love">💙</span> by</span>
-        <span class="maintainer-name">Bit Bros LLC</span>
-      </a>
-      <span class="credit-dot" aria-hidden="true">·</span>
       <a href={url('/contribute/')}>Open-source contributions welcome</a>
     </div>
   </div>
@@ -297,21 +289,11 @@ const siteLinks = [
     gap: 1rem;
     flex-wrap: wrap;
   }
-  .maintenance-credit,
-  .maintainer {
+  .maintenance-credit {
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
   }
-  .maintainer { color: var(--color-text-muted); }
-  .maintainer:hover { text-decoration: none; color: var(--color-text); }
-  .maintainer-name {
-    color: #2563eb;
-    font-weight: 750;
-    letter-spacing: 0.01em;
-  }
-  .maintainer:hover .maintainer-name { color: #1d4ed8; }
-  .credit-dot { color: var(--color-text-muted); }
 
   @media (prefers-color-scheme: dark) {
     .sponsor-band {
@@ -327,8 +309,6 @@ const siteLinks = [
       border-color: rgba(221, 165, 83, 0.48);
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
     }
-    .maintainer-name { color: #60a5fa; }
-    .maintainer:hover .maintainer-name { color: #93c5fd; }
   }
 
   @media (prefers-reduced-motion: reduce) {
