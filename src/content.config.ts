@@ -54,7 +54,6 @@ const caseStudies = defineCollection({
     // Original site had several dead links mixed into its case-study list.
     // Track link health explicitly instead of silently dropping or trusting it.
     linkStatus: z.enum(['ok', 'broken', 'unverified']).default('unverified'),
-    summary: z.string().optional(),
   }),
 });
 

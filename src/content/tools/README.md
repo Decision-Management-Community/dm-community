@@ -10,7 +10,6 @@ The tool catalog at `/resources/tools/`, filterable by functional category. One 
 | `categories` | array | yes | One or more of: `BR`, `ML`, `OPT`, `LLM` |
 | `url` | string (URL) | no | |
 | `linkStatus` | enum | no | `ok`, `broken`, or `unverified` (default) |
-| `summary` | string | no | One sentence describing what it does |
 
 ## Adding a tool
 
@@ -22,7 +21,6 @@ name: "Example Rules Engine"
 categories: ["BR", "LLM"]
 url: "https://example.com"
 linkStatus: "ok"
-summary: "One sentence describing what it does."
 ---
 ```
 
