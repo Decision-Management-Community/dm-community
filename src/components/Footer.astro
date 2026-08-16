@@ -65,7 +65,7 @@ const siteLinks = [
         <div class="sponsor-track">
           <div class="sponsor-set">
             {sponsors.map((s) => (
-              <a class:list={['sponsor-tile', { 'text-only': !s.data.logo }]} href={s.data.url} target="_blank" rel="noopener" aria-label={`Visit ${s.data.name}`}>
+              <a class:list={['sponsor-tile', { 'text-only': !s.data.logo }]} data-sponsor-id={s.id} href={s.data.url} target="_blank" rel="noopener" aria-label={`Visit ${s.data.name}`}>
                 {s.data.logo ? (
                   <img src={url(s.id === 'bit-bros' ? '/sponsors/bit-bros-horizontal.svg' : s.data.logo)} alt={`${s.data.name} logo`} loading="lazy" />
                 ) : (
@@ -76,7 +76,7 @@ const siteLinks = [
           </div>
           <div class="sponsor-set sponsor-set-copy" aria-hidden="true">
             {sponsors.map((s) => (
-              <a class:list={['sponsor-tile', { 'text-only': !s.data.logo }]} href={s.data.url} target="_blank" rel="noopener" tabindex="-1">
+              <a class:list={['sponsor-tile', { 'text-only': !s.data.logo }]} data-sponsor-id={s.id} href={s.data.url} target="_blank" rel="noopener" tabindex="-1">
                 {s.data.logo ? (
                   <img src={url(s.id === 'bit-bros' ? '/sponsors/bit-bros-horizontal.svg' : s.data.logo)} alt="" loading="lazy" />
                 ) : (
@@ -97,6 +97,61 @@ const siteLinks = [
     </div>
   </div>
 </footer>
+
+<script>
+  const marquee = document.querySelector<HTMLElement>('.sponsor-marquee');
+  const bitBrosTiles = marquee?.querySelectorAll<HTMLElement>('[data-sponsor-id="bit-bros"]');
+
+  if (marquee && bitBrosTiles?.length) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let animationFrame = 0;
+    let isActive = false;
+
+    const resetSpotlight = () => {
+      bitBrosTiles.forEach((tile) => tile.style.setProperty('--center-focus', '0'));
+    };
+
+    const updateSpotlight = () => {
+      if (!isActive) return;
+
+      const viewportCenter = window.innerWidth / 2;
+      const focusRadius = Math.max(180, Math.min(window.innerWidth * 0.28, 360));
+
+      bitBrosTiles.forEach((tile) => {
+        const rect = tile.getBoundingClientRect();
+        const tileCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(tileCenter - viewportCenter);
+        const proximity = Math.max(0, 1 - distance / focusRadius);
+        const eased = proximity * proximity * (3 - 2 * proximity);
+        tile.style.setProperty('--center-focus', eased.toFixed(3));
+      });
+
+      animationFrame = window.requestAnimationFrame(updateSpotlight);
+    };
+
+    const setActive = (nextActive: boolean) => {
+      const shouldRun = nextActive && !reducedMotion.matches;
+      if (shouldRun === isActive) return;
+
+      isActive = shouldRun;
+      window.cancelAnimationFrame(animationFrame);
+
+      if (isActive) {
+        animationFrame = window.requestAnimationFrame(updateSpotlight);
+      } else {
+        resetSpotlight();
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setActive(Boolean(entry?.isIntersecting)),
+      { rootMargin: '80px 0px' },
+    );
+
+    observer.observe(marquee);
+    reducedMotion.addEventListener('change', () => setActive(true));
+  }
+</script>
 
 <style>
   .site-footer {
@@ -206,6 +261,8 @@ const siteLinks = [
     animation-play-state: paused;
   }
   .sponsor-tile {
+    --tile-lift: 0px;
+    --tile-scale: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -217,11 +274,12 @@ const siteLinks = [
     background: rgba(255, 255, 255, 0.97);
     box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
     text-decoration: none;
+    transform: translateY(var(--tile-lift)) scale(var(--tile-scale));
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
   }
   .sponsor-tile:hover,
   .sponsor-tile:focus-visible {
-    transform: translateY(-2px);
+    --tile-lift: -2px;
     border-color: rgba(43, 74, 124, 0.32);
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.10);
     text-decoration: none;
@@ -239,6 +297,23 @@ const siteLinks = [
     font-size: 0.78rem;
     font-weight: 700;
     text-align: center;
+  }
+  .sponsor-tile[data-sponsor-id='bit-bros'] {
+    --center-focus: 0;
+    --tile-scale: calc(1 + (var(--center-focus) * 0.22));
+    position: relative;
+    z-index: 1;
+    background:
+      linear-gradient(
+        rgba(15, 23, 42, calc(var(--center-focus) * 0.96)),
+        rgba(15, 23, 42, calc(var(--center-focus) * 0.96))
+      ),
+      rgba(255, 255, 255, 0.97);
+    border-color: rgba(15, 23, 42, calc(0.10 + (var(--center-focus) * 0.16)));
+    box-shadow: 0 1px calc(2px + (var(--center-focus) * 16px)) rgba(15, 23, 42, calc(0.05 + (var(--center-focus) * 0.10)));
+  }
+  .sponsor-tile[data-sponsor-id='bit-bros'] img {
+    filter: invert(var(--center-focus)) brightness(calc(1 + (var(--center-focus) * 0.08)));
   }
 
   @keyframes sponsor-scroll {
@@ -298,6 +373,14 @@ const siteLinks = [
       border-color: rgba(221, 165, 83, 0.48);
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
     }
+    .sponsor-tile[data-sponsor-id='bit-bros'] {
+      background:
+        linear-gradient(
+          rgba(15, 23, 42, calc(var(--center-focus) * 0.96)),
+          rgba(15, 23, 42, calc(var(--center-focus) * 0.96))
+        ),
+        rgba(255, 255, 255, 0.96);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -311,6 +394,9 @@ const siteLinks = [
     .sponsor-set-copy { display: none; }
     .sponsor-tile,
     .page-links a { transition: none; }
+    .sponsor-tile[data-sponsor-id='bit-bros'] {
+      --center-focus: 0 !important;
+    }
   }
 
   @media (max-width: 700px) {
@@ -326,6 +412,9 @@ const siteLinks = [
     }
     .sponsor-heading-row { align-items: flex-start; }
     .sponsor-tile { width: 132px; height: 50px; }
+    .sponsor-tile[data-sponsor-id='bit-bros'] {
+      --tile-scale: calc(1 + (var(--center-focus) * 0.17));
+    }
     .footer-grid { grid-template-columns: 1fr; }
     .sub { align-items: flex-start; flex-direction: column; }
     .maintenance-credit { flex-wrap: wrap; }
