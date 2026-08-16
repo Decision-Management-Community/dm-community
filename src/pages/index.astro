@@ -3,135 +3,39 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { url } from '../lib/url';
 
-const articles = (await getCollection('articles')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
 const newsPosts = (await getCollection('news')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
 const challenges = (await getCollection('challenges')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
-const qaPosts = (await getCollection('qa')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
-const events = (await getCollection('events')).sort(
-  (a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf(),
-);
 
-const advisoryBoard = await getCollection('advisoryBoard');
-const sponsors = await getCollection('sponsors');
-const decisioncamp = await getCollection('decisioncamp');
-
-const latestArticle = articles[0];
-const latestNews = newsPosts[0];
-const latestChallenge = challenges[0];
-
-const now = new Date();
-const todayUtc = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
-const upcomingEvents = events
-  .filter((event) => (event.data.endDate ?? event.data.startDate).valueOf() >= todayUtc)
-  .slice(0, 3);
-
-const explore = [
-  {
-    href: url('/resources/articles/'),
-    title: 'Articles',
-    eyebrow: `${articles.length} published`,
-    desc: 'Long-form thinking from practitioners on the science, philosophy, and practice of better decisions.',
-  },
-  {
-    href: url('/resources/'),
-    title: 'Resource Library',
-    eyebrow: 'Tools · models · standards',
-    desc: 'Find software, case studies, decision models, books, standards, discussion groups, and related communities.',
-  },
-  {
-    href: url('/news/'),
-    title: 'News',
-    eyebrow: `${newsPosts.length} posts`,
-    desc: 'Follow developments across decision management, decision intelligence, rules, optimization, and AI.',
-  },
-  {
-    href: url('/challenges/'),
-    title: 'Challenges',
-    eyebrow: `${challenges.length} challenges`,
-    desc: 'Work through practical decision-modeling problems and compare approaches from across the community.',
-  },
-  {
-    href: url('/decisioncamp/'),
-    title: 'DecisionCAMP',
-    eyebrow: `${decisioncamp.length} editions`,
-    desc: 'Explore the community conference, past editions, MiniCamps, talks, workshops, and recordings.',
-  },
-  {
-    href: url('/qa/'),
-    title: 'Q&A',
-    eyebrow: `${qaPosts.length} discussions`,
-    desc: 'Questions and answers spanning business rules, DMN, optimization, machine learning, and agentic AI.',
-  },
-];
-
-const communityStats = [
-  { label: 'Articles', count: articles.length, href: url('/resources/articles/') },
-  { label: 'News Posts', count: newsPosts.length, href: url('/news/') },
-  { label: 'Advisory Board Experts', count: advisoryBoard.length, href: url('/advisory-board/') },
-  { label: 'Sponsors', count: sponsors.length, href: url('/sponsors/') },
-];
+const latestNews = newsPosts.slice(0, 2);
+const latestChallenges = challenges.slice(0, 2);
 ---
-<BaseLayout title="Home" description="Decision Management Community — a practical community hub for articles, resources, news, challenges, events, and DecisionCAMP.">
+<BaseLayout title="Home" description="Decision Management Community — practitioners designing, building, operating, and improving decision systems.">
   <section class="hero">
     <div class="hero-copy">
       <span class="kicker">Decision Management, in practice</span>
       <h1>A community hub for better decisions.</h1>
+      <p class="intro">
+        The Decision Management Community brings together practitioners who design, build, operate,
+        and improve decision systems across multiple industries.
+      </p>
       <p class="lede">
         Explore ideas, methods, tools, and real-world practice across Business Rules, Decision Modeling,
         Decision Optimization, Machine Learning, and Agentic AI — maintained by practitioners for practitioners.
       </p>
-      <div class="cta-row">
-        <a class="btn" href={url('/resources/')}>Explore Resources</a>
-        <a class="btn secondary" href={url('/resources/articles/')}>Read Articles</a>
-        <a class="text-cta" href={url('/contribute/')}>Contribute to the community &rarr;</a>
-      </div>
     </div>
-
-    <aside class="hero-guide" aria-label="Start here">
-      <span class="badge">Start here</span>
-      <h2>What are you looking for?</h2>
-      <a href={url('/resources/articles/')}><span>Ideas &amp; perspectives</span><strong>Articles &rarr;</strong></a>
-      <a href={url('/resources/')}><span>Something useful</span><strong>Resources &rarr;</strong></a>
-      <a href={url('/news/')}><span>What is happening</span><strong>News &rarr;</strong></a>
-      <a href={url('/challenges/')}><span>A problem to solve</span><strong>Challenges &rarr;</strong></a>
-    </aside>
-  </section>
-
-  <section class="stats" aria-label="Community at a glance">
-    {communityStats.map((stat) => (
-      <a href={stat.href} class="stat">
-        <strong>{stat.count}</strong>
-        <span>{stat.label}</span>
-      </a>
-    ))}
-  </section>
-
-  <section class="section-block">
-    <div class="section-heading">
-      <div>
-        <span class="kicker">Explore</span>
-        <h2>Everything in one place</h2>
-      </div>
-      <p>Use the community as a working library, not just a website.</p>
-    </div>
-
-    <div class="explore-grid">
-      {explore.map((item) => (
-        <a class="explore-card" href={item.href}>
-          <span class="eyebrow">{item.eyebrow}</span>
-          <h3>{item.title}</h3>
-          <p>{item.desc}</p>
-          <span class="card-arrow">Explore &rarr;</span>
-        </a>
-      ))}
+    <div class="hero-actions">
+      <img class="hero-logo" src={url('/hero-dm-circle.png')} alt="Decision Management Community" />
+      <nav class="hero-links" aria-label="Explore the community">
+        <a href={url('/news/')}>News</a>
+        <a href={url('/challenges/')}>Challenges</a>
+        <a href={url('/decisioncamp/')}>DecisionCAMP</a>
+        <a href={url('/resources/')}>Resources</a>
+        <a href={url('/contribute/')}>Contribute</a>
+      </nav>
     </div>
   </section>
 
@@ -141,110 +45,57 @@ const communityStats = [
         <span class="kicker">Fresh from the community</span>
         <h2>Latest</h2>
       </div>
-      <p>New writing, updates, and problems worth digging into.</p>
+      <p>The latest news and practical decision-modeling problems from the community.</p>
     </div>
 
     <div class="latest-grid">
-      <article class="feature-card">
-        <span class="badge">Latest Article</span>
-        {latestArticle ? (
-          <>
-            <h3><a href={url(`/resources/articles/${latestArticle.id}/`)}>{latestArticle.data.title}</a></h3>
-            <p class="meta">
-              {latestArticle.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
-              {latestArticle.data.author ? ` · ${latestArticle.data.author}` : ''}
-            </p>
-            {latestArticle.data.summary && <p>{latestArticle.data.summary}</p>}
-            <a class="card-arrow" href={url(`/resources/articles/${latestArticle.id}/`)}>Read article &rarr;</a>
-          </>
-        ) : <p class="muted">No articles published yet.</p>}
-      </article>
+      <section class="latest-column" aria-labelledby="latest-news-heading">
+        <h3 id="latest-news-heading"><span class="badge">Latest News</span></h3>
+        {latestNews.length > 0 ? latestNews.map((post) => (
+          <article class="compact-card">
+            <h3><a href={url(`/news/${post.id}/`)}>{post.data.title}</a></h3>
+            <p class="meta">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
+          </article>
+        )) : <p class="muted">No news yet.</p>}
+        <a class="card-arrow" href={url('/news/')}>More news &rarr;</a>
+      </section>
 
-      <div class="latest-stack">
-        <article class="compact-card">
-          <span class="badge">Latest News</span>
-          {latestNews ? (
-            <>
-              <h3><a href={url(`/news/${latestNews.id}/`)}>{latestNews.data.title}</a></h3>
-              <p class="meta">{latestNews.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
-              <a class="card-arrow" href={url('/news/')}>More news &rarr;</a>
-            </>
-          ) : <p class="muted">No news yet.</p>}
-        </article>
-
-        <article class="compact-card">
-          <span class="badge">Latest Challenge</span>
-          {latestChallenge ? (
-            <>
-              <h3><a href={url(`/challenges/${latestChallenge.id}/`)}>{latestChallenge.data.title}</a></h3>
-              <p class="meta">{latestChallenge.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</p>
-              <a class="card-arrow" href={url('/challenges/')}>View challenges &rarr;</a>
-            </>
-          ) : <p class="muted">No challenges yet.</p>}
-        </article>
-      </div>
+      <section class="latest-column" aria-labelledby="latest-challenges-heading">
+        <h3 id="latest-challenges-heading"><span class="badge">Latest Challenges</span></h3>
+        {latestChallenges.length > 0 ? latestChallenges.map((challenge) => (
+          <article class="compact-card">
+            <h3><a href={url(`/challenges/${challenge.id}/`)}>{challenge.data.title}</a></h3>
+            <p class="meta">{challenge.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</p>
+          </article>
+        )) : <p class="muted">No challenges yet.</p>}
+        <a class="card-arrow" href={url('/challenges/')}>View challenges &rarr;</a>
+      </section>
     </div>
   </section>
 
-  <section class="section-block split-section">
-    <div>
-      <span class="kicker">Coming up</span>
-      <h2>Events</h2>
-      {upcomingEvents.length > 0 ? (
-        <div class="event-list">
-          {upcomingEvents.map((event) => (
-            <article class="event-row">
-              <time datetime={event.data.startDate.toISOString()}>
-                <strong>{event.data.startDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })}</strong>
-                <span>{event.data.startDate.toLocaleDateString('en-US', { year: 'numeric', timeZone: 'UTC' })}</span>
-              </time>
-              <div>
-                <h3>
-                  {event.data.url
-                    ? <a href={event.data.url} target="_blank" rel="noopener">{event.data.title}</a>
-                    : event.data.title}
-                </h3>
-                {event.data.location && <p class="meta">{event.data.location}</p>}
-              </div>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <p class="muted">No upcoming events are listed yet.</p>
-      )}
-      <a class="card-arrow" href={url('/events/')}>Browse all events &rarr;</a>
-    </div>
-
-    <aside class="participate-card">
-      <span class="kicker">Make it better</span>
-      <h2>This is a community project.</h2>
-      <p>
-        The most useful version of this site is the one practitioners build together. Share your writing,
-        add a resource, submit news, contribute a challenge, or improve an existing entry.
-      </p>
-      <div class="participate-links">
-        <a href={url('/contribute/')}><strong>How to contribute</strong><span>Start here &rarr;</span></a>
-        <a href={url('/resources/articles/')}><strong>Publish an article</strong><span>See the archive &rarr;</span></a>
-        <a href={url('/advisory-board/')}><strong>Meet the community</strong><span>Advisory Board &rarr;</span></a>
-      </div>
-    </aside>
-  </section>
 </BaseLayout>
 
 <style>
   .hero {
-    display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.8fr);
-    gap: clamp(2rem, 5vw, 4.5rem);
-    align-items: center;
-    padding: clamp(2.5rem, 6vw, 5rem) 0 3.5rem;
+    position: relative;
+    padding: clamp(2rem, 5vw, 3.8rem);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background:
+      radial-gradient(circle at 92% 10%, color-mix(in srgb, var(--color-accent) 18%, transparent), transparent 32%),
+      var(--color-card);
+    box-shadow: var(--shadow-card);
+  }
+  .hero-copy {
+    max-width: 76ch;
+    padding-right: 12rem;
   }
   .hero-copy h1 {
-    max-width: 13ch;
+    max-width: 17ch;
     margin: 0.35rem 0 1rem;
-    font-size: clamp(2.7rem, 6vw, 4.8rem);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
+    font-size: clamp(2.1rem, 4.5vw, 3.45rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
   }
   .kicker,
   .eyebrow {
@@ -255,72 +106,53 @@ const communityStats = [
     letter-spacing: 0.09em;
     text-transform: uppercase;
   }
+  .intro,
   .lede {
     max-width: 64ch;
     color: var(--color-text-muted);
-    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.7;
   }
-  .cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-  }
-  .text-cta { font-weight: 600; padding: 0.55rem 0.25rem; }
+  .intro { margin-top: 1.25rem; font-size: 1.08rem; }
+  .lede { font-size: 1rem; }
 
-  .hero-guide {
-    padding: 1.5rem;
-    border: 1px solid var(--color-border);
-    border-top: 4px solid var(--color-accent);
-    border-radius: var(--radius);
-    background: var(--color-card);
-    box-shadow: var(--shadow-card);
-  }
-  .hero-guide h2 { margin: 0.7rem 0 1rem; font-size: 1.45rem; }
-  .hero-guide > a {
+  .hero-actions {
+    position: absolute;
+    top: clamp(1.5rem, 4vw, 2.5rem);
+    right: clamp(1.5rem, 4vw, 2.5rem);
     display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-top: 1px solid var(--color-border);
-    color: inherit;
-  }
-  .hero-guide > a:hover { text-decoration: none; }
-  .hero-guide > a:hover strong { color: var(--color-accent-dark); }
-  .hero-guide > a span { color: var(--color-text-muted); }
-  .hero-guide > a strong { color: var(--color-primary); font-size: 0.9rem; white-space: nowrap; }
-
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-  }
-  .stat {
-    display: flex;
+    width: 150px;
     flex-direction: column;
     align-items: center;
-    gap: 0.2rem;
-    padding: 1.35rem 1rem;
-    color: inherit;
-    border-left: 1px solid var(--color-border);
+    gap: 0.8rem;
   }
-  .stat:first-child { border-left: 0; }
-  .stat:hover { background: var(--color-bg-alt); text-decoration: none; }
-  .stat strong {
-    color: var(--color-accent-dark);
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    line-height: 1;
+  .hero-logo {
+    width: clamp(100px, 12vw, 132px);
+    height: clamp(100px, 12vw, 132px);
+    object-fit: contain;
   }
-  .stat span {
-    color: var(--color-text-muted);
-    font-size: 0.76rem;
-    font-weight: 650;
-    letter-spacing: 0.04em;
+  .hero-links {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .hero-links a {
+    width: 100%;
+    padding: 0.38rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-bg-alt) 72%, transparent);
+    color: var(--color-primary);
+    font-size: 0.82rem;
+    font-weight: 700;
     text-align: center;
-    text-transform: uppercase;
+  }
+  .hero-links a:hover,
+  .hero-links a:focus-visible {
+    border-color: var(--color-accent);
+    background: var(--color-card);
+    color: var(--color-accent-dark);
+    text-decoration: none;
   }
 
   .section-block { padding: 3.5rem 0 0; }
@@ -334,106 +166,45 @@ const communityStats = [
   .section-heading h2 { margin: 0.3rem 0 0; }
   .section-heading > p { max-width: 42ch; margin: 0; color: var(--color-text-muted); text-align: right; }
 
-  .explore-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-  .explore-card {
-    display: flex;
-    min-height: 220px;
-    flex-direction: column;
-    padding: 1.4rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius);
-    background: var(--color-card);
-    color: inherit;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.15s ease, border-color 0.15s ease;
-  }
-  .explore-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--color-accent);
-    text-decoration: none;
-  }
-  .explore-card h3 { margin: 0.55rem 0 0.5rem; color: var(--color-primary); }
-  .explore-card p { margin: 0; color: var(--color-text-muted); }
   .card-arrow { display: inline-block; margin-top: auto; padding-top: 1rem; font-weight: 650; }
 
   .latest-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
   }
-  .feature-card,
+  .latest-column {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+  }
+  .latest-column > h3 { margin: 0; }
   .compact-card {
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
     background: var(--color-card);
     box-shadow: var(--shadow-card);
   }
-  .feature-card { padding: clamp(1.5rem, 4vw, 2.25rem); }
-  .feature-card h3 { margin: 1rem 0 0.6rem; font-size: clamp(1.5rem, 3vw, 2rem); }
-  .feature-card > p:not(.meta) { max-width: 60ch; }
-  .latest-stack { display: grid; gap: 1rem; }
   .compact-card { padding: 1.35rem; }
-  .compact-card h3 { margin: 0.7rem 0 0.4rem; }
+  .compact-card h3 { margin: 0 0 0.4rem; }
   .meta { margin: 0.25rem 0; color: var(--color-text-muted); font-size: 0.82rem; }
 
-  .split-section {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-    gap: clamp(2rem, 5vw, 4rem);
-    padding-bottom: 1rem;
-  }
-  .split-section h2 { margin: 0.3rem 0 1rem; }
-  .event-list { border-top: 1px solid var(--color-border); }
-  .event-row {
-    display: grid;
-    grid-template-columns: 72px 1fr;
-    gap: 1rem;
-    padding: 1.1rem 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-  .event-row time { display: flex; flex-direction: column; color: var(--color-text-muted); font-size: 0.8rem; }
-  .event-row time strong { color: var(--color-accent-dark); font-size: 1rem; }
-  .event-row h3 { margin: 0 0 0.2rem; font-size: 1.1rem; }
-
-  .participate-card {
-    align-self: start;
-    padding: 1.7rem;
-    border-radius: var(--radius);
-    background: var(--color-bg-alt);
-    border: 1px solid var(--color-border);
-  }
-  .participate-card > p { color: var(--color-text-muted); }
-  .participate-links { margin-top: 1.25rem; border-top: 1px solid var(--color-border); }
-  .participate-links a {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--color-border);
-    color: inherit;
-  }
-  .participate-links a:hover { text-decoration: none; }
-  .participate-links span { color: var(--color-primary); font-size: 0.85rem; white-space: nowrap; }
-
   @media (max-width: 840px) {
-    .hero,
-    .latest-grid,
-    .split-section { grid-template-columns: 1fr; }
+    .latest-grid { grid-template-columns: 1fr; }
     .hero { padding-top: 2.5rem; }
     .hero-copy h1 { max-width: 16ch; }
-    .explore-grid { grid-template-columns: repeat(2, 1fr); }
     .section-heading { align-items: start; flex-direction: column; gap: 0.4rem; }
     .section-heading > p { text-align: left; }
   }
   @media (max-width: 600px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(odd) { border-left: 0; }
-    .stat:nth-child(n + 3) { border-top: 1px solid var(--color-border); }
-    .explore-grid { grid-template-columns: 1fr; }
-    .explore-card { min-height: 0; }
+    .hero { padding: 1.4rem; }
+    .hero-copy { padding-right: 0; }
+    .hero-actions {
+      position: static;
+      width: min(100%, 180px);
+      margin: 1.5rem 0 0 auto;
+    }
+    .hero-logo { width: 92px; height: 92px; }
+    .latest-grid { grid-template-columns: 1fr; gap: 2rem; }
   }
 </style>
