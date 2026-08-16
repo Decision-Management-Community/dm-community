@@ -2,13 +2,6 @@
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  const localBookCovers = [
-    ['bridging decision problems, volume i: framing the problem', 'books/bridging-decision-problems-vol-1.webp'],
-    ['the decision factory: a novel about decisions under uncertainty', 'books/the-decision-factory.webp'],
-    ['the milp optimization handbook for practitioners', 'books/milp-optimization-handbook.webp'],
-    ['business decision modeling with openrules', 'books/business-decision-modeling-openrules.webp'],
-  ] as const;
-
   function attachGlow() {
     if (!finePointer.matches || reducedMotion.matches) return;
 
@@ -29,47 +22,65 @@
     });
   }
 
-  function attachLocalBookCovers() {
-    document.querySelectorAll<HTMLElement>('[data-book]').forEach((row) => {
-      const searchText = row.dataset.search ?? '';
-      const match = localBookCovers.find(([title]) => searchText.startsWith(title));
-      if (!match) return;
-
-      const slot = row.querySelector<HTMLElement>('.book-cover-slot');
-      if (!slot || slot.querySelector('.local-book-cover')) return;
-
-      // These user-supplied local covers take precedence over any remote cover.
-      slot.querySelectorAll<HTMLImageElement>('.book-cover').forEach((image) => {
-        image.hidden = true;
-      });
-
-      const image = document.createElement('img');
-      image.className = 'local-book-cover';
-      image.src = `${import.meta.env.BASE_URL}${match[1]}`;
-      image.alt = '';
-      image.loading = 'lazy';
-      slot.appendChild(image);
-    });
-  }
-
   attachGlow();
-  attachLocalBookCovers();
-  document.addEventListener('astro:page-load', () => {
-    attachGlow();
-    attachLocalBookCovers();
-  });
+  document.addEventListener('astro:page-load', attachGlow);
 </script>
 
 <style is:global>
-  .book-cover-slot .local-book-cover {
-    position: absolute;
-    inset: 0;
-    z-index: 3;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: var(--color-bg-alt);
+  /* Keep the footer page marquee visually quiet and guarantee that each
+     repeated set is at least one viewport wide. With two equal sets and the
+     existing -50% animation, the loop stays continuous even on wide screens. */
+  .page-marquee {
+    border-bottom-color: var(--color-border) !important;
+    background: color-mix(in srgb, var(--color-card) 86%, var(--color-bg-alt)) !important;
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 2.5%, #000 97.5%, transparent) !important;
+    mask-image: linear-gradient(to right, transparent, #000 2.5%, #000 97.5%, transparent) !important;
+  }
+
+  .page-track {
+    animation-duration: 46s !important;
+  }
+
+  .page-set {
+    box-sizing: border-box;
+    width: max-content;
+    min-width: 100vw;
+    justify-content: space-evenly;
+    gap: 0.55rem !important;
+    padding: 0.62rem 1rem !important;
+  }
+
+  .page-set a {
+    padding: 0.34rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-bg-alt) 78%, transparent);
+    color: var(--color-primary) !important;
+    font-size: 0.76rem !important;
+    letter-spacing: 0.01em !important;
+    text-decoration: none !important;
+    transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+  }
+
+  .page-set a::after {
+    display: none !important;
+  }
+
+  .page-set a:hover,
+  .page-set a:focus-visible {
+    border-color: color-mix(in srgb, var(--color-primary) 48%, var(--color-border));
+    background: var(--color-card);
+    color: var(--color-accent-dark) !important;
+    text-decoration: none !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .page-marquee {
+      background: color-mix(in srgb, var(--color-card) 78%, var(--color-bg-alt)) !important;
+    }
+    .page-set a {
+      background: color-mix(in srgb, var(--color-bg-alt) 62%, transparent);
+    }
   }
 
   @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
