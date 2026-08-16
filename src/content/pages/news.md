@@ -1,6 +1,6 @@
 ---
 title: News
-description: Community commentary, interviews, and notable milestones from the decision management field.
+description: Notable news, quotes, announcements, and commentary from Decision Intelligence experts, vendors, and practitioners.
 order: 1
 ---
 
