@@ -1,15 +1,10 @@
-# Field Note 02 — When the Buffer Is the Policy
+# Field Note 02 — Demand Is Not Weather
 
-A four-page client learning paper in the Bit Bros field note format. Six composite
-supply chain engagements, organised around one finding: safety stock settings,
-planning fences, min/max levels and expedite approvals *are* the operating policy,
-and most of them were written during a bad week and never reopened.
-
-Sits between two other things. *The Decision Factory* (DeJans & Elam, 2026) argues
-for policies built in calm conditions to run under pressure; this paper documents the
-inverse, which is what supply chains mostly contain. Field Note 01, *When Better
-Models Stop Creating Better Decisions*, is the general decision-system version of the
-same argument.
+A four-page paper in the Bit Bros field note format, written as an argument rather
+than a case round-up. Thesis: a large share of what a supply chain calls demand is
+the echo of its own decisions — price, assortment, allocation, quoted lead time, and
+above all availability — so forecasting it is predicting the consequences of choices
+already made. Six anonymized engagements supply the evidence.
 
 | File | What it is |
 |---|---|
@@ -17,10 +12,33 @@ same argument.
 | `field-note-02.pdf` | Rendered output, Letter, 4pp. |
 | `render.js` | Headless Chromium print job that turns the HTML into the PDF. |
 
-## Rebuilding the PDF
+## Doctrine this paper commits to
 
-`render.js` needs `playwright-core` and a Chromium binary. Neither is a dependency of
-this site, so install them outside the project:
+Written to align with Lokad's quantitative supply chain doctrine, and it cites that
+debt in the paper. Anyone editing should keep these commitments intact, because
+earlier drafts violated all three:
+
+- **Safety stock is presented as a flawed instrument, not a valid lens.** The formula
+  requires normal demand *and* normal lead time, and it provisions each SKU as though
+  it owned capital. Vermorel's position is that safety stocks violate basic economics
+  by design. Do not reintroduce `SS = z√(...)` as the fix.
+- **No class-based repair.** Cutting the catalog into cost tiers is ABC analysis in
+  disguise; arbitrary classes hide economic reality. The replacement is prioritized
+  ordering: rank every candidate unit by expected dollar return, one list, truncated
+  where capital runs out.
+- **Overrides are defect reports, not a human-in-the-loop feature.** Lokad's line is
+  that overrides reflect a bad numerical recipe. The goal is to drive the rate to
+  zero by encoding what is missing, never to build a better console for performing
+  them.
+
+Also: accuracy is measured in dollars of error, never percentages, and lead time is
+forecast as a distribution and composed with demand.
+
+Register is **firm first-principles** — the economics carry the argument, named
+practices are not attacked by name. Section 6 answers the three obvious objections
+head-on; keep that, it is what separates an argument from a brochure.
+
+## Rebuilding the PDF
 
 ```sh
 npm install --no-save playwright-core
@@ -33,26 +51,23 @@ Point `executablePath` in `render.js` at a local Chromium if
 ## Notes on the layout
 
 - Body text is Bitstream Charter, the serif the field note series uses. Falls back to
-  Liberation Serif, then Georgia. Install Charter for output that matches Field Note 01.
+  Liberation Serif, then Georgia. Install Charter to match Field Note 01.
 - Two columns via CSS `column-count`, with `column-span: all` on the title block,
-  executive conclusion, wide tables, and the closing takeaway.
-- The running header and the `n / 4` footer come from `render.js`, not the HTML —
-  Chromium supplies them through `headerTemplate` / `footerTemplate`.
-- Figure 1 is inline SVG. No external assets, fonts, or scripts are loaded, so the
-  HTML renders identically offline.
+  executive conclusion, wide table, and closing takeaway.
+- Running header and `n / 4` footer come from `render.js`, not the HTML.
+- Figure 1 (the censoring loop) is inline SVG. Nothing external is loaded.
 - Page 1 balances tightly. Adding or cutting a paragraph in section 1 will push the
   Field Lesson box onto page 2 and leave a hole; re-check the render after edits.
+- US spelling throughout, matching Field Note 01.
 
 ## On the case material
 
-The six engagements are anonymised and two are composites, per the paper's own method
-note. Any figure specific enough to identify a client has been changed or removed, and
-the paper carries no outcome metrics. Swap in real numbers only where they can be
-disclosed.
+The six engagements are anonymized and two are composites. Any figure specific enough
+to identify a client has been changed or removed, and the paper carries no outcome
+metrics. Swap in real numbers only where they can be disclosed.
 
 ## House style
 
-The series avoids a handful of constructions on purpose: paired antithesis ("it is not
-X, it is Y"), the "X, not Y" fragment, one-line paragraphs used as dramatic beats, and
-uniform bolded lead-ins repeated down a list. Every case study is deliberately ended a
-different way. Worth re-checking after any edit.
+The series avoids: paired antithesis ("it is not X, it is Y"), the "X, not Y"
+fragment, one-line paragraphs used as dramatic beats, filler intensifiers, em dashes,
+and uniform bolded lead-ins repeated down a list. Grep for these after any edit.
