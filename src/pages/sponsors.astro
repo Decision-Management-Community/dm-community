@@ -81,8 +81,11 @@ const sponsors = (await getCollection('sponsors'))
   .sponsor-card-bit-bros {
     --bit-bros-blue: #38b6ff;
     --bit-bros-blue-dark: #2867b2;
+    --bit-bros-black: #060611;
     position: relative;
+    z-index: 1;
     transition:
+      background-color 0.22s ease,
       border-color 0.22s ease,
       box-shadow 0.22s ease,
       transform 0.22s ease;
@@ -91,32 +94,42 @@ const sponsors = (await getCollection('sponsors'))
   .sponsor-card-bit-bros::after {
     position: absolute;
     top: -1px;
-    right: 16%;
-    left: 16%;
-    height: 2px;
+    right: 8%;
+    left: 8%;
+    height: 3px;
     border-radius: 999px;
     background: linear-gradient(90deg, transparent, var(--bit-bros-blue), transparent);
     content: '';
     opacity: 0;
     pointer-events: none;
-    transform: scaleX(0.65);
+    transform: scaleX(0.55);
     transform-origin: center;
     transition: opacity 0.22s ease, transform 0.22s ease;
   }
+  .sponsor-card-bit-bros h3 a {
+    transition: color 0.2s ease;
+  }
   .sponsor-card-bit-bros:hover,
   .sponsor-card-bit-bros:focus-within {
+    z-index: 2;
     animation: none;
-    border-color: rgba(56, 182, 255, 0.62);
+    background-color: color-mix(in srgb, var(--color-card) 94%, var(--bit-bros-blue) 6%);
+    border-color: rgba(56, 182, 255, 0.84);
     box-shadow:
       var(--shadow-card),
-      0 12px 30px rgba(40, 103, 178, 0.16),
-      inset 0 0 0 1px rgba(56, 182, 255, 0.08);
-    transform: translateY(-2px);
+      0 18px 44px rgba(56, 182, 255, 0.22),
+      0 0 0 1px rgba(56, 182, 255, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transform: translateY(-4px) scale(1.012);
   }
   .sponsor-card-bit-bros:hover::after,
   .sponsor-card-bit-bros:focus-within::after {
     opacity: 1;
     transform: scaleX(1);
+  }
+  .sponsor-card-bit-bros:hover h3 a,
+  .sponsor-card-bit-bros:focus-within h3 a {
+    color: var(--bit-bros-blue-dark);
   }
 
   .sponsor-logo-link {
@@ -170,72 +183,80 @@ const sponsors = (await getCollection('sponsors'))
     text-align: center;
   }
 
-  /* Bit Bros still gets the occasional passive spotlight, but hovering anywhere
-     on its card (or focusing a link inside it) triggers the treatment immediately.
-     The brand mark stays black against Bit Bros blue; white inversion is reserved
-     for genuinely dark/black logo stages such as the footer spotlight. */
+  /* Bit Bros uses the branded black + blue lockup when spotlighted. The blue
+     mark is rendered with an exact-color SVG mask over the existing black mark. */
   .sponsor-logo-link-bit-bros {
     --bit-bros-blue: #38b6ff;
     --bit-bros-blue-dark: #2867b2;
+    --bit-bros-black: #060611;
+    position: relative;
     animation: bit-bros-stage-spotlight 14s ease-in-out infinite;
     will-change: background-color, border-color, box-shadow;
   }
-  .sponsor-logo-link-bit-bros .sponsor-logo {
+  .sponsor-logo-link-bit-bros::before {
+    position: absolute;
+    width: 76px;
+    height: 76px;
+    background: var(--bit-bros-blue);
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    -webkit-mask: url('/sponsors/bit-bros-mark.svg') center / contain no-repeat;
+    mask: url('/sponsors/bit-bros-mark.svg') center / contain no-repeat;
     transform-origin: center;
-    animation: bit-bros-logo-spotlight 14s ease-in-out infinite;
-    will-change: filter, transform;
+    animation: bit-bros-logo-blue-spotlight 14s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+  .sponsor-logo-link-bit-bros .sponsor-logo {
+    position: relative;
+    z-index: 1;
+    transform-origin: center;
+    animation: bit-bros-logo-black-spotlight 14s ease-in-out infinite;
+    will-change: opacity, transform;
   }
 
   .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros,
   .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros {
     animation: none;
-    background-color: var(--bit-bros-blue);
-    border-color: var(--bit-bros-blue-dark);
-    box-shadow: 0 9px 24px rgba(56, 182, 255, 0.28);
-    transform: translateY(-1px);
+    background-color: var(--bit-bros-black);
+    border-color: rgba(56, 182, 255, 0.74);
+    box-shadow:
+      0 12px 30px rgba(6, 6, 17, 0.30),
+      0 0 0 1px rgba(56, 182, 255, 0.16);
+    transform: translateY(-2px) scale(1.01);
   }
   .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros .sponsor-logo,
   .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo {
+    animation: none;
+    opacity: 0;
+  }
+  .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros::before,
+  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros::before {
+    opacity: 1;
     animation: bit-bros-card-highlight 460ms ease-out both;
-    filter: invert(0) brightness(1);
   }
 
   @keyframes bit-bros-card-spotlight {
     0%, 69%, 92%, 100% {
       border-color: var(--color-border);
       box-shadow: var(--shadow-card);
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
     76%, 86% {
-      border-color: rgba(56, 182, 255, 0.38);
+      border-color: rgba(56, 182, 255, 0.44);
       box-shadow:
         var(--shadow-card),
-        0 8px 22px rgba(40, 103, 178, 0.11);
-      transform: translateY(-1px);
+        0 10px 26px rgba(56, 182, 255, 0.13);
+      transform: translateY(-1px) scale(1.004);
     }
   }
 
   @keyframes bit-bros-card-highlight {
-    0% {
-      filter: invert(0) brightness(1);
-      transform: rotate(0deg) scale(1);
-    }
-    30% {
-      filter: invert(0) brightness(1);
-      transform: rotate(-2deg) scale(1.03);
-    }
-    55% {
-      filter: invert(0) brightness(1);
-      transform: rotate(2.4deg) scale(1.05);
-    }
-    75% {
-      filter: invert(0) brightness(1);
-      transform: rotate(-1.2deg) scale(1.05);
-    }
-    100% {
-      filter: invert(0) brightness(1);
-      transform: rotate(0deg) scale(1.05);
-    }
+    0% { transform: rotate(0deg) scale(1); }
+    30% { transform: rotate(-2deg) scale(1.03); }
+    55% { transform: rotate(2.4deg) scale(1.05); }
+    75% { transform: rotate(-1.2deg) scale(1.05); }
+    100% { transform: rotate(0deg) scale(1.05); }
   }
 
   @keyframes bit-bros-stage-spotlight {
@@ -245,43 +266,68 @@ const sponsors = (await getCollection('sponsors'))
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
     76%, 86% {
-      background-color: var(--bit-bros-blue);
-      border-color: var(--bit-bros-blue-dark);
-      box-shadow: 0 9px 24px rgba(56, 182, 255, 0.28);
+      background-color: var(--bit-bros-black);
+      border-color: rgba(56, 182, 255, 0.72);
+      box-shadow:
+        0 12px 28px rgba(6, 6, 17, 0.24),
+        0 0 0 1px rgba(56, 182, 255, 0.14);
     }
   }
 
-  @keyframes bit-bros-logo-spotlight {
+  @keyframes bit-bros-logo-black-spotlight {
     0%, 69%, 92%, 100% {
-      filter: invert(0) brightness(1);
+      opacity: 1;
       transform: rotate(0deg) scale(1);
     }
     73% {
-      filter: invert(0) brightness(1);
+      opacity: 0.7;
       transform: rotate(-1.5deg) scale(1.02);
     }
     76% {
-      filter: invert(0) brightness(1);
+      opacity: 0.25;
       transform: rotate(2.2deg) scale(1.04);
     }
-    79% {
-      filter: invert(0) brightness(1);
-      transform: rotate(-2.5deg) scale(1.05);
-    }
-    82% {
-      filter: invert(0) brightness(1);
-      transform: rotate(1.7deg) scale(1.05);
-    }
-    84% {
-      filter: invert(0) brightness(1);
-      transform: rotate(-0.8deg) scale(1.05);
-    }
-    86% {
-      filter: invert(0) brightness(1);
+    79%, 86% {
+      opacity: 0;
       transform: rotate(0deg) scale(1.05);
     }
     90% {
-      filter: invert(0) brightness(1);
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+  }
+
+  @keyframes bit-bros-logo-blue-spotlight {
+    0%, 69%, 92%, 100% {
+      opacity: 0;
+      transform: rotate(0deg) scale(1);
+    }
+    73% {
+      opacity: 0.3;
+      transform: rotate(-1.5deg) scale(1.02);
+    }
+    76% {
+      opacity: 0.75;
+      transform: rotate(2.2deg) scale(1.04);
+    }
+    79% {
+      opacity: 1;
+      transform: rotate(-2.5deg) scale(1.05);
+    }
+    82% {
+      opacity: 1;
+      transform: rotate(1.7deg) scale(1.05);
+    }
+    84% {
+      opacity: 1;
+      transform: rotate(-0.8deg) scale(1.05);
+    }
+    86% {
+      opacity: 1;
+      transform: rotate(0deg) scale(1.05);
+    }
+    90% {
+      opacity: 0;
       transform: rotate(0deg) scale(1);
     }
   }
@@ -298,18 +344,25 @@ const sponsors = (await getCollection('sponsors'))
     }
     .sponsor-card-bit-bros:hover,
     .sponsor-card-bit-bros:focus-within {
-      border-color: rgba(56, 182, 255, 0.72);
+      background-color: color-mix(in srgb, var(--color-card) 90%, var(--bit-bros-blue) 10%);
+      border-color: rgba(56, 182, 255, 0.90);
       box-shadow:
         var(--shadow-card),
-        0 12px 30px rgba(56, 182, 255, 0.14),
-        inset 0 0 0 1px rgba(56, 182, 255, 0.10);
+        0 18px 44px rgba(56, 182, 255, 0.22),
+        0 0 0 1px rgba(56, 182, 255, 0.18),
+        inset 0 1px 0 rgba(56, 182, 255, 0.08);
+    }
+    .sponsor-card-bit-bros:hover h3 a,
+    .sponsor-card-bit-bros:focus-within h3 a {
+      color: var(--bit-bros-blue);
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .sponsor-logo-link,
     .sponsor-card-bit-bros,
-    .sponsor-card-bit-bros::after {
+    .sponsor-card-bit-bros::after,
+    .sponsor-card-bit-bros h3 a {
       transition: none;
     }
     .sponsor-logo-link:hover,
@@ -318,6 +371,7 @@ const sponsors = (await getCollection('sponsors'))
     }
     .sponsor-card-bit-bros,
     .sponsor-logo-link-bit-bros,
+    .sponsor-logo-link-bit-bros::before,
     .sponsor-logo-link-bit-bros .sponsor-logo {
       animation: none;
     }
@@ -333,8 +387,12 @@ const sponsors = (await getCollection('sponsors'))
     }
     .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros .sponsor-logo,
     .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo {
+      opacity: 0;
+    }
+    .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros::before,
+    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros::before {
+      opacity: 1;
       animation: none;
-      filter: invert(0) brightness(1);
       transform: none;
     }
   }
@@ -348,7 +406,8 @@ const sponsors = (await getCollection('sponsors'))
       height: 58px;
       max-height: 58px;
     }
-    .sponsor-logo-mark {
+    .sponsor-logo-mark,
+    .sponsor-logo-link-bit-bros::before {
       width: 68px;
       height: 68px;
       max-width: 68px;
