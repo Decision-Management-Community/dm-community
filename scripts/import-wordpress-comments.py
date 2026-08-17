@@ -19,6 +19,7 @@ API_URL = "https://public-api.wordpress.com/rest/v1.1/sites/dmcommunity.org/comm
 SSL_CONTEXT = ssl._create_unverified_context()
 USER_AGENT = "DMCommunity comment archive migration/1.0"
 LEGACY_PATH_RE = re.compile(r'^legacyPath:\s*["\']?(/\d{4}/\d{2}/\d{2}/[^"\'\s]+/)', re.MULTILINE)
+TITLE_RE = re.compile(r'^title:\s*(.+?)\s*$', re.MULTILINE)
 
 
 class CommentTextParser(HTMLParser):
@@ -69,8 +70,7 @@ def request(url, *, timeout=90):
 def fetch_comments():
     comments = []
     page = 1
-    found = None
-    while found is None or len(comments) < found:
+    while True:
         query = urllib.parse.urlencode(
             {
                 "number": 100,
@@ -83,10 +83,13 @@ def fetch_comments():
         with request(f"{API_URL}?{query}") as response:
             payload = json.load(response)
         batch = payload.get("comments", [])
-        found = int(payload.get("found", len(comments) + len(batch)))
         comments.extend(batch)
-        print(f"Fetched comments page {page}: {len(comments)}/{found}", flush=True)
-        if not batch:
+        found = payload.get("found")
+        total_label = found if isinstance(found, int) and found >= 0 else "unknown"
+        print(f"Fetched comments page {page}: {len(comments)}/{total_label}", flush=True)
+        # WordPress.com can report found=-1 for this older mapped site. A
+        # short/empty page is therefore the reliable completion signal.
+        if len(batch) < 100:
             break
         page += 1
         time.sleep(0.15)
@@ -102,22 +105,34 @@ def normalize_legacy_url(value):
     return path.rstrip("/") + "/"
 
 
-def load_legacy_routes(news_dir):
+def clean_title(value):
+    value = html.unescape(value or "").strip()
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in {'"', "'"}:
+        value = value[1:-1]
+    return " ".join(value.replace('\\"', '"').split()).casefold()
+
+
+def load_legacy_indexes(news_dir):
     routes = {}
+    title_candidates = {}
     for path in news_dir.glob("*.md"):
         if path.name == "README.md":
             continue
-        match = LEGACY_PATH_RE.search(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        match = LEGACY_PATH_RE.search(text)
         if match:
             routes[match.group(1)] = path.stem
-    return routes
+        title_match = TITLE_RE.search(text)
+        if title_match:
+            title = clean_title(title_match.group(1))
+            title_candidates.setdefault(title, []).append(path.stem)
+    unique_titles = {title: ids[0] for title, ids in title_candidates.items() if len(ids) == 1}
+    return routes, unique_titles
 
 
 def comment_text(comment):
     raw = comment.get("raw_content")
     if raw:
-        # raw_content can still contain a little markup from old comments, so
-        # normalize it through the same plain-text parser as display content.
         parser = CommentTextParser()
         parser.feed(raw)
         parser.close()
@@ -144,13 +159,30 @@ def author_name(comment):
     return html.unescape(value or "Anonymous").strip() or "Anonymous"
 
 
+def comment_news_id(comment, routes, titles):
+    # First try the original permalink. WordPress.com occasionally keeps an
+    # older slug here even after the visible site redirects to a newer one.
+    legacy_path = normalize_legacy_url(comment.get("URL"))
+    if legacy_path in routes:
+        return routes[legacy_path], "path"
+
+    # The comment payload also carries a compact post reference with the
+    # original post title. Use that only when the migrated title is unique.
+    post = comment.get("post")
+    if isinstance(post, dict):
+        title = clean_title(post.get("title"))
+        if title in titles:
+            return titles[title], "title"
+    return None, None
+
+
 def main():
     parser = argparse.ArgumentParser(description="Archive approved WordPress comments for migrated News posts.")
     parser.add_argument("repo", type=pathlib.Path)
     args = parser.parse_args()
 
     news_dir = args.repo / "src" / "content" / "news"
-    routes = load_legacy_routes(news_dir)
+    routes, titles = load_legacy_indexes(news_dir)
     if not routes:
         raise SystemExit(f"No legacyPath entries found in {news_dir}")
 
@@ -159,14 +191,27 @@ def main():
     archived = {}
     unmatched = 0
     skipped_empty = 0
+    matched_by_path = 0
+    matched_by_title = 0
+    unmatched_examples = []
     for comment in comments:
-        # WordPress.com's comment URL is the original post permalink plus a
-        # comment fragment, so its path maps directly to our legacyPath data.
-        legacy_path = normalize_legacy_url(comment.get("URL"))
-        news_id = routes.get(legacy_path)
+        news_id, match_kind = comment_news_id(comment, routes, titles)
         if not news_id:
             unmatched += 1
+            if len(unmatched_examples) < 5:
+                post = comment.get("post") if isinstance(comment.get("post"), dict) else {}
+                unmatched_examples.append(
+                    {
+                        "comment_id": comment.get("ID"),
+                        "url": comment.get("URL"),
+                        "post_title": post.get("title"),
+                    }
+                )
             continue
+        if match_kind == "path":
+            matched_by_path += 1
+        else:
+            matched_by_title += 1
         content = comment_text(comment)
         if not content:
             skipped_empty += 1
@@ -195,8 +240,11 @@ def main():
                 "wordpress_comments": len(comments),
                 "archived_comments": archived_count,
                 "news_posts_with_comments": len(archived),
+                "matched_by_path": matched_by_path,
+                "matched_by_title": matched_by_title,
                 "unmatched_comments": unmatched,
                 "skipped_empty_comments": skipped_empty,
+                "unmatched_examples": unmatched_examples,
                 "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                 "output": str(output),
             },
