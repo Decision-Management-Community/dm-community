@@ -9,6 +9,10 @@ import { migrateLegacyUrl } from './src/lib/legacyUrl.mjs';
 // resolve independently of the legacy dmcommunity.org domain.
 const base = '/dm-community';
 const basePrefix = base.endsWith('/') ? base.slice(0, -1) : base;
+const adamProfileUrl = 'https://www.linkedin.com/in/addejans/';
+const adamNameSplitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
+const adamNameExactPattern = /^(Adam DeJans Jr\.?|Adam DeJans)$/;
+const profileLinkBlockedTags = new Set(['a', 'code', 'pre', 'script', 'style', 'textarea']);
 
 function prefixInternalUrl(value) {
   const migrated = migrateLegacyUrl(value);
@@ -31,11 +35,85 @@ function rewriteSrcset(value) {
     .join(', ');
 }
 
+function adamProfileLink(name) {
+  return {
+    type: 'element',
+    tagName: 'a',
+    properties: {
+      href: adamProfileUrl,
+      target: '_blank',
+      rel: ['noopener'],
+      'data-person-profile': 'adam-dejans',
+    },
+    children: [{ type: 'text', value: name }],
+  };
+}
+
+function linkAdamNamesInTree(node, blocked = false) {
+  if (!Array.isArray(node.children)) return;
+
+  const currentBlocked = blocked ||
+    (node.type === 'element' && profileLinkBlockedTags.has(node.tagName));
+  const children = [];
+
+  for (const child of node.children) {
+    if (!currentBlocked && child.type === 'text' && /Adam DeJans/.test(child.value)) {
+      for (const part of child.value.split(adamNameSplitPattern)) {
+        if (!part) continue;
+        children.push(
+          adamNameExactPattern.test(part)
+            ? adamProfileLink(part)
+            : { type: 'text', value: part },
+        );
+      }
+      continue;
+    }
+
+    linkAdamNamesInTree(child, currentBlocked);
+    children.push(child);
+  }
+
+  node.children = children;
+}
+
+function linkAdamNamesInRawHtml(value) {
+  const tokens = value.split(/(<[^>]+>)/g);
+  let blockedDepth = 0;
+
+  return tokens
+    .map((token) => {
+      if (!token.startsWith('<')) {
+        if (blockedDepth > 0 || !/Adam DeJans/.test(token)) return token;
+        return token.replace(
+          adamNameSplitPattern,
+          (name) => `<a href="${adamProfileUrl}" target="_blank" rel="noopener" data-person-profile="adam-dejans">${name}</a>`,
+        );
+      }
+
+      const closing = token.match(/^<\/\s*([a-z0-9-]+)/i)?.[1]?.toLowerCase();
+      if (closing && profileLinkBlockedTags.has(closing)) {
+        blockedDepth = Math.max(0, blockedDepth - 1);
+        return token;
+      }
+
+      const opening = token.match(/^<\s*([a-z0-9-]+)/i)?.[1]?.toLowerCase();
+      if (opening && profileLinkBlockedTags.has(opening) && !/\/>\s*$/.test(token)) {
+        blockedDepth += 1;
+      }
+      return token;
+    })
+    .join('');
+}
+
 // Content-collection Markdown can contain root-relative links as well as
 // absolute links copied from the legacy WordPress site. Normalize both at
 // render time so migrated content never depends on dmcommunity.org staying up.
+// At the same render stage, turn visible Adam DeJans / Adam DeJans Jr. mentions
+// into canonical profile links without touching code, scripts, or existing links.
 function rehypeBaseLinks() {
   return (tree) => {
+    linkAdamNamesInTree(tree);
+
     visit(tree, 'element', (node) => {
       if (node.tagName !== 'a' && node.tagName !== 'img' && node.tagName !== 'video' && node.tagName !== 'source') return;
 
@@ -47,10 +125,11 @@ function rehypeBaseLinks() {
     });
 
     // WordPress bodies are preserved as raw HTML. Raw nodes bypass the element
-    // visitor, so rewrite the URL-bearing attributes that can trigger browser
-    // navigation or asset requests. Inert migration metadata such as
+    // visitor, so link profile-name text outside existing anchors/code first,
+    // then rewrite URL-bearing attributes. Inert migration metadata such as
     // data-permalink is intentionally left untouched.
     visit(tree, 'raw', (node) => {
+      node.value = linkAdamNamesInRawHtml(node.value);
       node.value = node.value.replace(
         /(\b(?:href|src|poster|srcset)\s*=\s*)(["'])([\s\S]*?)\2/gi,
         (match, prefix, quote, value) => {
