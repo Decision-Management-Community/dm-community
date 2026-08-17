@@ -1,0 +1,49 @@
+<script>
+  const profileUrl = 'https://www.linkedin.com/in/addejans/';
+  const splitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
+  const exactPattern = /^(Adam DeJans Jr\.?|Adam DeJans)$/;
+  const containsName = /Adam DeJans(?: Jr\.?)?/;
+  const root = document.querySelector<HTMLElement>('#main-content');
+
+  if (root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const value = node.nodeValue ?? '';
+        const parent = node.parentElement;
+        if (!parent || !containsName.test(value)) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('a, code, pre, script, style, textarea')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    const matches: Text[] = [];
+    let current = walker.nextNode();
+    while (current) {
+      matches.push(current as Text);
+      current = walker.nextNode();
+    }
+
+    for (const textNode of matches) {
+      const value = textNode.nodeValue ?? '';
+      const fragment = document.createDocumentFragment();
+
+      for (const part of value.split(splitPattern)) {
+        if (!part) continue;
+        if (!exactPattern.test(part)) {
+          fragment.appendChild(document.createTextNode(part));
+          continue;
+        }
+
+        const link = document.createElement('a');
+        link.href = profileUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.dataset.personProfile = 'adam-dejans';
+        link.textContent = part;
+        fragment.appendChild(link);
+      }
+
+      textNode.replaceWith(fragment);
+    }
+  }
+</script>
