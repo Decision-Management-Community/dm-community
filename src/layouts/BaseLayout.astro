@@ -11,31 +11,87 @@ import '../styles/accessibility.css';
 interface Props {
   title: string;
   description?: string;
+  ogType?: 'website' | 'article';
+  author?: string;
+  publishedTime?: string;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description = 'Decision Management Community — for practitioners, by practitioners.' } = Astro.props;
+const {
+  title,
+  description = 'Decision Management Community — for practitioners, by practitioners.',
+  ogType = 'website',
+  author,
+  publishedTime,
+  structuredData,
+} = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const socialTitle = `${title} · Decision Management Community`;
+const siteUrl = new URL(url('/'), Astro.site).href;
+const logoUrl = new URL(url('/hero-dm-circle.png'), Astro.site).href;
+const organizationId = `${siteUrl}#organization`;
+const websiteId = `${siteUrl}#website`;
+const globalStructuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': organizationId,
+      name: 'Decision Management Community',
+      url: siteUrl,
+      logo: {
+        '@type': 'ImageObject',
+        url: logoUrl,
+      },
+      sameAs: ['https://www.linkedin.com/in/decision-management-community-b0537a96'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': websiteId,
+      name: 'Decision Management Community',
+      url: siteUrl,
+      publisher: { '@id': organizationId },
+      inLanguage: 'en',
+    },
+  ],
+};
+const pageStructuredData = structuredData
+  ? (Array.isArray(structuredData) ? structuredData : [structuredData])
+  : [];
+const serializeJsonLd = (value: Record<string, unknown>) =>
+  JSON.stringify(value).replace(/</g, '\\u003c');
 ---
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fdfcfa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#13141a" media="(prefers-color-scheme: dark)" />
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <meta name="generator" content={Astro.generator} />
     <title>{socialTitle}</title>
     <meta name="description" content={description} />
+    {author && <meta name="author" content={author} />}
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="Decision Management Community" />
     <meta property="og:title" content={socialTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={logoUrl} />
+    <meta property="og:image:alt" content="Decision Management Community" />
+    {ogType === 'article' && publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {ogType === 'article' && author && <meta property="article:author" content={author} />}
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={socialTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={logoUrl} />
     <link rel="alternate" type="application/rss+xml" title="Decision Management Community" href={url('/rss.xml')} />
+    <script type="application/ld+json" set:html={serializeJsonLd(globalStructuredData)}></script>
+    {pageStructuredData.map((item) => (
+      <script type="application/ld+json" set:html={serializeJsonLd(item)}></script>
+    ))}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
