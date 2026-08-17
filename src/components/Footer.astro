@@ -319,15 +319,24 @@ const siteLinks = [
     z-index: 1;
     background:
       linear-gradient(
-        rgba(15, 23, 42, calc(var(--center-focus) * 0.96)),
-        rgba(15, 23, 42, calc(var(--center-focus) * 0.96))
+        rgba(6, 6, 17, calc(var(--center-focus) * 0.97)),
+        rgba(6, 6, 17, calc(var(--center-focus) * 0.97))
       ),
       rgba(255, 255, 255, 0.97);
-    border-color: rgba(15, 23, 42, calc(0.10 + (var(--center-focus) * 0.16)));
-    box-shadow: 0 1px calc(2px + (var(--center-focus) * 16px)) rgba(15, 23, 42, calc(0.05 + (var(--center-focus) * 0.10)));
+    border-color: rgba(56, 182, 255, calc(0.10 + (var(--center-focus) * 0.24)));
+    box-shadow: 0 1px calc(2px + (var(--center-focus) * 16px)) rgba(56, 182, 255, calc(0.04 + (var(--center-focus) * 0.12)));
   }
   .sponsor-tile[data-sponsor-id='bit-bros'] img {
-    filter: invert(var(--center-focus)) brightness(calc(1 + (var(--center-focus) * 0.08)));
+    /* Brand lockup: white canvas -> black mark; Bit Bros black -> Bit Bros blue mark. */
+    filter:
+      brightness(0)
+      saturate(100%)
+      invert(calc(var(--center-focus) * 53.168%))
+      sepia(calc(var(--center-focus) * 78.128%))
+      saturate(calc(100% + (var(--center-focus) * 955.007%)))
+      hue-rotate(calc(var(--center-focus) * 160.832deg))
+      brightness(calc(100% + (var(--center-focus) * 59.817%)))
+      contrast(calc(100% - (var(--center-focus) * 73.161%)));
     transform: rotate(var(--logo-wiggle));
     transform-origin: center;
     will-change: filter, transform;
@@ -398,8 +407,8 @@ const siteLinks = [
     .sponsor-tile[data-sponsor-id='bit-bros'] {
       background:
         linear-gradient(
-          rgba(15, 23, 42, calc(var(--center-focus) * 0.96)),
-          rgba(15, 23, 42, calc(var(--center-focus) * 0.96))
+          rgba(6, 6, 17, calc(var(--center-focus) * 0.97)),
+          rgba(6, 6, 17, calc(var(--center-focus) * 0.97))
         ),
         rgba(255, 255, 255, 0.96);
     }
