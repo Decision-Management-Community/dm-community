@@ -4,54 +4,217 @@ import { getCollection, render } from 'astro:content';
 import { url } from '../../../lib/url';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('articles');
-  return posts.map((p) => ({ params: { id: p.id }, props: { entry: p } }));
+  const posts = (await getCollection('articles')).sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+  );
+
+  return posts.map((post) => {
+    const sameAuthor = post.data.author
+      ? posts.filter((candidate) => candidate.id !== post.id && candidate.data.author === post.data.author)
+      : [];
+    const fallback = posts.filter(
+      (candidate) => candidate.id !== post.id && !sameAuthor.some((related) => related.id === candidate.id),
+    );
+    const related = [...sameAuthor, ...fallback].slice(0, 3).map((candidate) => ({
+      id: candidate.id,
+      title: candidate.data.title,
+      date: candidate.data.date,
+      author: candidate.data.author,
+      summary: candidate.data.summary,
+    }));
+
+    return { params: { id: post.id }, props: { entry: post, related } };
+  });
 }
 
-const { entry } = Astro.props;
+const { entry, related } = Astro.props;
 const { Content } = await render(entry);
----
-<BaseLayout title={entry.data.title} description={entry.data.summary ?? entry.data.title}>
-  <a href={url('/resources/articles/')}>&larr; All articles</a>
-  <h1>{entry.data.title}</h1>
-  <p class="muted">
-    {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
-    {entry.data.author ? (
-      <>
-        {' · '}
-        {entry.data.linkedin ? (
-          <a href={entry.data.linkedin} target="_blank" rel="noopener">{entry.data.author}</a>
-        ) : entry.data.author}
-      </>
-    ) : ''}
-  </p>
 
-  <article class="prose">
+function estimateReadingMinutes(body?: string) {
+  const text = (body ?? '')
+    .replace(/```[\s\S]*?```/g, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/[#>*_`\[\](){}|~-]/g, ' ');
+  const words = text.trim().split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 220));
+}
+
+const readingMinutes = estimateReadingMinutes(entry.body);
+const description = entry.data.summary ?? entry.data.title;
+const articleUrl = new URL(url(`/resources/articles/${entry.id}/`), Astro.site).href;
+const siteUrl = new URL(url('/'), Astro.site).href;
+const originalHost = entry.data.originalUrl
+  ? new URL(entry.data.originalUrl).hostname.replace(/^www\./, '')
+  : undefined;
+const articleStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: entry.data.title,
+  description,
+  datePublished: entry.data.date.toISOString(),
+  url: articleUrl,
+  mainEntityOfPage: articleUrl,
+  inLanguage: 'en',
+  ...(entry.data.author ? {
+    author: {
+      '@type': 'Person',
+      name: entry.data.author,
+      ...(entry.data.linkedin ? { url: entry.data.linkedin } : {}),
+    },
+  } : {}),
+  publisher: { '@id': `${siteUrl}#organization` },
+};
+---
+<BaseLayout
+  title={entry.data.title}
+  description={description}
+  ogType="article"
+  author={entry.data.author}
+  publishedTime={entry.data.date.toISOString()}
+  structuredData={articleStructuredData}
+>
+  <a class="back-link" href={url('/resources/articles/')}>&larr; All articles</a>
+  <header class="article-header">
+    <h1>{entry.data.title}</h1>
+    {entry.data.summary && <p class="article-dek">{entry.data.summary}</p>}
+    <p class="article-meta muted">
+      <span>{entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</span>
+      {entry.data.author && (
+        <>
+          <span aria-hidden="true">·</span>
+          {entry.data.linkedin ? (
+            <a href={entry.data.linkedin} target="_blank" rel="noopener">{entry.data.author}</a>
+          ) : <span>{entry.data.author}</span>}
+        </>
+      )}
+      <span aria-hidden="true">·</span>
+      <span>{readingMinutes} min read</span>
+    </p>
+  </header>
+
+  <article class="prose article-body">
     <Content />
   </article>
 
   {(entry.data.linkedin || entry.data.originalUrl) && (
     <footer class="post-footer muted">
       {entry.data.linkedin && (
-        <p>
-          Connect with me on <a href={entry.data.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-        </p>
+        <a href={entry.data.linkedin} target="_blank" rel="noopener">Author on LinkedIn &nearr;</a>
       )}
       {entry.data.originalUrl && (
-        <p>
-          Originally published on{' '}
-          <a href={entry.data.originalUrl} target="_blank" rel="noopener">{entry.data.originalUrl}</a>
-        </p>
+        <a href={entry.data.originalUrl} target="_blank" rel="noopener">Original on {originalHost} &nearr;</a>
       )}
     </footer>
+  )}
+
+  {related.length > 0 && (
+    <section class="keep-reading" aria-labelledby="keep-reading-heading">
+      <div class="keep-reading-heading">
+        <div>
+          <span class="eyebrow">Continue exploring</span>
+          <h2 id="keep-reading-heading">Keep reading</h2>
+        </div>
+        <a href={url('/resources/articles/')}>All articles &rarr;</a>
+      </div>
+      <div class="related-list">
+        {related.map((item) => (
+          <a class="related-item" href={url(`/resources/articles/${item.id}/`)}>
+            <span class="related-date">{item.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })}</span>
+            <strong>{item.title}</strong>
+            {item.author && <span class="related-author">{item.author}</span>}
+          </a>
+        ))}
+      </div>
+    </section>
   )}
 </BaseLayout>
 
 <style>
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    margin-bottom: 0.6rem;
+    font-size: 0.86rem;
+  }
+  .article-header { max-width: 850px; }
+  .article-header h1 { margin-bottom: 0.75rem; }
+  .article-dek {
+    max-width: 68ch;
+    margin: 0 0 0.9rem;
+    color: var(--color-text-muted);
+    font-size: 1.08rem;
+    line-height: 1.65;
+  }
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.45rem;
+    margin: 0;
+    font-size: 0.84rem;
+  }
+  .article-body {
+    max-width: 78ch;
+    margin-top: 2rem;
+  }
   .post-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem 1rem;
     margin-top: 2.5rem;
     padding-top: 1.25rem;
     border-top: 1px solid var(--color-border);
+    font-size: 0.84rem;
   }
-  .post-footer p { margin: 0.35rem 0; }
+  .keep-reading {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .keep-reading-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.65rem;
+  }
+  .keep-reading-heading h2 { margin: 0; font-size: 1.45rem; }
+  .keep-reading-heading > a { flex: 0 0 auto; font-size: 0.84rem; }
+  .eyebrow {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: var(--color-accent-dark);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .related-list { border-top: 1px solid var(--color-border); }
+  .related-item {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) auto;
+    gap: 0.8rem 1rem;
+    align-items: baseline;
+    padding: 0.85rem 0.25rem;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .related-item:hover,
+  .related-item:focus-visible {
+    background: color-mix(in srgb, var(--color-bg-alt) 70%, transparent);
+    text-decoration: none;
+  }
+  .related-date,
+  .related-author {
+    color: var(--color-text-muted);
+    font-size: 0.76rem;
+  }
+  .related-item strong { font-size: 0.9rem; }
+
+  @media (max-width: 600px) {
+    .article-dek { font-size: 1rem; }
+    .keep-reading-heading { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
+    .related-item { grid-template-columns: 1fr; gap: 0.12rem; padding: 0.9rem 0.2rem; }
+  }
 </style>
