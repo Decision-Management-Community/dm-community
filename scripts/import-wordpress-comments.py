@@ -12,9 +12,12 @@ import urllib.request
 from html.parser import HTMLParser
 
 
-API_BASE = "https://dmcommunity.org/wp-json/wp/v2"
+# DMCommunity is hosted on WordPress.com. Use Automattic's public API instead
+# of the site's proxied wp-json endpoint: the latter aggressively rate-limits
+# cloud CI addresses, while this endpoint is explicitly public and unauthenticated.
+API_URL = "https://public-api.wordpress.com/rest/v1.1/sites/dmcommunity.org/comments/"
 SSL_CONTEXT = ssl._create_unverified_context()
-USER_AGENT = "DMCommunity WordPress-comment migration/1.0"
+USER_AGENT = "DMCommunity comment archive migration/1.0"
 LEGACY_PATH_RE = re.compile(r'^legacyPath:\s*["\']?(/\d{4}/\d{2}/\d{2}/[^"\'\s]+/)', re.MULTILINE)
 
 
@@ -63,30 +66,37 @@ def request(url, *, timeout=90):
             time.sleep(delay)
 
 
-def fetch_json(path, **params):
-    query = urllib.parse.urlencode(params, doseq=True)
-    with request(f"{API_BASE}/{path}?{query}") as response:
-        return json.load(response), dict(response.headers)
-
-
-def fetch_all(path, *, fields):
-    records = []
+def fetch_comments():
+    comments = []
     page = 1
-    while True:
-        batch, headers = fetch_json(path, per_page=100, page=page, _fields=fields)
-        records.extend(batch)
-        total_pages = int(headers.get("X-WP-TotalPages", "1"))
-        print(f"Fetched {path} page {page}/{total_pages}", flush=True)
-        if page >= total_pages:
-            return records
+    found = None
+    while found is None or len(comments) < found:
+        query = urllib.parse.urlencode(
+            {
+                "number": 100,
+                "page": page,
+                "order": "ASC",
+                "type": "comment",
+                "status": "approved",
+            }
+        )
+        with request(f"{API_URL}?{query}") as response:
+            payload = json.load(response)
+        batch = payload.get("comments", [])
+        found = int(payload.get("found", len(comments) + len(batch)))
+        comments.extend(batch)
+        print(f"Fetched comments page {page}: {len(comments)}/{found}", flush=True)
+        if not batch:
+            break
         page += 1
-        time.sleep(0.35)
+        time.sleep(0.15)
+    return comments
 
 
 def normalize_legacy_url(value):
-    parsed = urllib.parse.urlsplit(html.unescape(value))
+    parsed = urllib.parse.urlsplit(html.unescape(value or ""))
     host = (parsed.hostname or "").lower()
-    if host not in {"dmcommunity.org", "www.dmcommunity.org"}:
+    if host not in {"dmcommunity.org", "www.dmcommunity.org", "dmcommunity.wordpress.com"}:
         return None
     path = re.sub(r"/+", "/", parsed.path)
     return path.rstrip("/") + "/"
@@ -103,11 +113,35 @@ def load_legacy_routes(news_dir):
     return routes
 
 
-def comment_text(rendered):
+def comment_text(comment):
+    raw = comment.get("raw_content")
+    if raw:
+        # raw_content can still contain a little markup from old comments, so
+        # normalize it through the same plain-text parser as display content.
+        parser = CommentTextParser()
+        parser.feed(raw)
+        parser.close()
+        return parser.text()
     parser = CommentTextParser()
-    parser.feed(rendered or "")
+    parser.feed(comment.get("content") or "")
     parser.close()
     return parser.text()
+
+
+def parent_id(comment):
+    parent = comment.get("parent")
+    if isinstance(parent, dict):
+        return int(parent.get("ID") or 0)
+    return int(parent or 0) if isinstance(parent, (int, str)) else 0
+
+
+def author_name(comment):
+    author = comment.get("author")
+    if isinstance(author, dict):
+        value = author.get("name") or author.get("login")
+    else:
+        value = None
+    return html.unescape(value or "Anonymous").strip() or "Anonymous"
 
 
 def main():
@@ -120,31 +154,28 @@ def main():
     if not routes:
         raise SystemExit(f"No legacyPath entries found in {news_dir}")
 
-    posts = fetch_all("posts", fields="id,link")
-    comments = fetch_all("comments", fields="id,post,parent,author_name,date,content")
-
-    wordpress_to_news = {}
-    for post in posts:
-        legacy_path = normalize_legacy_url(post.get("link", ""))
-        news_id = routes.get(legacy_path)
-        if news_id:
-            wordpress_to_news[post["id"]] = news_id
+    comments = fetch_comments()
 
     archived = {}
     unmatched = 0
+    skipped_empty = 0
     for comment in comments:
-        news_id = wordpress_to_news.get(comment.get("post"))
+        # WordPress.com's comment URL is the original post permalink plus a
+        # comment fragment, so its path maps directly to our legacyPath data.
+        legacy_path = normalize_legacy_url(comment.get("URL"))
+        news_id = routes.get(legacy_path)
         if not news_id:
             unmatched += 1
             continue
-        content = comment_text(comment.get("content", {}).get("rendered", ""))
+        content = comment_text(comment)
         if not content:
+            skipped_empty += 1
             continue
         archived.setdefault(news_id, []).append(
             {
-                "id": int(comment["id"]),
-                "parent": int(comment.get("parent") or 0),
-                "author": html.unescape(comment.get("author_name") or "Anonymous").strip() or "Anonymous",
+                "id": int(comment["ID"]),
+                "parent": parent_id(comment),
+                "author": author_name(comment),
                 "date": comment.get("date", ""),
                 "content": content,
             }
@@ -161,11 +192,11 @@ def main():
     print(
         json.dumps(
             {
-                "wordpress_posts": len(posts),
                 "wordpress_comments": len(comments),
                 "archived_comments": archived_count,
                 "news_posts_with_comments": len(archived),
                 "unmatched_comments": unmatched,
+                "skipped_empty_comments": skipped_empty,
                 "generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                 "output": str(output),
             },
