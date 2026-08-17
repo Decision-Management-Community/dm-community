@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { url } from '../lib/url';
+
+const pagefindBundlePath = url('/pagefind/');
+const pagefindUiJs = url('/pagefind/pagefind-ui.js');
+const pagefindUiCss = url('/pagefind/pagefind-ui.css');
+const quickLinks = [
+  { href: '/resources/articles/', label: 'Articles' },
+  { href: '/news/', label: 'News' },
+  { href: '/challenges/', label: 'Challenges' },
+  { href: '/decisioncamp/', label: 'DecisionCAMP' },
+  { href: '/resources/', label: 'Resources' },
+  { href: '/qa/', label: 'Q&A' },
+];
+---
+<BaseLayout title="Search" description="Search the Decision Management Community site, archives, articles, resources, challenges, and conference history.">
+  <section class="search-hero">
+    <span class="eyebrow">Find anything</span>
+    <h1>Search the community</h1>
+    <p>
+      Search across articles, News, Challenges, DecisionCAMP history, Q&amp;A, resources, and migrated
+      archive material from one place.
+    </p>
+  </section>
+
+  <section class="search-workspace" aria-label="Site search">
+    <div id="pagefind-page-search"></div>
+    <noscript>
+      <p>Site search requires JavaScript. You can still browse the major sections below.</p>
+    </noscript>
+  </section>
+
+  <nav class="search-shortcuts" aria-label="Browse major sections">
+    <span>Or browse:</span>
+    {quickLinks.map((item) => <a href={url(item.href)}>{item.label}</a>)}
+  </nav>
+</BaseLayout>
+
+<style>
+  .search-hero {
+    max-width: 760px;
+    margin-bottom: 1.5rem;
+  }
+  .eyebrow {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: var(--color-accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+  }
+  .search-hero h1 { margin: 0; }
+  .search-hero p {
+    max-width: 68ch;
+    margin: 0.8rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 1.04rem;
+  }
+  .search-workspace {
+    min-height: 320px;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-card);
+    box-shadow: var(--shadow-card);
+  }
+  .search-shortcuts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.45rem 0.65rem;
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+  }
+  .search-shortcuts a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-bg-alt);
+    text-decoration: none;
+  }
+  .search-shortcuts a:hover,
+  .search-shortcuts a:focus-visible {
+    border-color: var(--color-primary);
+    text-decoration: none;
+  }
+  @media (max-width: 600px) {
+    .search-workspace { padding: 0.85rem; }
+    .search-shortcuts a { min-height: 40px; }
+  }
+</style>
+
+<script define:vars={{ pagefindBundlePath, pagefindUiJs, pagefindUiCss }}>
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = pagefindUiCss;
+  document.head.appendChild(link);
+
+  const script = document.createElement('script');
+  script.src = pagefindUiJs;
+  script.addEventListener('load', () => {
+    // eslint-disable-next-line no-undef
+    new PagefindUI({
+      element: '#pagefind-page-search',
+      bundlePath: pagefindBundlePath,
+      showSubResults: true,
+      autofocus: true,
+    });
+  });
+  document.body.appendChild(script);
+</script>
