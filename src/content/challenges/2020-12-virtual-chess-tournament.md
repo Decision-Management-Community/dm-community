@@ -12,6 +12,7 @@ solutions:
     url: https://dmcommunity.org/wp-content/uploads/2020/12/challengedec2020.bernhardclemy.pdf
   - title: Prolog
     author: Matteo Redaelli
+    url: https://www.mr70.eu/posts/dmcommunity_org_challenge-dec-2020/
   - title: RuleSolver
     author: Jacob Feldman
     affiliation: OpenRules

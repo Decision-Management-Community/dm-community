@@ -19,6 +19,7 @@ solutions:
     url: https://dmcommunity.org/wp-content/uploads/2017/11/online-dating-corticon-mike-parish.pdf
   - title: MiniZinc
     author: Hakan Kjellerstrand
+    url: https://github.com/hakank/hakank/blob/master/minizinc/online_dating_service.mzn
 ---
 
 An online dating service wants a rules engine to help match its members. Each profile records a name, gender, city, age, a list of interests, an acceptable age range for matches, acceptable genders, and a minimum number of shared interests required.

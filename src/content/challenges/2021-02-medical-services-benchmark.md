@@ -5,6 +5,7 @@ tags: [healthcare, decision-tables, performance]
 solutions:
   - title: Prolog
     author: Matteo Redaelli
+    url: https://www.mr70.eu/posts/dmcommunity_org_challenge-feb-2021/
   - title: Camunda
     author: Rob Parker
     url: https://dmcommunity.org/wp-content/uploads/2021/02/challenge2021feb.robparker-2.pdf

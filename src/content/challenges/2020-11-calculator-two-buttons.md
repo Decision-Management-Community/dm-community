@@ -12,6 +12,7 @@ solutions:
     url: https://cdmn.readthedocs.io/en/latest/Examples/calculator.html#calculator
   - title: Prolog
     author: Matteo Redaelli
+    url: https://www.mr70.eu/posts/dmcommunity_org_challenge-nov-2020/
   - title: OPL CPLEX
     author: Alex Fleischer
     affiliation: IBM

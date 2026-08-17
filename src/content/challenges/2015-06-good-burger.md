@@ -6,6 +6,7 @@ solutions:
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
+    url: https://dmcommunity.org/wp-content/uploads/2015/06/burger-challenge-corticon.pdf
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules

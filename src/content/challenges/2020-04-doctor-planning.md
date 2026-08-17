@@ -15,6 +15,7 @@ solutions:
     url: https://dmcommunity.org/wp-content/uploads/2020/04/challenge2020april.zimpl_.robparker.pdf
   - title: Prolog
     author: Matteo Redaelli
+    url: https://www.mr70.eu/posts/doctor-planning-resolved-with-prolog/
   - title: OpenRules, JavaSolver, AWS Lambda
     author: Jacob Feldman
     affiliation: OpenRules

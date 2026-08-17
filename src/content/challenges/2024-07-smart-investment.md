@@ -19,6 +19,7 @@ solutions:
     url: https://dmcommunity.org/wp-content/uploads/2024/07/challenge2024july.robparker.pdf
   - title: IPython/ortools
     author: Faisal Ahmed
+    url: https://github.com/the-faisalahmed/Optimization/blob/main/misc%20puzzles%20%26%20problems/Smart_Investment.ipynb
   - title: Llama3/CPLEX/watsonx
     author: Alex Fleischer
     affiliation: IBM
