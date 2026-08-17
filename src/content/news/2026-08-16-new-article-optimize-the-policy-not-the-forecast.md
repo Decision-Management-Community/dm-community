@@ -1,5 +1,5 @@
 ---
-title: "New article: Optimize the Policy, Not the Forecast"
+title: "Decision Quality Starts After the Forecast"
 date: 2026-08-16
 author: "Adam DeJans Jr."
 tags: ["Decision Optimization", "Forecasting", "Simulation", "Uncertainty"]
