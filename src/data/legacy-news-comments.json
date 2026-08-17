@@ -1,1 +1,758 @@
-{}
+{
+  "2015-02-19-more-vendors-announced-dmn-support": [
+    {
+      "id": 26,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2015-03-10T14:15:24+00:00",
+      "content": "On May 9, 2015 JBoss Drools announced that they are also \"working towards Decision Model and Notation support, that allows networked diagrams of Decision Tables\" http://goo.gl/EfJ8zg"
+    },
+    {
+      "id": 27,
+      "parent": 0,
+      "author": "jamet123",
+      "date": "2015-03-12T18:15:28+00:00",
+      "content": "DecisionsFirst Modeler (http://decisionsfirst.com) is a DMN-focused decision modeling tool that's been commercially available for a while, that has a free version for up to three users and that is available both SaaS and on premise."
+    }
+  ],
+  "2015-05-26-no-solutions-for-a-simple-predictive-analytics-challenge": [
+    {
+      "id": 34,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2015-06-11T20:28:24+00:00",
+      "content": "Finally today we received the first solution submitted by Riccardo Hertel who used R and a naïve Bayesian model. His solution states:\n\"Patient 21's illness is likely to be a cold - with a probability of somewhat above 83%, or an allergy, but the latter only with a probability of 12.4%. The probability of a flu is estimated to be very small in this case, with merely 3.8% \""
+    }
+  ],
+  "2015-05-30-challenge-june-2015-make-a-good-burger": [
+    {
+      "id": 36,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2015-06-24T12:39:40+00:00",
+      "content": "So far we have received 3 different solutions with similar answers. They show how to make great burgers using of the following tools:\n- Progress Corticon\n- OpenRules\n- DMN FEEL prototype (Oracle research project) submitted by one of the DMN authors."
+    }
+  ],
+  "2015-09-08-first-3-solutions-for-sep-2015-challenge": [
+    {
+      "id": 45,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2015-09-14T12:23:00+00:00",
+      "content": "Now we have 4 different solutions. It would be interesting if their authors share their thoughts at the ongoing discussion What representation to choose for which audience?"
+    }
+  ],
+  "2015-07-09-dmn-at-bbc-2015": [
+    {
+      "id": 46,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2015-09-16T20:01:13+00:00",
+      "content": "The \"DMN at BBC\" meeting will be held on Nov 5, 2015 at 5:50 PM. We encourage all http://DMCommunity.org members and visitors to attend the BBC, the major yearly Conference, and participate in the DMN meeting that is open for all attendees. Please feel free to use this special discount code DMCLV15 to get a 20% discount on the Conference Passports."
+    }
+  ],
+  "2015-09-30-challenge-sep-2015-is-prolonged": [
+    {
+      "id": 48,
+      "parent": 0,
+      "author": "meparish",
+      "date": "2015-10-07T21:35:33+00:00",
+      "content": "Most rule engines can handle simple cases, but when the data model involves collections of objects, hierarchical structures and associations between those objects it seems only a few engines are powerful enough. I don't know if those other products you mentioned can handle this type of problem but I would certainly like to see more solutions. I always learn something new from other solutions to these challenges (including those that are not rule engines) so let's encourage the sharing of ideas."
+    }
+  ],
+  "2015-11-05-dmn-1-1-top-10-list": [
+    {
+      "id": 55,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2015-11-09T01:23:23+00:00",
+      "content": "We had a constructive meeting \"DMN at BBC\" on Nov 5, 2015. The DMN Task Force was represented by Gary Hallmark, Bruce Silver, Jan Vanthienen, and James Taylor. The attending BR&DM vendors were Idiom, OpenRules, Progress Corticon, Red Hat, Sapiens, Signavio, and Sparkling Logic. We also had representatives from Trisotech, BRCommunity.com, Coherent Knowledge, Strand & Donslund and Dr. Juergen Pitschke.\nThe discussed topics included:\n- a completely new interchange format: will be the major change in the upcoming DMN 1.1\n- conformance testing: no test cases planned at this point\n- business glossary: may be considered in the future releases\n- rule priorities: survived at least for now\n- minimizing the number of hit policies\n- avoiding single-character abbreviations\n- use of variable names with spaces\n- more flexible aggregation methods\n- dealing with collections of objects: will remain vendor-specific for now\n- implications of the OMG standardization process.\nThe DMN Task Force plans to submit the version 1.1 this month and hopefully it will become publicly available in the first quarter of 2016. In general, we all agreed that DMN is a big practical step in the right direction while it is still at its early stage. We plan to have a similar open meeting at BBC-2016 as well."
+    }
+  ],
+  "2015-11-17-exceptions-in-business-rules-are-not-exceptions": [
+    {
+      "id": 57,
+      "parent": 0,
+      "author": "Carole-Ann",
+      "date": "2015-11-18T02:21:20+00:00",
+      "content": "Thanks for highlighting my blog posts on exceptions. In return, I have illustrated how I would solve your borrowing decision challenge: http://www2.sparklinglogic.com/dmblog/2015/11/17/mitigation-rules/\nI am looking forward to your feedback :-)"
+    }
+  ],
+  "2016-01-24-vacation-days-challenge": [
+    {
+      "id": 63,
+      "parent": 0,
+      "author": "meparish",
+      "date": "2016-01-24T22:32:41+00:00",
+      "content": "Of course \"best\" is a rather subjective term.\nThere are lots of ways a solution could be considered \"best\"\nFor example:\n1. Fastest to execute (IT tends to like this one)\n2. Easiest to understand (by a business person not familiar with the tool used)\n3. Easiest to modify when the rules change (can the rules be enhanced without requiring a major rewrite?)\n4. Most concise\n5. Quickest to create\nEtc.\nI'd be curious to hear Jan's (and others) definition of \"best\" as it applies to business rules and decision tables."
+    },
+    {
+      "id": 64,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2016-01-26T22:08:25+00:00",
+      "content": "We received solutions from two more vendors: Avola Decision and Blueriq. Now we got a quite rich set of various solutions from 6 (!) different sources. You still have 1 week left until Prof. Vanthienen will do his analysis."
+    }
+  ],
+  "2016-03-23-do-code-generators-for-decision-modeling-actually-work": [
+    {
+      "id": 69,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2016-03-25T20:41:29+00:00",
+      "content": "+1 Even worse: the errors and explanations are reported in terms of the target system (generated code) and not in original business terms - the reason CASE systems failed long time ago and even the very term is forgotten today."
+    },
+    {
+      "id": 70,
+      "parent": 0,
+      "author": "Stefaan Lambrecht (@Stef_Lambrecht)",
+      "date": "2016-03-28T14:58:14+00:00",
+      "content": "Code Generators only translate decision models in a language which cannot be read nor understood anymore by most of the business stakeholders, i.e. a blackbox. And reverting blackboxes back into something manageable by the business is exactly one of the main purposes of decision modeling. So, let's not make the same mistake again."
+    },
+    {
+      "id": 71,
+      "parent": 0,
+      "author": "Olaf Hofmann (@Olaf_Hofmann)",
+      "date": "2016-03-29T10:57:02+00:00",
+      "content": "Well - I am not sure if it is that black and white.\nJacob - correct me if I am wrong but OpenRules provides a hook from Decision Models via Decision Tables to automation of decision logic. Is that not code generation out of a model?\nAnd many others are out there do exactly the same using DMN as a starting point to generate automated decisions.\nI am not sure if that is a good idea to do so but I think - James - it is to late!\nHumans are lazy and they like automation of dull repeatable tasks. Why would we not generate repeatable decisions and expose them as a consumable services?"
+    },
+    {
+      "id": 73,
+      "parent": 71,
+      "author": "jacobfeldman",
+      "date": "2016-03-29T18:54:13+00:00",
+      "content": "Hi Olaf,\nI need to correct you – OpenRules does NOT generate code “out of a model”. OpenRules directly executes all decision tables and other decision modeling constructs presented in Excel by instantiating the predefined Java classes in run-time. Our customers may even define snippets of Java inside Excel cells (which look very similar to DMN FEEL) and they will be executed when they run an instance of OpenRulesEngine without any code generation. OpenRules-based decision models are always executable by design. As Bruce Silver pointed in his recent book, “whatever execution algorithm is employed, the DRD (and I’d add, the entire the decision model) should be executable”.\nWhen OpenRules is used together with DecisionsFirst Modeler, then James’ high-level decision model is simply linked to executable implementations using decision tables represented in OpenRules or other vendor’s format. Again no code generation occurs here.\nActually, the real problem is not with code generation, but rather with which decision model representation will be maintained: the original one in DMN or the generated one in a target format. I suspect that in many code generation cases, “the target representation” is the one that is actually being supported by users using the target BRMS. And this is the problem! However, if the code is generated on the fly every time when you run the decision model and there is no performance overhead, then it is not a problem.\nAs an example, I may point to success of the JSR-331 standard (http://jsr331.org). The same decision model (in this case a constraint satisfaction problem) can be executed by different constraint or linear solvers without changing a single character in the original model. For example, we may generate the proper code for a linear model in the MPS format on the fly (!), then execute this code with one of 7 linear solvers, and then present the results back in the original terms. Nobody ever looks at the generated code and everything works just fine.\nJacob"
+    }
+  ],
+  "2016-03-29-dmn-interchange-challenge": [
+    {
+      "id": 74,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2016-04-02T18:09:35+00:00",
+      "content": "As an interchange target, we selected the simplest decision model “Vacation Days”, for which different vendors provided 19 (!) different implementations. Bruce Silver kindly provided the DMN XML representation based on the Trisotech's solution. You may download this file from http://openrules.com/my/VacationDaysChallenge.xml. Now we expect that all interested vendors will provide their solutions showing how they can load and execute this XML-based decision model using their DMN-compliant tools."
+    }
+  ],
+  "2016-05-08-does-machine-learning-require-programming": [
+    {
+      "id": 77,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2016-05-13T23:56:54+00:00",
+      "content": "J-F Puget wrote in his new post:\n\"So, aren't we on the verge of machine learning automation? I'd say yes and no. Yes, lots of the tedious part of machine learning is going to be automated. Selecting the right learning rate will no longer be a key human skill. But I do think there is room for smart data scientists. Feature engineering can be quite tricky and I doubt all of it can be automated.\""
+    }
+  ],
+  "2016-07-02-will-eu-law-restrict-automated-decision-making": [
+    {
+      "id": 80,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2016-07-12T14:23:53+00:00",
+      "content": "WIRED just published a new article \"Artificial Intelligence is Setting Up the Internet for a Huge Clash with Europe\" (http://www.wired.com/2016/07/artificial-intelligence-setting-internet-huge-clash-europe/) that among other threats describes this one:\nTen years in the making and set to take affect in 2018, the General Data Protection Regulation guards the data of EU citizens even when collected by companies based in other parts of the world. It codifies the “right to be forgotten”, which lets citizens request that certain links not appear when their name is typed into Internet search engines. And it gives EU authorities the power to fine companies an enormous 20 million euro—or four percent of their global revenue—if they infringe. But that’s not all. With a few paragraphs buried in the measure’s reams of bureaucrat-speak, the GDPR also restricts what the EU calls “automated individual decision-making.” And for the world’s biggest tech companies, that’s a potential problem."
+    }
+  ],
+  "2016-06-02-solve-family-riddle-challenge-june-2016": [
+    {
+      "id": 81,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2016-07-14T14:32:05+00:00",
+      "content": "Progress has already provided an interesting solution. Anybody else?"
+    }
+  ],
+  "2016-07-14-managing-structured-and-unstructured-tacit-knowledge": [
+    {
+      "id": 82,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2016-07-23T13:56:19+00:00",
+      "content": "I looked at BusinesRules and Tacit Knowledge from a learning perspective - see https://www.linkedin.com/pulse/business-rules-tacit-knowledge-jacob-feldman?trk=mp-author-card"
+    }
+  ],
+  "2016-09-10-why-people-stumble-aug-2016-challenge": [
+    {
+      "id": 84,
+      "parent": 0,
+      "author": "Maarten Schadd",
+      "date": "2016-09-27T05:24:10+00:00",
+      "content": "Well, I considered this challenge, and thought that it was easy at first. But then the complexity hit me when I learned about time zones and summer and winter times. Whether or not this complexity was intended in the challenge, I do not know.\nThese are points that make the challenge difficult:\n- Countries exist with no summer or winter time\n- Countries in the southern hemisphere have summer and winter time turned around\n- Each country starts summer and winter time on different days\n- The days on which summer and winter time start can be different each year, with only a announcement shortly before starting\n- Countries sometimes have a time difference of 30 or 45 minutes\n- There are countries that are all year long on summer time, effectively escaping their timezone\nAll these points make me believe that calling a web service for this problem is the easiest solution, instead of modelling it myself, but what is the fun in that?\nIf it would only be about handling unknown/null values, it would have been easy."
+    },
+    {
+      "id": 85,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2016-09-27T17:13:42+00:00",
+      "content": "Maarten, you took only one perspective of this problem (season's time) and correctly pointed how quickly an easy looking decision model may become quite difficult. However, this challenge concentrates on dealing with unknown data, e.g. the use of a phone or a home state to determine a customer's location. Please use only your own country for the season definition, and show other, \"easy\", aspects of this decision model using your favorite tool."
+    }
+  ],
+  "2016-12-08-challenge-dec-2016-loan-approval": [
+    {
+      "id": 88,
+      "parent": 0,
+      "author": "Maarten Schadd",
+      "date": "2017-01-31T07:55:03+00:00",
+      "content": "This challenge needs a bit more information on how the computations are made.\nWhat I do not understand is how you compute that Peter Johnston has a personal equity in the first step. He has a monthly income of 4000 and monthly debt of 2500. I somehow have to combine this to get to an equity of 25200 according to the OpenRules video. How is this calculation done?\nAnother question is how you get to an accumulated remaining of 48800 in step 3. With a new debt of 200k and equity of 52k I would expect a change of 52k - 200k = -148k. However, 125200-148k = -22800 which is not 48800 as mentioned."
+    },
+    {
+      "id": 89,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2017-01-31T18:43:33+00:00",
+      "content": "Maarten,\nI plan to provide a solution for this challenge using our latest DMN implementation as time permits. Meanwhile, you may see how it was done years ago with basic Rules tables at http://openrules.com/loan_dynamics.htm. I believe it includes the calculation logic as well.\nJacob"
+    },
+    {
+      "id": 90,
+      "parent": 89,
+      "author": "Maarten Schadd",
+      "date": "2017-02-06T12:41:45+00:00",
+      "content": "Yes, that documentation answers my first question. For calculating the Borrower equity you take (Monthly Income * 0.8 - Monthly Debt) * Loan Term = 25200. Without this essential information it is not possible to make a good start.\nIt does not answer my second question though. The code shown there indeed indicates that for calculating the value you indeed take all the equities minus the debts and the loan amount. In step 3, I would expect a change of 52k – 200k = -148k. However, 125200-148k = -22800 which is not 48800 as mentioned."
+    },
+    {
+      "id": 92,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2017-02-07T01:16:43+00:00",
+      "content": "Maarten,\nToday I created a decision model in OpenRules that describes all calculations in details.Hopefully, if I didn't make mistakes, it will clarify your concerns - see https://goo.gl/Pfqr1L. Looking forward to seeing your solution,\nJacob"
+    }
+  ],
+  "2017-05-30-challenge-june-2017-dmn-section-11-loan-origination-example": [
+    {
+      "id": 95,
+      "parent": 0,
+      "author": "Maarten Schadd",
+      "date": "2017-07-19T07:44:28+00:00",
+      "content": "Are the results of the voting in DecisionCAMP somewhere readable online? Can you post a link to the Linkedin discussion?"
+    },
+    {
+      "id": 96,
+      "parent": 95,
+      "author": "decisionmanagementcommunity",
+      "date": "2017-07-19T14:10:10+00:00",
+      "content": "Maarten,\nAs you may read at the DecisionCAMP welcome message (see https://dmcommunity.files.wordpress.com/2017/07/decisioncamp2017welcome.pdf) we received 4 solutions for the challenge including yours (thank you). At the same time several potential submitters requested to give them more time. So, we decided to postpone the vote for at least one month. We plan to announce it at the end of August. Meanwhile, people may start posting their comment right here.\nDMCommunity.org"
+    }
+  ],
+  "2017-11-15-how-gdpr-makes-the-case-for-decision-management": [
+    {
+      "id": 100,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2017-11-29T14:22:18+00:00",
+      "content": "GDRP deadline (May 25, 2018) is quickly approaching. How to make your product GDRP-compliant? Read specific recommendations from an experienced developer: https://techblog.bozho.net/gdpr-practical-guide-developers/"
+    }
+  ],
+  "2017-10-13-bitcoin-just-passed-5000": [
+    {
+      "id": 101,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2017-11-30T15:12:13+00:00",
+      "content": "Just 1.5 month later bitcoin passed $11,000"
+    }
+  ],
+  "2018-01-31-challenge-feb-2018-tax-decision-table": [
+    {
+      "id": 103,
+      "parent": 0,
+      "author": "Bob Moore",
+      "date": "2018-02-08T17:51:43+00:00",
+      "content": "Is the challenge only for the honoured and valued clients of the IRS, or could someone give us foreigners an idea of what the columns and rows mean so we can have a go too?"
+    },
+    {
+      "id": 104,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2018-02-08T18:22:22+00:00",
+      "content": "Actually the table provided by \"a business analyst from a tax agency\" is not really IRS specific. You can treat variables in conditions and actions as some text or logic variables which simply take values Y or N, and not worry about their real meanings."
+    }
+  ],
+  "2018-02-03-sales-promotions-after-challenge-discussion": [
+    {
+      "id": 105,
+      "parent": 0,
+      "author": "Bob Moore",
+      "date": "2018-02-10T10:55:55+00:00",
+      "content": "Mike, I agree with a great deal of what you say, but equally there are points I must take issue with. While I agree wholeheartedly with you that you cannot hope to use database tables to represent sales promotions, we clearly have divergent ideas of what 'represent' means here.\nIt sounds like you have lot more experience than I with contemporary sales promotions, but some years back I led a project to build a decision system calculating the remuneration of third party resellers of financial products. At heart it's a similar problem to promotions - with remunerations replacing discounts and the additional twist that the resellers can be rewarded on their own performance, and/or on the performance of the people they sell to. For this project there were as I recall twelve distinct types of remuneration scheme each driven by several parameters. The third-party resellers (typically with overall revenues in billion-dollar range) each would negotiate which scheme(s) they wanted to use, and what the scheme parameters should be. So, each remuneration scheme (equivalent to a promotion), was (at least in principle) unique to both the customer and the product.\nMy thinking on the topic of promotions is heavily influenced by my experiences designing and building the solution. To give a feel for the parallels, the first, fourth and fifth examples you list in your post had almost exact equivalents in the remuneration schemes we worked on (while we could have incorporated the second and third examples easily enough, they don't really make sense for third party remuneration). One or two of the schemes we had to build were sufficiently complex even the people who invented them struggled to explain how they were supposed to work.\nThe first problem I have with your analysis is that in my view there are essentially three parts which need to be modelled, not two. To explain what I mean, consider decision tables. One way to look at them is just to say each row is a rule. But for me, this fails to capture why decision tables are so expressive. I view the structure of a decision table as defining a set of rule templates (in simplest case only one) - which is the 'real' business knowledge - how we do business regardless of with who or what. The rows then provide the 'facts' to instantiate a set of rules which defines how we do business 'at this moment'.\nWhen the business first defines a decision table their primary concern should be the structure not the content. They need to identify the inputs, the conditions applied to the inputs and the outputs. They cannot be over concerned with the contents of the individual cells, since these are expected to change over time, nor the number of rows (unless the table is going to be very large, when some additional design considerations are often needed). This separation of concerns also is reflected in how maintenance is done. The skill set, and knowledge needed to design and create a decision table from scratch or to alter the structure of an existing decision table is different to the skill set and knowledge needed to update cell contents or to add or remove rows. Additionally adding/removing/editing rows will occur much more frequently than changes to the structure. So, in my option we have three essential parts to the system:\nThe Customer-Order-Item data structure i.e. the core business data\nThe logic defining how each type of promotion works (rules, rule templates etc.)\nThe facts/parameters defining specific promotion instances\nIf one is prepared to accept that decision tables are a combination of business logic (rule templates) and facts (the actual values of cells in the table), there is an obvious mapping between any decision table and a set of concrete rules (corresponding to the rules templates) and a set of objects (whose attributes map to the values of the cells of the decision table). And there is generally little problem in mapping a set of objects to entries in a database (but importantly there is no obvious mapping of the rules). So we have different ways of representing the same decision logic and/or the same supporting facts. Each representation has strengths and weaknesses.\nIt is my contention is that regardless of whether the 'facts' are in a decision table (cell values), or are attributes of objects, or are stored in a database (as database fields) the 'real' business logic is in the rule templates or rules which manipulate these 'facts'. As long as the logic is in the decision system, that is where your sales promotions or remuneration schemes are defined/represented.\nThe 'real' logic is defined and maintained by people with both an understanding of how the business wants to do things and the hands-on skills to actually build decision systems. The 'facts' are defined and maintained by people defining detailed promotion policy, but they have no need of understanding the details of how decisions are actually implemented. There is no reason the same person cannot do both jobs, but they are using different skill sets for each if they do.\nHaving split out the facts from the rules and recognised different groups are responsible for maintaining the two things, there is no obligation that we store them in the same system. We certainly can if we want, but equally we can choose not to. We should do what makes most sense.\nThis leads onto the second point you make, with which I have to take issue. Suppose I do externalise my 'facts' and put them in the database. When the business dreams up a new kind of promotion do I need to redesign my database for new facts? Well in general no, at least not if you design the database properly. For the remuneration scheme project, we designed two or three tables, to hold the 'facts'. The design supported all the existing types of schemes, three or four additional (and rather esoteric) schemes which were being considered and with plenty of flexibility to support more variations.\nI finished feeling that whatever new schemes came along later I was at least 90% certain no database schema changes would be needed, only new database records (this is compared to being 100% certain new rules, decision tables and/or procedural logic would be needed in the decision system to support any new scheme). If I'd wanted to be a 100% certain I could have gone for a tagged database format with the facts represented as entity/attribute/value triplets, which can represent pretty much anything. Another option, not available to us at the time, but commonplace now, would be to have stored the facts in a NoSQL database like MongoDB, which support the storage of arbitrarily complex object structures.\nI should perhaps explain at this point why, when building the remuneration system, we took the design decision to store our facts in the database, not the decision system itself. Well the truth is it wasn't really our idea! Firstly, as I said earlier all the remuneration schemes were all customer specific and the business made it very clear it did not want us to have customer information stored in the decision system. We might have been able to work around this, but the business also expressed concerns about having to redeploy the decision service each time a fact was updated, because of the draconian approach taken to application updates by their operations team. I commented one way around both issues would be to put the facts in the database, and they loved the idea. So that's what we did.\nAnd doing things this way did have some nice side effects. With the facts in the database along with all the customer and product information, users needed no access to the decision service to find out what remuneration schemes existed, which customers and product they were tied to, and what kind of benefits they provided. It also made managing history was easy, tracking what promotions looked like last month, last year etc. The database was a one-stop-shop for everything the business needed to know about remuneration (since they didn't need to know the logic needed to actually do the calculations).\nSo, going through your summary points\n\"Everything is one place – values and semantics\" - I've argued there is a natural split, so while is a bit neater to have everything in one place it's not a problem if you don't. It's more work for the people building the system, but my experience is the people managing the 'facts' are often more comfortable with using a UI onto a database like they use for most other applications. Consistency checks are a potential problem, but with 'weird' rules my gut feel is that the range and coverage checking capabilities of decision tables will fall short anyway. Finally, I must admit to being very dubious about using in-memory tables. On the one hand if the decision system is customer facing, it is likely on the wrong side of the DMZ and firewall, so you need to jump through hoops to make it visible from the back office. On the other hand, if it is batch oriented (as was the case of the remuneration system), in-memory tables are only accessible in the dark hours when the batch is running!\n\"There are no constraints on what kinds of weird rules you can create (and business users do come up with some pretty crazy rules for their promotions)\" - as I hope I've explained, this will true regardless of where you put the facts - the weirdness is in the rules and other logic not the facts they use.\n\"The decision table is a familiar concept to most business people\" - I might mischievously suggest it's familiar to 'business people' nowadays because they've been looking at relational tables for the past thirty years. Human beings have been using tables to represent relationships since Babylonian times, and decision tables are certainly no easier but probably no more difficult to understand than relational database tables.\n\"When you update the decision table with new values, ranges or conditions, a good rule engine will be able to tell you if you have missed any combinations of conditions or if you have any conflicting rules\" - this is valid and cogent point, but as I say above 'weird' rules may need additional logic. However, I have a couple of further observations on this. Firstly, I sometimes find actually needing to make consistency checks is almost a consequence of using decision tables to represent your knowledge in the first place. This is particularly true with ranges. The SQL geeks I've worked with seem keen to only specify one end of a range, not both, so you never get gaps or overlaps. I made use of their approach when looking at the soldier's pay as well as the sales promotions challenge. We also used it in the remuneration system for the schemes with tiers like your \"Variable Item Pricing\" example. Secondly, as a more general observation the way we designed the logic/facts structure when building the remuneration system, the opportunities for 'inconsistency' were few and far between. There were plenty of opportunities for the users to define promotions which made no business sense, but not ones which did not make 'logical' sense.\nSo, my initial response to your discussion would be:\nI heartily agree with you in that it is not possible to define database structures which represent sales promotions for the kinds of promotions I would regard as interesting. It is absolutely a requirement to use rules and other knowledge representation mechanisms to define them.\nHowever, I disagree with a number of the points you make because in my view promotions fall into two parts:\nThe first part is the business logic used to determine if a promotion is applicable, and how to calculate what kind of discount, rebate or other benefit it provides. This logic must (in my view) be implemented in a decision system\nThe second part are the instances of a promotion, which define, to which customers and products a discount or other benefits apply, the thresholds and other conditions to be met for the promotion to apply, and the benefit rates to apply. These are just facts (number, percentages, product ids, customer ids, etc.). These facts can sit in the decision system, on the file system, or in a database. However, if - and on balance I would argue this is generally true - systems outside promotion decision service want to know what these facts are, a database is probably a more natural way do this."
+    },
+    {
+      "id": 106,
+      "parent": 0,
+      "author": "Jacob Feldman",
+      "date": "2018-02-10T23:38:29+00:00",
+      "content": "I like Bob’s fighting spirit and enjoyed reading how he defends the use of objects vs rules in his solution or the placing of rule values in a database in this discussion. Bob explained how a mix of rules and DB was justified in some legacy situations in 90’s. However, I am sure Bob knows better than many other people that today he wouldn’t find support for the battle lost long time ago. It’s hard to agree with Bob’s main contention about decision tables:\n“It is my contention is that regardless of whether the ‘facts’ are in a decision table (cell values), or are attributes of objects, or are stored in a database (as database fields) the ‘real’ business logic is in the rule templates or rules which manipulate these ‘facts’. As long as the logic is in the decision system, that is where your sales promotions or remuneration schemes are defined/represented.”\nHere is why. The decision table logic is defined not only by the table structure (“template”) but also by the rows themselves that frequently represent inter-related rules. The content of decision table cells makes the rules mutually exclusive (or not), utilizes accumulation, rule overrides, defines possible defaults, and much more - the DMN standard is good explaining these issues in detail. Even the values inside decision table cells are not just “data or parameters” which you can keep somewhere else (like a DB table). They could, for instance, be presented as a FEEL expression defined by other decision variables not even specified in the columns of this table. The decision table authors and maintainers must see the entire table to understand how it actually works. So, nowadays we don’t fight this battle anymore.\nI’d like to push this “after the challenge” discussion in a more practical direction and to discuss how DMN-based solutions can handle multiple iterations required by this problem. In his solution Bob wrote: “lacking access to a level 3 compliant DMN tool, I leap straight to implementing the table in Drools” using for-loops and accumulate-statements. What if Bob had such an access?\nThanks to Bruce Silver’s solution now we can see how the same (or slightly more complicated) problem can be implemented using DMN Conformance Level 3 (CL3) tools. Most of us, decision modeling practitioners, like the DMN standard to succeed and become an everyday reality. However, we do have our differences. For example, Bruce usually promotes the DMN boxed expressions and explains how simple it is to use them in general and for iterations in particular. At the same time, I frequently criticize those boxed expressions showing how to replace them with more traditionally looking decision tables of the new types “Iterate”, “Sort”, etc. - see my solution to this challenge and a few links below. I don’t want to sound too negative again, but if I must choose between Bob’s Drools loops and Bruce’s boxed expressions, I’d choose the Bob's approach (or simply show how to do it in basic Java). To judge yourself, please take a look at the boxed expressions “Get item discounts” and “Discounted item prices” in the Bruce’s solution. I trust we may find people who can really understand how these boxed expressions work. However, putting for-loops and other programming constructs in boxes do not make them more graphical or friendlier. This time even Bruce himself wrote:\n“The tricky part is when item A is eligible based on the quantity of item B or category C, involving nested loops, table joins, and similar nasty things that FEEL can do but is a little obscure”.\nEverybody knows about these DMN issues, we discussed them at several recent forums (DecisionCAMP and BBC-2017), and agreed that we need a better user-facing graphical notation for iterations. I am not suggesting eliminating these boxed expressions completely from the DMN (e.g. they could be used in the automatically generated DMN XML) but hopefully this discussion along with solutions for similar previous DMCommunity's challenges will finally push DMN RTF to extend the standard with more user-friendly alternatives. Here are the related links:\nhttps://www.linkedin.com/pulse/using-decision-tables-sort-iterate-over-array-business-jacob-feldman/\nhttps://openrules.wordpress.com/2017/09/07/calculating-aggregated-values-for-collections-of-business-objects/\nhttps://openrules.wordpress.com/2017/04/24/solving-flight-rebooking-challenge-with-and-without-programming-constructs/\nhttps://openrules.wordpress.com/2017/04/18/dmn-iterating-over-arrays-without-explicit-loops/\nhttp://openrules.com/pdf/BBC2017.JacobFeldman.2017-11-10.pdf"
+    },
+    {
+      "id": 107,
+      "parent": 0,
+      "author": "Bob Moore",
+      "date": "2018-02-11T22:15:31+00:00",
+      "content": "Ouch! The dig about systems from the '90s is a low blow. I evidently need to come out fighting again.\nTo try and put the record straight the remuneration system is circa 2009 and given Mike's examples it seems as relevant today as it was a decade ago. And the last time I had occasion to advise someone to replace a decision table with a database table was around 2015 (I don't do this often, after all it's only occasionally the right thing to do). In this case the gentleman in question took my advice and got a big pat on the back as a direct result. A little while later he rang to say was also a factor in him getting a promotion.\nI'm not talking legacy systems, I'm talking here and now.\nI think there are a couple of points here I need to address here:\nFirstly, logic and facts:\nTo be polite, the statement \"The decision table authors and maintainers must see the entire table to understand how it actually works\" is nonsense.\nDepending on the application, maintainers may or may not need to see the entire table, but the authors cannot hope to. The rows and facts to be incorporated into the table can change between analysis and design, design and implementation and implementation and deployment. They will certainly have changed six months down the line long after the authors have gone onto to other things. I've heard of cases where decision table authors were simply not allowed to know what the actual rows and facts were going to be (I have to leave it to your imagination why this was the case).\nAuthors know the logic; but only the maintainers know the facts. And in general the maintainers only need to understand a subset of the logic to do their jobs properly\nWhile the facts are absolutely essential to making the correct decision, it is the decision-making logic which is at the core of the decision system.\nThe simple question to ask oneself here is if you add a row to a decision table (or remove or edit one), have you fundamentally altered the decision system in the same way as if you had added a new decision table, or added a new input column, or a new output column to an existing table?\nIn my view - and I'd expect most in the decision management community would agree - the answer is simply no.\nThe hard-won understanding of what decisions the business want to make is not about what rows the business had when you were doing the analysis, or when you were doing the design, or what they were when the system first went live, or even what they are now, but how the decision tables interpret those contents regardless of the actual rows and cell values.\nIndeed, in a very real sense the actual rows you create in your decision tables and the specific values you store in their cells are the last things you need to know when building the system. The design doesn't depend on them, it is the run-time system which does.\nOf course, the decision table rows may be interrelated. If you have a 'unique' table, there are (static) consistency considerations. You may have additional consistency or coverage constraints. If you use 'first hit', there are ordering considerations. If you want accumulation and grouping operations, there are other considerations. But you'll find tables in relational databases with identical characteristics and nobody argues structure vs facts there. It is the interpretation not the specific content which is important from the decision-making process.\nBut the distinction between logic and facts is deeper than this. What happens if you look under the hood? When I create a decision table in a tool like OpenRules, or Blaze Advisor, or Drools or ODM, I get an Excel file or an XML document, and when I open any of these up what do I see? I see a top-level structure - the decision table - which the execution engine uses to work out how to interpret the content, and then a list of row data with values. Embedded FEEL expressions? They are condition templates and part of the structure, in the same manner as the condition templates in the decision table I used in the first part of my challenge solution. Looking at the Excel or reading the XML the separation of logic and facts is quite plain.\nAnd last but by no means least, you just have to look at a decision table to see the facts, the underlying logic might be hidden in embedded FEEL, or complicated rule templates, but what you see on the screen are numbers, and strings (yes there are also operators, but they are simply rule template selectors - which may or may not fully explain the logic).\nAnd of course this is what the decision table maintainers actually want. They don't care much about FEEL expressions, or hit strategies and other such implementation details. What they are interested in is if they change '5' to '6' in this cell of this row the customer now gets a $6 discount instead of a $5 discount when they buy 3 bags of coffee and 4 of tea.\nFor efficiency a rule compiler can and probably should merge logic and facts before executing them, but at analysis time, at design time and at edit time they are most definitely distinct. I'm not hearing anything which gives me the slightest inclination to budge from that point of view.\nSecondly, why did I abandon decision tables for objects and databases in the challenge?\nMaybe the point was missed, but databases are a red herring with regard to my solution to the challenge and the solution didn't use one. True, I stored objects in text files but that was mainly to make testing easier, and true I said if I had objects I could manage them in a database to make definitions generally accessible. But neither of these points had anything to do with the choice of object and rules vs decision tables. It's purely about things you can do with the first you can't do with the second.\nAbandoning decision tables for objects was very problem specific. I was considering scenarios with overlapping promotions. I wanted to make the natural logic separation of determining if which promotions an order qualifies for, followed by a separate step to decide which of the qualifying promotions should be applied (since they might conflict).\nThis led to an implementation challenge using decision tables because I ended up having to repeat (some of) the defining characteristics of promotions in two separate tables. If you end up with decision tables which are interdependent in this way, an edit to one implies immediately going off to the other table to figure out what the corresponding changes need to be. I used objects to avoid duplication - avoiding having to put the facts like \"Promo 1a\" involves products \"1001\" and \"1002\" in two distinct decision tables.\nI'd be delighted to see a clean solution to this duplication problem using decision tables, but until then I'm going to have to defend using objects in a such scenario."
+    },
+    {
+      "id": 108,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2018-02-12T02:10:36+00:00",
+      "content": "Dear Bob,\nThe response like yours really makes our discussions interesting. And people who want to hear similar live discussions in person, have a chance to do it by attending the DecisionCamp-2018 where hot discussions are a norm.\nMy comments and your response is a typical example of how we do not hear each other. If you (and others) look at my solution of this Challenge, you will be surprised that I actually separated the definition of promotions and the logic (decision tables) that defines if an order is eligible to a promotion. I used Excel tables of the type Data to specify Promotion Items and Promotions (BTW, to allow overlapping items I may simply use both item's ID and SKU). The Data tables is the way OpenRules represents “objects” directly in Excel. So, I actually did what you recommend doing: my decision table “CompareActualAndMinimalQuantities” does not have any promotion data and simply checks if Qty of Promotion Item Inside Current Order < Promotion Item Minimal Qty.\nReading your solution, I was initially surprised why you put all promotional item SKUs and minimal quantities directly to your decision table. It was obvious for me that they belong to promotion data, but if you decided to mix it with logic, you have a right to do it as well (while it is not a good practice). As you can see, in our solutions for this particular challenge we actually represented points of views opposite to those it seems we defended in this discussion.\nSo, why do we misinterpret each other statements? When we make generic statements like your “contention about decision tables” or my “nonsense”-generalization that “The decision table authors and maintainers must see the entire table to understand how it actually works” we have in mind completely different examples, which we base such statements on. When I am thinking about a multi-hit decision table with ~7-9 columns and ~50-100 rules (rows), I cannot be too optimistic that “if you add a row to a decision table (or remove or edit one), you will not fundamentally alter the decision system”. Probably you had in mind a decision table in which all rules are mutually-exclusive that unfortunately rarely happens in real world. And you know perfectly well that when a customer changes some values in conditions of a relatively complex decision table, she could be quite surprised not to get the expected result. And she will have to look for explanations of which rules were actually executed.\nWhen I wrote, that these days people do not usually keep the decision table structure (“template”) and actual rules in different places (e.g. in Excel and in DB), it fits your own argument against it: \"you now are using two tools a DBMS and a BRMS”. But at the same time our own solutions for this challenge, show that data like promotional items (but not rules!) can come from a database and be used by decision services. So, actually we are mainly on the same page, contrary to what people may think by reading our previous comments.\nAnd finally, I want to confirm that when you expanded the problem to handle multiple overlapping promotions, I really like your analysis and the suggested approach – I’d do something similar keeping it in a separate decision service for promotion definition and maintenance that works with a database.\nThank you,\nJacob"
+    },
+    {
+      "id": 111,
+      "parent": 0,
+      "author": "mikeparishcorticon",
+      "date": "2018-02-19T21:23:31+00:00",
+      "content": "Jacob Feldman wrote this in reference to the Sales Promotion challenge:\n“I’d like to push this “after-the-challenge” discussion in a more practical direction and to discuss how DMN-based solutions can handle multiple iterations required by this problem. In his solution Bob wrote: “lacking access to a level 3 compliant DMN tool, I leap straight to implementing the table in Drools” using for-loops and accumulate-statements. What if Bob had such an access?”\nWe first need to ask why iteration and loops are necessary.\nTypically the reason is because the data objects are related to one another. Somewhere in the data structure there is a one-to-many or many-to-many association, either explicit or implied. In the case of the Sales Promotions we had an order which consists of one or more items. Hence there is an implied loop if we want to apply some logic to all (or some) of the items in an order. We might even go further and imagine that we have customers who have one or more orders which it turn have items, so that now we have nested loops.\nThis type of construct is so fundamental to all types of decision that it really needs to be an integral part of the decision table metaphor, not an after-thought.\nFrom its very beginnings back in 2000 Corticon has included the concept of associations and the implied loops needed for processing. In fact it’s such a fundamental part of the decision table that a rule author doesn’t actually need to do any explicit looping in the decision table in order for iteration to occur. This is really powerful. It enables the author to focus on what, not how.\nThe key is in the data model or vocabulary. By defining not only the entities and attributes but also their relationships (associations) Corticon is able to automatically figure out when iteration is necessary.\nIn Corticon the decision table has, in addition to conditions and actions, two other sections that make this possible. (Take a look at any of the Corticon solutions to the Sales Promotion challenge problem for examples of this)\nThe scope section defines what structural parts of the data model are relevant to this particular decision table – sometimes it’s just a small slice of the data structure, sometimes it’s the whole thing. For example: the rules may deal with a single item or the set of items in an order or the set of orders and items for a customer. Based on this Corticon can automatically figure out the necessary iterations.\nThe filter section defines what data values (at execution time) are relevant to this particular decision table. You can also specify any “joins” between objects that may not have an explicit association.\nAnd, because collections of objects are so fundamental to data processing, Corticon also provides built-in operators that implement many of the more common functions on sets:\n->sum, ->size, ->max, ->min, ->first, ->last, ->avg, ->exists, ->forAll etc\nThese functions can be used in conditions, actions and filters.\nPerhaps the DMN standard should also make associated objects and iteration an integral part of the decision table so that boxed expressions, FEEL and other programmer artifacts become unnecessary. I’m curious to know what others think.\nYou might want to look back through all the various challenge problems to see which solutions were able to solve them all without going outside the decision table metaphor and without requiring explicit looping constructions.\nMike\nBTW Corticon does allow you to explicitly mark a rule sheet or rule flow as \"iterative\". In this case it keeps executing until there are no further changes in the data.\nSee https://dmcommunity.files.wordpress.com/2015/02/coins-corticon.pdf for examples of this use.\nSo if you are more comfortable creating and controlling your own loops you can still do it."
+    }
+  ],
+  "2018-02-12-explainable-decisions": [
+    {
+      "id": 109,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2018-02-16T20:05:03+00:00",
+      "content": "In 2013 Ron Ross wrote: “Imagine you had a Why Button handy whenever you encountered some disconnect in day-to-day business operations. Hit the Why Button and presto – answers appear in the form of relevant business rules\".\nIn Dec-2016 OpenRules introduced a graphical “Why-Analyzer for Decision Modeling” (http://openrules.com/WhyAnalyzer.htm) that provides such a Why Button for DMN-based decision models. Actually it is much more than just a button but rather a graphical interface that allows business analysts to analyze the results produced by their decision models using their own test cases created directly in Excel. The latest OpenRules release also produces explanation reports in the HTML format which along with all actually executed rules show all involved decision variables and their values at the moment when the rule was executed - see http://openrules.com/ReleaseNotes_6.4.3.htm#NewExecutionReports."
+    },
+    {
+      "id": 110,
+      "parent": 0,
+      "author": "mikeparishcorticon",
+      "date": "2018-02-18T17:25:48+00:00",
+      "content": "Every decision made by the system should be able to provide a detailed explanation of exactly how that decision was made. It should show the steps in making the decision, any critical values used in the decision and should be able to trace back to the original policy documents from which the rules were derived. And it should also be possible to save that data in a permanent audit trail. It should even be possible to “replay” an old execution (using the appropriate version of the decision service) at any future time.\nTo see how Corticon implements explanations follow this link https://dmcommunity.files.wordpress.com/2018/02/corticondecisionexplanations.pdf"
+    }
+  ],
+  "2018-04-09-does-real-world-decision-management-need-inference": [
+    {
+      "id": 115,
+      "parent": 0,
+      "author": "Bob Moore",
+      "date": "2018-04-14T15:41:15+00:00",
+      "content": "\"It's time to trade rule technology dating back to the 80's for state of the art AI\". For what purpose are we making the trade? What exactly are do we think \"rule technology\" and \"state of the art AI\" are? Taken out of context I struggle with this statement.\nReading the original article, it seemed to me that the problems of interest therein are not the problems of interest of the \"rule technology\" companies (e.g. FICO, Ilog/IBM, Red Hat/Drools, Sapiens ...). The suggestion that \"rule technology\" has not advanced greatly since the 1980s seems to insult the hard work and ingenuity of the engineers working on it over the past three decades or so. But the point is the advances are not about the basics of the \"IF premises THEN consequences\" format of a \"rule\" - which hasn't changed since the time of Aristotle. It has been about how to allow businesses to efficiently express the logic of their decision-making processes and then how to deploy these decisions as components of (much) larger computer systems, where decisions may need to be made hundreds of times a second, while providing audit, monitoring, automated testing, real-time updates and 24x7 operations. Saying \"rule technology\" hasn't advanced is about as accurate and useful as saying we're still using computers based on the principles of Babbage's analytical engine.\nOne thing to note is that few of these decision-making systems based on current \"rule technology\" (well sufficiently few I've never had to work on one) make use of true \"inference\" of the kind implied by (Rete style) production systems (the underlying technology may support it, but it's rarely needed). However, the problems this kind of simple (non-inferencing) \"rule technology\" addresses are pervasive. Indeed, one could argue that the DMN standard (at least from the perspective of the detailed expression of logic) emerged purely to support this kind of problem. No one working in this area doubts there are hundreds of organisations out there who could profit immediately from automating some of their decisions using this kind of simple \"rule technology\".\nSo, going back to the title of the discussion, does real-world decision management need inference? Well in my experience no, nor does it need NPL, or theorem proving - though some predictive analytics is pretty useful. But ... well I've just not been lucky enough to have a decision problem that challenging thrown at me. I know they are out there, the first obvious point being that inference is inherent in any real-time event-based decision system (see Fred Simpkin's comment). When we start looking at trying to do semantic analysis of text as per Paul Haley's original article and the work pointed to by Adrian Walker, inference is everything, but inference comes in many flavours and I need no convincing by Mr Haley that the very simplistic model provided by production rules falls well short of what is needed. A cynic might ask if semantic analysis of text counts as \"real-world\" decision management, but I've no doubt someone working in the area can supply some good use cases.\nMy bottom line? We shouldn't indulge in \"I've got a hammer, so everything is a nail\" arguments. We don't just have a hammer - we've got a whole tool box. But we shouldn't use a hammer to put tighten a bolt, or a saw to bang in a nail. We need to use the right tool for the job at hand. I'd suggest \"rule technology\" as peddled by the likes of FICO, IBM and many of the sponsors of the Decision Management Community addresses a mass of low lying fruit for people wanting to automate decisions. But equally while many (most?) decision problems fall within the purview of simple \"rule technology\" there are a huge variety of important decision problems it simply cannot handle (and these are usually the fun ones to try and address!)\nFrom the Decision Management Community standpoint, the starting point should surely be to ask what kind of 'decision' are we trying to be making? We need to go a good way down the path of analysis before we should begin to ask questions about what sort of technology we need to use to solve it. In some cases, a couple of lines of JavaScript embedded in a web page might suffice. In another case a rule engine from one of the \"rule technology\" companies might be the correct solution. In others one might need a selection of: simple rules; inference rules; constraint engines; truth maintenance systems; event-based systems; theorem provers; predictive analytics; NPL; neural networks ... (feel free to add your own favourite tool, technology and/or paradigm if I forgot it)."
+    },
+    {
+      "id": 116,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2018-04-14T17:05:23+00:00",
+      "content": "Comments of Fred Simkin and Adrian Walker can be found at https://www.linkedin.com/groups/4225568"
+    },
+    {
+      "id": 119,
+      "parent": 0,
+      "author": "Paul Haley (@pvhaley)",
+      "date": "2018-04-25T14:25:15+00:00",
+      "content": "Having a toolbox does not imply having the right tool for a job. A calculator is not very good if we need a database, for example. My principal argument is that, as an industry of practitioners, we have lost sight of \"knowledge\" and \"intelligence\". Are we building technology that \"knows\" business or are we just \"managing decisions\"? Are we building AI systems or just \"automating policies\"? My argument is we should do more of all of it and that doing so requires more capable technology. There is no doubt that logical systems are more powerful than prevalent tools.\nWho would suggest that we don't need logical deduction? Admitting that we need logical deduction, who would suggest that we should analyze all the possible deductions so that we can decompose them into \"rules\" and organize and sequence them such that we don't need backward chaining? Why are we so willing to do unnecessary work that can only reduce the robustness and re-usability of our work product?\nIt's no surprise that after 40 years of lesser capability, we see the world through foggy goggles. Let's put the toolbox down, take off the glasses, and look at the sunny horizon, which is not really that far away, after all. I, for one, believe that enterprises will become artificially intelligent and that today's rule, decision, and process standards and tools will fade from relevance. It won't happen tomorrow, but it won't take another 40 years either."
+    }
+  ],
+  "2018-04-03-the-end-of-windows": [
+    {
+      "id": 117,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2018-04-19T03:27:30+00:00",
+      "content": "For the first time ever, Microsoft will distribute its own version of Linux https://amp.businessinsider.com/microsoft-azure-sphere-is-powered-by-linux-2018-4"
+    }
+  ],
+  "2018-04-03-its-time-to-trade-rule-technology-for-state-of-the-art-ai": [
+    {
+      "id": 118,
+      "parent": 0,
+      "author": "marknortonatidiom",
+      "date": "2018-04-19T15:10:14+00:00",
+      "content": "AI is essentially about identifying a high intensity of consistent correlations between data describing a context and specific, useful results.\nThese high intensity and consistent correlations are a) not common, b) hard to find, and c) might be there one day and gone the next. Also, it is hard to include all relevant information in this search for correlations, especially negative correlations.\nExample: My AI tool says that I have a high propensity to buy X given what is in my shopping cart right now. All good, until I factor in that I bought X yesterday.\nOr, my AI tool says that Fred’s insurance claim could be fraudulent. All good until I factor in that Fred has been a no claims customer for 30 years and the claim is only $500, so I will pay regardless.\nSo, in my view, AI is about finding a propensity leading to ‘suggested’ actions, not committing to definitive actions. This propensity is just another fact to consider in a rules based logic engine before determining definitive action.\nErgo, these two technologies are highly complementary with minimal overlap, so there are 2 winners in this debate.\nRegards, Mark"
+    }
+  ],
+  "2018-06-01-whats-new-in-dmn-1-2": [
+    {
+      "id": 122,
+      "parent": 0,
+      "author": "Daniel Schmitz-Hü... (@DanielSchH)",
+      "date": "2018-06-04T08:50:36+00:00",
+      "content": "Hello, these are some promising changes. Thank you for summarizing Denis. Is there a way to read the current draft of the specification as a non-OMG member? Especially the Ellipsis Markers and the For-Loop are interesting for me."
+    },
+    {
+      "id": 123,
+      "parent": 0,
+      "author": "Denis Gagne (@denisgagne)",
+      "date": "2018-06-08T17:06:01+00:00",
+      "content": "The beta version of the DMN 1.2 spec will be available soon after revision and approval from the OMG Architecture Board(AB). The OMG AB review of DMN 1.2 is scheduled for Jun 21, 2018.\nEllipsis are markers that indicate that not all the Requirements (Edges) of the Decision are displayed on that particular DRD.\nFor examples of the new For Loop use see the poster here: http://www.trisotech.com/infographics/feel-poster\nYou can try the features here: http://www.trisotech.com/trials"
+    }
+  ],
+  "2018-06-30-how-society-might-change-by-2050": [
+    {
+      "id": 125,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2018-07-01T20:19:18+00:00",
+      "content": "Attendees of DecisionCAMP-2018 (https://decisioncamp2018.wordpress.com/) will have an opportunity to talk to Toby Walsh who will chair the 4th Global Conference on Artificial Intelligence (GCAI 2018 https://easychair.org/smart-program/GCAI-2018/) co-located with DecisionCAMP in Luxembourg on 17-19 September 2018"
+    }
+  ],
+  "2018-05-21-june-2018-challenge-credit-card-application": [
+    {
+      "id": 126,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2018-07-01T21:27:12+00:00",
+      "content": "So far we received 3 solutions. The challenge is open and more solutions are welcome."
+    }
+  ],
+  "2018-07-27-decisions-require-judgement": [
+    {
+      "id": 127,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2018-07-31T15:11:55+00:00",
+      "content": "Benedict Evans from from Andreessen Horowitz provided this comment: \"The ACLU did a publicity stunt in which it got Amazon's cloud facial recognition service to falsely identify US congressmen as criminals, by matching their pictures against a mugshot database. Amazon points out that machine learning is a probabilistic technology, that the ACLU set the tool to 80% confidence (not, say, 99%), and that the sample image set was biased, all of which is true but also, of course, the point: if you are not rigorous in thinking about what parameters you use and what bias might be in the data set, then you will get lots of inaccuracies. Machine learning is not magic, the computer can be wrong, and one should not take the results of any such system on trust. Equally, of course, claiming as the ACLU does that this is 'flawed and dangerous' is also to miss the point: it's a tool with probabilistic outcomes that you can use or mis-use, and more importantly understand or misunderstand.\""
+    }
+  ],
+  "2018-12-09-machine-learning-applied-china-vs-us": [
+    {
+      "id": 140,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2018-12-10T14:32:27+00:00",
+      "content": "Here is the link to an interesting related article \"Now locked in head-on rivalry, the US once helped China kick-start its science and technology ambitions\" https://goo.gl/idEUsn"
+    },
+    {
+      "id": 150,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2019-03-05T23:14:56+00:00",
+      "content": "MIT has just announced a $1 billion plan to create a new college for AI https://www.technologyreview.com/the-download/613077/chinas-masses-of-data-give-it-an-edge-in-ai-but-they-may-not-forever/"
+    }
+  ],
+  "2018-12-10-decisioning-challenges-of-driverless-cars": [
+    {
+      "id": 142,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2018-12-13T13:54:05+00:00",
+      "content": "See also Tom Davenport's article \"Autonomous Vehicles Are Likely to Be a Slowly-Arriving Commodity\" at Forbes https://goo.gl/pdqzYt"
+    }
+  ],
+  "2019-03-12-giving-algorithms-a-sense-of-uncertainty": [
+    {
+      "id": 152,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2019-03-12T22:27:28+00:00",
+      "content": "See how OpenRules uses Business Rules with Probabilities to deal with uncertainty https://openrules.wordpress.com/2013/08/14/solving-rule-conflicts-part-2/ …"
+    }
+  ],
+  "2019-03-13-what-is-a-decision": [
+    {
+      "id": 154,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2019-03-16T00:01:55+00:00",
+      "content": "I shared my point of view in this post \"A Formal Definition of Operational Business Decision\" - see https://openrules.wordpress.com/2019/03/15/a-formal-definition-of-operational-business-decision/. It may sound \"shocking\", but I hope it may lead to an automatically generated execution mechanism that will at least partially address Ron's challenge. So, I'd be glad to hear constructive critique and specific suggestions."
+    },
+    {
+      "id": 155,
+      "parent": 0,
+      "author": "drbobmoore",
+      "date": "2019-03-19T09:23:44+00:00",
+      "content": "Jacob, it’s an interesting viewpoint (certainly not 'shocking') and possibly a useful one in some circumstances, but my immediate feeling is that its applicability is much more limited than you suggest.\nWhile going from a CSP to a set of rules which compute a solution is fairly straightforward, the reverse process is only possible in particular circumstances. My own gut feel is that the cases where this is possible represents a fairly small subset of operational business decisions rather than the 'majority' as you suggest.\nYou've demonstrated that this is possible with 'The Decision Model' (TDM), and TDM is impressively powerful in terms of ensuring that rules are consistent, complete and robust. This however is only achieved at the cost of some expressive power, something I experienced when using it on a real project. By contrast, rule languages as provided by tools like Blaze Advisor, ODM and Drools are for practical purposes 'Turing complete', so can capture and express decision logic which falls well outside the remit of CSPs. When I've been building rule based solutions for clients over the past 30 years or so, I think I've almost always been obliged to step outside what could be expressed as a CSP in order to get something into production which will actually meet the requirements.\nYour definition also excludes decisions which are not rule based but incorporate other decision techniques like neural networks, predictive analytics and procedural logic, as well as those which can involve some level of manual intervention (from a 'type' perspective if not a 'quantity' perspective the vast majority of operational business decisions are actually purely manual and are not even 'business decisions' in the sense I defined in my original post)\nA second problem, is that even if I restrict myself to purely rule based decisions, if I want to express my decision-making logic as a CSP, how do I know if it is even possible? What are the rules(!) which allow me to determine when a set of rules can be cast as a CSP? From your own comments, problems seem to arise when the domain model for the decision starts becoming complex with collections of entities which either need to be looked at iteratively or need to be aggregated.\nIronically, I strongly suspect that it may be possible to frame the at least qa significant part of the rules component of the Organ Donation Problem - which provoked this discussion in the first place - as a CSP despite the fact the state involves a non-trivial domain model. I'm just not sure I want to spend the time working out if I am right or not.\nFrom a practical perspective, I think that we (Decision Management and/or Business Rules practitioners), have actually grabbed the low hanging fruit. We know how to manage most of the moderately simple, low value, high volume 'operational business decisions' already - even if a lot of businesses still have failed to take advantage this. We can probably frame several of these as CSPs - but I'm not sure what benefits we would accrue, given we already have developed more pragmatic ways of addressing them. On the other hand, as we turn attention to more complex decisions, I'm pretty sure most of the problems we encounter - even if we can treat them as pure rules problems rather than calling in additional decisioning mechanisms - will have domain models and logic requirements which take us beyond what we can express as a CSP."
+    },
+    {
+      "id": 158,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2019-03-29T15:26:34+00:00",
+      "content": "Dear Bob,\nI’d agree with your reasoning about the limitations of my definition assuming that it deals only with Constraint Satisfaction Problems (CSP) that can be solved by a constraint or linear solver. BUT IT IS NOT!\nMy definition considers a decision as a solution to an operational business problem defined by a set of variables and a set of rules. It says nothing about variable types: they can be known or unknown, numerical, textual, logical, lists, sets, maps, etc. This definition doesn’t assume anything about rules beyond the fact that they define relationships between different variables. These relationships can be specified by decision tables, state machines, if-then-else, filters, loops, any complex combination of various rules or by any function in any programming language. Some problems may include optimization objectives and others not.\nMore importantly, it assumes nothing about ‘HOW’ how decisions will be produced. It means decisions can be found by applying any rule engine, a DMN engine, a constraint or MIP solver, a custom piece of software written in any programming language, a manually provided decision, or their various combinations. Yes, this problem definition assumes that its problem resolution mechanism can use any program written in Java, Python, R, etc. or even a complex interactive application. So, it’s hard to give an example of a practical business problem for which we need routinely make business decisions and that goes beyond this definition.\nWhy did I mention CSP? Because Ron challenges all of us to provide a mechanism to automatically solve well-defined operational business problems (using e.g. SBVR or enhanced DMN modeling constructs). I have my doubts that it’s possible (at least today) for such generic problem definition. However, if we limit the problem definition to a certain type of variables and rules, we can do it. For example, my 2011 paper proves that if we consider problems compliant with TDM, we may automatically(!) convert them to a CSP that will be solved by an off-the-shelf solver. My recent solutions for Vacation Days and Flight Rebooking challenges, go beyond this approach and show how to apply a combination of a rule engine and a constraint solver (but it still requires a “coder” in Ron’s terms). Soon I plan to publish a similar solution for the much more complex Balanced Assignment challenge.\nTo go beyond “the low hanging fruit”, it makes sense to consider different problem domains like CSP and beyond - you mentioned a few. Hopefully, after we as a Community develop automatic solvers for different problem domains, we will be able to talk about a “universal” problem solver. We also should pay more attention to recent advances in Rules Reasoning (semantic web) techniques. BTW, DecisionCAMP-2019 is co-located with RuleML+RR gives us with this opportunity."
+    }
+  ],
+  "2019-03-26-dynamic-questionnaires-from-sparkling-logic": [
+    {
+      "id": 157,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2019-03-29T01:33:28+00:00",
+      "content": "Sounds very interesting. OpenRules also has a questionnaire builder (called OpenRules Dialog) that is highly popular among our customers for years. It allows subject matter experts to describe their dynamic web questionnaire in terms of pages, sections, questions, and answers. Layouts of pages, sections, questions, and complex logical relationships between them can be expressed in a very natural way using simple and intuitive Excel tables. See http://openrules.com/ord.htm"
+    }
+  ],
+  "2019-04-03-new-challenge-recreational-fee": [
+    {
+      "id": 159,
+      "parent": 0,
+      "author": "jamet123",
+      "date": "2019-04-03T19:17:14+00:00",
+      "content": "Ron sets up a false question and uses a terribly incomplete set of decision logic to make his \"point\". There's no choice here, he just needs to complete the decision logic. See my response: http://jtonedm.com/2019/04/03/behavioral-rules-v-decision-logic-is-the-wrong-question/"
+    },
+    {
+      "id": 161,
+      "parent": 0,
+      "author": "drbobmoore",
+      "date": "2019-04-05T07:18:19+00:00",
+      "content": "I have to agree entirely James. The point here is the challenge is asking for a solution to a problem which has a fundamentally inconsistent specification. Without correcting the specification, we can't really provide a correct solution. We just end up with a 'guess' at what the client really wants - which is exactly the sort of thing the decision and the rules communities are trying to stamp out.\nBy coincidence, I'd actually read Ron's article the day before I saw the challenge. It seemed to me at the time that he was using a weak example to explore a subtle point - and I got the feeling even he wasn't too happy about it as a way to illustrate his arguments. The point it explores is interesting - what we should do when we have conflicts between SBVR 'Behavioural Business Rules' which can, by definition, be broken and SBVR 'Definitional Business Rules' which cannot - but the problem with this example is it is just too black and white to start with. It leaves no room for compromise. An example based on business aspirations vs physical limitations (my own idea would be to look at business travel times) would make more sense.\nAt the end of the day though, before any (fully automated) solution can be built the system specification must include 'rules' to fully resolve any conflicts between 'Behavioural' and 'Definitional' rules – something which the challenge does not do as it stands."
+    },
+    {
+      "id": 162,
+      "parent": 0,
+      "author": "Nick Broom",
+      "date": "2019-04-29T14:34:13+00:00",
+      "content": "Whilst the points above are fair in terms of the details provided by Ron, in my view this is like any real world scenario. Even when things are given as fully spec'd the chances of them remaining that way when users start to see an implementation of it are close to zero. And I challenge anyone to name a project where a signed off spec didn't result in at least one question back to the provider.\nTo that end I'm making a whole raft of assumptions; I'd always do this in order to deliver something quickly and start getting feedback as early as possible to then allow further iterations. I've uploaded my solution to YouTube: https://youtu.be/2zuEk2EIitI."
+    }
+  ],
+  "2019-08-05-opinion-traditional-rule-engines-outlived-its-usefulness": [
+    {
+      "id": 174,
+      "parent": 0,
+      "author": "jamet123",
+      "date": "2019-08-05T13:55:27+00:00",
+      "content": "Wrote a slightly rude and pithy response. What a load of rubbish"
+    }
+  ],
+  "2019-08-29-how-do-your-decision-microservices-communicate": [
+    {
+      "id": 176,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2019-08-30T14:45:34+00:00",
+      "content": "Consider to use \"AWS Step Functions\" https://aws.amazon.com/step-functions/getting-started/\n\"Step Functions is a serverless orchestration service that lets you easily coordinate multiple AWS Lambda functions into flexible workflows that are easy to debug and easy to change. Step Functions will keep your Lambda functions free of additional logic by triggering and tracking each step of your application for you.\""
+    }
+  ],
+  "2019-10-05-notes-from-decisioncamp-2019": [
+    {
+      "id": 180,
+      "parent": 0,
+      "author": "Matteo",
+      "date": "2019-10-06T13:32:26+00:00",
+      "content": "I enjoyed reading this summary, I believe I found a typo however as it's meant to be speaking about conformance level 3 (not 2)\nThe typo is present in two places:\n(even if they do not match the CL2 compliance level)\ninsisted that Compliance Level 2 that includes loops, functions, recursion, and other programming constructs, should be mandatory for a vendor to claim DMN compliance\nFor reference, we discussed how also the RTF believes CL2 and in extent S-FEEL simplified variant is so limited that is not advisable to further promote it.\nSo I am pretty sure we always discussed Conformance Level 3, that would translate to \"100% the specification\".\nAs for another sentence:\nthere should be a more flexible definition of compliance as the same capabilities that are expressed in DMN’s complex boxed expressions can also be provided by vendors in a way their customers love much more\nI would like to highlight, that TCK offers this as a side-effect: that is because a Vendor while submitting TCK results can always add a comment about why a particular feature or DMN construct is not supported or supported in part in its own product. That allows user of said product to evaluate in a fine-grain detail if the Vendor's product chosen can support all the required DMN features, rather than just a global CL3 yes/no. I am pretty sure also Keith highlighted this during his presentation."
+    },
+    {
+      "id": 181,
+      "parent": 180,
+      "author": "jacobfeldman",
+      "date": "2019-10-06T15:43:35+00:00",
+      "content": "Thank you, Matteo - I've just replaced \"Compliance Level 2\" with \"Compliance Level 3\". Also thank you for your help before and during the event."
+    }
+  ],
+  "2019-11-06-sketch-based-image-synthesis": [
+    {
+      "id": 186,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2019-11-07T22:48:04+00:00",
+      "content": "See also \"artificial caricature\" when agents learn to draw simplified portraits via trial and error https://learning-to-paint.github.io"
+    }
+  ],
+  "2020-01-08-bi-vendors-failed-to-replace-spreadsheets": [
+    {
+      "id": 188,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2020-01-09T13:42:26+00:00",
+      "content": "15 years experience of real-world use of OpenRules for representation of business rules and decision models in Excel tables proves the same point: \"Getting business logic straight into the spreadsheet is an excellent self-service interface for business users\".\nSee also SparklingLogic's presentation \"Spreadsheets in Decision Management\" at DecisionCAMP-2018: https://decisioncamp2018.files.wordpress.com/2018/09/decisioncamp2018-sparkling-logic.pdf"
+    }
+  ],
+  "2020-01-29-can-analytics-predict-epidemics": [
+    {
+      "id": 189,
+      "parent": 0,
+      "author": "jamet123",
+      "date": "2020-01-29T21:58:06+00:00",
+      "content": "Like all predictions, such a prediction would only be useful if acted on. The question then is what would it take for a health authority to do something different. If the authorities and hospitals won't change their behavior based on a prediction - and they likely won't - then the prediction has absolutely no value. The myth that any prediction must be valuable is causing companies to waste vast amounts of money ...."
+    }
+  ],
+  "2020-01-25-apply-to-speak-at-bbc-2020-in-las-vegas": [
+    {
+      "id": 190,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2020-02-10T14:51:35+00:00",
+      "content": "Members of our Decision Management Community are eligible to 15% discount by entering code \"DMCOMMUNITYBBC\" during the registration"
+    }
+  ],
+  "2020-01-22-do-you-love-me-how-can-a-computer-deal-with-real-sentences": [
+    {
+      "id": 191,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2020-02-12T20:26:46+00:00",
+      "content": "See Andrew Ng's answer to the question “Can an AI ever love?” at https://bit.ly/2ux6Er3"
+    }
+  ],
+  "2020-06-24-july-2020-challenge-spatial-business-rules": [
+    {
+      "id": 197,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2020-06-27T13:41:14+00:00",
+      "content": "In response to this challenge, we received the following letter:\nDear DM-community,\nI was very pleased to learn of your July challenge, concerning spatial business rules. This is one of the main challenges of a very big programme in The Netherlands. In 2021 a new environmental planning law, the ‘Omgevingswet’, is planned to go into effect in The Netherlands. A new smart solution - the ‘Digitaal Stelsel Omgevingswet (DSO)’ - is set up to support citizens, companies and government. DSO combines legal rules, business rules and geometry in a system of software components and services. These concepts are used to provide end users – citizens and companies – answers to the question if they need permission from the government for their activities with impact on the environment (like building, demolishing, draining waste water).\nRecently we have published a paper on behalf of DSO on the smart combination of legal rules and geo-Information to support spatial development projects in the context of the working week of the FIG (the international federation of surveyors). With regards to your challenge this paper might be very interesting for you and your community. Moreover, the whole decision management solution and the extensive use of DMN might be very interesting for you to learn more about.\nI have attached an abstract of this paper to this mail. The full paper can be found here: https://rb.gy/5jjrqt. Please feel free to contact me, if you are interested. I have been working on decision management solutions for a long time, but the DSO is one of the most interesting solutions I have worked on.\nWith kind regards,\nVincent van Dijk\nProduct Owner – Toepasbare regels Uitvoeren\nDigitaal Stelsel Omgevingswet\nVincent.van.dijk@rws.nl"
+    }
+  ],
+  "2020-07-29-regressing-testing-decisions": [
+    {
+      "id": 199,
+      "parent": 0,
+      "author": "Carole-Ann",
+      "date": "2020-08-05T19:33:15+00:00",
+      "content": "Thanks, Jacob! It was a pleasure meeting with the group again"
+    }
+  ],
+  "2021-01-18-decisioncamp-monthly-zoom-session-on-jan-19": [
+    {
+      "id": 211,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2021-01-19T20:21:07+00:00",
+      "content": "The session's recording is here: https://youtu.be/T3YU3M1eexc"
+    }
+  ],
+  "2021-01-05-insights-for-ai-from-the-human-mind": [
+    {
+      "id": 212,
+      "parent": 0,
+      "author": "jackjansonius",
+      "date": "2021-01-27T12:43:44+00:00",
+      "content": "This is not about insights from the human mind, but about the architecture of the human psyche (Self, Soul, Mind), so we can safely say that this article is at least 20 years behind in the development of artificial intelligence.\nThe notion of \"Truly intelligent and flexible systems\" is complete nonsense.\nSystems thinking does think in wholes rather than parts (the holistic principle), but does not ask the question of the being of those wholes. And thus there is no place in this thinking for an ontology (or a theory of being) and in connection with that: transcendence."
+    },
+    {
+      "id": 269,
+      "parent": 0,
+      "author": "Jack Jansonius",
+      "date": "2024-04-25T09:02:26+00:00",
+      "content": "With the rise of Large Language Models (LLMs), interest in ontology has only increased."
+    },
+    {
+      "id": 307,
+      "parent": 0,
+      "author": "Jack Jansonius",
+      "date": "2026-02-10T10:17:19+00:00",
+      "content": "Both indeterministic LLMs and deterministic business technology function as interpretation systems. Deterministic IT therefore requires an explicit meaning architecture (ontology) in order to remain stable and controllable. At the same time, indeterministic GenAI does not belong in core processes in an unregulated manner, but must be anchored in that same semantic basis. Without that layer, you get hallucinations on the AI side and spaghetti on the IT side."
+    }
+  ],
+  "2021-12-20-about-the-log4j-vulnerability": [
+    {
+      "id": 216,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2021-12-21T11:08:35+00:00",
+      "content": "On Dec.18 Apache released new 2.17.0 patch for Log4j to solve another vulnerability that may cause denial of service: https://www.zdnet.com/article/apache-releases-new-2-17-0-patch-for-log4j-to-solve-denial-of-service-vulnerability/"
+    }
+  ],
+  "2021-12-24-best-holiday-wishes": [
+    {
+      "id": 217,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2021-12-24T01:36:42+00:00",
+      "content": "There is still time to help Santa: https://dmcommunity.org/challenge-dec-2021/"
+    }
+  ],
+  "2022-09-28-are-our-rule-engines-smart-enough": [
+    {
+      "id": 222,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2022-10-05T22:57:27+00:00",
+      "content": "In this post I provide specific examples of declarative and procedural decision models and offer possible directions for creation of smarter decision engines: https://openrules.wordpress.com/2022/10/05/decision-modeling-declarative-vs-procedural/"
+    }
+  ],
+  "2023-01-25-rfp-process-is-waste-of-time": [
+    {
+      "id": 225,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2023-01-26T01:57:23+00:00",
+      "content": "I need to agree. By winning several RFPs in the past, we see that RFP becomes a sign that a customer is not actually looking for the best response. As an example, here is my response to one of the latest RFPs from a large government agency:\nAfter analyzing the RFP requirements deeper, I came to two conclusions:\n1) From a technical perspective, OpenRules Decision Manager is probably the best option for this development\n2) From a business perspective, OpenRules, Inc., being a small business, has a very limited chance to be selected.\nIf they ask vendors to submit a working POC we'd have the best chance to win the competition. But with them putting so much effort into this RFP instead of the real development, it prompts me that it is not worth it for us to pursue this opportunity. Especially these days when we have overwhelming requests from different organizations worldwide."
+    }
+  ],
+  "2023-07-22-combining-symbolic-ai-with-llms": [
+    {
+      "id": 240,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2023-07-22T13:38:57+00:00",
+      "content": "Upcoming DecisionCAMP will have several presentations devoted to the same topic: https://decisioncamp2023.wordpress.com/program/"
+    }
+  ],
+  "2022-08-01-red-hat-and-ibm": [
+    {
+      "id": 268,
+      "parent": 0,
+      "author": "decisionmanagementcommunity",
+      "date": "2024-04-14T12:49:58+00:00",
+      "content": "Red Hat Decision Manager (Formerly Red Hat JBoss BRMS) – Latest Product Life Cycles"
+    }
+  ],
+  "2024-07-08-decision-modeling-and-fairness": [
+    {
+      "id": 289,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2024-07-11T15:39:59+00:00",
+      "content": "https://openrules.blog/2024/07/10/how-decision-models-deal-with-fairness/"
+    }
+  ],
+  "2024-12-06-w2-job-vs-your-own-company": [
+    {
+      "id": 293,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2024-12-06T21:18:35+00:00",
+      "content": "I remember 15 years ago being asked to share my experience running a successful R&D business with students of the Computer Science department at University College Cork who were about to graduate. Before my lecture, I witnessed a similar presentation given by an Irish scientist who built and ran one of the most successful businesses in the US. His first slide said: \"So, you want to start your own business...\". And then the second slide stated: \"DON'T!\""
+    }
+  ],
+  "2025-01-03-combining-ai-and-or-ms-for-better-trustworthy-decision-making": [
+    {
+      "id": 294,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2025-01-03T19:00:35+00:00",
+      "content": "See also The AAAI-25 Constraint Programming and Machine Learning Bridge http://osullivan.ucc.ie/CPML2025/"
+    }
+  ],
+  "2025-03-16-will-software-engineers-became-extinct": [
+    {
+      "id": 297,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2025-03-22T17:12:35+00:00",
+      "content": "Still, The Washington Post says \"More than a quarter of computer-programming jobs just vanished in the last 2 years\""
+    }
+  ],
+  "2025-06-25-anthropic-copyright-ruling": [
+    {
+      "id": 301,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2025-06-25T20:40:50+00:00",
+      "content": "Read also Judge Rules Training AI on Copyrighted Works Is Fair Use, Agentic Biology Evolves, and more..."
+    }
+  ],
+  "2025-10-09-lion20-the-20th-learning-and-intelligent-optimization-conference": [
+    {
+      "id": 302,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2025-10-14T13:39:11+00:00",
+      "content": "A new special session \"AI-Driven Optimization: Transforming Optimization with LLMs\" at LION20 has been announced:\nLarge Language Models (LLMs) are emerging as powerful tools for optimization, complementing and extending traditional methods. Their ability to understand problem descriptions, generate heuristics, and support human-in-the-loop decision making opens new possibilities for modeling and solving complex real-world problems. This session invites contributions on how LLMs and related AI techniques can be applied to domains such as logistics, scheduling, energy systems, and finance. Topics of interest include AI-assisted problem formulation, heuristic discovery, end-to-end methods, hybrid approaches that combine LLMs with classical algorithms, and practical applications that demonstrate their impact. Special attention will be given to challenges of scalability, interpretability, and reliability in operational settings. The session aims to bring together researchers and practitioners to explore how LLMs can transform optimization research and practice."
+    }
+  ],
+  "2025-10-25-solvers-are-like-cars-focus-on-driving-in-the-right-direction-before-you-worry-about-speed": [
+    {
+      "id": 303,
+      "parent": 0,
+      "author": "Alex Fleischer",
+      "date": "2025-10-27T09:45:39+00:00",
+      "content": "About\n\"Code should be easy to read.\nAnd easy to understand.\"\nA good reason to prefer AML (Algebraic Modeling Languages) to GPL (General Purpose Languages)"
+    }
+  ],
+  "2026-01-25-ms-optimind-from-problem-description-to-solution": [
+    {
+      "id": 305,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2026-01-26T15:34:01+00:00",
+      "content": "This became possible because the generated MILP problem has well-defined semantics, allowing a specialized 'small' language model to be properly trained. Similarly, many decision models follow predictable semantics: a business glossary surrounded by decision tables with relatively easy discoverable inter-rule dependencies. Similarly, from a plain English description of a well-specified business function, one could generate a complete decision model with test cases, refine it using an intuitive business-friendly GUI, and execute it via a decision engine to determine optimal/good decisions. Such capabilities will undoubtedly emerge soon from Decision Intelligence platform vendors."
+    }
+  ],
+  "2026-01-26-ibm-odm-webinar-on-jan-29": [
+    {
+      "id": 306,
+      "parent": 0,
+      "author": "jacobfeldman",
+      "date": "2026-02-01T21:29:20+00:00",
+      "content": "The video and pdf of the deck are available at https://community.ibm.com/community/user/viewdocument/webinar-generating-odm-decision-se?CommunityKey=c0005a22-520b-4181-bfad-feffd8bdc022"
+    }
+  ]
+}
