@@ -64,109 +64,143 @@ const sponsors = (await getCollection('sponsors'))
 <script>
   const bitBrosCard = document.querySelector<HTMLElement>('.sponsor-card-bit-bros');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-  if (bitBrosCard && finePointer.matches) {
+  if (bitBrosCard) {
     const palette = ['#38b6ff', '#6eccff', '#2867b2'];
     let activeParticles = 0;
     let lastTrailAt = 0;
     let lastTrailX = 0;
     let lastTrailY = 0;
 
-    const createRing = (x: number, y: number, power: number) => {
-      if (activeParticles >= 64 || reducedMotion.matches) return;
-
-      const ring = document.createElement('span');
-      ring.className = 'bit-bros-cursor-ring';
-      ring.style.left = `${x}px`;
-      ring.style.top = `${y}px`;
-      ring.style.setProperty('--ring-scale', `${1.7 + power * 0.45}`);
-      document.body.appendChild(ring);
-      activeParticles += 1;
-      ring.addEventListener('animationend', () => {
-        ring.remove();
-        activeParticles = Math.max(0, activeParticles - 1);
-      }, { once: true });
+    const cleanup = (element: HTMLElement) => {
+      if (!element.isConnected) return;
+      element.remove();
+      activeParticles = Math.max(0, activeParticles - 1);
     };
 
-    const burst = (x: number, y: number, power = 1, count = 8) => {
-      if (reducedMotion.matches || activeParticles >= 64) return;
+    const createRing = (x: number, y: number, power: number) => {
+      if (reducedMotion.matches || activeParticles >= 72) return;
+
+      const ring = document.createElement('span');
+      Object.assign(ring.style, {
+        position: 'fixed',
+        left: `${x}px`,
+        top: `${y}px`,
+        width: `${15 + power * 3}px`,
+        height: `${15 + power * 3}px`,
+        border: '2px solid rgba(56, 182, 255, 0.96)',
+        borderRadius: '999px',
+        boxShadow: '0 0 16px rgba(56, 182, 255, 0.58)',
+        pointerEvents: 'none',
+        zIndex: '2147483647',
+        transform: 'translate(-50%, -50%) scale(0.25)',
+        opacity: '1',
+      });
+      document.body.appendChild(ring);
+      activeParticles += 1;
+
+      const animation = ring.animate(
+        [
+          { transform: 'translate(-50%, -50%) scale(0.25)', opacity: 1 },
+          { transform: `translate(-50%, -50%) scale(${2.15 + power * 0.75})`, opacity: 0 },
+        ],
+        { duration: 580, easing: 'cubic-bezier(0.16, 0.78, 0.28, 1)', fill: 'forwards' },
+      );
+      animation.finished.then(() => cleanup(ring)).catch(() => cleanup(ring));
+      window.setTimeout(() => cleanup(ring), 900);
+    };
+
+    const burst = (x: number, y: number, power = 1, count = 10) => {
+      if (reducedMotion.matches || activeParticles >= 72) return;
 
       createRing(x, y, power);
-      const available = Math.max(0, 64 - activeParticles);
-      const particleCount = Math.min(count, available);
+      const particleCount = Math.min(count, Math.max(0, 72 - activeParticles));
 
       for (let i = 0; i < particleCount; i += 1) {
         const spark = document.createElement('span');
-        const angle = ((Math.PI * 2) / particleCount) * i + (Math.random() - 0.5) * 0.5;
-        const distance = (22 + Math.random() * 34) * power;
-        const size = 3 + Math.random() * 3.5;
+        const angle = ((Math.PI * 2) / particleCount) * i + (Math.random() - 0.5) * 0.42;
+        const distance = (32 + Math.random() * 52) * power;
+        const size = 4 + Math.random() * 4.5;
+        const xTravel = Math.cos(angle) * distance;
+        const yTravel = Math.sin(angle) * distance;
+        const rotation = (Math.random() - 0.5) * 220;
+        const color = palette[i % palette.length];
 
-        spark.className = 'bit-bros-cursor-spark';
-        spark.style.left = `${x}px`;
-        spark.style.top = `${y}px`;
-        spark.style.width = `${size}px`;
-        spark.style.height = `${size}px`;
-        spark.style.background = palette[i % palette.length];
-        spark.style.setProperty('--spark-x', `${Math.cos(angle) * distance}px`);
-        spark.style.setProperty('--spark-y', `${Math.sin(angle) * distance}px`);
-        spark.style.setProperty('--spark-rotate', `${(Math.random() - 0.5) * 180}deg`);
+        Object.assign(spark.style, {
+          position: 'fixed',
+          display: 'block',
+          left: `${x}px`,
+          top: `${y}px`,
+          width: `${size}px`,
+          height: `${Math.max(3, size * 0.72)}px`,
+          borderRadius: '999px',
+          background: color,
+          boxShadow: `0 0 7px ${color}, 0 0 15px rgba(56, 182, 255, 0.72)`,
+          pointerEvents: 'none',
+          zIndex: '2147483647',
+          transform: 'translate(-50%, -50%) scale(1)',
+          opacity: '1',
+        });
         document.body.appendChild(spark);
         activeParticles += 1;
 
-        spark.addEventListener('animationend', () => {
-          spark.remove();
-          activeParticles = Math.max(0, activeParticles - 1);
-        }, { once: true });
+        const animation = spark.animate(
+          [
+            {
+              transform: 'translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg) scale(1.15)',
+              opacity: 1,
+            },
+            { opacity: 1, offset: 0.5 },
+            {
+              transform: `translate(-50%, -50%) translate3d(${xTravel}px, ${yTravel}px, 0) rotate(${rotation}deg) scale(0.22)`,
+              opacity: 0,
+            },
+          ],
+          { duration: 650 + Math.random() * 110, easing: 'cubic-bezier(0.14, 0.72, 0.24, 1)', fill: 'forwards' },
+        );
+        animation.finished.then(() => cleanup(spark)).catch(() => cleanup(spark));
+        window.setTimeout(() => cleanup(spark), 1000);
       }
     };
 
     bitBrosCard.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'touch') return;
       lastTrailAt = performance.now();
       lastTrailX = event.clientX;
       lastTrailY = event.clientY;
-      burst(event.clientX, event.clientY, 1.15, 11);
+      burst(event.clientX, event.clientY, 1.25, 15);
     });
 
     bitBrosCard.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch') return;
       const now = performance.now();
       const distance = Math.hypot(event.clientX - lastTrailX, event.clientY - lastTrailY);
-      if (now - lastTrailAt < 105 || distance < 24) return;
+      if (now - lastTrailAt < 72 || distance < 16) return;
 
       lastTrailAt = now;
       lastTrailX = event.clientX;
       lastTrailY = event.clientY;
-      burst(event.clientX, event.clientY, 0.68, 4);
+      burst(event.clientX, event.clientY, 0.58, 5);
     });
 
     bitBrosCard.addEventListener('pointerdown', (event) => {
-      burst(event.clientX, event.clientY, 1.45, 15);
+      if (event.pointerType === 'touch') return;
+      burst(event.clientX, event.clientY, 1.65, 21);
     });
 
     bitBrosCard.addEventListener('focusin', () => {
       if (reducedMotion.matches) return;
       const rect = bitBrosCard.getBoundingClientRect();
-      burst(rect.left + rect.width / 2, rect.top + Math.min(90, rect.height * 0.35), 1.05, 9);
+      burst(rect.left + rect.width / 2, rect.top + Math.min(90, rect.height * 0.35), 1.2, 13);
     });
   }
 </script>
 
 <style>
-  .sponsor-grid {
-    align-items: stretch;
-  }
-  .sponsor-card {
-    display: flex;
-    min-width: 0;
-    height: 100%;
-    flex-direction: column;
-  }
-  .sponsor-card h3 {
-    margin: 0 0 0.35rem;
-  }
-  .sponsor-card > p {
-    margin: 0;
-  }
+  .sponsor-grid { align-items: stretch; }
+  .sponsor-card { display: flex; min-width: 0; height: 100%; flex-direction: column; }
+  .sponsor-card h3 { margin: 0 0 0.35rem; }
+  .sponsor-card > p { margin: 0; }
 
   .sponsor-card-bit-bros {
     --bit-bros-blue: #38b6ff;
@@ -174,11 +208,7 @@ const sponsors = (await getCollection('sponsors'))
     --bit-bros-black: #060611;
     position: relative;
     z-index: 1;
-    transition:
-      background-color 0.22s ease,
-      border-color 0.22s ease,
-      box-shadow 0.22s ease,
-      transform 0.22s ease;
+    transition: background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.75, 0.25, 1);
     animation: bit-bros-card-spotlight 14s ease-in-out infinite;
   }
   .sponsor-card-bit-bros::after {
@@ -196,31 +226,20 @@ const sponsors = (await getCollection('sponsors'))
     transform-origin: center;
     transition: opacity 0.22s ease, transform 0.22s ease;
   }
-  .sponsor-card-bit-bros h3 a {
-    transition: color 0.2s ease;
-  }
+  .sponsor-card-bit-bros h3 a { transition: color 0.2s ease; }
   .sponsor-card-bit-bros:hover,
   .sponsor-card-bit-bros:focus-within {
     z-index: 2;
     animation: none;
-    background-color: color-mix(in srgb, var(--color-card) 94%, var(--bit-bros-blue) 6%);
-    border-color: rgba(56, 182, 255, 0.84);
-    box-shadow:
-      var(--shadow-card),
-      0 18px 44px rgba(56, 182, 255, 0.22),
-      0 0 0 1px rgba(56, 182, 255, 0.16),
-      inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    transform: translateY(-4px) scale(1.012);
+    background-color: color-mix(in srgb, var(--color-card) 93%, var(--bit-bros-blue) 7%);
+    border-color: rgba(56, 182, 255, 0.88);
+    box-shadow: var(--shadow-card), 0 20px 48px rgba(56, 182, 255, 0.24), 0 0 0 1px rgba(56, 182, 255, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transform: translateY(-5px) scale(1.022);
   }
   .sponsor-card-bit-bros:hover::after,
-  .sponsor-card-bit-bros:focus-within::after {
-    opacity: 1;
-    transform: scaleX(1);
-  }
+  .sponsor-card-bit-bros:focus-within::after { opacity: 1; transform: scaleX(1); }
   .sponsor-card-bit-bros:hover h3 a,
-  .sponsor-card-bit-bros:focus-within h3 a {
-    color: var(--bit-bros-blue-dark);
-  }
+  .sponsor-card-bit-bros:focus-within h3 a { color: var(--bit-bros-blue-dark); }
 
   .sponsor-logo-link {
     --logo-stage-bg: rgba(255, 255, 255, 0.97);
@@ -243,38 +262,11 @@ const sponsors = (await getCollection('sponsors'))
     transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
   }
   .sponsor-logo-link:hover,
-  .sponsor-logo-link:focus-visible {
-    border-color: rgba(43, 74, 124, 0.32);
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.09);
-    transform: translateY(-1px);
-    text-decoration: none;
-  }
-  .sponsor-logo {
-    display: block;
-    width: min(190px, 82%);
-    height: 64px;
-    max-width: 82%;
-    max-height: 64px;
-    object-fit: contain;
-    object-position: center;
-  }
-  .sponsor-logo-mark {
-    width: 76px;
-    height: 76px;
-    max-width: 76px;
-    max-height: 76px;
-  }
-  .sponsor-logo-text {
-    max-width: 86%;
-    color: #334155;
-    font-size: 0.9rem;
-    font-weight: 750;
-    line-height: 1.25;
-    text-align: center;
-  }
+  .sponsor-logo-link:focus-visible { border-color: rgba(43, 74, 124, 0.32); box-shadow: 0 6px 18px rgba(15, 23, 42, 0.09); transform: translateY(-1px); text-decoration: none; }
+  .sponsor-logo { display: block; width: min(190px, 82%); height: 64px; max-width: 82%; max-height: 64px; object-fit: contain; object-position: center; }
+  .sponsor-logo-mark { width: 76px; height: 76px; max-width: 76px; max-height: 76px; }
+  .sponsor-logo-text { max-width: 86%; color: #334155; font-size: 0.9rem; font-weight: 750; line-height: 1.25; text-align: center; }
 
-  /* Bit Bros uses the branded black + blue lockup when spotlighted. The blue
-     mark is rendered with an exact-color SVG mask over the existing black mark. */
   .sponsor-logo-link-bit-bros {
     --bit-bros-blue: #38b6ff;
     --bit-bros-blue-dark: #2867b2;
@@ -297,101 +289,18 @@ const sponsors = (await getCollection('sponsors'))
     animation: bit-bros-logo-blue-spotlight 14s ease-in-out infinite;
     will-change: opacity, transform;
   }
-  .sponsor-logo-link-bit-bros .sponsor-logo {
-    position: relative;
-    z-index: 1;
-    transform-origin: center;
-    animation: bit-bros-logo-black-spotlight 14s ease-in-out infinite;
-    will-change: opacity, transform;
-  }
-
+  .sponsor-logo-link-bit-bros .sponsor-logo { position: relative; z-index: 1; transform-origin: center; animation: bit-bros-logo-black-spotlight 14s ease-in-out infinite; will-change: opacity, transform; }
   .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros,
-  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros {
-    animation: none;
-    background-color: var(--bit-bros-black);
-    border-color: rgba(56, 182, 255, 0.74);
-    box-shadow:
-      0 12px 30px rgba(6, 6, 17, 0.30),
-      0 0 0 1px rgba(56, 182, 255, 0.16);
-    transform: translateY(-2px) scale(1.01);
-  }
+  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros { animation: none; background-color: var(--bit-bros-black); border-color: rgba(56, 182, 255, 0.76); box-shadow: 0 12px 30px rgba(6, 6, 17, 0.30), 0 0 0 1px rgba(56, 182, 255, 0.18); transform: translateY(-2px) scale(1.01); }
   .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros .sponsor-logo,
-  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo {
-    animation: none;
-    opacity: 0;
-  }
+  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo { animation: none; opacity: 0; }
   .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros::before,
-  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros::before {
-    opacity: 1;
-    animation: bit-bros-card-highlight 460ms ease-out both;
-  }
-
-  :global(.bit-bros-cursor-spark),
-  :global(.bit-bros-cursor-ring) {
-    position: fixed;
-    z-index: 9999;
-    pointer-events: none;
-  }
-  :global(.bit-bros-cursor-spark) {
-    border-radius: 999px;
-    box-shadow: 0 0 9px rgba(56, 182, 255, 0.75);
-    animation: bit-bros-spark-burst 560ms cubic-bezier(0.16, 0.78, 0.28, 1) forwards;
-    will-change: transform, opacity;
-  }
-  :global(.bit-bros-cursor-ring) {
-    width: 13px;
-    height: 13px;
-    border: 2px solid rgba(56, 182, 255, 0.9);
-    border-radius: 999px;
-    box-shadow: 0 0 12px rgba(56, 182, 255, 0.32);
-    animation: bit-bros-ring-burst 460ms ease-out forwards;
-    will-change: transform, opacity;
-  }
-
-  @keyframes bit-bros-spark-burst {
-    0% {
-      opacity: 1;
-      transform: translate(-50%, -50%) translate3d(0, 0, 0) rotate(0deg) scale(1);
-    }
-    70% {
-      opacity: 0.92;
-    }
-    100% {
-      opacity: 0;
-      transform:
-        translate(-50%, -50%)
-        translate3d(var(--spark-x), var(--spark-y), 0)
-        rotate(var(--spark-rotate))
-        scale(0.35);
-    }
-  }
-
-  @keyframes bit-bros-ring-burst {
-    0% {
-      opacity: 0.95;
-      transform: translate(-50%, -50%) scale(0.35);
-    }
-    100% {
-      opacity: 0;
-      transform: translate(-50%, -50%) scale(var(--ring-scale));
-    }
-  }
+  .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros::before { opacity: 1; animation: bit-bros-card-highlight 460ms ease-out both; }
 
   @keyframes bit-bros-card-spotlight {
-    0%, 69%, 92%, 100% {
-      border-color: var(--color-border);
-      box-shadow: var(--shadow-card);
-      transform: translateY(0) scale(1);
-    }
-    76%, 86% {
-      border-color: rgba(56, 182, 255, 0.44);
-      box-shadow:
-        var(--shadow-card),
-        0 10px 26px rgba(56, 182, 255, 0.13);
-      transform: translateY(-1px) scale(1.004);
-    }
+    0%, 69%, 92%, 100% { border-color: var(--color-border); box-shadow: var(--shadow-card); transform: translateY(0) scale(1); }
+    76%, 86% { border-color: rgba(56, 182, 255, 0.44); box-shadow: var(--shadow-card), 0 10px 26px rgba(56, 182, 255, 0.13); transform: translateY(-1px) scale(1.004); }
   }
-
   @keyframes bit-bros-card-highlight {
     0% { transform: rotate(0deg) scale(1); }
     30% { transform: rotate(-2deg) scale(1.03); }
@@ -399,165 +308,63 @@ const sponsors = (await getCollection('sponsors'))
     75% { transform: rotate(-1.2deg) scale(1.05); }
     100% { transform: rotate(0deg) scale(1.05); }
   }
-
   @keyframes bit-bros-stage-spotlight {
-    0%, 69%, 92%, 100% {
-      background-color: var(--logo-stage-bg);
-      border-color: var(--logo-stage-border);
-      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
-    }
-    76%, 86% {
-      background-color: var(--bit-bros-black);
-      border-color: rgba(56, 182, 255, 0.72);
-      box-shadow:
-        0 12px 28px rgba(6, 6, 17, 0.24),
-        0 0 0 1px rgba(56, 182, 255, 0.14);
-    }
+    0%, 69%, 92%, 100% { background-color: var(--logo-stage-bg); border-color: var(--logo-stage-border); box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04); }
+    76%, 86% { background-color: var(--bit-bros-black); border-color: rgba(56, 182, 255, 0.72); box-shadow: 0 12px 28px rgba(6, 6, 17, 0.24), 0 0 0 1px rgba(56, 182, 255, 0.14); }
   }
-
   @keyframes bit-bros-logo-black-spotlight {
-    0%, 69%, 92%, 100% {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
-    73% {
-      opacity: 0.7;
-      transform: rotate(-1.5deg) scale(1.02);
-    }
-    76% {
-      opacity: 0.25;
-      transform: rotate(2.2deg) scale(1.04);
-    }
-    79%, 86% {
-      opacity: 0;
-      transform: rotate(0deg) scale(1.05);
-    }
-    90% {
-      opacity: 1;
-      transform: rotate(0deg) scale(1);
-    }
+    0%, 69%, 92%, 100% { opacity: 1; transform: rotate(0deg) scale(1); }
+    73% { opacity: 0.7; transform: rotate(-1.5deg) scale(1.02); }
+    76% { opacity: 0.25; transform: rotate(2.2deg) scale(1.04); }
+    79%, 86% { opacity: 0; transform: rotate(0deg) scale(1.05); }
+    90% { opacity: 1; transform: rotate(0deg) scale(1); }
   }
-
   @keyframes bit-bros-logo-blue-spotlight {
-    0%, 69%, 92%, 100% {
-      opacity: 0;
-      transform: rotate(0deg) scale(1);
-    }
-    73% {
-      opacity: 0.3;
-      transform: rotate(-1.5deg) scale(1.02);
-    }
-    76% {
-      opacity: 0.75;
-      transform: rotate(2.2deg) scale(1.04);
-    }
-    79% {
-      opacity: 1;
-      transform: rotate(-2.5deg) scale(1.05);
-    }
-    82% {
-      opacity: 1;
-      transform: rotate(1.7deg) scale(1.05);
-    }
-    84% {
-      opacity: 1;
-      transform: rotate(-0.8deg) scale(1.05);
-    }
-    86% {
-      opacity: 1;
-      transform: rotate(0deg) scale(1.05);
-    }
-    90% {
-      opacity: 0;
-      transform: rotate(0deg) scale(1);
-    }
+    0%, 69%, 92%, 100% { opacity: 0; transform: rotate(0deg) scale(1); }
+    73% { opacity: 0.3; transform: rotate(-1.5deg) scale(1.02); }
+    76% { opacity: 0.75; transform: rotate(2.2deg) scale(1.04); }
+    79% { opacity: 1; transform: rotate(-2.5deg) scale(1.05); }
+    82% { opacity: 1; transform: rotate(1.7deg) scale(1.05); }
+    84% { opacity: 1; transform: rotate(-0.8deg) scale(1.05); }
+    86% { opacity: 1; transform: rotate(0deg) scale(1.05); }
+    90% { opacity: 0; transform: rotate(0deg) scale(1); }
   }
 
   @media (prefers-color-scheme: dark) {
-    .sponsor-logo-link {
-      --logo-stage-bg: rgba(255, 255, 255, 0.96);
-      --logo-stage-border: rgba(255, 255, 255, 0.12);
-    }
+    .sponsor-logo-link { --logo-stage-bg: rgba(255, 255, 255, 0.96); --logo-stage-border: rgba(255, 255, 255, 0.12); }
     .sponsor-logo-link:hover,
-    .sponsor-logo-link:focus-visible {
-      border-color: rgba(221, 165, 83, 0.48);
-      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.28);
-    }
+    .sponsor-logo-link:focus-visible { border-color: rgba(221, 165, 83, 0.48); box-shadow: 0 7px 20px rgba(0, 0, 0, 0.28); }
     .sponsor-card-bit-bros:hover,
-    .sponsor-card-bit-bros:focus-within {
-      background-color: color-mix(in srgb, var(--color-card) 90%, var(--bit-bros-blue) 10%);
-      border-color: rgba(56, 182, 255, 0.90);
-      box-shadow:
-        var(--shadow-card),
-        0 18px 44px rgba(56, 182, 255, 0.22),
-        0 0 0 1px rgba(56, 182, 255, 0.18),
-        inset 0 1px 0 rgba(56, 182, 255, 0.08);
-    }
+    .sponsor-card-bit-bros:focus-within { background-color: color-mix(in srgb, var(--color-card) 89%, var(--bit-bros-blue) 11%); border-color: rgba(56, 182, 255, 0.92); box-shadow: var(--shadow-card), 0 20px 48px rgba(56, 182, 255, 0.24), 0 0 0 1px rgba(56, 182, 255, 0.20), inset 0 1px 0 rgba(56, 182, 255, 0.08); }
     .sponsor-card-bit-bros:hover h3 a,
-    .sponsor-card-bit-bros:focus-within h3 a {
-      color: var(--bit-bros-blue);
-    }
+    .sponsor-card-bit-bros:focus-within h3 a { color: var(--bit-bros-blue); }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .sponsor-logo-link,
     .sponsor-card-bit-bros,
     .sponsor-card-bit-bros::after,
-    .sponsor-card-bit-bros h3 a {
-      transition: none;
-    }
+    .sponsor-card-bit-bros h3 a { transition: none; }
     .sponsor-logo-link:hover,
-    .sponsor-logo-link:focus-visible {
-      transform: none;
-    }
-    .sponsor-card-bit-bros,
-    .sponsor-logo-link-bit-bros,
-    .sponsor-logo-link-bit-bros::before,
-    .sponsor-logo-link-bit-bros .sponsor-logo {
-      animation: none;
-    }
+    .sponsor-logo-link:focus-visible,
     .sponsor-card-bit-bros:hover,
     .sponsor-card-bit-bros:focus-within,
     .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros,
-    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros {
-      transform: none;
-    }
-    .sponsor-card-bit-bros:hover::after,
-    .sponsor-card-bit-bros:focus-within::after {
-      transform: none;
-    }
+    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros { transform: none; }
+    .sponsor-card-bit-bros,
+    .sponsor-logo-link-bit-bros,
+    .sponsor-logo-link-bit-bros::before,
+    .sponsor-logo-link-bit-bros .sponsor-logo { animation: none; }
     .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros .sponsor-logo,
-    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo {
-      opacity: 0;
-    }
+    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros .sponsor-logo { opacity: 0; }
     .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros::before,
-    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros::before {
-      opacity: 1;
-      animation: none;
-      transform: none;
-    }
-    :global(.bit-bros-cursor-spark),
-    :global(.bit-bros-cursor-ring) {
-      display: none;
-      animation: none;
-    }
+    .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros::before { opacity: 1; animation: none; transform: none; }
   }
 
   @media (max-width: 560px) {
-    .sponsor-logo-link {
-      height: 100px;
-      flex-basis: 100px;
-    }
-    .sponsor-logo {
-      height: 58px;
-      max-height: 58px;
-    }
+    .sponsor-logo-link { height: 100px; flex-basis: 100px; }
+    .sponsor-logo { height: 58px; max-height: 58px; }
     .sponsor-logo-mark,
-    .sponsor-logo-link-bit-bros::before {
-      width: 68px;
-      height: 68px;
-      max-width: 68px;
-      max-height: 68px;
-    }
+    .sponsor-logo-link-bit-bros::before { width: 68px; height: 68px; max-width: 68px; max-height: 68px; }
   }
 </style>
