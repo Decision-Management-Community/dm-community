@@ -132,6 +132,8 @@ const sponsors = (await getCollection('sponsors'))
   /* Bit Bros still gets the occasional passive spotlight, but hovering anywhere
      on its card (or focusing a link inside it) triggers the treatment immediately. */
   .sponsor-logo-link-bit-bros {
+    --bit-bros-blue: #38b6ff;
+    --bit-bros-blue-dark: #2867b2;
     animation: bit-bros-stage-spotlight 14s ease-in-out infinite;
     will-change: background-color, border-color, box-shadow;
   }
@@ -144,9 +146,9 @@ const sponsors = (await getCollection('sponsors'))
   .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros,
   .sponsor-card-bit-bros:focus-within .sponsor-logo-link-bit-bros {
     animation: none;
-    background-color: #0f172a;
-    border-color: rgba(15, 23, 42, 0.34);
-    box-shadow: 0 9px 24px rgba(15, 23, 42, 0.16);
+    background-color: var(--bit-bros-blue);
+    border-color: var(--bit-bros-blue-dark);
+    box-shadow: 0 9px 24px rgba(56, 182, 255, 0.28);
     transform: translateY(-1px);
   }
   .sponsor-card-bit-bros:hover .sponsor-logo-link-bit-bros .sponsor-logo,
@@ -185,9 +187,9 @@ const sponsors = (await getCollection('sponsors'))
       box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
     }
     76%, 86% {
-      background-color: #0f172a;
-      border-color: rgba(15, 23, 42, 0.34);
-      box-shadow: 0 9px 24px rgba(15, 23, 42, 0.16);
+      background-color: var(--bit-bros-blue);
+      border-color: var(--bit-bros-blue-dark);
+      box-shadow: 0 9px 24px rgba(56, 182, 255, 0.28);
     }
   }
 
