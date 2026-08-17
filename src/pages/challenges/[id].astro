@@ -18,12 +18,12 @@ const { Content } = await render(entry);
 function solutionHref(value: string) {
   const migrated = migrateLegacyUrl(value);
 
-  // Legacy challenge solutions often point at WordPress uploads. Only expose a
-  // migrated local media link when the extracted file is actually present;
-  // otherwise keep the solution attribution visible without a broken anchor.
+  // Prefer self-hosted copies of legacy WordPress uploads when available. If a
+  // file was not migrated, preserve the original solution URL instead of
+  // silently dropping the link from the challenge page.
   if (migrated.startsWith('/news-media/')) {
     const localMediaPath = join(process.cwd(), 'public', migrated.replace(/^\/+/, ''));
-    if (!existsSync(localMediaPath)) return undefined;
+    if (!existsSync(localMediaPath)) return value;
   }
 
   return migrated.startsWith('/') ? url(migrated) : migrated;
