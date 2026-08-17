@@ -4,4 +4,5 @@ lastName: Molines
 affiliation: IBM
 linkedin: https://www.linkedin.com/in/guilhemmolines/
 email: guilhem.molines@fr.ibm.com
+image: /advisory-board/guilhem-molines.jpg
 ---
