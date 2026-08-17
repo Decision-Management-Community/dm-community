@@ -1,0 +1,78 @@
+<script>
+  const bitBrosCard = document.querySelector<HTMLElement>('.sponsor-card-bit-bros');
+
+  if (bitBrosCard) {
+    const description = bitBrosCard.querySelector<HTMLElement>('.muted');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const highlightPhrases = new Set(['applied economics', 'amazon', 'toyota', 'gurobi']);
+    const highlightedSpans: HTMLElement[] = [];
+
+    if (description && description.dataset.credibilityShineReady !== 'true') {
+      const pattern = /(applied economics|Amazon|Toyota|Gurobi)/gi;
+      const fragment = document.createDocumentFragment();
+      const parts = (description.textContent ?? '').split(pattern);
+
+      parts.forEach((part) => {
+        if (highlightPhrases.has(part.toLowerCase())) {
+          const span = document.createElement('span');
+          span.textContent = part;
+          span.style.display = 'inline-block';
+          span.style.fontWeight = '600';
+          span.style.transition = 'color 180ms ease, text-shadow 180ms ease';
+          fragment.appendChild(span);
+          highlightedSpans.push(span);
+        } else if (part) {
+          fragment.appendChild(document.createTextNode(part));
+        }
+      });
+
+      description.replaceChildren(fragment);
+      description.dataset.credibilityShineReady = 'true';
+    }
+
+    const shineCredibility = () => {
+      if (reducedMotion.matches) return;
+
+      highlightedSpans.forEach((span, index) => {
+        const baseColor = getComputedStyle(span).color;
+        span.getAnimations().forEach((animation) => animation.cancel());
+
+        span.animate(
+          [
+            {
+              color: baseColor,
+              textShadow: '0 0 0 rgba(56, 182, 255, 0)',
+              filter: 'brightness(1)',
+              transform: 'translateY(0)',
+            },
+            {
+              color: '#38b6ff',
+              textShadow: '0 0 8px rgba(56, 182, 255, 0.38)',
+              filter: 'brightness(1.12)',
+              transform: 'translateY(-0.4px)',
+              offset: 0.48,
+            },
+            {
+              color: baseColor,
+              textShadow: '0 0 0 rgba(56, 182, 255, 0)',
+              filter: 'brightness(1)',
+              transform: 'translateY(0)',
+            },
+          ],
+          {
+            duration: 760,
+            delay: index * 90,
+            easing: 'cubic-bezier(0.2, 0.72, 0.25, 1)',
+          },
+        );
+      });
+    };
+
+    bitBrosCard.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'touch') return;
+      shineCredibility();
+    });
+
+    bitBrosCard.addEventListener('focusin', shineCredibility);
+  }
+</script>
