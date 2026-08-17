@@ -3,19 +3,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import { url } from '../../lib/url';
 import { isLegacyDmCommunityUrl, migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
+import legacyComments from '../../data/legacy-news-comments.json';
 
 export async function getStaticPaths() {
   const posts = await getCollection('news');
   return posts.map((p) => ({ params: { id: p.id }, props: { entry: p } }));
 }
 
+type LegacyComment = {
+  id: number;
+  parent: number;
+  author: string;
+  date: string;
+  content: string;
+};
+
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const commentsByPost = legacyComments as Record<string, LegacyComment[]>;
+const archivedComments = commentsByPost[entry.id] ?? [];
 
 const migratedSource = entry.data.sourceUrl ? migrateLegacyUrl(entry.data.sourceUrl) : undefined;
 const sourceHref = migratedSource && !isLegacyDmCommunityUrl(migratedSource)
   ? (migratedSource.startsWith('/') ? url(migratedSource) : migratedSource)
   : undefined;
+
+function formatCommentDate(value: string) {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return parsed.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+}
 ---
 <BaseLayout title={entry.data.title} description={`Decision Management Community News: ${entry.data.title}`}>
   <a href={url('/news/')}>&larr; All News</a>
@@ -39,8 +56,36 @@ const sourceHref = migratedSource && !isLegacyDmCommunityUrl(migratedSource)
       Source: <a href={sourceHref} target={sourceHref.startsWith('http') ? '_blank' : undefined} rel={sourceHref.startsWith('http') ? 'noopener' : undefined}>View source</a>
     </p>
   )}
+
+  {archivedComments.length > 0 && (
+    <section class="legacy-comments" aria-labelledby="legacy-comments-heading">
+      <h2 id="legacy-comments-heading">Archived discussion</h2>
+      <p class="muted legacy-comments-note">
+        Comments preserved from the original DMCommunity.org site. This archive is read-only.
+      </p>
+      <div class="legacy-comments-list">
+        {archivedComments.map((comment) => (
+          <article class:list={['legacy-comment', { 'legacy-comment-reply': comment.parent !== 0 }]}>
+            <p class="legacy-comment-meta">
+              <strong>{comment.author}</strong>
+              <span class="muted"> · {formatCommentDate(comment.date)}</span>
+            </p>
+            <p class="legacy-comment-body">{comment.content}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>
 
 <style>
   .tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin: 0.5rem 0 1rem; }
+  .legacy-comments { margin-top: 3rem; padding-top: 0.25rem; border-top: 1px solid var(--color-border); }
+  .legacy-comments-note { margin-top: -0.75rem; }
+  .legacy-comments-list { display: grid; gap: 0.85rem; margin-top: 1.25rem; }
+  .legacy-comment { margin: 0; padding: 1rem 1.1rem; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow-card); }
+  .legacy-comment-reply { margin-left: 1.5rem; border-left: 3px solid var(--color-accent); }
+  .legacy-comment-meta { margin: 0 0 0.4rem; font-size: 0.9rem; }
+  .legacy-comment-body { margin: 0; white-space: pre-line; }
+  @media (max-width: 600px) { .legacy-comment-reply { margin-left: 0.75rem; } }
 </style>
