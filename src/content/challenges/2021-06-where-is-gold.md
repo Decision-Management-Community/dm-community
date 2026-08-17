@@ -9,6 +9,7 @@ solutions:
     url: https://dmcommunity.org/wp-content/uploads/2021/06/challenge2021june.janvanthienen.pdf
   - title: Prolog
     author: Matteo Redaelli
+    url: https://www.mr70.eu/posts/dmcommunity_org_challenge-jun-2021/
   - title: JSR331
     author: Jacob Feldman
     affiliation: OpenRules

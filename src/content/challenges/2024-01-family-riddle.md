@@ -12,6 +12,7 @@ solutions:
     url: https://github.com/OptimizationExpert/Pyomo/blob/main/Project_Family_Advanced_CP.ipynb
   - title: Picat
     author: Hakan Kjellerstrand
+    url: https://github.com/hakank/hakank/blob/master/picat/family_riddle.pi
   - title: ChatGPT/CPLEX
     author: Alex Fleischer
     affiliation: IBM

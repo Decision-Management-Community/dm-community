@@ -6,6 +6,7 @@ solutions:
   - title: Corticon
     author: Mike Parish
     affiliation: Progress Software
+    url: https://dmcommunity.org/wp-content/uploads/2014/10/who-killed-aunt-agatha-corticon.pdf
   - title: MiniZinc and 22 other solvers
     author: Hakan Kjellerstrand
     url: https://www.hakank.org/minizinc/who_killed_agatha_dmcommunity_challenge.html
@@ -22,6 +23,7 @@ solutions:
     url: https://www.damirsystems.com/murder-mystery/
   - title: CPLEX
     author: Alex Fleischer
+    url: https://dmcommunity.org/wp-content/uploads/2021/06/challenge2014nov.alexfleischer.pdf
 ---
 
 This is the classic "Dreadsbury Mansion" murder-mystery puzzle (problem #55 in Pelletier's 1986 collection of automated-theorem-proving test problems), proposed by Len Schubert.

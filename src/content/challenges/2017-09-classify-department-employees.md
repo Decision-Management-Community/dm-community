@@ -14,6 +14,7 @@ solutions:
     url: https://dmcommunity.org/wp-content/uploads/2017/12/challengesep2017-mikeparish.pdf
   - title: MiniZinc
     author: Hakan Kjellerstrand
+    url: https://github.com/hakank/hakank/blob/master/minizinc/classify_department_employees.mzn
 ---
 
 A human resources office holds records for every employee in every department — salary, marital status, age, and so on. Build a decision model that, for each department, computes the minimum, maximum, and average salary, along with a count of "high-paid" employees using a threshold rule such as "salary > 85,000."
