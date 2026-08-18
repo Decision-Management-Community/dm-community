@@ -3,7 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../lib/url';
 
 const links = [
-  { href: url('/resources/articles/'), title: 'Articles', desc: 'Decision Management articles — the science, philosophy, and practice of better decisions.' },
+  {
+    href: url('/resources/articles/'),
+    title: 'Articles',
+    desc: 'Decision Management articles — the science, philosophy, and practice of better decisions.',
+    challengesHref: url('/challenges/'),
+  },
   { href: url('/resources/books/'), title: 'Books', desc: 'Recommended reading, newest first.' },
   { href: url('/resources/case-studies/'), title: 'Case Studies', desc: 'Real-world decision management case studies, link-checked.' },
   { href: url('/resources/community-software/'), title: 'Community Software', desc: 'Free and community-contributed tools.' },
@@ -21,7 +26,15 @@ const links = [
     decision management practitioners.
   </p>
   <div class="card-grid">
-    {links.map((l) => (
+    {links.map((l) => l.challengesHref ? (
+      <div class="card link-card">
+        <h3><a href={l.href}>{l.title}</a></h3>
+        <p class="muted">
+          {l.desc} It includes responses to various Community{' '}
+          <a href={l.challengesHref}>Challenges</a>.
+        </p>
+      </div>
+    ) : (
       <a class="card link-card" href={l.href}>
         <h3>{l.title}</h3>
         <p class="muted">{l.desc}</p>
@@ -34,4 +47,5 @@ const links = [
   .link-card { color: inherit; display: block; }
   .link-card:hover { border-color: var(--color-primary); text-decoration: none; }
   .link-card h3 { color: var(--color-primary); }
+  .link-card h3 a { color: inherit; }
 </style>
