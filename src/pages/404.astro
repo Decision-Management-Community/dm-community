@@ -2,17 +2,91 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { url } from '../lib/url';
 ---
-<BaseLayout title="Page Not Found">
-  <h1>Page not found</h1>
-  <p>
-    The page you're looking for doesn't exist at this address. If you followed an older bookmark,
-    the material may now live in one of the migrated archives below.
-  </p>
-  <ul>
-    <li><a href={url('/news/')}>Search the complete News archive</a></li>
-    <li><a href={url('/challenges/')}>Browse Challenges</a></li>
-    <li><a href={url('/decisioncamp/')}>Browse DecisionCAMP history</a></li>
-    <li><a href={url('/resources/')}>Browse Resources</a></li>
-  </ul>
-  <p><a href={url('/')}>Back to the homepage</a></p>
+<BaseLayout title="Page Not Found" description="Find migrated Decision Management Community content with site search or browse the community archives.">
+  <section class="not-found">
+    <h1>Page not found</h1>
+    <p>
+      The page you're looking for doesn't exist at this address. If you followed an older bookmark,
+      the material may now live elsewhere in the migrated archive.
+    </p>
+
+    <div class="search-action">
+      <div>
+        <h2>Search the full site</h2>
+        <p>Search across news, articles, challenges, DecisionCAMP history, Q&amp;A, and resources.</p>
+      </div>
+      <button id="open-site-search" class="btn search-button" type="button">Search the site</button>
+    </div>
+
+    <h2>Browse key archives</h2>
+    <ul>
+      <li><a href={url('/news/')}>Browse the complete News archive</a></li>
+      <li><a href={url('/challenges/')}>Browse Challenges</a></li>
+      <li><a href={url('/decisioncamp/')}>Browse DecisionCAMP history</a></li>
+      <li><a href={url('/resources/')}>Browse Resources</a></li>
+    </ul>
+    <p><a href={url('/')}>Back to the homepage</a></p>
+  </section>
 </BaseLayout>
+
+<style>
+  .not-found {
+    max-width: 70ch;
+  }
+
+  .search-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin: 2rem 0 2.5rem;
+    padding: 1.25rem 1.4rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  .search-action h2 {
+    margin: 0 0 0.35rem;
+    font-size: 1.25rem;
+  }
+
+  .search-action p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+
+  .search-button {
+    flex: 0 0 auto;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  @media (max-width: 640px) {
+    .search-action {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .search-button {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  const openSearchButton = document.getElementById('open-site-search');
+  openSearchButton?.addEventListener('click', () => {
+    const searchToggle = document.getElementById('search-toggle');
+    const searchPanel = document.getElementById('search-panel');
+    if (!searchToggle || !searchPanel) return;
+
+    if (searchPanel.hasAttribute('hidden')) {
+      searchToggle.click();
+    } else {
+      searchPanel.querySelector('input')?.focus();
+    }
+  });
+</script>
