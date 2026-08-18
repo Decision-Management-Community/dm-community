@@ -6,12 +6,7 @@ import { url } from '../lib/url';
 const newsPosts = (await getCollection('news')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
-const challenges = (await getCollection('challenges')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
-
-const latestNews = newsPosts.slice(0, 2);
-const latestChallenges = challenges.slice(0, 2);
+const latestNews = newsPosts.slice(0, 4);
 ---
 <BaseLayout title="Home" description="Decision Management Community — practitioners designing, building, operating, and improving decision systems.">
   <section class="hero">
@@ -40,29 +35,20 @@ const latestChallenges = challenges.slice(0, 2);
   </section>
 
   <section class="section-block">
-    <div class="latest-grid">
-      <section class="latest-column" aria-labelledby="latest-news-heading">
-        <h3 id="latest-news-heading"><span class="badge">Latest News</span></h3>
-        {latestNews.length > 0 ? latestNews.map((post) => (
+    <section aria-labelledby="latest-news-heading">
+      <h3 id="latest-news-heading"><span class="badge">Latest News</span></h3>
+      {latestNews.length > 0 ? (
+        <div class="latest-grid">
+          {latestNews.map((post) => (
           <article class="compact-card">
             <h3><a href={url(`/news/${post.id}/`)}>{post.data.title}</a></h3>
             <p class="meta">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
           </article>
-        )) : <p class="muted">No news yet.</p>}
-        <a class="card-arrow" href={url('/news/')}>More news &rarr;</a>
-      </section>
-
-      <section class="latest-column" aria-labelledby="latest-challenges-heading">
-        <h3 id="latest-challenges-heading"><span class="badge">Latest Challenges</span></h3>
-        {latestChallenges.length > 0 ? latestChallenges.map((challenge) => (
-          <article class="compact-card">
-            <h3><a href={url(`/challenges/${challenge.id}/`)}>{challenge.data.title}</a></h3>
-            <p class="meta">{challenge.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</p>
-          </article>
-        )) : <p class="muted">No challenges yet.</p>}
-        <a class="card-arrow" href={url('/challenges/')}>View challenges &rarr;</a>
-      </section>
-    </div>
+          ))}
+        </div>
+      ) : <p class="muted">No news yet.</p>}
+      <a class="card-arrow" href={url('/news/')}>More news &rarr;</a>
+    </section>
   </section>
 
 </BaseLayout>
@@ -161,13 +147,8 @@ const latestChallenges = challenges.slice(0, 2);
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+    margin-top: 1rem;
   }
-  .latest-column {
-    display: grid;
-    align-content: start;
-    gap: 1rem;
-  }
-  .latest-column > h3 { margin: 0; }
   .compact-card {
     min-width: 0;
     border: 1px solid var(--color-border);
