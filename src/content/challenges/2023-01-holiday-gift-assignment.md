@@ -9,14 +9,14 @@ solutions:
   - title: OPL/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2022/12/challenge2023jan.alexfleischer.pdf
+    url: "/resources/articles/2023-01-01-holiday-gift-assignment-opl-cplex/"
   - title: JavaSolver
     author: Jacob Feldman
     affiliation: OpenRules
     url: https://openrules.blog/2022/12/29/christmas-model-in-javasolver/
   - title: Picat
     author: Hakan Kjellerstrand
-    url: https://dmcommunity.org/wp-content/uploads/2022/12/challenge2023jan.hakan_-1.pdf
+    url: "/resources/articles/2023-01-01-holiday-gift-assignment-picat/"
   - title: Conjure
     author: Özgür Akgün
     url: https://colab.research.google.com/drive/1z3-cAZ_SoC68HQRnwUN3Z5Me-Ay8Xy7J?usp=sharing
@@ -29,7 +29,7 @@ solutions:
     url: https://github.com/OptimizationExpert/Pyomo/blob/main/Gift-Christmas.ipynb
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2023/02/challenge2023jan.jackjansomius.pdf
+    url: "/resources/articles/2023-01-01-holiday-gift-assignment-dt5gl/"
   - title: Seeker
     author: Meinolf Sellmann
     url: https://colab.research.google.com/drive/1z3-cAZ_SoC68HQRnwUN3Z5Me-Ay8Xy7J

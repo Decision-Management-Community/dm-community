@@ -6,13 +6,13 @@ solutions:
   - title: OPL
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2020/04/challenge2020april.opl_.alexfleischer-1.pdf
+    url: "/resources/articles/2020-04-01-doctor-planning-opl/"
   - title: PostgreSQL
     author: Damir Sudarevic
     url: https://www.damirsystems.com/shift-scheduling/
   - title: ZIMPL
     author: Rob Parker
-    url: https://dmcommunity.org/wp-content/uploads/2020/04/challenge2020april.zimpl_.robparker.pdf
+    url: "/resources/articles/2020-04-01-doctor-planning-zimpl/"
   - title: Prolog
     author: Matteo Redaelli
     url: https://www.mr70.eu/posts/doctor-planning-resolved-with-prolog/

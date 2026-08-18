@@ -6,17 +6,17 @@ solutions:
   - title: ChatGPT/DMN
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2024/12/challenge2024dec.chatgpt-3.pdf
+    url: "/resources/articles/2024-12-01-pricing-policy-chatgpt-dmn/"
   - title: ChatGPT/Python
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2024/12/challenge2024dec.chatgpt.python.jj_.png
+    url: "/resources/articles/2024-12-01-pricing-policy-chatgpt-python/"
   - title: OpenRules
     author: Alex Mirtsyn
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2024/12/challenge2024dec.openrules-1.pdf
+    url: "/resources/articles/2024-12-01-pricing-policy-openrules/"
   - title: DT5GL/SQL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2024/12/challenge2024dec.sql_.pdf
+    url: "/resources/articles/2024-12-01-pricing-policy-dt5gl-sql/"
   - title: ChatGPT/SQL
     author: Jack Jansonius
     url: https://chatgpt.com/share/67828eb3-073c-8006-83ea-dfe91c552648

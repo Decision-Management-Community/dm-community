@@ -9,7 +9,7 @@ solutions:
     url: https://methodandstyle.com/xml-and-json-in-dmn-models/
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2021/04/challenge2021apr.jj_.pdf
+    url: "/resources/articles/2021-04-01-rate-loan-risk-category-dt5gl/"
 ---
 
 Bruce Silver published a decision model that rates a loan application's Risk Category from summary data: the loan amount, the loan-to-value ratio (LTV), and — for each borrower on the loan — a debt-to-income ratio (DTI) and a credit score. His model expresses the underlying logic as a DMN boxed context that combines these per-borrower and loan-level figures into a single overall risk category.

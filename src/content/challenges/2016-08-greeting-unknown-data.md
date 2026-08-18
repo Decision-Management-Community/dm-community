@@ -6,7 +6,7 @@ solutions:
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2016/09/openrules-response-to-dmcommunity-challenge-aug-20161.pdf
+    url: "/resources/articles/2016-08-01-greeting-a-customer-with-unknown-data-openrules/"
 ---
 
 The "Hello World" of business rules is usually a decision model that generates a greeting like "Good morning, Mrs. Robinson!" for an IVR system, based on known facts about the caller. That's easy when all the facts are known — but real-world data is rarely complete. This challenge asks: what happens to your greeting logic when some of the inputs are missing?

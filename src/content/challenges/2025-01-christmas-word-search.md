@@ -6,7 +6,7 @@ solutions:
   - title: Copilot
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/01/challenge2025jan.copilot.pdf
+    url: "/resources/articles/2025-01-01-christmas-word-search-copilot/"
   - title: OpenRules (no code)
     author: Jacob Feldman
     affiliation: OpenRules
@@ -17,14 +17,14 @@ solutions:
   - title: CPLEX/OPL
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/12/challenge2025jan.opl_.pdf
+    url: "/resources/articles/2025-01-01-christmas-word-search-cplex-opl/"
   - title: Llama/watsonx
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/01/challenge2025jan.llama_.pdf
+    url: "/resources/articles/2025-01-01-christmas-word-search-llama-watsonx/"
   - title: DT5GL/Python
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2025/01/challenge2025jan.jj_.pdf
+    url: "/resources/articles/2025-01-01-christmas-word-search-dt5gl-python/"
 ---
 
 A holiday puzzle to start the year: given a grid of letters, count how many times the word "XMAS" appears — horizontally, vertically, or diagonally, forwards or backwards, and even overlapping other occurrences. Build a service that can do this for any grid, not just the sample one.

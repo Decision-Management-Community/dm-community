@@ -10,31 +10,31 @@ solutions:
   - title: DMN
     author: Gary Hallmark
     affiliation: Oracle
-    url: https://dmcommunity.org/wp-content/uploads/2016/01/good-decision-table-challenge-jan-2016-garyhallmark.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-dmn/"
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2016/01/corticon-vacation1.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-corticon/"
   - title: Trisotech
     author: Mélanie Gauthier
     affiliation: Trisotech
-    url: https://dmcommunity.org/wp-content/uploads/2016/01/vacation-days-trisotech.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-trisotech/"
   - title: Avola
     author: Jordy Voesten
     affiliation: Avola
-    url: https://dmcommunity.org/wp-content/uploads/2016/01/vacationdays-avola.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-avola/"
   - title: Blueriq
     author: Maarten Schadd
     affiliation: Blueriq
-    url: https://dmcommunity.org/wp-content/uploads/2016/01/vacationdays-blueriq.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-blueriq/"
   - title: RapidGen
     author: David Durant
     affiliation: RapidGen
-    url: https://dmcommunity.org/wp-content/uploads/2016/01/vacationdays-rapidgen.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-rapidgen/"
   - title: IBM ODM
     author: Emmanuel Bonnet
     affiliation: Softeam Cadextan
-    url: https://dmcommunity.org/wp-content/uploads/2016/01/vacationdays-softeam.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-ibm-odm/"
   - title: FlexRule
     author: Arash Aghlara
     affiliation: FlexRule
@@ -45,7 +45,7 @@ solutions:
   - title: Comparative analysis of all 19 submissions
     author: Prof. Jan Vanthienen
     affiliation: KU Leuven
-    url: https://dmcommunity.org/wp-content/uploads/2016/02/dmc-challenge-jan2016.pdf
+    url: "/resources/articles/2016-01-01-decision-table-for-vacation-days-calculation-comparative-analysis-of-all-19-submissions/"
 ---
 
 This challenge asked BR&DM vendors and consultants to each submit a *decision table* representing a well-known "calculate vacation days" business rule — proposed by Prof. Jan Vanthienen (KU Leuven), a leading expert on decision tables and a member of the DMN Task Force. The underlying rule computes an employee's annual vacation-day entitlement from inputs like age and years of service.

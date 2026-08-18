@@ -26,18 +26,30 @@ const { Content } = await render(entry);
     ) : ''}
   </p>
 
+  {entry.data.challengeUrl && (
+    <p><a href={url(entry.data.challengeUrl)}>&larr; View the original challenge</a></p>
+  )}
+
   <article class="prose">
     <Content />
   </article>
 
-  {(entry.data.linkedin || entry.data.originalUrl) && (
+  {entry.data.documentUrl && (
+    <p>
+      <a class="btn secondary" href={url(entry.data.documentUrl)} target="_blank" rel="noopener">
+        View or download the migrated solution document &rarr;
+      </a>
+    </p>
+  )}
+
+  {(entry.data.linkedin || (entry.data.originalUrl && !entry.data.documentUrl)) && (
     <footer class="post-footer muted">
       {entry.data.linkedin && (
         <p>
           Connect with me on <a href={entry.data.linkedin} target="_blank" rel="noopener">LinkedIn</a>
         </p>
       )}
-      {entry.data.originalUrl && (
+      {entry.data.originalUrl && !entry.data.documentUrl && (
         <p>
           Originally published on{' '}
           <a href={entry.data.originalUrl} target="_blank" rel="noopener">{entry.data.originalUrl}</a>

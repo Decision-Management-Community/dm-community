@@ -91,7 +91,11 @@ const challenges = defineCollection({
           title: z.string(),
           author: z.string(),
           affiliation: z.string().optional(),
-          url: z.string().url().optional(),
+          // Solutions may link to external sources or to migrated local article pages.
+          url: z
+            .string()
+            .refine((v) => v.startsWith('/') || /^https?:\/\//.test(v), 'must be a URL or a root-relative path')
+            .optional(),
         }),
       )
       .default([]),
@@ -188,6 +192,8 @@ const articles = defineCollection({
     linkedin: z.string().url().optional(),
     originalUrl: z.string().url().optional(),
     summary: z.string().optional(),
+    challengeUrl: z.string().regex(/^\/challenges\/[^/]+\/$/).optional(),
+    documentUrl: z.string().regex(/^\/news-media\/.+/).optional(),
   }),
 });
 

@@ -6,7 +6,7 @@ solutions:
   - title: OPL/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.dec_.oplcplexalexfleischer.pdf
+    url: "/resources/articles/2025-12-01-inside-outside-production-opl-cplex/"
   - title: cDMN
     author: Simon Vandevelde
     affiliation: KU Leuven

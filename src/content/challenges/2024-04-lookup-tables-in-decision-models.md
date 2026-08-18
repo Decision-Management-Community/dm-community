@@ -6,13 +6,13 @@ solutions:
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2024/05/challenge2024april.openrules.pdf
+    url: "/resources/articles/2024-04-01-lookup-tables-in-decision-models-openrules/"
   - title: ChatGPT
     author: Jack Jansonius
     url: https://chatgpt.com/share/1adacab7-5234-4d18-8632-4543f3d2ed6c
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2024/07/challenge2024.april_.jackjansonius.pdf
+    url: "/resources/articles/2024-04-01-lookup-tables-in-decision-models-dt5gl/"
 ---
 
 Business decision models often rely on lookup tables that can hold thousands of rows, which raises two practical issues: users need to be able to edit the table data without touching the decision model, and the tables may have hundreds of thousands of rows while still needing to stay fast in production.

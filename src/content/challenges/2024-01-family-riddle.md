@@ -16,17 +16,17 @@ solutions:
   - title: ChatGPT/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/01/challengejan2024.chatgptdocplexcplexalexfleischer.pdf
+    url: "/resources/articles/2024-01-01-family-riddle-chatgpt-cplex/"
   - title: OPL/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/01/challengejan2024.oplcplexalexfleischer.pdf
+    url: "/resources/articles/2024-01-01-family-riddle-opl-cplex/"
   - title: Prolog
     author: Matteo Redaelli
     url: https://github.com/matteoredaelli/dmcommunity-challenges/blob/main/dmcommunity-2024-01.pl
   - title: MS Copilot
     author: Microsoft Copilot
-    url: https://dmcommunity.org/wp-content/uploads/2023/12/trying-to-solve-family-riddle-using-ms-copilot-1.pdf
+    url: "/resources/articles/2024-01-01-family-riddle-ms-copilot/"
   - title: ChatGPT
     author: ChatGPT
 ---

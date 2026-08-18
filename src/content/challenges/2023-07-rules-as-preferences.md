@@ -6,7 +6,7 @@ solutions:
   - title: IBM OPL
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2023/06/challenge2023july.oplcplexalexfleischer.pdf
+    url: "/resources/articles/2023-07-01-rules-as-preferences-miss-manners-advanced-ibm-opl/"
   - title: OpenRules RuleSolver
     author: Jacob Feldman
     affiliation: OpenRules
@@ -14,7 +14,7 @@ solutions:
   - title: OptaPlanner
     author: Thierry Guerin
     affiliation: Groupe Onepoint
-    url: https://dmcommunity.org/wp-content/uploads/2023/08/challenge2023july.optaplanner.pdf
+    url: "/resources/articles/2023-07-01-rules-as-preferences-miss-manners-advanced-optaplanner/"
 ---
 
 In the real world, not every rule can be satisfied, so it can help to treat rules as preferences instead. Our June-2023 "Miss Manners" challenge used well-tuned data with equal numbers of men and women at each party. Real data isn't like that. This advanced version keeps Miss Manners' seating goal — boy-girl-boy-girl, with a shared-hobby neighbor for every guest — but treats it as a preference to satisfy as much as possible rather than a hard rule, using new, less balanced datasets for parties of 16, 32, 64, and 128 guests.

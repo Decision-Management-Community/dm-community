@@ -6,7 +6,7 @@ solutions:
   - title: Behavioral Rules
     author: Ronald G. Ross
     affiliation: Business Rule Solutions
-    url: https://dmcommunity.org/wp-content/uploads/2021/09/challenge2020mar.ronross.pdf
+    url: "/resources/articles/2020-03-01-paid-sick-leave-requirements-behavioral-rules/"
 ---
 
 Employers are required to provide paid sick leave to workers, following complex regulations that vary by state and are further adjusted by counties, cities, unions, and other entities. This challenge asks you to implement a simplified version of California's rules as a worked example:

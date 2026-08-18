@@ -5,13 +5,13 @@ tags: [business-rules, dmn]
 solutions:
   - title: Camunda
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2019/04/challenge2019apr.bobmoore.pdf
+    url: "/resources/articles/2019-04-01-recreational-fee-camunda/"
   - title: DMN DRD
     author: Martin de Villiers
-    url: https://dmcommunity.org/wp-content/uploads/2019/04/challenge2019apr.martindevilliers.pdf
+    url: "/resources/articles/2019-04-01-recreational-fee-dmn-drd/"
   - title: DMN DRD
     author: Gary Hallmark
-    url: https://dmcommunity.org/wp-content/uploads/2019/04/challenge2019apr.garyhallmark.pdf
+    url: "/resources/articles/2019-04-01-recreational-fee-dmn-drd-2/"
   - title: OpenRules
     author: Jacob Feldman
     url: https://openrules.files.wordpress.com/2019/04/challenge2019apr.jacobfeldman-1.pdf
@@ -23,7 +23,7 @@ solutions:
     url: https://youtu.be/2zuEk2EIitI
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2019/05/challenge2019apr.jackjansonius.pdf
+    url: "/resources/articles/2019-04-01-recreational-fee-dt5gl/"
 ---
 
 A city has a decision table that sets usage fees for its recreational facilities based on how long a facility is used and when the usage occurs. On top of that decision table sits a separate behavioral business rule: *a senior citizen must not be charged a recreational fee for use of facilities.*

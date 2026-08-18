@@ -9,10 +9,10 @@ solutions:
     url: https://openrules.wordpress.com/2022/06/22/decision-model-for-medical-claim-processing/
   - title: Java
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2022/08/challenge2022may.bobmoore.pdf
+    url: "/resources/articles/2022-05-01-medical-claim-processing-java/"
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2022/09/challenge2022may.jj_.pdf
+    url: "/resources/articles/2022-05-01-medical-claim-processing-dt5gl/"
 ---
 
 Insurance claim validation is a classic use case for rules engines. This challenge works from a real reference file, `ICD10Codes.csv` (roughly 70,000 rows), whose two columns list pairs of [ICD-10](https://en.wikipedia.org/wiki/International_Statistical_Classification_of_Diseases_and_Related_Health_Problems) diagnosis codes that cannot legitimately be reported together on the same claim (e.g. A48.5/A05.1, K75.0/A06.4, K75.0/K83.09, ...).

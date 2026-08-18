@@ -6,17 +6,17 @@ solutions:
   - title: Executable English
     author: Adrian Walker
     affiliation: Reengineering LLC
-    url: https://dmcommunity.org/wp-content/uploads/2017/05/onlinedatingchallenge-adrianwalker.pdf
+    url: "/resources/articles/2017-03-01-online-dating-services-executable-english/"
   - title: InteliOps
     author: Dr. Vijay Bandekar
-    url: https://dmcommunity.org/wp-content/uploads/2017/05/online-dating-decision-intelliops.pdf
+    url: "/resources/articles/2017-03-01-online-dating-services-inteliops/"
   - title: DMN with Drools
     author: Edson Tirelli
     affiliation: Red Hat
     url: https://github.com/kiegroup/drools/blob/master/kie-dmn/kie-dmn-core/src/test/resources/org/kie/dmn/core/dmcommunity_challenge_2017_03.pdf
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2017/11/online-dating-corticon-mike-parish.pdf
+    url: "/resources/articles/2017-03-01-online-dating-services-corticon/"
   - title: MiniZinc
     author: Hakan Kjellerstrand
     url: https://github.com/hakank/hakank/blob/master/minizinc/online_dating_service.mzn

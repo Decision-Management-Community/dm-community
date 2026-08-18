@@ -5,7 +5,7 @@ tags: [puzzle, optimization]
 solutions:
   - title: No tools
     author: Boro Vujosevic
-    url: https://dmcommunity.org/wp-content/uploads/2020/11/challenge2020nov.boro_.png
+    url: "/resources/articles/2020-11-01-calculator-with-two-buttons-no-tools/"
   - title: cDMN
     author: Simon Vandevelde
     affiliation: KU Leuven
@@ -16,10 +16,10 @@ solutions:
   - title: OPL CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2020/11/challenge2020nov.alexfleischer.pdf
+    url: "/resources/articles/2020-11-01-calculator-with-two-buttons-opl-cplex/"
   - title: MiniZinc
     author: James Delonay
-    url: https://dmcommunity.org/wp-content/uploads/2021/06/challenge2020nov.minizinc.pdf
+    url: "/resources/articles/2020-11-01-calculator-with-two-buttons-minizinc/"
 ---
 
 A calculator, initially displaying **0**, has only two buttons: "**+**" adds 1 to the number on display, and "**×**" multiplies the number on display by 10.

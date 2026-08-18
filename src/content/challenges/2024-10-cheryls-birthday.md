@@ -9,7 +9,7 @@ solutions:
   - title: CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/10/challenge2024oct.cplexalexfleischer.pdf
+    url: "/resources/articles/2024-10-01-cheryl-s-birthday-cplex/"
 ---
 
 This month's challenge is the well-known "Cheryl's Birthday" logic puzzle from Singapore. Cheryl gives her friends Albert and Bernard a list of 10 possible dates for her birthday: May 15, 16, 19; June 17, 18; July 14, 16; August 14, 15, 17. She tells Albert only the month and Bernard only the day. They then have this exchange:

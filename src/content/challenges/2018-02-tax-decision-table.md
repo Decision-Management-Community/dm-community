@@ -5,19 +5,19 @@ tags: [business-rules, dmn]
 solutions:
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2018/02/challengetaxtablemikeparish.pdf
+    url: "/resources/articles/2018-02-01-tax-decision-table-corticon/"
   - title: Camunda
     author: Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2018/02/challengetaxtablebobmoore.pdf
+    url: "/resources/articles/2018-02-01-tax-decision-table-camunda/"
   - title: OpenRules
     author: Jacob Feldman
     url: https://openrules.wordpress.com/2018/03/02/dmcommunity-org-challenge-feb-2018/
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2018/03/challengetaxtabledt5gl.pdf
+    url: "/resources/articles/2018-02-01-tax-decision-table-dt5gl/"
   - title: Trisotech/RapidGen
     author: Jan Purchase
-    url: https://dmcommunity.org/wp-content/uploads/2018/03/challengetaxtablejanpurchase.pdf
+    url: "/resources/articles/2018-02-01-tax-decision-table-trisotech-rapidgen/"
   - title: IBM ODM/Decide4AI
     author: Daniel Rodriguez and Alberto Grande Gómez
     url: https://decidesoluciones.es/en/resolution-dm-community-challenge-tax-decision-table/

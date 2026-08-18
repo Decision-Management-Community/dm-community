@@ -13,7 +13,7 @@ solutions:
     url: https://openrules.wordpress.com/2021/10/21/a-simple-decision-model-dealing-with-dates/
   - title: Camunda
     author: Vedavyas Etikala
-    url: https://dmcommunity.org/wp-content/uploads/2021/11/challenge2021oct.camunda.pdf
+    url: "/resources/articles/2021-10-01-card-approval-decision-camunda/"
 ---
 
 Build a decision model that produces a credit card approval decision. A "Standard Card Score" is computed from Annual Income and Assets, and the application is auto-approved once that score clears a threshold of 350. The score table itself depends on today's date — some scores changed as of January 1, 2022:

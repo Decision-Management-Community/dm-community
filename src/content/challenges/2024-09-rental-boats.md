@@ -12,10 +12,10 @@ solutions:
   - title: Copilot
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2024/09/challenge2024sep.copilot.pdf
+    url: "/resources/articles/2024-09-01-rental-boats-copilot/"
   - title: OpenRules/RuleSolver
     author: Ian Detinich
-    url: https://dmcommunity.org/wp-content/uploads/2024/09/challenge2024sep.openrulessolver-1.pdf
+    url: "/resources/articles/2024-09-01-rental-boats-openrules-rulesolver/"
   - title: cDMN
     author: Simon Vandevelde
     affiliation: KU Leuven
@@ -23,17 +23,17 @@ solutions:
   - title: OPL/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/09/challenge2024sep.alexfleischer.pdf
+    url: "/resources/articles/2024-09-01-rental-boats-opl-cplex/"
   - title: Llama/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/09/challenge2024sep.llama_.alexfleischer.pdf
+    url: "/resources/articles/2024-09-01-rental-boats-llama-cplex/"
   - title: CPLEX/Java
     author: Guillaume Chagneau
-    url: https://dmcommunity.org/wp-content/uploads/2024/09/challenge2024sep.cplex_.java_.pdf
+    url: "/resources/articles/2024-09-01-rental-boats-cplex-java/"
   - title: Excel Solver
     author: Guillaume Chagneau
-    url: https://dmcommunity.org/wp-content/uploads/2024/12/challenge2024sep.excelsolver.pdf
+    url: "/resources/articles/2024-09-01-rental-boats-excel-solver/"
   - title: Seeker
     author: Meinolf Sellmann
     url: https://colab.research.google.com/drive/1_HbGO-R80v5uH5Tu1_nH39sfBV-u81Vi?usp=sharing

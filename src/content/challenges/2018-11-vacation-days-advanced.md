@@ -5,13 +5,13 @@ tags: [business-rules, optimization]
 solutions:
   - title: Blaze Advisor
     author: Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2018/11/challengenov2018-bobmoore.pdf
+    url: "/resources/articles/2018-11-01-vacation-days-advanced-blaze-advisor/"
   - title: OpenRules with JSR331
     author: Jacob Feldman
-    url: https://dmcommunity.org/wp-content/uploads/2018/12/OpenRules-Solutions-for-Vacation-Days-Advanced.pdf
+    url: "/resources/articles/2018-11-01-vacation-days-advanced-openrules-with-jsr331/"
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2018/11/challengenov2018-jansonius.pdf
+    url: "/resources/articles/2018-11-01-vacation-days-advanced-dt5gl/"
   - title: cDMN
     author: Simon Vandevelde
     url: https://cdmn.readthedocs.io/en/latest/Examples/vacation_days_advanced.html

@@ -8,14 +8,14 @@ solutions:
     url: https://www.mr70.eu/posts/dmcommunity_org_challenge-feb-2021/
   - title: Camunda
     author: Rob Parker
-    url: https://dmcommunity.org/wp-content/uploads/2021/02/challenge2021feb.robparker-2.pdf
+    url: "/resources/articles/2021-02-01-benchmark-medical-services-camunda/"
   - title: Java
     author: Pradeep Venkat
-    url: https://dmcommunity.org/wp-content/uploads/2021/02/challenge2021feb.java_.pdf
+    url: "/resources/articles/2021-02-01-benchmark-medical-services-java/"
   - title: Corticon
     author: Seth Meldon
     affiliation: Progress Corticon
-    url: https://dmcommunity.org/wp-content/uploads/2021/03/challenge2021feb.corticon.pdf
+    url: "/resources/articles/2021-02-01-benchmark-medical-services-corticon/"
   - title: IBM ODM
     author: Azahara Talavera, Thomas Follon, Lorena Roa, Facundo López
     affiliation: decide4AI
@@ -26,10 +26,10 @@ solutions:
     url: https://openrules.wordpress.com/2021/04/12/benchmarking-decision-service/
   - title: Java (custom HashMap engine)
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2021/05/challenge2021feb.bobmoore.pdf
+    url: "/resources/articles/2021-02-01-benchmark-medical-services-java-custom-hashmap-engine/"
   - title: Drools 7.50
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2021/05/challenge2021feb.bobmoore.pdf
+    url: "/resources/articles/2021-02-01-benchmark-medical-services-java-custom-hashmap-engine/"
 ---
 
 Unlike most challenges here, this one is about *speed*, not just correctness. It asks DM practitioners to implement the same decision service using their favorite BR&DM tool and report its actual execution time.

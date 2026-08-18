@@ -9,7 +9,7 @@ solutions:
     url: https://cdmn.readthedocs.io/en/latest/Examples/covid_testing.html#covid-testing
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2021/05/challenge2021may.jj_.pdf
+    url: "/resources/articles/2021-05-01-covid-19-testing-dt5gl/"
 ---
 
 At the outset of the COVID-19 pandemic, with case counts rising faster than testing capacity, the Belgian government used a triage procedure to decide which patients should get a PCR test:

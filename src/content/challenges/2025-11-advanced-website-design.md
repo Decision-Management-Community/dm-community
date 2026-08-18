@@ -6,11 +6,11 @@ solutions:
   - title: JSR-331
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.nov_.jsr331.pdf
+    url: "/resources/articles/2025-11-01-advanced-website-design-jsr-331/"
   - title: RuleSolver
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.nov_.rulesolver.pdf
+    url: "/resources/articles/2025-11-01-advanced-website-design-rulesolver/"
   - title: cDMN
     author: Simon Vandevelde
     affiliation: KU Leuven
@@ -18,7 +18,7 @@ solutions:
   - title: OPL/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.nov_.alexfleischer.pdf
+    url: "/resources/articles/2025-11-01-advanced-website-design-opl-cplex/"
 ---
 
 This challenge is an advanced version of last month's "Decision with Two Objectives," where a freelance developer needs to design a website with as many valuable features as possible within a fixed budget. This time there are additional constraints:

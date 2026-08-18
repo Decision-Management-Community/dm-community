@@ -1,6 +1,6 @@
 # Articles
 
-Long-form essays on decision management, rendered at `/resources/articles/`. One file per article.
+Long-form essays and archived challenge solution documents, rendered at `/resources/articles/`. One file per article.
 
 News posts should stay short and link here (or elsewhere) rather than reproducing the full piece.
 
@@ -14,6 +14,8 @@ News posts should stay short and link here (or elsewhere) rather than reproducin
 | `linkedin` | string (URL) | no | Author LinkedIn profile |
 | `originalUrl` | string (URL) | no | Where the piece was originally published, if elsewhere |
 | `summary` | string | no | One or two sentences for the listing card |
+| `challengeUrl` | root-relative challenge URL | no | Challenge associated with an archived solution document |
+| `documentUrl` | root-relative `/news-media/` URL | no | Self-hosted attachment for an archived solution document |
 
 ## Adding an article
 

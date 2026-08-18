@@ -6,15 +6,15 @@ solutions:
   - title: OPL/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/02/challenge2025feb.cplexalexfleischer.pdf
+    url: "/resources/articles/2025-02-01-mr-bates-vs-the-post-office-opl-cplex/"
   - title: OpenRules RuleSolver
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2026/07/Challenge2025Feb.OpenRules.pdf
+    url: "/resources/articles/2025-02-01-mr-bates-vs-the-post-office-openrules-rulesolver/"
   - title: Copilot + JavaSolver
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/03/challenge2025feb.copilot.pdf
+    url: "/resources/articles/2025-02-01-mr-bates-vs-the-post-office-copilot-javasolver/"
   - title: Prolog
     author: Matteo Redaelli
     url: https://www.mr70.eu/posts/dmcommunity_org_challenge-feb-2025/

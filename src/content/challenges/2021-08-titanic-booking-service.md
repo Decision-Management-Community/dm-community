@@ -5,14 +5,14 @@ tags: [machine-learning]
 solutions:
   - title: Scikit-Learn
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2021/09/challenge2021aug.bobmoore.pdf
+    url: "/resources/articles/2021-08-01-titanic-booking-service-scikit-learn/"
   - title: RuleLearner
     author: Jacob Feldman
     affiliation: OpenRules
     url: https://openrules.wordpress.com/2021/09/11/titanic-booking-service/
   - title: s(CASP)
     author: Gopal Gupta
-    url: https://dmcommunity.org/wp-content/uploads/2021/09/challenge2021aug.gopalgupta-1.pdf
+    url: "/resources/articles/2021-08-01-titanic-booking-service-s-casp/"
 ---
 
 Kaggle's classic [Titanic competition](https://www.kaggle.com/c/titanic/overview) asks entrants to use machine learning to predict which passengers survived the shipwreck. It provides `train.csv` — 891 passengers with characteristics like age, sex, ticket class, and fare, plus whether they survived — and `test.csv`, 418 more passengers with the same characteristics but no outcome. Not every characteristic is known for every passenger (age, for instance, is sometimes missing).

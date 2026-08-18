@@ -5,16 +5,16 @@ tags: [dmn, financial-services]
 solutions:
   - title: DMN with Trisotech
     author: Bruce Silver
-    url: https://dmcommunity.org/wp-content/uploads/2018/06/challengejune2018-brucesilver.pdf
+    url: "/resources/articles/2018-06-01-credit-card-application-dmn-with-trisotech/"
   - title: DMN with OpenRules
     author: Jacob Feldman
     url: https://openrules.wordpress.com/2018/06/02/old-decision-model-credit-card-application-implemented-with-new-openrules-7/
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2018/07/challengejune2018-mikeparish1.pdf
+    url: "/resources/articles/2018-06-01-credit-card-application-corticon/"
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2018/09/challengejune-jackjansonius.pdf
+    url: "/resources/articles/2018-06-01-credit-card-application-dt5gl/"
 ---
 
 Back in January 2014, Nick Broom published one of the first real-world decision models — a "Credit Card Application" decisioning example — to demonstrate the newly-released DMN 1.0 standard. Now that many more vendors support DMN, this challenge revives Nick's original example as a way to compare current implementations of the same relatively simple decision model across tools.

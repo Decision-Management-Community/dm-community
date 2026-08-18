@@ -6,7 +6,7 @@ solutions:
   - title: OPL/CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/06/challenge2024june.alexfleischer-1.pdf
+    url: "/resources/articles/2024-06-01-stable-marriage-problem-opl-cplex/"
   - title: Prolog
     author: Matteo Redaelli
     url: https://www.mr70.eu/posts/dmcommunity_org_challenge-jun-2024/
@@ -16,15 +16,15 @@ solutions:
   - title: OpenRules RuleSolver (with Java)
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2024/07/challenge2024june-4.pdf
+    url: "/resources/articles/2024-06-01-stable-marriage-problem-openrules-rulesolver-with-java/"
   - title: OpenRules RuleSolver (no Java)
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2026/08/Challenge2024JuneSolver.pdf
+    url: "/resources/articles/2024-06-01-stable-marriage-problem-openrules-rulesolver-no-java/"
   - title: watsonx
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/07/challenge2024june.alexfleischer.watsonx.pdf
+    url: "/resources/articles/2024-06-01-stable-marriage-problem-watsonx/"
 ---
 
 This challenge is the classic stable marriage problem: given _n_ men and _n_ women, where each person has ranked every member of the opposite sex in order of preference, pair everyone up so that there's no man and woman who would both rather have each other than their current partners. A pairing with no such pair is called stable.

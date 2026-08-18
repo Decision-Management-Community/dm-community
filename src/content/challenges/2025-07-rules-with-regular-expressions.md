@@ -6,7 +6,7 @@ solutions:
   - title: Progress Corticon
     author: Seth Meldon
     affiliation: Progress
-    url: https://dmcommunity.org/wp-content/uploads/2025/07/challenge2025july.corticon.pdf
+    url: "/resources/articles/2025-07-01-rules-with-regular-expressions-progress-corticon/"
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
@@ -14,14 +14,14 @@ solutions:
   - title: RulesMatix
     author: Baljeet Singh Kandhari
     affiliation: RulesMatix
-    url: https://dmcommunity.org/wp-content/uploads/2025/07/challenge2025july.rulesmatix.pdf
+    url: "/resources/articles/2025-07-01-rules-with-regular-expressions-rulesmatix/"
   - title: DT5GL/SQL/Python
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2025/07/challenge2025july.jj_.pdf
+    url: "/resources/articles/2025-07-01-rules-with-regular-expressions-dt5gl-sql-python/"
   - title: IBM ODM
     author: Andrew Macdonald
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/12/challenge2025.july_.andrewmacdonald.pdf
+    url: "/resources/articles/2025-07-01-rules-with-regular-expressions-ibm-odm/"
 ---
 
 A university is building a system to help students choose courses toward a degree. Each course has a unique code such as "MA523" or "CS38251". Create a decision service that splits a set of courses into "allowed" and "not allowed" lists using pattern-based rules like these:

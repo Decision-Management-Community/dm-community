@@ -5,13 +5,13 @@ tags: [business-rules, dmn]
 solutions:
   - title: DMN with Trisotech/Drools
     author: Bruce Silver
-    url: https://dmcommunity.org/wp-content/uploads/2017/09/challengesep2017-brucesilver2.pdf
+    url: "/resources/articles/2017-09-01-classify-department-employees-dmn-with-trisotech-drools/"
   - title: DMN with OpenRules
     author: Jacob Feldman
     url: https://openrules.wordpress.com/2017/09/07/calculating-aggregated-values-for-collections-of-business-objects/
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2017/12/challengesep2017-mikeparish.pdf
+    url: "/resources/articles/2017-09-01-classify-department-employees-corticon/"
   - title: MiniZinc
     author: Hakan Kjellerstrand
     url: https://github.com/hakank/hakank/blob/master/minizinc/classify_department_employees.mzn

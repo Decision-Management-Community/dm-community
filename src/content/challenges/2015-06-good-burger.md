@@ -6,7 +6,7 @@ solutions:
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2015/06/burger-challenge-corticon.pdf
+    url: "/resources/articles/2015-06-01-make-a-good-burger-corticon/"
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
@@ -14,13 +14,13 @@ solutions:
   - title: DMN FEEL prototype
     author: Gary Hallmark
     affiliation: Oracle
-    url: https://dmcommunity.org/wp-content/uploads/2015/06/garyhallmarkburger.pdf
+    url: "/resources/articles/2015-06-01-make-a-good-burger-dmn-feel-prototype/"
   - title: cDMN
     author: Simon Vandevelde
     url: https://cdmn.readthedocs.io/en/latest/Examples/change_making.html
   - title: CPLEX
     author: Alex Fleischer
-    url: https://dmcommunity.org/wp-content/uploads/2022/07/challengejune2015.oplcplexalexfleischer.pdf
+    url: "/resources/articles/2015-06-01-make-a-good-burger-cplex/"
 ---
 
 Another PuzzlOR-inspired problem: design a burger recipe out of a fixed list of available ingredients, each with its own cost, sodium, fat, and calorie content per serving.

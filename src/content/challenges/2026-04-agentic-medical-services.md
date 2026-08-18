@@ -14,7 +14,7 @@ solutions:
   - title: Aletyx
     author: Alex Porcelli
     affiliation: Aletyx
-    url: "https://dmcommunity.org/wp-content/uploads/2026/04/challenge2026apr.aletyx.pdf"
+    url: "/resources/articles/2026-04-01-agentic-medical-services-aletyx/"
   - title: Trisotech
     author: Dr. John Svirbely
     affiliation: Trisotech
@@ -24,7 +24,7 @@ solutions:
     url: "https://github.com/geneweng/agentic_medical_services_poc"
   - title: DT5GL/SQL/Python
     author: Jack Jansonius
-    url: "https://dmcommunity.org/wp-content/uploads/2026/05/Challenge2026Apr.JJ_.pdf"
+    url: "/resources/articles/2026-04-01-agentic-medical-services-dt5gl-sql-python/"
 ---
 
 This challenge aims to explore how LLMs orchestrate rule-based decision services. Consider the following three loosely coupled medical services that should be used by an LLM to help a doctor determine a therapy for a patient with Acute Sinusitis.

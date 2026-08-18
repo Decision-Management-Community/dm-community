@@ -8,7 +8,7 @@ solutions:
     url: https://linkedin.com/pulse/zoo-buses-kids-optimization-resource-allocation-philippe-laborie/
   - title: SQL
     author: Damir Sudarevic
-    url: https://dmcommunity.org/wp-content/uploads/2018/08/challengejuly2018-damir.jpg
+    url: "/resources/articles/2018-07-01-zoo-buses-and-kids-sql/"
   - title: OpenRules
     author: Jacob Feldman
     url: https://openrules.wordpress.com/2018/08/17/dmcommunity-challenge-july-2018-zoo-buses-and-kids/

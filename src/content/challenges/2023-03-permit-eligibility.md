@@ -10,7 +10,7 @@ solutions:
   - title: ChatGPT and Java
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2023/04/challenge2023apr.chatgpt4-3.pdf
+    url: "/resources/articles/2023-03-01-permit-eligibility-chatgpt-and-java/"
   - title: OpenRules
     author: Alex Mirtsyn
     affiliation: OpenRules
@@ -18,17 +18,17 @@ solutions:
   - title: Scala
     author: Alex Goldin
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2023/04/challenge2023apr.scala_.pdf
+    url: "/resources/articles/2023-03-01-permit-eligibility-scala/"
   - title: Oracle
     author: Charlotte Bouvy & Martijn Tromm
     affiliation: Rabobank
-    url: https://dmcommunity.org/wp-content/uploads/2023/04/challenge2023mar.oracle-1.pdf
+    url: "/resources/articles/2023-03-01-permit-eligibility-oracle/"
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2023/05/challenge2023mar.jj_.pdf
+    url: "/resources/articles/2023-03-01-permit-eligibility-dt5gl/"
   - title: ChatGPT
     author: ChatGPT
-    url: https://dmcommunity.org/wp-content/uploads/2023/03/challenge2023mar.chatgpt4.pdf
+    url: "/resources/articles/2023-03-01-permit-eligibility-chatgpt/"
 ---
 
 As part of a regulatory process, a government agency wants to determine whether an applicant is eligible for a resident permit using a simple rule: an applicant is eligible if, while married, the applicant and their spouse have shared the same address for at least 7 of the last 10 years.

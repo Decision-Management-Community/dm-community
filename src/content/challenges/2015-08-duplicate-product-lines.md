@@ -10,10 +10,10 @@ solutions:
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2015/08/duplicates-corticon.pdf
+    url: "/resources/articles/2015-08-01-find-duplicate-product-lines-corticon/"
   - title: R
     author: Riccardo Hertel
-    url: https://dmcommunity.org/wp-content/uploads/2015/08/rh-challenge-08-2015.pdf
+    url: "/resources/articles/2015-08-01-find-duplicate-product-lines-r/"
 ---
 
 A sales order contains a list of product lines. Build a decision model that identifies which product lines within an order are duplicates of each other, where "duplicate" is defined by a user-configurable similarity rule — for example, two product lines might be considered duplicates if they share the same SKU and price.

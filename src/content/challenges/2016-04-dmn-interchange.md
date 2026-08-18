@@ -5,7 +5,7 @@ tags: [dmn, standards]
 solutions:
   - title: XSLT/XPath
     author: Bruce Silver
-    url: https://dmcommunity.org/wp-content/uploads/2016/05/xmlchallenge-brucesilver.pdf
+    url: "/resources/articles/2016-04-01-dmn-interchange-challenge-xslt-xpath/"
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules

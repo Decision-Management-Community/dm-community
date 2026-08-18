@@ -6,11 +6,11 @@ solutions:
   - title: Oracle Policy Automation
     author: Martijn Tromm
     affiliation: Oracle
-    url: https://dmcommunity.org/wp-content/uploads/2014/09/decision-management-challenge-oct-2014-solution-oracle-policy-automation.pdf
+    url: "/resources/articles/2014-10-01-borrowing-pass-fail-decision-with-mitigation-criteria-oracle-policy-automation/"
   - title: OpenL Tablets
     author: Hanna Peravalava
     affiliation: EIS Group
-    url: https://dmcommunity.org/wp-content/uploads/2014/10/borrowings-decision-model-challenge-eis.pdf
+    url: "/resources/articles/2014-10-01-borrowing-pass-fail-decision-with-mitigation-criteria-openl-tablets/"
   - title: Corticon Studio
     author: Maria Jesus Garcia
     affiliation: DECIDE
@@ -26,7 +26,7 @@ solutions:
   - title: IDIOM
     author: Mark Norton
     affiliation: Idiom Software
-    url: https://dmcommunity.org/wp-content/uploads/2014/10/borrowing-decision-challenge-2014-10-idiom.pdf
+    url: "/resources/articles/2014-10-01-borrowing-pass-fail-decision-with-mitigation-criteria-idiom/"
   - title: Sparkling Logic
     author: Carole-Ann Matignon
     affiliation: Sparkling Logic

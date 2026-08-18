@@ -9,7 +9,7 @@ solutions:
     url: https://cdmn.readthedocs.io/en/latest/Examples/virtual_chess_tournament.html
   - title: Gurobi
     author: Bernhard C. Schrenk
-    url: https://dmcommunity.org/wp-content/uploads/2020/12/challengedec2020.bernhardclemy.pdf
+    url: "/resources/articles/2020-12-01-virtual-chess-tournament-gurobi/"
   - title: Prolog
     author: Matteo Redaelli
     url: https://www.mr70.eu/posts/dmcommunity_org_challenge-dec-2020/
@@ -20,13 +20,13 @@ solutions:
   - title: OPL
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2020/12/challengedec2020.alexfleischer.pdf
+    url: "/resources/articles/2020-12-01-virtual-chess-tournament-opl/"
   - title: MiniZinc
     author: Florian Sikora
-    url: https://dmcommunity.org/wp-content/uploads/2020/12/challenge2020dec.floriansikora.pdf
+    url: "/resources/articles/2020-12-01-virtual-chess-tournament-minizinc/"
   - title: Python
     author: Emmanuel Lazard
-    url: https://dmcommunity.org/wp-content/uploads/2020/12/challenge2020dec.emmanuellazard.pdf
+    url: "/resources/articles/2020-12-01-virtual-chess-tournament-python/"
 ---
 
 Three world chess champions — Fischer, Kasparov, and Karpov — play a virtual round-robin tournament, each facing the other two 7 times, for 7 total games per player. A win is worth 2 points, a draw 1 point, and a loss 0 points.

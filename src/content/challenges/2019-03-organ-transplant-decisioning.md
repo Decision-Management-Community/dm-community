@@ -5,16 +5,16 @@ tags: [healthcare, business-rules]
 solutions:
   - title: RuleSpeak/SBVR
     author: Ronald G. Ross
-    url: https://dmcommunity.org/wp-content/uploads/2019/03/challenge2019mar.behavioral-business-rules-for-heart-lung-donations.pdf
+    url: "/resources/articles/2019-03-01-offering-donated-organs-for-transplant-rulespeak-sbvr/"
   - title: BPMN/Trisotech
     author: Denis Gagné
-    url: https://dmcommunity.org/wp-content/uploads/2019/03/challenge2019mar.trisotech.pdf
+    url: "/resources/articles/2019-03-01-offering-donated-organs-for-transplant-bpmn-trisotech/"
   - title: Drools
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2019/03/challenge2019mar.bobmoore.pdf
+    url: "/resources/articles/2019-03-01-offering-donated-organs-for-transplant-drools/"
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2019/04/challenge2019mar.jansonius.pdf
+    url: "/resources/articles/2019-03-01-offering-donated-organs-for-transplant-dt5gl/"
   - title: ALEF
     author: Marnix van Rij
     affiliation: Netherlands Tax Administration

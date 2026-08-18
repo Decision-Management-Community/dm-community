@@ -5,20 +5,20 @@ tags: [business-rules, scheduling]
 solutions:
   - title: Corticon
     author: Michael Parish
-    url: https://dmcommunity.org/wp-content/uploads/2017/11/soldier-decision-modeling-challenge-corticon-mike-parish.pdf
+    url: "/resources/articles/2017-11-01-soldier-payment-rules-corticon/"
   - title: SQL
     author: Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2017/11/bobmoore-nov2017challenge.pdf
+    url: "/resources/articles/2017-11-01-soldier-payment-rules-sql/"
   - title: DT5GL with SQL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2023/09/challenge2023aug.jj_.pdf
+    url: "/resources/articles/2023-08-01-soldier-payment-rules-dt5gl-with-sql/"
   - title: DT5GL with SQL (revised)
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2024/02/challenge2023augjj2.pdf
+    url: "/resources/articles/2023-08-01-soldier-payment-rules-dt5gl-with-sql-revised/"
   - title: OpenRules Decision Manager
     author: Alex Mirtsyn
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2023/10/soldierpaymentservice-1.pdf
+    url: "/resources/articles/2023-08-01-soldier-payment-rules-openrules-decision-manager/"
   - title: OpenRules RuleDB
     author: Jacob Feldman
     affiliation: OpenRules
