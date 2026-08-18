@@ -19,7 +19,10 @@ const moreNav = [
   { href: url('/contribute/'), label: 'Contribute' },
 ];
 const path = Astro.url.pathname;
-const isMoreActive = moreNav.some((item) => item.href === path);
+const homeHref = url('/');
+const isHrefActive = (href: string) =>
+  href === homeHref ? path === homeHref : path === href || path.startsWith(href);
+const isMoreActive = moreNav.some((item) => isHrefActive(item.href));
 const pagefindBundlePath = url('/pagefind/');
 const pagefindUiJs = url('/pagefind/pagefind-ui.js');
 const pagefindUiCss = url('/pagefind/pagefind-ui.css');
@@ -34,7 +37,7 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
       {primaryNav.map((item) => (
         <a
           href={item.href}
-          aria-current={path === item.href ? 'page' : undefined}
+          aria-current={isHrefActive(item.href) ? 'page' : undefined}
         >{item.label}</a>
       ))}
       <div class="nav-more">
@@ -54,24 +57,32 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
           {moreNav.map((item) => (
             <a
               href={item.href}
-              aria-current={path === item.href ? 'page' : undefined}
+              aria-current={isHrefActive(item.href) ? 'page' : undefined}
             >{item.label}</a>
           ))}
         </div>
       </div>
     </nav>
-    <button class="icon-btn" id="search-toggle" aria-expanded="false" aria-controls="search-panel" aria-label="Search">
+    <button
+      class="icon-btn"
+      id="search-toggle"
+      aria-expanded="false"
+      aria-controls="search-panel"
+      aria-label="Open search"
+      aria-keyshortcuts="/"
+      title="Search (/)"
+    >
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.6" />
         <path d="M12.5 12.5L16 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
       </svg>
     </button>
-    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Toggle navigation">
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Open navigation">
       <span></span><span></span><span></span>
     </button>
   </div>
   <div class="search-panel" id="search-panel" hidden>
-    <div class="wrap">
+    <div class="wrap" role="search" aria-label="Site search">
       <div id="pagefind-search"></div>
     </div>
   </div>
@@ -281,9 +292,15 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
 <script>
   const navToggle = document.getElementById('nav-toggle');
   const nav = document.getElementById('site-nav');
+
+  function setNavOpen(open: boolean) {
+    nav?.classList.toggle('open', open);
+    navToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  }
+
   navToggle?.addEventListener('click', () => {
-    const open = nav?.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    setNavOpen(!nav?.classList.contains('open'));
   });
 
   const moreToggle = document.getElementById('nav-more-toggle');
@@ -309,7 +326,17 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
     closeMoreMenu();
   });
   document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMoreMenu();
+    if (event.key !== 'Escape') return;
+
+    if (moreMenu && !moreMenu.hasAttribute('hidden')) {
+      closeMoreMenu();
+      moreToggle?.focus();
+    }
+
+    if (nav?.classList.contains('open')) {
+      setNavOpen(false);
+      navToggle?.focus();
+    }
   });
 </script>
 
@@ -317,6 +344,11 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
   const searchToggle = document.getElementById('search-toggle');
   const searchPanel = document.getElementById('search-panel');
   let pagefindLoaded = false;
+
+  function setSearchToggleState(open) {
+    searchToggle?.setAttribute('aria-expanded', open ? 'true' : 'false');
+    searchToggle?.setAttribute('aria-label', open ? 'Close search' : 'Open search');
+  }
 
   async function loadPagefindUi() {
     if (pagefindLoaded) return;
@@ -336,27 +368,56 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
     new PagefindUI({ element: '#pagefind-search', bundlePath: pagefindBundlePath, showSubResults: true });
   }
 
+  async function openSearch() {
+    if (!searchPanel) return;
+    searchPanel.removeAttribute('hidden');
+    setSearchToggleState(true);
+    try {
+      await loadPagefindUi();
+    } catch {
+      pagefindLoaded = false;
+    }
+    searchPanel.querySelector('input')?.focus();
+  }
+
+  function closeSearch(restoreFocus = false) {
+    searchPanel?.setAttribute('hidden', '');
+    setSearchToggleState(false);
+    if (restoreFocus) searchToggle?.focus();
+  }
+
   searchToggle?.addEventListener('click', async () => {
-    const opening = searchPanel?.hasAttribute('hidden');
-    if (opening) {
-      searchPanel?.removeAttribute('hidden');
-      searchToggle.setAttribute('aria-expanded', 'true');
-      try {
-        await loadPagefindUi();
-      } catch {
-        pagefindLoaded = false;
-      }
-      searchPanel?.querySelector('input')?.focus();
+    if (searchPanel?.hasAttribute('hidden')) {
+      await openSearch();
     } else {
-      searchPanel?.setAttribute('hidden', '');
-      searchToggle.setAttribute('aria-expanded', 'false');
+      closeSearch();
     }
   });
 
-  document.addEventListener('keydown', (event) => {
+  function isEditableTarget(target) {
+    return target instanceof HTMLElement && (
+      target.isContentEditable ||
+      target.tagName === 'INPUT' ||
+      target.tagName === 'TEXTAREA' ||
+      target.tagName === 'SELECT'
+    );
+  }
+
+  document.addEventListener('keydown', async (event) => {
+    if (
+      event.key === '/' &&
+      !event.metaKey &&
+      !event.ctrlKey &&
+      !event.altKey &&
+      !isEditableTarget(event.target)
+    ) {
+      event.preventDefault();
+      await openSearch();
+      return;
+    }
+
     if (event.key === 'Escape' && searchPanel && !searchPanel.hasAttribute('hidden')) {
-      searchPanel.setAttribute('hidden', '');
-      searchToggle?.setAttribute('aria-expanded', 'false');
+      closeSearch(true);
     }
   });
 </script>
