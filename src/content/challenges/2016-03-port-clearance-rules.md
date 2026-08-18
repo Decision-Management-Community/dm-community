@@ -6,23 +6,23 @@ solutions:
   - title: DecisionsFirst
     author: James Taylor
     affiliation: Decision Management Solutions
-    url: https://dmcommunity.org/wp-content/uploads/2016/03/portexample-decisionsfirst.pdf
+    url: "/resources/articles/2016-03-01-port-clearance-rules-decisionsfirst/"
   - title: BiZZdesign
     author: Antonio Plais
     affiliation: CENTUS
-    url: https://dmcommunity.org/wp-content/uploads/2016/03/port-clearance-centus.pdf
+    url: "/resources/articles/2016-03-01-port-clearance-rules-bizzdesign/"
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2016/03/corticon-solution-1-port-clearance-as-specified.pdf
+    url: "/resources/articles/2016-03-01-port-clearance-rules-corticon/"
   - title: Blueriq
     author: Maarten Schadd
     affiliation: Blueriq
-    url: https://dmcommunity.org/wp-content/uploads/2016/03/port-clearance-blueriq.pdf
+    url: "/resources/articles/2016-03-01-port-clearance-rules-blueriq/"
   - title: Trisotech
     author: Denis Gagné
     affiliation: Trisotech
-    url: https://dmcommunity.org/wp-content/uploads/2016/03/port-clearance-trisotech.pdf
+    url: "/resources/articles/2016-03-01-port-clearance-rules-trisotech/"
   - title: PSOA RuleML
     author: Gen Zou, Harold Boley, Dylan Wood, and Kieran Lea
     affiliation: University of New Brunswick

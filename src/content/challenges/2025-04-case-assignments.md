@@ -18,14 +18,14 @@ solutions:
   - title: OPL CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/04/challenge2025apr.alexfleischer.pdf
+    url: "/resources/articles/2025-04-01-case-assignments-opl-cplex/"
   - title: Corticon
     author: Seth Meldon
     affiliation: Progress
     url: https://github.com/corticon/corticon-classic-samples/blob/main/Case%20Assignment/README.md
   - title: DT5GL/SQL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2025/04/challenge2025apr.jj_.pdf
+    url: "/resources/articles/2025-04-01-case-assignments-dt5gl-sql/"
 ---
 
 An analytical firm assigns cases to analysts using these rules:

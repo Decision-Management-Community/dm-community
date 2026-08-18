@@ -11,13 +11,13 @@ solutions:
     url: https://javasolvers.wordpress.com/learn-by-examples/map-coloring/
   - title: DMN
     author: Thierry Guerin
-    url: https://dmcommunity.org/wp-content/uploads/2019/12/challengemay2019mapcoloring.dmn_.pdf
+    url: "/resources/articles/2019-05-01-map-coloring-dmn/"
   - title: Java
     author: Alex Goldin
-    url: https://dmcommunity.org/wp-content/uploads/2019/12/mapcoloringjava-1.pdf
+    url: "/resources/articles/2019-05-01-map-coloring-java/"
   - title: SQL
     author: Damir Sudarevic
-    url: https://dmcommunity.org/wp-content/uploads/2020/02/mapcoloring.damirsudarevic.pdf
+    url: "/resources/articles/2019-05-01-map-coloring-sql/"
   - title: cDMN
     author: Simon Vandevelde
     url: https://cdmn.readthedocs.io/en/latest/Examples/map_coloring.html

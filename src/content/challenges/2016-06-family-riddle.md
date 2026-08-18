@@ -6,7 +6,7 @@ solutions:
   - title: Progress Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2016/07/challengejune2016-familyriddle-corticon.pdf
+    url: "/resources/articles/2016-06-01-family-riddle-progress-corticon/"
   - title: MiniZinc
     author: Hakan Kjellerstrand
     url: https://github.com/hakank/hakank/blob/master/minizinc/family_riddle2.mzn

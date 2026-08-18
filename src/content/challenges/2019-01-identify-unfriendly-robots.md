@@ -5,10 +5,10 @@ tags: [machine-learning, business-rules]
 solutions:
   - title: No tools
     author: Vlad Silverman
-    url: https://dmcommunity.org/wp-content/uploads/2019/01/challenge2019jan.vlad-silverman.pdf
+    url: "/resources/articles/2019-01-01-identify-unfriendly-robots-no-tools/"
   - title: Python ML Packages
     author: Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2019/01/challenge2019jan.bobmoore.pdf
+    url: "/resources/articles/2019-01-01-identify-unfriendly-robots-python-ml-packages/"
   - title: RuleLearner.com
     author: Jacob Feldman
     url: https://openrules.wordpress.com/2020/08/25/using-rule-learner-to-identify-unfriendly-robots/

@@ -5,11 +5,11 @@ tags: [fraud-detection, business-rules]
 solutions:
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2017/03/fraudchallenge-corticon.pdf
+    url: "/resources/articles/2017-02-01-determine-booking-fraud-corticon/"
   - title: Oracle DMN
     author: Arun Pareek
     affiliation: Rubicon Red
-    url: https://dmcommunity.org/wp-content/uploads/2017/05/determine-booking-fraud-solution-by-arun-pareek-using-oracle-process-cloud-service.pdf
+    url: "/resources/articles/2017-02-01-determine-booking-fraud-oracle-dmn/"
 ---
 
 Build a decision model that flags potential fraud during an online product-booking process, based on an automatically calculated Fraud Rating Score. A booking is allowed to proceed automatically only if the score stays below 200. The score accumulates as follows:

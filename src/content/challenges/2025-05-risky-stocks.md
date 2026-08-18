@@ -6,10 +6,10 @@ solutions:
   - title: watsonx with Mistral
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/05/challenge2025may.watsonxalexfleischer.pdf
+    url: "/resources/articles/2025-05-01-risky-stocks-watsonx-with-mistral/"
   - title: OpenRules Decision Manager
     author: Ian Detinich
-    url: https://dmcommunity.org/wp-content/uploads/2025/06/challenge2025may.openrulesdecisionmanager.pdf
+    url: "/resources/articles/2025-05-01-risky-stocks-openrules-decision-manager/"
   - title: OpenRules Rule Solver
     author: Jacob Feldman
     affiliation: OpenRules

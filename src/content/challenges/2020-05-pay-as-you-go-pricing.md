@@ -5,7 +5,7 @@ tags: [business-rules, pricing]
 solutions:
   - title: Excel/Python
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2020/06/challenge2020may.bobmoore.pdf
+    url: "/resources/articles/2020-05-01-pay-as-you-go-pricing-excel-python/"
   - title: SparklingLogic
     author: Carole-Ann Berlioz
     affiliation: SparklingLogic
@@ -13,17 +13,17 @@ solutions:
   - title: Rulesmatix
     author: Baljeet Singh
     affiliation: Rulesmatix
-    url: https://dmcommunity.org/wp-content/uploads/2020/06/challenge2020may.baljeetsingh.pdf
+    url: "/resources/articles/2020-05-01-pay-as-you-go-pricing-rulesmatix/"
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
     url: https://openrules.wordpress.com/2020/06/24/solution-for-dmcommunity-challenge-pay-as-you-go-pricing-rules/
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2020/07/challenge2020may.jackjansonius-1.pdf
+    url: "/resources/articles/2020-05-01-pay-as-you-go-pricing-dt5gl/"
   - title: Relational Rule Base
     author: Leonid Nisenboym
-    url: https://dmcommunity.org/wp-content/uploads/2020/10/challenge2020may.leonidnisenboym.pdf
+    url: "/resources/articles/2020-05-01-pay-as-you-go-pricing-relational-rule-base/"
 ---
 
 SaaS vendors typically bill on a pay-as-you-go, tiered-usage basis:

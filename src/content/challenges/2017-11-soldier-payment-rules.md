@@ -5,10 +5,10 @@ tags: [business-rules, temporal-reasoning]
 solutions:
   - title: Corticon
     author: Michael Parish
-    url: https://dmcommunity.org/wp-content/uploads/2017/11/soldier-decision-modeling-challenge-corticon-mike-parish.pdf
+    url: "/resources/articles/2017-11-01-soldier-payment-rules-corticon/"
   - title: SQL
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2017/11/bobmoore-nov2017challenge.pdf
+    url: "/resources/articles/2017-11-01-soldier-payment-rules-sql/"
 ---
 
 A soldier's pay rate is built up from several time-varying, independently-tracked characteristics, each with its own effective date range:

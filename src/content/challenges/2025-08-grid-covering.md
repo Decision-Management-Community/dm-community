@@ -6,7 +6,7 @@ solutions:
   - title: Pen and Paper
     author: Ken Ritley
     affiliation: Bern University of Applied Sciences
-    url: https://dmcommunity.org/wp-content/uploads/2025/08/challenge2025.aug_.kenritley.pdf
+    url: "/resources/articles/2025-08-01-grid-covering-pen-and-paper/"
   - title: Different Optimization Models
     author: Krunal Patel
     url: https://www.youtube.com/watch?v=Qq-nO72rCyg

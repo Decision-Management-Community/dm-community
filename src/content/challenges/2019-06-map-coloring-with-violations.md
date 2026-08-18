@@ -8,10 +8,10 @@ solutions:
     url: https://javasolvers.wordpress.com/learn-by-examples/map-coloring-with-violations/
   - title: OPL CPLEX
     author: Alex Fleischer
-    url: https://dmcommunity.org/wp-content/uploads/2019/06/dmcchallengejune2019.alexfleischer.pdf
+    url: "/resources/articles/2019-06-01-map-coloring-with-violations-opl-cplex/"
   - title: SQL
     author: Damir Sudarevic
-    url: https://dmcommunity.org/wp-content/uploads/2020/02/mapcoloringwithviolations.damirsudarevic.pdf
+    url: "/resources/articles/2019-06-01-map-coloring-with-violations-sql/"
   - title: cDMN
     author: Simon Vandevelde
     url: https://cdmn.readthedocs.io/en/latest/Examples/map_coloring_advanced.html

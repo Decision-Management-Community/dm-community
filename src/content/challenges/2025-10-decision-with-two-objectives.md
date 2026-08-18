@@ -13,23 +13,23 @@ solutions:
   - title: OPL CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2025/10/challenge2025oct.opl_.pdf
+    url: "/resources/articles/2025-10-01-decision-with-two-objectives-opl-cplex/"
   - title: Copilot
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.oct_.copilot-2.pdf
+    url: "/resources/articles/2025-10-01-decision-with-two-objectives-copilot/"
   - title: OpenRules
     author: Alex Mirtsyn
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.oct_.openrules-1.pdf
+    url: "/resources/articles/2025-10-01-decision-with-two-objectives-openrules/"
   - title: Rule Solver
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.oct_.rulesolver-3.pdf
+    url: "/resources/articles/2025-10-01-decision-with-two-objectives-rule-solver/"
   - title: JSR-331
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2025/11/challenge2025.oct_.jsr331.pdf
+    url: "/resources/articles/2025-10-01-decision-with-two-objectives-jsr-331/"
 ---
 
 This challenge, offered by Dr. Meinolf Sellmann, follows a freelance web developer who receives a $10,000 budget from a client. The client wants a webpage built with as many features as possible, while also maximizing the total value delivered by those features. Each candidate feature has both a cost and a value. The developer decides which features to build — she wants to delight the client, so which features should she pick?

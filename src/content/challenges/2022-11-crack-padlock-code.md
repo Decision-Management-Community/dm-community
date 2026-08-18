@@ -6,16 +6,16 @@ solutions:
   - title: OPL CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2023/01/challengenov2022.oplcplexalexfleischer.pdf
+    url: "/resources/articles/2022-11-01-crack-padlock-code-opl-cplex/"
   - title: IBM ODM
     author: Andrew Macdonald
-    url: https://dmcommunity.org/wp-content/uploads/2023/01/challenge2022nov.andymacdonald.pdf
+    url: "/resources/articles/2022-11-01-crack-padlock-code-ibm-odm/"
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2022/12/challenge2022nov.jackjansonius-2.pdf
+    url: "/resources/articles/2022-11-01-crack-padlock-code-dt5gl/"
   - title: Python
     author: Evan Semet
-    url: https://dmcommunity.org/wp-content/uploads/2023/06/challenge2022nov.ipynb_.pdf
+    url: "/resources/articles/2022-11-01-crack-padlock-code-python/"
 ---
 
 A padlock has a 4-digit code, and all 4 digits are different. Four guesses have been tried, each with feedback:

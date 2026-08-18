@@ -9,10 +9,10 @@ solutions:
     url: https://openrules.wordpress.com/2020/10/05/compressing-decision-tables/
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2020/10/challenge2020sep.jackjansonius.pdf
+    url: "/resources/articles/2020-09-01-compressing-decision-tables-dt5gl/"
   - title: Alternative Heuristics
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2020/10/challenge2020sep.bobmoore.pdf
+    url: "/resources/articles/2020-09-01-compressing-decision-tables-alternative-heuristics/"
 ---
 
 Using common sense, people can often compress a larger decision table into a smaller one that produces identical results — an 18-rule table might collapse to just 6 rules once the redundant conditions are spotted. But once a table has more attributes (columns), doing this compression by hand becomes difficult or impossible, even allowing for some margin of error — you generally need a tool.

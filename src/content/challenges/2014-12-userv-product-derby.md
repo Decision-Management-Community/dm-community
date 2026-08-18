@@ -6,11 +6,11 @@ solutions:
   - title: Blueriq
     author: Maarten Schadd
     affiliation: Blueriq
-    url: https://dmcommunity.org/wp-content/uploads/2015/01/blueriq-userv.pdf
+    url: "/resources/articles/2014-12-01-vehicle-insurance-the-userv-product-derby-blueriq/"
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2015/01/corticon-userv.pdf
+    url: "/resources/articles/2014-12-01-vehicle-insurance-the-userv-product-derby-corticon/"
   - title: IBM ODM
     author: Rafael Ortiguela
     affiliation: DECIDE
@@ -18,7 +18,7 @@ solutions:
   - title: Sapiens Decision
     author: Gil Segal
     affiliation: Sapiens
-    url: https://dmcommunity.org/wp-content/uploads/2015/05/sapiens-decision-document-userv-product-derby-case-study.pdf
+    url: "/resources/articles/2014-12-01-vehicle-insurance-the-userv-product-derby-sapiens-decision/"
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
@@ -26,17 +26,17 @@ solutions:
   - title: OpenL Tablets
     author: Yuliya Bastun
     affiliation: EIS Group
-    url: https://dmcommunity.org/wp-content/uploads/2015/02/openltablets-userv.pdf
+    url: "/resources/articles/2014-12-01-vehicle-insurance-the-userv-product-derby-openl-tablets/"
   - title: RuleML
     author: Matthias Tylkowski
     url: http://de.slideshare.net/binarypark/ruleml2014f
   - title: DecisionsFirst with OpenRules
     author: James Taylor
     affiliation: Decision Management Solutions
-    url: https://dmcommunity.org/wp-content/uploads/2015/11/uservdecisionsfirstopenrules.pdf
+    url: "/resources/articles/2014-12-01-vehicle-insurance-the-userv-product-derby-decisionsfirst-with-openrules/"
   - title: 3D Relational Rule Base
     author: Leonid Nisenboym
-    url: https://dmcommunity.org/wp-content/uploads/2021/01/challenge.autoinsurance.nisenboym.pdf
+    url: "/resources/articles/2014-12-01-vehicle-insurance-the-userv-product-derby-3d-relational-rule-base/"
 ---
 
 Over a decade earlier, BR&DM vendors demonstrated their products at Business Rules Forum events using a shared vehicle-insurance case study known as the "UServ Product Derby" — covering policy eligibility, pricing, and cancellation rules for a hypothetical insurer. This challenge revives that use case: given the same detailed business rules, fact model, and test cases, how do today's decision management tools (and the DMN standard, which didn't exist back then) hold up?

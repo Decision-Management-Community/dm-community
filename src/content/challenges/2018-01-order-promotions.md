@@ -8,13 +8,13 @@ solutions:
     url: https://openrules.wordpress.com/2018/01/03/decision-model-for-sales-order-promotions/
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2018/01/corticon-order-promotions.pdf
+    url: "/resources/articles/2018-01-01-order-promotions-corticon/"
   - title: Drools/Java
     author: Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2018/01/jan-2018-challenge-bobmoore.pdf
+    url: "/resources/articles/2018-01-01-order-promotions-drools-java/"
   - title: DMN FEEL
     author: Bruce Silver
-    url: https://dmcommunity.org/wp-content/uploads/2018/01/brucesilver-orderpromotions.pdf
+    url: "/resources/articles/2018-01-01-order-promotions-dmn-feel/"
 ---
 
 Merchants want to define promotions for sales orders and have a decision model automatically determine which orders qualify. An order consists of line items, each with a known price and quantity; a promotion specifies the minimum quantities of particular items an order must contain to be eligible.

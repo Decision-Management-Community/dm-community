@@ -6,10 +6,10 @@ solutions:
   - title: Progress Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2015/11/monkey-business-corticon.pdf
+    url: "/resources/articles/2015-11-01-monkey-business-progress-corticon/"
   - title: JSR331
     author: Rick Schreiber
-    url: https://dmcommunity.org/wp-content/uploads/2015/11/monkey-business-jsr3312.pdf
+    url: "/resources/articles/2015-11-01-monkey-business-jsr331/"
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
@@ -22,7 +22,7 @@ solutions:
     url: https://cdmn.readthedocs.io/en/latest/Examples/monkey_business.html
   - title: CPLEX
     author: Alex Fleischer
-    url: https://dmcommunity.org/wp-content/uploads/2021/11/challenge2015nov.alexfleischer.pdf
+    url: "/resources/articles/2015-11-01-monkey-business-cplex/"
 ---
 
 A classic constraint-satisfaction logic puzzle, borrowed from PuzzlersParadise: a zoo has four monkeys — two male, two female. At lunchtime, each ate a different fruit while sitting in a different favorite spot. Clues:

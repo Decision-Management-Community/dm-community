@@ -6,21 +6,21 @@ solutions:
   - title: Corticon
     author: Seth Meldon
     affiliation: Progress
-    url: https://dmcommunity.org/wp-content/uploads/2024/05/challenge2024march.corticon.pdf
+    url: "/resources/articles/2024-03-01-analyzing-employees-corticon/"
   - title: OpenRules
     author: Alex Mirtsyn
     affiliation: OpenRules
     url: http://openrules.com/downloads/my/Challenge2024March.pdf
   - title: ChatGPT/Python
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2024/05/challenge2024march.jj_.pdf
+    url: "/resources/articles/2024-03-01-analyzing-employees-chatgpt-python/"
   - title: OPL
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2024/05/challenge2024march.alexfleischer.pdf
+    url: "/resources/articles/2024-03-01-analyzing-employees-opl/"
   - title: Python/DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2024/06/challenge2024march.jj2_.pdf
+    url: "/resources/articles/2024-03-01-analyzing-employees-python-dt5gl/"
 ---
 
 Decision models, like databases, frequently need to analyze collections of objects. Help an HR office build a rules-based service that analyzes its employees. Each employee has a unique name, age, gender, marital status, one or more residence locations, number of children, salary, and other attributes, arriving as a JSON request. The service should be able to answer questions such as:

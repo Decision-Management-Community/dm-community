@@ -5,7 +5,7 @@ tags: [predictive-analytics, healthcare]
 solutions:
   - title: R with naïve Bayes
     author: Riccardo Hertel
-    url: https://dmcommunity.org/wp-content/uploads/2015/03/riccardohertel.pdf
+    url: "/resources/articles/2015-04-01-patient-diagnosis-decision-r-with-naive-bayes/"
 ---
 
 A predictive-analytics problem, adapted from a PuzzlOR puzzle: 20 historical patients are recorded with their symptoms (sneezing, sore throat, fatigue, stuffy nose, etc.) and their confirmed diagnosis (Cold, Flu, or Allergies).

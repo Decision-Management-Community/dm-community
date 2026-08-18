@@ -10,7 +10,7 @@ solutions:
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2015/02/coins-corticon.pdf
+    url: "/resources/articles/2015-02-01-change-making-decision-corticon/"
   - title: PROIV
     author: Sadie Geen
     affiliation: PROIV

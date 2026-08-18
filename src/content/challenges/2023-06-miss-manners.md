@@ -6,11 +6,11 @@ solutions:
   - title: CPLEX
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2023/06/challenge2023june.cplexalexfleischer.pdf
+    url: "/resources/articles/2023-06-01-miss-manners-cplex/"
   - title: OpenRules with Java Solver
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2023/06/missmannersjavasolver.pdf
+    url: "/resources/articles/2023-06-01-miss-manners-openrules-with-java-solver/"
   - title: OpenRules with Rule Solver
     author: Jacob Feldman
     affiliation: OpenRules

@@ -6,11 +6,11 @@ solutions:
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2016/11/passenger-rebooking-decision-modeling-challenge-corticon.pdf
+    url: "/resources/articles/2016-10-01-rebooking-passengers-from-cancelled-flights-corticon/"
   - title: DMN
     author: Bruce Silver
     affiliation: Method & Style
-    url: https://dmcommunity.org/wp-content/uploads/2016/12/flightbooking-brucesilver.pdf
+    url: "/resources/articles/2016-10-01-rebooking-passengers-from-cancelled-flights-dmn/"
   - title: Drools with DMN
     author: Edson Tirelli
     affiliation: Red Hat
@@ -25,10 +25,10 @@ solutions:
   - title: Model-based optimal solution
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://dmcommunity.org/wp-content/uploads/2018/12/ModelBasedFlightRebooking-1.pdf
+    url: "/resources/articles/2016-10-01-rebooking-passengers-from-cancelled-flights-model-based-optimal-solution/"
   - title: DT5GL with SQL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2021/08/challengeoct2016.jackjansonius.pdf
+    url: "/resources/articles/2016-10-01-rebooking-passengers-from-cancelled-flights-dt5gl-with-sql/"
   - title: RuleSolver
     author: Jacob Feldman
     affiliation: OpenRules

@@ -8,10 +8,10 @@ solutions:
     url: https://ampl.com/MEETINGS/TALKS/2018_08_Lille_Tutorial1.pdf
   - title: OPL
     author: Alex Fleischer
-    url: https://dmcommunity.org/wp-content/uploads/2018/10/dmcseptember2018oplalexfleischer.pdf
+    url: "/resources/articles/2018-09-01-balanced-assignment-opl/"
   - title: CP Optimizer
     author: Philippe Laborie
-    url: https://dmcommunity.org/wp-content/uploads/2019/04/dmcseptember2018.phillppelaborie.pdf
+    url: "/resources/articles/2018-09-01-balanced-assignment-cp-optimizer/"
   - title: OpenRules with CP/LP Solvers
     author: Jacob Feldman
     url: https://openrules.files.wordpress.com/2019/04/balancedassignmentwithrulesandconstraints.pdf

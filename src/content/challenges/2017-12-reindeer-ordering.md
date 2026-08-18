@@ -5,7 +5,7 @@ tags: [constraint-programming, optimization]
 solutions:
   - title: Python
     author: Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2017/12/bobmore-dec2017challenge.pdf
+    url: "/resources/articles/2017-12-01-reindeer-ordering-python/"
   - title: SQL
     author: Damir Sudarevic
     url: https://www.damirsystems.com/reindeer-ordering/
@@ -14,19 +14,19 @@ solutions:
     url: https://openrules.wordpress.com/2017/12/09/openrules-solution-for-the-christmas-challenge/
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2017/12/reindeer-mikeparish.pdf
+    url: "/resources/articles/2017-12-01-reindeer-ordering-corticon/"
   - title: Camunda/Groovy
     author: Robert Parker
-    url: https://dmcommunity.org/wp-content/uploads/2017/12/challengedec2017-robertparker.pdf
+    url: "/resources/articles/2017-12-01-reindeer-ordering-camunda-groovy/"
   - title: Drools/Java
     author: Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2017/12/challengedec2017-drools.pdf
+    url: "/resources/articles/2017-12-01-reindeer-ordering-drools-java/"
   - title: Corticon Alternative
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2017/12/challengedec2017-mikeparishalternative.pdf
+    url: "/resources/articles/2017-12-01-reindeer-ordering-corticon-alternative/"
   - title: ZIMPL/LPSolve
     author: Robert Parker
-    url: https://dmcommunity.org/wp-content/uploads/2018/01/challenge-dec-2017-rp-zimpl.pdf
+    url: "/resources/articles/2017-12-01-reindeer-ordering-zimpl-lpsolve/"
   - title: DMN
     author: Robert Parker
     url: https://blog.camunda.com/post/2019/07/solving-santas-sequencing-problem-using-dmn/

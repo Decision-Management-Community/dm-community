@@ -5,10 +5,10 @@ tags: [business-rules, retail]
 solutions:
   - title: DT5GL
     author: Jack Jansonius
-    url: https://dmcommunity.org/wp-content/uploads/2018/04/challengeapr2018-jackjansonius.pdf
+    url: "/resources/articles/2018-04-01-up-selling-rules-dt5gl/"
   - title: Corticon
     author: Mike Parish
-    url: https://dmcommunity.org/wp-content/uploads/2018/04/challengeapr2018-mikeparish.pdf
+    url: "/resources/articles/2018-04-01-up-selling-rules-corticon/"
   - title: OpenRules
     author: Jacob Feldman
     url: https://openrules.wordpress.com/2018/04/30/dmcommunity-challenge-april-2018-up-selling-rules/

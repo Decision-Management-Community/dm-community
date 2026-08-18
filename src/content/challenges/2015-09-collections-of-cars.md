@@ -5,23 +5,23 @@ tags: [business-rules]
 solutions:
   - title: R
     author: Riccardo Hertel
-    url: https://dmcommunity.org/wp-content/uploads/2015/09/challenge-09-2015-rh.pdf
+    url: "/resources/articles/2015-09-01-collections-of-cars-r/"
   - title: Blueriq
     author: Maarten Schadd
     affiliation: Blueriq
-    url: https://dmcommunity.org/wp-content/uploads/2015/09/dmc-september2015-challenge-blueriq.pdf
+    url: "/resources/articles/2015-09-01-collections-of-cars-blueriq/"
   - title: DMN FEEL
     author: Gary Hallmark
     affiliation: Oracle
-    url: https://dmcommunity.org/wp-content/uploads/2015/09/garyhallmarkcars.pdf
+    url: "/resources/articles/2015-09-01-collections-of-cars-dmn-feel/"
   - title: Corticon
     author: Michael Parish
     affiliation: Progress Software
-    url: https://dmcommunity.org/wp-content/uploads/2015/09/collections-of-cars-corticon.pdf
+    url: "/resources/articles/2015-09-01-collections-of-cars-corticon/"
   - title: FlexRule
     author: Arash Aghlara
     affiliation: FlexRule
-    url: https://dmcommunity.org/wp-content/uploads/2015/09/sep-2015-flexrule.pdf
+    url: "/resources/articles/2015-09-01-collections-of-cars-flexrule/"
 ---
 
 Given an arbitrary number of collections of cars (each car identified by make and model), build a decision model that:

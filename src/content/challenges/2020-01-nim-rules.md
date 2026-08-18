@@ -6,14 +6,14 @@ solutions:
   - title: IBM OPL
     author: Alex Fleischer
     affiliation: IBM
-    url: https://dmcommunity.org/wp-content/uploads/2020/02/challenge2020jan.alexfleischer.pdf
+    url: "/resources/articles/2020-01-01-nim-rules-ibm-opl/"
   - title: OpenRules
     author: Jacob Feldman
     affiliation: OpenRules
     url: https://openrules.wordpress.com/2020/02/13/nim-game/
   - title: Machine Learning Approach with Python
     author: Dr. Bob Moore
-    url: https://dmcommunity.org/wp-content/uploads/2020/05/challenge2020jan.bobmoore.pdf
+    url: "/resources/articles/2020-01-01-nim-rules-machine-learning-approach-with-python/"
 ---
 
 Variants of the [Nim game](https://en.wikipedia.org/wiki/Nim) have been played since ancient times. This challenge uses a specific version: there's a row of 15, 16, or 17 balls. Two players take turns removing 1, 2, or 3 balls from the row, and whoever removes the last ball *loses*.
