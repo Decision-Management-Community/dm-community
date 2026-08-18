@@ -42,14 +42,14 @@ const { Content } = await render(entry);
     </p>
   )}
 
-  {(entry.data.linkedin || entry.data.originalUrl) && (
+  {(entry.data.linkedin || (entry.data.originalUrl && !entry.data.documentUrl)) && (
     <footer class="post-footer muted">
       {entry.data.linkedin && (
         <p>
           Connect with me on <a href={entry.data.linkedin} target="_blank" rel="noopener">LinkedIn</a>
         </p>
       )}
-      {entry.data.originalUrl && (
+      {entry.data.originalUrl && !entry.data.documentUrl && (
         <p>
           Originally published on{' '}
           <a href={entry.data.originalUrl} target="_blank" rel="noopener">{entry.data.originalUrl}</a>
