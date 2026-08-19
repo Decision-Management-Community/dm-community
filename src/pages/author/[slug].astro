@@ -1,0 +1,9 @@
+---
+import { url } from '../../lib/url';
+
+export function getStaticPaths() {
+  return ['decisionmanagementcommunity', 'cpstandards', 'jacobfeldman'].map((slug) => ({ params: { slug } }));
+}
+
+return Astro.redirect(url('/news/'), 301);
+---

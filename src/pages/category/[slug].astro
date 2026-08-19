@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+
+function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  const slugs = new Set(posts.flatMap((post) => post.data.tags.map(slugify)).filter(Boolean));
+  return [...slugs].map((slug) => ({ params: { slug } }));
+}
+
+return Astro.redirect(url('/news/'), 301);
+---

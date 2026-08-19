@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('news');
+  const years = [...new Set(posts.map((post) => String(post.data.date.getUTCFullYear())))];
+  return years.map((year) => ({ params: { year } }));
+}
+
+return Astro.redirect(url('/news/'), 301);
+---

@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(root, '..', 'dist');
-const base = '/dm-community';
+const base = '/';
 const legacyHosts = new Set(['dmcommunity.org', 'www.dmcommunity.org']);
 
 function stripBase(href) {
@@ -58,8 +58,6 @@ async function walk(dir) {
 }
 
 function extractLinks(html) {
-  // Canonical and preconnect tags are metadata rather than navigable content
-  // links, so exclude them from the crawler.
   const cleaned = html
     .replace(/<link[^>]*rel="canonical"[^>]*>/g, '')
     .replace(/<link[^>]*rel="preconnect"[^>]*>/g, '');
@@ -70,8 +68,17 @@ function extractLinks(html) {
   return links;
 }
 
-async function internalTargetExists(linkPath) {
-  const clean = stripBase(linkPath.split('#')[0].split('?')[0]);
+function resolveInternalPath(linkPath, relFile) {
+  const withoutFragment = linkPath.split('#')[0].split('?')[0];
+  if (!withoutFragment) return '';
+  if (withoutFragment.startsWith('/')) return stripBase(withoutFragment);
+
+  const pageUrl = `https://dmcommunity.org/${relFile.split(path.sep).join('/')}`;
+  return stripBase(new URL(withoutFragment, pageUrl).pathname);
+}
+
+async function internalTargetExists(linkPath, relFile) {
+  const clean = resolveInternalPath(linkPath, relFile);
   if (!clean) return true;
   const candidates = clean.endsWith('/')
     ? [path.join(distDir, clean, 'index.html')]
@@ -81,7 +88,6 @@ async function internalTargetExists(linkPath) {
       await stat(candidate);
       return true;
     } catch {
-      // try next candidate
     }
   }
   return false;
@@ -94,9 +100,7 @@ async function checkExternalLink(href) {
     let res;
     try {
       res = await fetch(href, { method: 'HEAD', redirect: 'follow', signal: controller.signal });
-      if (!res.ok) {
-        res = await fetch(href, { method: 'GET', redirect: 'follow', signal: controller.signal });
-      }
+      if (!res.ok) res = await fetch(href, { method: 'GET', redirect: 'follow', signal: controller.signal });
     } finally {
       clearTimeout(timeout);
     }
@@ -146,7 +150,7 @@ async function main() {
         externalLinksByHref.get(href).push(relFile);
         continue;
       }
-      if (!(await internalTargetExists(href))) {
+      if (!(await internalTargetExists(href, relFile))) {
         internalBroken.push({ href, file: relFile });
       }
     }
