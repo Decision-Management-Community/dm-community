@@ -58,6 +58,8 @@ async function walk(dir) {
 }
 
 function extractLinks(html) {
+  // Canonical and preconnect tags are metadata rather than navigable content
+  // links, so exclude them from the crawler.
   const cleaned = html
     .replace(/<link[^>]*rel="canonical"[^>]*>/g, '')
     .replace(/<link[^>]*rel="preconnect"[^>]*>/g, '');
@@ -73,6 +75,9 @@ function resolveInternalPath(linkPath, relFile) {
   if (!withoutFragment) return '';
   if (withoutFragment.startsWith('/')) return stripBase(withoutFragment);
 
+  // Resolve browser-relative URLs from the page that contains them. Treating a
+  // value such as ../../news-media/foo.png as a filesystem path would escape
+  // dist/ and incorrectly report a valid site URL as broken.
   const pageUrl = `https://dmcommunity.org/${relFile.split(path.sep).join('/')}`;
   return stripBase(new URL(withoutFragment, pageUrl).pathname);
 }
@@ -88,6 +93,7 @@ async function internalTargetExists(linkPath, relFile) {
       await stat(candidate);
       return true;
     } catch {
+      // try next candidate
     }
   }
   return false;
@@ -100,7 +106,9 @@ async function checkExternalLink(href) {
     let res;
     try {
       res = await fetch(href, { method: 'HEAD', redirect: 'follow', signal: controller.signal });
-      if (!res.ok) res = await fetch(href, { method: 'GET', redirect: 'follow', signal: controller.signal });
+      if (!res.ok) {
+        res = await fetch(href, { method: 'GET', redirect: 'follow', signal: controller.signal });
+      }
     } finally {
       clearTimeout(timeout);
     }
