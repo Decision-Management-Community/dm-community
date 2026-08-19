@@ -13,7 +13,7 @@ Please find attached my suggested solution for the September 2015 Challenge &#82
 Best regards, Dr. Riccardo Hertel&#8221;</p></blockquote>
 <p>Dr. Hertel is effectively using different  packages that accompany the R language to provide quite elegant modeling facilities. While they are essentially different from commonly used DMN-style decisioning tools, they not only show an alternative approach but more importantly could be used for easy integration between business rules and predictive analytics technologies. Here is the list of provided R-based decision models:</p>
 <ul>
-<li><a href="/news-media/2015/03/riccardohertel.pdf" target="_blank">Patient Diagnosis</a></li>
+<li><a href="/resources/articles/2015-04-01-patient-diagnosis-decision-r-with-naive-bayes/">Patient Diagnosis</a></li>
 <li><a href="/news-media/2015/08/rh-challenge-08-2015.pdf" target="_blank">Define Duplicate Product Lines</a></li>
 <li><a href="/news-media/2015/09/challenge-09-2015-rh.pdf" target="_blank">Collections of Cars</a></li>
 </ul>
