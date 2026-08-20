@@ -6,8 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(root, '..', 'dist');
-const canonicalOrigin = 'https://decision-management-community.github.io';
-const base = '/dm-community';
+const canonicalOrigin = 'https://dmcommunity.org';
 const failures = [];
 
 function annotate(message) {
@@ -28,10 +27,9 @@ async function walk(dir) {
   return files;
 }
 
-function hasCorrectBase(value) {
+function hasCorrectOrigin(value) {
   try {
-    const parsed = new URL(value);
-    return parsed.origin === canonicalOrigin && (parsed.pathname === base || parsed.pathname.startsWith(`${base}/`));
+    return new URL(value).origin === canonicalOrigin;
   } catch {
     return false;
   }
@@ -41,16 +39,17 @@ for (const file of await walk(distDir)) {
   const html = await readFile(file, 'utf-8');
   const relFile = path.relative(distDir, file);
   const canonical = html.match(/<link[^>]*rel="canonical"[^>]*href="([^"]+)"[^>]*>/i)?.[1];
-  if (canonical && !hasCorrectBase(canonical)) {
-    failures.push(`Canonical URL ${canonical} is outside ${canonicalOrigin}${base}/ (in ${relFile})`);
+  if (canonical && !hasCorrectOrigin(canonical)) {
+    failures.push(`Canonical URL ${canonical} is outside ${canonicalOrigin}/ (in ${relFile})`);
   }
 }
 
 const rssPath = path.join(distDir, 'rss.xml');
 const rss = await readFile(rssPath, 'utf-8');
-const rssUrls = [...rss.matchAll(/https:\/\/decision-management-community\.github\.io[^<\s]*/g)].map((m) => m[0]);
+const rssUrls = [...rss.matchAll(/https:\/\/dmcommunity\.org[^<\s]*/g)].map((m) => m[0]);
+if (rssUrls.length === 0) failures.push(`RSS feed contains no ${canonicalOrigin} URLs`);
 for (const value of rssUrls) {
-  if (!hasCorrectBase(value)) failures.push(`RSS URL ${value} is outside ${canonicalOrigin}${base}/`);
+  if (!hasCorrectOrigin(value)) failures.push(`RSS URL ${value} is outside ${canonicalOrigin}/`);
 }
 
 if (failures.length > 0) {
@@ -62,4 +61,4 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`Canonical and RSS URLs stay under ${canonicalOrigin}${base}/.`);
+console.log(`Canonical and RSS URLs use ${canonicalOrigin}/.`);

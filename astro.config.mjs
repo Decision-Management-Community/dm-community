@@ -4,10 +4,9 @@ import sitemap from '@astrojs/sitemap';
 import { visit } from 'unist-util-visit';
 import { migrateLegacyUrl } from './src/lib/legacyUrl.mjs';
 
-// The GitHub Pages deployment is the canonical site. Keep a fixed base path so
-// canonical URLs, sitemaps, internal links, and migrated WordPress content all
-// resolve independently of the legacy dmcommunity.org domain.
-const base = '/dm-community';
+// DMCommunity.org is the canonical production domain. GitHub Pages remains the
+// deployment backend, but the custom domain serves the site from the root.
+const base = '/';
 const basePrefix = base.endsWith('/') ? base.slice(0, -1) : base;
 const adamProfileUrl = 'https://www.linkedin.com/in/addejans/';
 const adamNameSplitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
@@ -107,7 +106,7 @@ function linkAdamNamesInRawHtml(value) {
 
 // Content-collection Markdown can contain root-relative links as well as
 // absolute links copied from the legacy WordPress site. Normalize both at
-// render time so migrated content never depends on dmcommunity.org staying up.
+// render time so migrated content never depends on the retired WordPress host.
 // At the same render stage, turn visible Adam DeJans / Adam DeJans Jr. mentions
 // into canonical profile links without touching code, scripts, or existing links.
 function rehypeBaseLinks() {
@@ -142,7 +141,7 @@ function rehypeBaseLinks() {
 }
 
 export default defineConfig({
-  site: 'https://decision-management-community.github.io',
+  site: 'https://dmcommunity.org',
   base,
   markdown: {
     rehypePlugins: [rehypeBaseLinks],

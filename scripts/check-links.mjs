@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.dirname(fileURLToPath(import.meta.url));
 const distDir = path.join(root, '..', 'dist');
-const base = '/dm-community';
+const base = '/';
 const legacyHosts = new Set(['dmcommunity.org', 'www.dmcommunity.org']);
 
 function stripBase(href) {
@@ -70,8 +70,20 @@ function extractLinks(html) {
   return links;
 }
 
-async function internalTargetExists(linkPath) {
-  const clean = stripBase(linkPath.split('#')[0].split('?')[0]);
+function resolveInternalPath(linkPath, relFile) {
+  const withoutFragment = linkPath.split('#')[0].split('?')[0];
+  if (!withoutFragment) return '';
+  if (withoutFragment.startsWith('/')) return stripBase(withoutFragment);
+
+  // Resolve browser-relative URLs from the page that contains them. Treating a
+  // value such as ../../news-media/foo.png as a filesystem path would escape
+  // dist/ and incorrectly report a valid site URL as broken.
+  const pageUrl = `https://dmcommunity.org/${relFile.split(path.sep).join('/')}`;
+  return stripBase(new URL(withoutFragment, pageUrl).pathname);
+}
+
+async function internalTargetExists(linkPath, relFile) {
+  const clean = resolveInternalPath(linkPath, relFile);
   if (!clean) return true;
   const candidates = clean.endsWith('/')
     ? [path.join(distDir, clean, 'index.html')]
@@ -146,7 +158,7 @@ async function main() {
         externalLinksByHref.get(href).push(relFile);
         continue;
       }
-      if (!(await internalTargetExists(href))) {
+      if (!(await internalTargetExists(href, relFile))) {
         internalBroken.push({ href, file: relFile });
       }
     }
