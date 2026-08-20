@@ -7,6 +7,9 @@ solutions:
     author: Jacob Feldman
     affiliation: OpenRules
     url: https://openrulesdecisionmanager.com/rule-scheduler-oven/
+  - title: HiGHS Time-Indexed MILP
+    author: Adam DeJans
+    url: /resources/articles/2026-08-19-brick-factory-highs-time-indexed-milp/
 ---
 
 A brick factory must schedule five orders (A, B, C, D, E) as single, uninterrupted activities within an 11-day planning horizon. Each order requires a specific number of batches per day for a set duration:
