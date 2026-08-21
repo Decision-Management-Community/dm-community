@@ -1,7 +1,7 @@
 ---
 title: "Solving A Brick Factory with HiGHS: A Time-Indexed MILP"
 date: 2026-08-19
-author: "Adam DeJans"
+author: "Adam DeJans Jr."
 summary: "A compact time-indexed mixed-integer linear programming solution to the July 2026 Brick Factory challenge, solved and verified with HiGHS."
 challengeUrl: "/challenges/2026-07-a-brick-factory/"
 ---
@@ -152,4 +152,4 @@ The same pattern extends naturally to production problems with release dates, du
 
 ---
 
-Solution by [Adam DeJans](https://adamdejans.com).
+Solution by [Adam DeJans Jr.](https://www.adamdejans.com).
