@@ -8,7 +8,8 @@ import { migrateLegacyUrl } from './src/lib/legacyUrl.mjs';
 // deployment backend, but the custom domain serves the site from the root.
 const base = '/';
 const basePrefix = base.endsWith('/') ? base.slice(0, -1) : base;
-const adamProfileUrl = 'https://www.linkedin.com/in/addejans/';
+const adamProfileUrl = 'https://www.adamdejans.com';
+const canonicalAdamName = 'Adam DeJans Jr.';
 const adamNameSplitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
 const adamNameExactPattern = /^(Adam DeJans Jr\.?|Adam DeJans)$/;
 const profileLinkBlockedTags = new Set(['a', 'code', 'pre', 'script', 'style', 'textarea']);
@@ -34,7 +35,7 @@ function rewriteSrcset(value) {
     .join(', ');
 }
 
-function adamProfileLink(name) {
+function adamProfileLink() {
   return {
     type: 'element',
     tagName: 'a',
@@ -44,7 +45,7 @@ function adamProfileLink(name) {
       rel: ['noopener'],
       'data-person-profile': 'adam-dejans',
     },
-    children: [{ type: 'text', value: name }],
+    children: [{ type: 'text', value: canonicalAdamName }],
   };
 }
 
@@ -61,7 +62,7 @@ function linkAdamNamesInTree(node, blocked = false) {
         if (!part) continue;
         children.push(
           adamNameExactPattern.test(part)
-            ? adamProfileLink(part)
+            ? adamProfileLink()
             : { type: 'text', value: part },
         );
       }
@@ -85,7 +86,7 @@ function linkAdamNamesInRawHtml(value) {
         if (blockedDepth > 0 || !/Adam DeJans/.test(token)) return token;
         return token.replace(
           adamNameSplitPattern,
-          (name) => `<a href="${adamProfileUrl}" target="_blank" rel="noopener" data-person-profile="adam-dejans">${name}</a>`,
+          () => `<a href="${adamProfileUrl}" target="_blank" rel="noopener" data-person-profile="adam-dejans">${canonicalAdamName}</a>`,
         );
       }
 
@@ -107,8 +108,9 @@ function linkAdamNamesInRawHtml(value) {
 // Content-collection Markdown can contain root-relative links as well as
 // absolute links copied from the legacy WordPress site. Normalize both at
 // render time so migrated content never depends on the retired WordPress host.
-// At the same render stage, turn visible Adam DeJans / Adam DeJans Jr. mentions
-// into canonical profile links without touching code, scripts, or existing links.
+// At the same render stage, canonicalize visible Adam DeJans / Adam DeJans Jr.
+// mentions to Adam DeJans Jr. and link them to the canonical profile without
+// touching code, scripts, or existing links.
 function rehypeBaseLinks() {
   return (tree) => {
     linkAdamNamesInTree(tree);
