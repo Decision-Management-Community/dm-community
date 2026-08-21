@@ -4,7 +4,7 @@ import { getCollection, render } from 'astro:content';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { url } from '../../lib/url';
-import { authorUrl } from '../../lib/authorUrl';
+import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 import { migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 
@@ -49,12 +49,13 @@ function solutionHref(value: string) {
         {entry.data.solutions.map((s) => {
           const href = s.url ? solutionHref(s.url) : undefined;
           const external = href?.startsWith('http://') || href?.startsWith('https://');
-          const profile = authorUrl(s.author);
+          const displayAuthor = canonicalAuthorName(s.author);
+          const profile = authorUrl(displayAuthor);
           return (
             <li>
               {href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{s.title}</a> : s.title}
               {' — '}
-              {profile ? <a href={profile} target="_blank" rel="noopener">{s.author}</a> : s.author}
+              {profile ? <a href={profile} target="_blank" rel="noopener">{displayAuthor}</a> : displayAuthor}
               {s.affiliation ? ` (${s.affiliation})` : ''}
             </li>
           );

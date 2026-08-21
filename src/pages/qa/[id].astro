@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { url } from '../../lib/url';
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 
@@ -11,6 +12,8 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const displayAuthor = canonicalAuthorName(entry.data.author);
+const profile = authorUrl(displayAuthor);
 ---
 <BaseLayout title={entry.data.title} description={`Decision Management Community Q&A: ${entry.data.title}`}>
   <a href={url('/qa/')}>&larr; All Q&amp;A</a>
@@ -18,7 +21,12 @@ const { Content } = await render(entry);
   <p class="muted">
     <span class="badge" style={categoryBadgeStyle(entry.data.category)}>{entry.data.category}</span>
     {' '}{entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-    {entry.data.author ? ` · ${entry.data.author}` : ''}
+    {displayAuthor && (
+      <>
+        {' · '}
+        {profile ? <a href={profile} target="_blank" rel="noopener">{displayAuthor}</a> : displayAuthor}
+      </>
+    )}
   </p>
 
   <article class="prose">

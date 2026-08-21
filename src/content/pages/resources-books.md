@@ -5,8 +5,8 @@ order: 5
 ---
 
 1. [*Bridging Decision Problems, Volume I: Framing the Problem*](https://castle.princeton.edu/framingproblems/) — Warren B. Powell (2026)
-2. [*The Decision Factory: A Novel about Decisions Under Uncertainty*](https://www.amazon.com/dp/B0GN8SJXR1) — Adam DeJans Jr, John Elam (2026)
-3. [*The MILP Optimization Handbook for Practitioners*](https://www.amazon.com/dp/B0FLWDPH57) — Adam DeJans Jr (2025)
+2. [*The Decision Factory: A Novel about Decisions Under Uncertainty*](https://www.amazon.com/dp/B0GN8SJXR1) — [Adam DeJans Jr.](https://www.adamdejans.com), John Elam (2026)
+3. [*The MILP Optimization Handbook for Practitioners*](https://www.amazon.com/dp/B0FLWDPH57) — [Adam DeJans Jr.](https://www.adamdejans.com) (2025)
 4. [*Business Decision Modeling with OpenRules*](https://www.amazon.com/dp/B0F1DS1SLM) — Jacob Feldman (2025)
 5. [*Real-World Decision Modeling with DMN*](https://www.amazon.com/dp/B0CCK26XYS) (2nd ed., DMN 1.5) — James Taylor & Jan Purchase (2023)
 6. [*CMMN Method and Style*](https://www.amazon.com/dp/0982368194) — Bruce Silver (2020)

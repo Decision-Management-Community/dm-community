@@ -1,10 +1,18 @@
-const canonicalAuthorUrls = new Map<string, string>([
-  ['Adam DeJans', 'https://adamdejans.com'],
-  ['Adam DeJans Jr.', 'https://adamdejans.com'],
-  ['Adam DeJans Jr', 'https://adamdejans.com'],
+const ADAM_CANONICAL_NAME = 'Adam DeJans Jr.';
+const ADAM_PROFILE_URL = 'https://www.adamdejans.com';
+const adamAuthorNames = new Set([
+  'Adam DeJans',
+  'Adam DeJans Jr',
+  'Adam DeJans Jr.',
 ]);
 
+export function canonicalAuthorName(name?: string) {
+  if (!name) return name;
+  return adamAuthorNames.has(name.trim()) ? ADAM_CANONICAL_NAME : name;
+}
+
 export function authorUrl(name?: string, fallback?: string) {
-  if (!name) return fallback;
-  return canonicalAuthorUrls.get(name) ?? fallback;
+  const canonicalName = canonicalAuthorName(name);
+  if (!canonicalName) return fallback;
+  return canonicalName === ADAM_CANONICAL_NAME ? ADAM_PROFILE_URL : fallback;
 }

@@ -8,7 +8,7 @@ solutions:
     affiliation: OpenRules
     url: https://openrulesdecisionmanager.com/rule-scheduler-oven/
   - title: HiGHS Time-Indexed MILP
-    author: Adam DeJans
+    author: Adam DeJans Jr.
     url: /resources/articles/2026-08-19-brick-factory-highs-time-indexed-milp/
 ---
 

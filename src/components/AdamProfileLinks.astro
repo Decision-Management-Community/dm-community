@@ -1,5 +1,6 @@
 <script>
-  const profileUrl = 'https://www.linkedin.com/in/addejans/';
+  const profileUrl = 'https://www.adamdejans.com';
+  const canonicalName = 'Adam DeJans Jr.';
   const splitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
   const exactPattern = /^(Adam DeJans Jr\.?|Adam DeJans)$/;
   const containsName = /Adam DeJans(?: Jr\.?)?/;
@@ -11,7 +12,7 @@
         const value = node.nodeValue ?? '';
         const parent = node.parentElement;
         if (!parent || !containsName.test(value)) return NodeFilter.FILTER_REJECT;
-        if (parent.closest('a, code, pre, script, style, textarea')) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('code, pre, script, style, textarea')) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       },
     });
@@ -25,6 +26,13 @@
 
     for (const textNode of matches) {
       const value = textNode.nodeValue ?? '';
+      const existingLink = textNode.parentElement?.closest('a');
+
+      if (existingLink) {
+        textNode.nodeValue = value.replace(splitPattern, canonicalName);
+        continue;
+      }
+
       const fragment = document.createDocumentFragment();
 
       for (const part of value.split(splitPattern)) {
@@ -39,7 +47,7 @@
         link.target = '_blank';
         link.rel = 'noopener';
         link.dataset.personProfile = 'adam-dejans';
-        link.textContent = part;
+        link.textContent = canonicalName;
         fragment.appendChild(link);
       }
 

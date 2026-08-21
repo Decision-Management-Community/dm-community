@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getEntry, getCollection, render } from 'astro:content';
+import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { url } from '../../lib/url';
 
 const entry = await getEntry('pages', 'news');
@@ -54,20 +55,29 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     <section class="year-section" id={`y${year}`} data-news-year={year}>
       <h2 class="year-heading">{year}</h2>
       <div class="card-grid">
-        {byYear.get(year)!.map((p) => (
-          <article
-            class="card news-card"
-            data-search={`${p.data.title} ${p.data.author ?? ''} ${p.data.tags.join(' ')}`.toLocaleLowerCase()}
-            data-tags={JSON.stringify(p.data.tags)}
-          >
-            {p.data.tags[0] && <span class="badge">{p.data.tags[0]}</span>}
-            <h3><a href={url(`/news/${p.id}/`)}>{p.data.title}</a></h3>
-            <p class="muted small">
-              {p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-              {p.data.author ? ` · ${p.data.author}` : ''}
-            </p>
-          </article>
-        ))}
+        {byYear.get(year)!.map((p) => {
+          const displayAuthor = canonicalAuthorName(p.data.author);
+          const profile = authorUrl(displayAuthor);
+          return (
+            <article
+              class="card news-card"
+              data-search={`${p.data.title} ${displayAuthor ?? ''} ${p.data.tags.join(' ')}`.toLocaleLowerCase()}
+              data-tags={JSON.stringify(p.data.tags)}
+            >
+              {p.data.tags[0] && <span class="badge">{p.data.tags[0]}</span>}
+              <h3><a href={url(`/news/${p.id}/`)}>{p.data.title}</a></h3>
+              <p class="muted small">
+                {p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                {displayAuthor && (
+                  <>
+                    {' · '}
+                    {profile ? <a href={profile} target="_blank" rel="noopener">{displayAuthor}</a> : displayAuthor}
+                  </>
+                )}
+              </p>
+            </article>
+          );
+        })}
       </div>
     </section>
   ))}
