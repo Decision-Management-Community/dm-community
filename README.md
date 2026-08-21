@@ -85,6 +85,8 @@ See [CONTRIBUTING.md#backfilling-the-historical-archive](./CONTRIBUTING.md#backf
 if you find a genuine gap. The standing rule for migration work is that content and files get copied
 into this repo or linked to an independent surviving source — never back to the site being retired.
 
+The old website is available at https://dmcommunity.wpcomstaging.com/.
+
 ## Deployment
 
 Pushes to `main` build and deploy automatically to GitHub Pages via
