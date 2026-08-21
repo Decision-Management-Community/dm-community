@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const repoUrl = 'https://github.com/Decision-Management-Community/dm-community';
+const issuesUrl = `${repoUrl}/issues`;
+const newIssueUrl = `${repoUrl}/issues/new/choose`;
+---
+
+<BaseLayout
+  title="How to Open an Issue"
+  description="A step-by-step visual guide to reporting a problem, suggesting an improvement, or asking for a change on the Decision Management Community website."
+>
+  <section class="guide-hero">
+    <a class="back-link" href="/contribute/">← Back to Contribute</a>
+    <span class="eyebrow">Community help</span>
+    <h1>How to open an issue</h1>
+    <p>
+      Found something broken? Have an idea for the site? You do not need to know how to code.
+      Opening a GitHub issue is the easiest way to tell the maintainers what should change.
+    </p>
+    <div class="hero-actions">
+      <a class="primary-action" href={newIssueUrl} target="_blank" rel="noopener">Open a new issue <span aria-hidden="true">↗</span></a>
+      <a class="secondary-action" href={issuesUrl} target="_blank" rel="noopener">Browse existing issues</a>
+    </div>
+  </section>
+
+  <section class="before-you-start">
+    <div>
+      <span class="eyebrow">Before you start</span>
+      <h2>You only need two things</h2>
+    </div>
+    <ul>
+      <li>A free GitHub account.</li>
+      <li>A short explanation of what you found or what you want changed.</li>
+    </ul>
+  </section>
+
+  <section class="steps" aria-label="Steps for opening a GitHub issue">
+    <article class="step-card">
+      <div class="step-copy">
+        <span class="step-number">01</span>
+        <div>
+          <h2>Go to the project on GitHub</h2>
+          <p>Open the Decision Management Community repository, then choose the <strong>Issues</strong> tab near the top of the page.</p>
+          <a href={issuesUrl} target="_blank" rel="noopener">Go straight to Issues ↗</a>
+        </div>
+      </div>
+      <div class="mock-shot" aria-label="Illustration showing the Issues tab on GitHub">
+        <div class="browser-bar"><span></span><span></span><span></span><div>github.com / Decision-Management-Community / dm-community</div></div>
+        <div class="github-nav">
+          <span>Code</span><span class="target">Issues <b>27</b></span><span>Pull requests</span><span>Actions</span><span>Projects</span>
+        </div>
+        <div class="arrow arrow-down">↓</div>
+        <div class="callout">Click <strong>Issues</strong></div>
+      </div>
+    </article>
+
+    <article class="step-card reverse">
+      <div class="step-copy">
+        <span class="step-number">02</span>
+        <div>
+          <h2>Click “New issue”</h2>
+          <p>On the Issues page, click the green <strong>New issue</strong> button. If GitHub asks you to sign in, sign in or create a free account.</p>
+        </div>
+      </div>
+      <div class="mock-shot issues-shot" aria-label="Illustration showing the New issue button on GitHub">
+        <div class="browser-bar"><span></span><span></span><span></span><div>Issues · dm-community</div></div>
+        <div class="issues-toolbar">
+          <div class="fake-search">is:issue is:open</div>
+          <button type="button" tabindex="-1">New issue</button>
+        </div>
+        <div class="issue-row"><strong>Website suggestion</strong><small>#123 opened recently</small></div>
+        <div class="arrow arrow-up-right">↗</div>
+        <div class="callout right">Click <strong>New issue</strong></div>
+      </div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-copy">
+        <span class="step-number">03</span>
+        <div>
+          <h2>Write a clear title</h2>
+          <p>Use one sentence that tells us what needs attention. Good titles are specific enough that someone can understand the problem without opening the issue.</p>
+          <div class="examples">
+            <span><strong>Good:</strong> Broken link on the Resources page</span>
+            <span><strong>Good:</strong> Add author filtering to Articles</span>
+            <span><strong>Avoid:</strong> Website problem</span>
+          </div>
+        </div>
+      </div>
+      <div class="mock-shot form-shot" aria-label="Illustration showing the issue title field">
+        <div class="browser-bar"><span></span><span></span><span></span><div>New issue · dm-community</div></div>
+        <label>Title</label>
+        <div class="input target-input">Broken link on the Resources page</div>
+        <label>Description</label>
+        <div class="textarea muted">Tell us what happened…</div>
+        <div class="arrow arrow-left">←</div>
+        <div class="callout right-middle">Be specific</div>
+      </div>
+    </article>
+
+    <article class="step-card reverse">
+      <div class="step-copy">
+        <span class="step-number">04</span>
+        <div>
+          <h2>Explain what you saw and what you expected</h2>
+          <p>You do not need technical language. Just give enough context that another person can reproduce the problem or understand the suggestion.</p>
+          <ul class="checklist">
+            <li>Which page were you on?</li>
+            <li>What did you click or try to do?</li>
+            <li>What happened?</li>
+            <li>What did you expect instead?</li>
+            <li>If useful, attach a screenshot.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="mock-shot form-shot tall" aria-label="Illustration showing a useful issue description">
+        <div class="browser-bar"><span></span><span></span><span></span><div>New issue · dm-community</div></div>
+        <label>Description</label>
+        <div class="textarea description">
+          <strong>Page:</strong> Resources<br /><br />
+          <strong>What I did:</strong> Clicked the “Optimization tools” link.<br /><br />
+          <strong>What happened:</strong> It opened a 404 page.<br /><br />
+          <strong>Expected:</strong> The tool page should open.
+        </div>
+        <div class="paperclip">📎 Attach a screenshot by dragging it here</div>
+      </div>
+    </article>
+
+    <article class="step-card">
+      <div class="step-copy">
+        <span class="step-number">05</span>
+        <div>
+          <h2>Submit the issue</h2>
+          <p>Give your description one quick read, then click <strong>Submit new issue</strong>. That is it. A maintainer can now discuss, prioritize, or fix it in public.</p>
+          <p class="note">You can come back later to add more detail or answer questions in the issue thread.</p>
+        </div>
+      </div>
+      <div class="mock-shot submit-shot" aria-label="Illustration showing the Submit new issue button">
+        <div class="browser-bar"><span></span><span></span><span></span><div>New issue · dm-community</div></div>
+        <div class="textarea muted">Your description is ready.</div>
+        <div class="submit-row"><button type="button" tabindex="-1">Submit new issue</button></div>
+        <div class="arrow arrow-submit">↘</div>
+        <div class="callout submit-callout">Click to send it</div>
+      </div>
+    </article>
+  </section>
+
+  <section class="template-section">
+    <span class="eyebrow">Copy this structure</span>
+    <h2>A simple issue template</h2>
+    <div class="template">
+      <p><strong>Page or area:</strong> [Where did you see the problem?]</p>
+      <p><strong>What I did:</strong> [What did you click or try?]</p>
+      <p><strong>What happened:</strong> [Describe the result.]</p>
+      <p><strong>What I expected:</strong> [What should have happened instead?]</p>
+      <p><strong>Extra context:</strong> [Screenshot, browser, idea, or anything else helpful.]</p>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div>
+      <span class="eyebrow">That’s all there is to it</span>
+      <h2>See something? Tell us.</h2>
+      <p>Small fixes, confusing pages, broken links, new ideas, missing resources — issues are welcome.</p>
+    </div>
+    <a class="primary-action" href={newIssueUrl} target="_blank" rel="noopener">Open an issue now <span aria-hidden="true">↗</span></a>
+  </section>
+</BaseLayout>
+
+<style>
+  .guide-hero {
+    padding: clamp(2rem, 5vw, 4rem);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-card) 96%, var(--color-primary) 4%), var(--color-card));
+    box-shadow: var(--shadow-card);
+  }
+  .back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--color-text-muted); font-size: .8rem; text-decoration: none; }
+  .back-link:hover { color: var(--color-primary); }
+  .eyebrow { display: block; margin-bottom: .4rem; color: var(--color-accent-dark); font-size: .7rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+  .guide-hero h1 { max-width: 13ch; margin: 0; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -.035em; }
+  .guide-hero p { max-width: 65ch; margin: 1rem 0 0; color: var(--color-text-muted); font-size: 1.05rem; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 1.5rem; }
+  .primary-action, .secondary-action { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: .65rem 1rem; border-radius: 8px; font-size: .86rem; font-weight: 750; text-decoration: none; }
+  .primary-action { border: 1px solid var(--color-primary); background: var(--color-primary); color: var(--color-bg); }
+  .secondary-action { border: 1px solid var(--color-border); color: var(--color-text); }
+  .before-you-start { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2.5rem; padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-card); }
+  .before-you-start h2 { margin: 0; }
+  .before-you-start ul { margin: 0; padding-left: 1.2rem; color: var(--color-text-muted); }
+  .steps { margin-top: 3rem; }
+  .step-card { display: grid; grid-template-columns: minmax(0,.8fr) minmax(420px,1.2fr); gap: clamp(2rem,5vw,5rem); align-items: center; padding: 2.8rem 0; border-top: 1px solid var(--color-border); }
+  .step-card.reverse .step-copy { order: 2; }
+  .step-card.reverse .mock-shot { order: 1; }
+  .step-copy { display: grid; grid-template-columns: 52px 1fr; gap: 1rem; }
+  .step-number { color: var(--color-accent-dark); font-family: var(--font-mono); font-size: .78rem; font-weight: 800; }
+  .step-copy h2 { margin: 0 0 .65rem; font-size: clamp(1.35rem,2.5vw,2rem); }
+  .step-copy p, .step-copy li { color: var(--color-text-muted); }
+  .step-copy a { font-weight: 700; }
+  .examples { display: grid; gap: .45rem; margin-top: 1rem; font-size: .82rem; }
+  .examples span { padding: .55rem .7rem; border-left: 3px solid var(--color-border); background: var(--color-bg-alt); }
+  .checklist { padding-left: 1.1rem; }
+  .note { padding: .7rem .8rem; border-radius: 8px; background: var(--color-bg-alt); font-size: .85rem; }
+  .mock-shot { position: relative; min-height: 285px; overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-border) 80%, #8c959f 20%); border-radius: 12px; background: #fff; color: #24292f; box-shadow: 0 18px 45px rgba(0,0,0,.12); }
+  .browser-bar { display: flex; align-items: center; gap: .38rem; height: 40px; padding: 0 .8rem; border-bottom: 1px solid #d0d7de; background: #f6f8fa; font: 11px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .browser-bar > span { width: 8px; height: 8px; border-radius: 50%; background: #afb8c1; }
+  .browser-bar > div { margin-left: .35rem; color: #57606a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .github-nav { display: flex; gap: 1rem; align-items: end; height: 58px; padding: 0 1rem; border-bottom: 1px solid #d0d7de; background: #f6f8fa; font: 600 12px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .github-nav span { padding: 20px 4px 15px; }
+  .github-nav b { padding: 2px 6px; border-radius: 10px; background: #eaeef2; font-size: 10px; }
+  .github-nav .target { border-bottom: 2px solid #fd8c73; }
+  .issues-toolbar { display: flex; gap: .7rem; padding: 1.3rem; }
+  .fake-search, .input, .textarea { border: 1px solid #d0d7de; border-radius: 6px; background: #fff; font: 12px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .fake-search { flex: 1; padding: .55rem .65rem; color: #57606a; }
+  .issues-toolbar button, .submit-row button { border: 1px solid rgba(27,31,36,.15); border-radius: 6px; background: #2da44e; color: #fff; font: 600 12px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; padding: .6rem .85rem; }
+  .issue-row { display: grid; gap: .2rem; margin: 0 1.3rem; padding: 1rem; border: 1px solid #d0d7de; border-radius: 6px; font: 12px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .issue-row small { color: #57606a; }
+  .form-shot { padding-bottom: 1rem; }
+  .form-shot label { display: block; margin: .8rem 1rem .35rem; font: 600 12px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .input, .textarea { margin: 0 1rem; padding: .65rem; }
+  .target-input { outline: 2px solid #0969da; outline-offset: 1px; }
+  .textarea { min-height: 78px; color: #24292f; }
+  .textarea.muted { color: #8c959f; }
+  .tall { min-height: 360px; }
+  .description { min-height: 185px; }
+  .paperclip { margin: .7rem 1rem 0; color: #57606a; font: 11px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .submit-row { display: flex; justify-content: flex-end; padding: 1rem; }
+  .arrow { position: absolute; z-index: 3; color: #cf222e; font: 900 42px/1 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; text-shadow: 0 2px 0 #fff; }
+  .arrow-down { top: 92px; left: 23%; }
+  .arrow-up-right { top: 75px; right: 34px; }
+  .arrow-left { top: 93px; right: 25px; }
+  .arrow-submit { right: 80px; bottom: 66px; }
+  .callout { position: absolute; z-index: 4; padding: .38rem .55rem; border: 2px solid #cf222e; border-radius: 6px; background: #fff; color: #24292f; font: 700 11px/1.2 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+  .mock-shot > .callout { top: 150px; left: 13%; }
+  .callout.right { top: 128px; right: 18px; left: auto; }
+  .callout.right-middle { top: 142px; right: 14px; left: auto; }
+  .submit-callout { top: auto !important; right: 145px; bottom: 88px; left: auto !important; }
+  .template-section { margin-top: 2.5rem; padding: clamp(1.5rem,4vw,2.5rem); border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-card); }
+  .template-section h2 { margin: 0 0 1rem; }
+  .template { max-width: 760px; padding: 1rem 1.2rem; border-radius: 8px; background: var(--color-bg-alt); }
+  .template p { margin: .7rem 0; }
+  .final-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-top: 2.5rem; padding: clamp(1.5rem,4vw,2.5rem); border-radius: 12px; background: var(--color-primary); color: var(--color-bg); }
+  .final-cta .eyebrow { color: currentColor; opacity: .75; }
+  .final-cta h2 { margin: 0; }
+  .final-cta p { max-width: 62ch; margin: .5rem 0 0; opacity: .85; }
+  .final-cta .primary-action { border-color: var(--color-bg); background: var(--color-bg); color: var(--color-primary); }
+  @media (max-width: 900px) {
+    .step-card { grid-template-columns: 1fr; }
+    .step-card.reverse .step-copy, .step-card.reverse .mock-shot { order: initial; }
+    .before-you-start { grid-template-columns: 1fr; }
+    .final-cta { align-items: flex-start; flex-direction: column; }
+  }
+  @media (max-width: 560px) {
+    .guide-hero { padding: 1.5rem; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .step-copy { grid-template-columns: 36px 1fr; }
+    .mock-shot { min-height: 245px; }
+    .github-nav { gap: .45rem; overflow: hidden; }
+    .github-nav span:nth-child(n+4) { display: none; }
+  }
+</style>
