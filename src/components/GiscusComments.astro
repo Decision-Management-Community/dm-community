@@ -1,0 +1,41 @@
+---
+// Giscus configuration for Decision-Management-Community/dm-community.
+// These IDs are public repository metadata, not credentials.
+const repo = 'Decision-Management-Community/dm-community';
+const repoId = 'R_kgDOTxocAA';
+const category = 'General';
+const categoryId = 'DIC_kwDOTxocAM4DD6P8';
+---
+
+<section class="giscus-comments" aria-labelledby="discussion-heading">
+  <h2 id="discussion-heading">Join the discussion</h2>
+  <p class="muted">Sign in with GitHub to leave a comment.</p>
+  <script
+    is:inline
+    src="https://giscus.app/client.js"
+    data-repo={repo}
+    data-repo-id={repoId}
+    data-category={category}
+    data-category-id={categoryId}
+    data-mapping="pathname"
+    data-strict="1"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    data-loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></script>
+</section>
+
+<style>
+  .giscus-comments {
+    margin-top: 3rem;
+    padding-top: 0.25rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .giscus-comments > p { margin-top: -0.75rem; }
+</style>
