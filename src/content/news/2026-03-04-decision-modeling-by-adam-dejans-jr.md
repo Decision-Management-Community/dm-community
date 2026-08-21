@@ -6,7 +6,7 @@ tags: ["Decision Modeling", "Decision Optimization"]
 legacyPath: "/2026/03/04/decision-modeling-by-adam-dejans-jr/"
 ---
 
-<p class="wp-block-paragraph"><a href="https://www.linkedin.com/in/addejans/">Adam DeJans Jr</a>. describes the technical approach he uses, regardless of whether the tool is for optimization, ML, simulation, or even a rules engine:  <a href="https://www.linkedin.com/posts/aaron-lockhart-288487237_the-hardest-part-of-solving-a-problem-is-activity-7434647707945705473-4m_2?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAFIMoBtgF6zELsOiwFm0hGYH1dIteE6pQ" target="_blank" rel="noreferrer noopener">Link</a> </p>
+<p class="wp-block-paragraph"><a href="https://www.adamdejans.com">Adam DeJans Jr.</a> describes the technical approach he uses, regardless of whether the tool is for optimization, ML, simulation, or even a rules engine:  <a href="https://www.linkedin.com/posts/aaron-lockhart-288487237_the-hardest-part-of-solving-a-problem-is-activity-7434647707945705473-4m_2?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAAFIMoBtgF6zELsOiwFm0hGYH1dIteE6pQ" target="_blank" rel="noreferrer noopener">Link</a> </p>
 
 
 
