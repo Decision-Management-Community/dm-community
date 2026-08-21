@@ -12,13 +12,26 @@ solutions:
   - title: Drools
     author: Dr. Bob Moore
     url: "/resources/articles/2019-03-01-offering-donated-organs-for-transplant-drools/"
+  - title: Drools — Part 2
+    author: Dr. Bob Moore
+    url: "/news-media/2019/03/challenge2019mar.bobmoore.part2_.pdf"
   - title: DT5GL
     author: Jack Jansonius
     url: "/resources/articles/2019-03-01-offering-donated-organs-for-transplant-dt5gl/"
+  - title: DT5GL — Part 2
+    author: Jack Jansonius
+    url: "/news-media/2019/08/challenge2019mar.jansonius.part2_.pdf"
+  - title: DT5GL — Part 3
+    author: Jack Jansonius
+    url: "/news-media/2023/11/challenge2019.march_.jjpart-3.pdf"
   - title: ALEF
     author: Marnix van Rij
     affiliation: Netherlands Tax Administration
     url: https://wendbarewetsuitvoering.pleio.nl/attachment/32863573-1863-4404-84f8-afeef7330b15
+  - title: ALEF — Part 2
+    author: Marnix van Rij
+    affiliation: Netherlands Tax Administration
+    url: "/news-media/2019/03/challenge2019mar.alef.part2.pdf"
 ---
 
 This challenge, proposed by Dr. Bob Moore, is a simplified model of a real process used by the NHS Blood and Transplant service in the UK for allocating donated organs. When a heart and a pair of lungs become available, the register of waiting patients produces three ranked lists: a high-priority list of named candidates for the heart, a high-priority list of named candidates for the lungs, and a list of transplant centres that can also receive either organ on behalf of a patient they select.
