@@ -99,3 +99,14 @@ The canonical production URL is:
 
 The build is deliberately configured for the `/dm-community/` base path and must not depend on the
 legacy WordPress domain for canonical URLs, navigation, or hosted assets.
+
+## News comments
+
+News posts use [Giscus](https://giscus.app/), which stores comments as GitHub Discussions in the
+repository's **General** category. Each post maps to one discussion by its site pathname, so its
+comments remain distinct and are not coupled to the old WordPress permalink.
+
+GitHub Discussions is enabled for this repository. Before comments can be used in production, a
+repository administrator must install the [Giscus GitHub App](https://github.com/apps/giscus) and
+grant it access to `Decision-Management-Community/dm-community`. The configured repository and
+category IDs in `src/components/GiscusComments.astro` are public metadata; no secret is required.

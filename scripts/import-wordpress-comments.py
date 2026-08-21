@@ -15,7 +15,9 @@ from html.parser import HTMLParser
 # DMCommunity is hosted on WordPress.com. Use Automattic's public API instead
 # of the site's proxied wp-json endpoint: the latter aggressively rate-limits
 # cloud CI addresses, while this endpoint is explicitly public and unauthenticated.
-API_URL = "https://public-api.wordpress.com/rest/v1.1/sites/dmcommunity.org/comments/"
+# The custom dmcommunity.org domain now serves the rebuilt site. The original
+# WordPress.com site continues to expose the legacy comments through this API.
+API_URL = "https://public-api.wordpress.com/rest/v1.1/sites/dmcommunity.wordpress.com/comments/"
 SSL_CONTEXT = ssl._create_unverified_context()
 USER_AGENT = "DMCommunity comment archive migration/1.0"
 LEGACY_PATH_RE = re.compile(r'^legacyPath:\s*["\']?(/\d{4}/\d{2}/\d{2}/[^"\'\s]+/)', re.MULTILINE)

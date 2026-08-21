@@ -4,6 +4,7 @@ import { getCollection, render } from 'astro:content';
 import { url } from '../../lib/url';
 import { isLegacyDmCommunityUrl, migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 import legacyComments from '../../data/legacy-news-comments.json';
+import GiscusComments from '../../components/GiscusComments.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('news');
@@ -76,6 +77,8 @@ function formatCommentDate(value: string) {
       </div>
     </section>
   )}
+
+  <GiscusComments />
 </BaseLayout>
 
 <style>
