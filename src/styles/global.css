@@ -67,6 +67,25 @@ pre {
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  line-height: 1.55;
+}
+
+/* Fenced Markdown blocks are rendered by Astro/Shiki. Keep the block styling
+   on <pre> and do not let the generic inline-code treatment paint a second
+   background behind the highlighted source. This preserves Shiki's intended
+   foreground colors and makes solution code readable in both color schemes. */
+pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 0.9rem;
+  white-space: pre;
 }
 
 a {
