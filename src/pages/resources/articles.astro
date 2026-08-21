@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-import { authorUrl } from '../../lib/authorUrl';
+import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { url } from '../../lib/url';
 
 const posts = (await getCollection('articles')).sort(
@@ -10,8 +10,9 @@ const posts = (await getCollection('articles')).sort(
 
 const authorCounts = new Map<string, number>();
 for (const post of posts) {
-  if (post.data.author) {
-    authorCounts.set(post.data.author, (authorCounts.get(post.data.author) ?? 0) + 1);
+  const displayAuthor = canonicalAuthorName(post.data.author);
+  if (displayAuthor) {
+    authorCounts.set(displayAuthor, (authorCounts.get(displayAuthor) ?? 0) + 1);
   }
 }
 const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
@@ -42,22 +43,23 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
 
   <div id="article-archive" class="card-grid">
     {posts.map((p) => {
-      const profile = authorUrl(p.data.author, p.data.linkedin);
+      const displayAuthor = canonicalAuthorName(p.data.author);
+      const profile = authorUrl(displayAuthor, p.data.linkedin);
       return (
         <article
           class="card article-card"
-          data-search={`${p.data.title} ${p.data.author ?? ''} ${p.data.summary ?? ''}`.toLocaleLowerCase()}
-          data-author={p.data.author ?? ''}
+          data-search={`${p.data.title} ${displayAuthor ?? ''} ${p.data.summary ?? ''}`.toLocaleLowerCase()}
+          data-author={displayAuthor ?? ''}
         >
           <h3><a href={url(`/resources/articles/${p.id}/`)}>{p.data.title}</a></h3>
           <p class="muted small">
             {p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
-            {p.data.author && (
+            {displayAuthor && (
               <>
                 {' · '}
                 {profile ? (
-                  <a href={profile} target="_blank" rel="noopener">{p.data.author}</a>
-                ) : p.data.author}
+                  <a href={profile} target="_blank" rel="noopener">{displayAuthor}</a>
+                ) : displayAuthor}
               </>
             )}
           </p>
