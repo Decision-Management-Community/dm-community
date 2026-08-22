@@ -43,6 +43,24 @@ const authoredNews = news
   .filter((item) => canonicalAuthorName(item.data.author) === canonicalName)
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
+const mentionTokens = [name, `${entry.data.firstName} ${entry.data.lastName}`];
+if (entry.data.linkedin) {
+  try {
+    const handle = new URL(entry.data.linkedin).pathname.split('/').filter(Boolean).pop();
+    if (handle) mentionTokens.push(handle);
+  } catch {
+    // Ignore malformed legacy links; schema validation handles normal cases.
+  }
+}
+const uniqueMentionTokens = [...new Set(mentionTokens.filter(Boolean))];
+const mentionedNews = news
+  .filter((item) => {
+    if (canonicalAuthorName(item.data.author) === canonicalName) return false;
+    const body = typeof item.body === 'string' ? item.body : '';
+    return uniqueMentionTokens.some((token) => body.includes(token));
+  })
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
 const profilePath = url(contributorPath(entry.id));
 const profileUrl = new URL(profilePath, Astro.site).toString();
 const imageUrl = entry.data.image ? new URL(url(entry.data.image), Astro.site).toString() : undefined;
@@ -71,6 +89,7 @@ const personJsonLd = entry.data.structuredData ? {
 } : undefined;
 
 const contributionCount = authoredArticles.length + challengeSolutions.length + authoredQa.length + authoredNews.length;
+const indexedItemCount = contributionCount + mentionedNews.length;
 ---
 <BaseLayout title={name} description={entry.data.shortBio}>
   {personJsonLd && <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />}
@@ -117,10 +136,10 @@ const contributionCount = authoredArticles.length + challengeSolutions.length + 
         </section>
       )}
 
-      <section class="profile-section" aria-labelledby="contributions-heading">
+      <section class="profile-section" aria-labelledby="activity-heading">
         <div class="section-heading-row">
-          <h2 id="contributions-heading">Contributions</h2>
-          <span class="muted">{contributionCount} indexed on this profile</span>
+          <h2 id="activity-heading">DMCommunity activity</h2>
+          <span class="muted">{indexedItemCount} indexed {indexedItemCount === 1 ? 'item' : 'items'}</span>
         </div>
 
         {authoredArticles.length > 0 && (
@@ -193,7 +212,23 @@ const contributionCount = authoredArticles.length + challengeSolutions.length + 
           </div>
         )}
 
-        {contributionCount === 0 && <p class="muted">No indexed contributions yet.</p>}
+        {mentionedNews.length > 0 && (
+          <div class="contribution-group">
+            <h3>News &amp; mentions</h3>
+            <div class="contribution-list">
+              {mentionedNews.map((item) => (
+                <article class="contribution-item">
+                  <div><a href={url(`/news/${item.id}/`)}>{item.data.title}</a></div>
+                  <time datetime={item.data.date.toISOString()}>
+                    {item.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+                  </time>
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {indexedItemCount === 0 && <p class="muted">No indexed activity yet.</p>}
       </section>
     </main>
 
