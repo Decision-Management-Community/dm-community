@@ -95,22 +95,22 @@ function contributorSearchText(contributor: (typeof contributors)[number]) {
 
 const isFeatured = ({ entry, count }: (typeof rows)[number]) => entry.data.featured || count >= 2;
 
+function compareByActivity(a: (typeof rows)[number], b: (typeof rows)[number]) {
+  return (
+    b.count - a.count ||
+    b.mentions - a.mentions ||
+    a.entry.data.lastName.localeCompare(b.entry.data.lastName) ||
+    a.entry.data.firstName.localeCompare(b.entry.data.firstName)
+  );
+}
+
 const featured = rows
   .filter(isFeatured)
-  .sort((a, b) =>
-    b.latestSubstantive - a.latestSubstantive ||
-    b.depthScore - a.depthScore ||
-    b.substantiveCount - a.substantiveCount ||
-    b.count - a.count ||
-    a.entry.data.lastName.localeCompare(b.entry.data.lastName),
-  );
+  .sort(compareByActivity);
 
 const community = rows
   .filter((row) => !isFeatured(row))
-  .sort((a, b) =>
-    a.entry.data.lastName.localeCompare(b.entry.data.lastName) ||
-    a.entry.data.firstName.localeCompare(b.entry.data.firstName),
-  );
+  .sort(compareByActivity);
 ---
 <BaseLayout
   title="Contributors"
