@@ -24,6 +24,10 @@ solutions:
     author: Simon Vandevelde
     affiliation: KU Leuven
     url: https://cdmn.readthedocs.io/en/latest/Examples/doctor_planning.html
+  - title: HiGHS Shift-Scheduling MILP
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: /resources/articles/2026-08-22-doctor-planning-highs-milp/
 ---
 
 Based on a real-life use case offered by Simon Vandevelde (KU Leuven): a hospital needs a doctor present at all times. Build a 7-day schedule, starting on a Monday, that covers three shifts per day — early, late, and night — using 5 doctors, subject to these rules:

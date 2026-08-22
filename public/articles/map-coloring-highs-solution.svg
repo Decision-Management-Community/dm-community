@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Optimal three-color map solution with one paid violation</title>
+  <desc id="desc">Belgium is red, Germany green, France and Luxembourg blue, Netherlands blue, Denmark red. France and Luxembourg share a color, creating the minimum 257 dollar violation.</desc>
+  <rect width="960" height="560" rx="24" fill="#f8fafc"/>
+  <text x="48" y="58" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Map Coloring with Violations — HiGHS optimum</text>
+  <text x="48" y="88" font-family="Arial, sans-serif" font-size="15" fill="#475569">Three colors · one unavoidable soft violation · minimum penalty $257</text>
+
+  <g stroke="#64748b" stroke-width="5" fill="none" stroke-linecap="round">
+    <line x1="270" y1="250" x2="465" y2="165"/>
+    <line x1="270" y1="250" x2="500" y2="330"/>
+    <line x1="270" y1="250" x2="205" y2="410"/>
+    <line x1="465" y1="165" x2="500" y2="330"/>
+    <line x1="500" y1="330" x2="205" y2="410"/>
+    <line x1="500" y1="330" x2="735" y2="250"/>
+    <line x1="500" y1="330" x2="735" y2="430"/>
+  </g>
+
+  <g stroke-linecap="round">
+    <line x1="465" y1="165" x2="205" y2="410" stroke="#dc2626" stroke-width="9" stroke-dasharray="13 10"/>
+    <rect x="283" y="272" width="150" height="54" rx="12" fill="#fff7ed" stroke="#fdba74"/>
+    <text x="358" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#9a3412">PAID VIOLATION</text>
+    <text x="358" y="316" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#9a3412">France–Lux $257</text>
+  </g>
+
+  <g font-family="Arial, sans-serif" text-anchor="middle" font-weight="700">
+    <circle cx="270" cy="250" r="68" fill="#ef4444" stroke="#991b1b" stroke-width="4"/>
+    <text x="270" y="256" font-size="18" fill="#ffffff">Belgium</text>
+
+    <circle cx="465" cy="165" r="68" fill="#3b82f6" stroke="#1d4ed8" stroke-width="4"/>
+    <text x="465" y="171" font-size="18" fill="#ffffff">France</text>
+
+    <circle cx="500" cy="330" r="68" fill="#22c55e" stroke="#15803d" stroke-width="4"/>
+    <text x="500" y="336" font-size="18" fill="#ffffff">Germany</text>
+
+    <circle cx="205" cy="410" r="68" fill="#3b82f6" stroke="#1d4ed8" stroke-width="4"/>
+    <text x="205" y="416" font-size="16" fill="#ffffff">Luxembourg</text>
+
+    <circle cx="735" cy="250" r="68" fill="#3b82f6" stroke="#1d4ed8" stroke-width="4"/>
+    <text x="735" y="256" font-size="16" fill="#ffffff">Netherlands</text>
+
+    <circle cx="735" cy="430" r="68" fill="#ef4444" stroke="#991b1b" stroke-width="4"/>
+    <text x="735" y="436" font-size="18" fill="#ffffff">Denmark</text>
+  </g>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="48" y="495" width="864" height="40" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="480" y="521" text-anchor="middle" font-size="16" fill="#334155">Belgium, France and Germany consume all three colors; Luxembourg takes France's color because $257 is the cheapest conflict.</text>
+  </g>
+</svg>

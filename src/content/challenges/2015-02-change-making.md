@@ -17,6 +17,10 @@ solutions:
   - title: cDMN
     author: Simon Vandevelde
     url: https://cdmn.readthedocs.io/en/latest/Examples/change_making.html
+  - title: HiGHS Integer MILP
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: /resources/articles/2026-08-22-change-making-highs-milp/
 ---
 
 Given a target sum and a set of coin denominations, find the way to make that sum using the fewest coins.

@@ -38,6 +38,10 @@ solutions:
     author: Meinolf Sellmann
     authorUrl: https://www.linkedin.com/in/meinolf-sellmann-a349636/
     url: https://colab.research.google.com/drive/1_HbGO-R80v5uH5Tu1_nH39sfBV-u81Vi?usp=sharing
+  - title: HiGHS MILP
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: /resources/articles/2026-08-22-rental-boats-highs-milp/
 ---
 
 Floataway Tours has $420,000 to purchase new rental boats for the summer, from two manufacturers. Floataway wants to purchase at least 50 boats total, wants to purchase the same number from each manufacturer (to maintain goodwill), and wants a total seating capacity of at least 200. Data about the available boats:

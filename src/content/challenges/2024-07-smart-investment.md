@@ -34,6 +34,10 @@ solutions:
   - title: OpenRules RuleSolver
     author: Ian Detinich
     url: "/resources/articles/2024-07-01-smart-investment-openrules-rulesolver/"
+  - title: HiGHS Integer Portfolio MILP
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: /resources/articles/2026-08-22-smart-investment-highs-milp/
 ---
 
 A client of an investment firm has $10,000 to invest and wants it spread across a set of stocks: no more than $5,000 in any one stock, and at least $1,000 in each stock. Use the firm's price data to invest in the way that maximizes overall gain over a one-year period.

@@ -18,6 +18,10 @@ solutions:
   - title: RuleSolver
     author: Jacob Feldman
     url: https://rulesolver.wordpress.com/map-coloring-with-violations/
+  - title: HiGHS Soft-Constraint MILP
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: /resources/articles/2026-08-22-map-coloring-violations-highs-milp/
 ---
 
 This is a harder follow-up to the [May-2019 Map Coloring challenge](/challenges/2019-05-map-coloring). The same six countries — Belgium, Denmark, France, Germany, Luxembourg, and the Netherlands — now need to be colored with only 3 colors (blue, red, green) instead of 4. That's not enough to avoid every same-colored border, so some violations are unavoidable — but each possible violation carries its own cost:
