@@ -33,6 +33,10 @@ solutions:
   - title: Seeker
     author: Meinolf Sellmann
     url: https://colab.research.google.com/drive/1z3-cAZ_SoC68HQRnwUN3Z5Me-Ay8Xy7J
+  - title: Lagrangian Relaxation + Certificate
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: "/resources/articles/2026-08-22-holiday-gift-lagrangian-relaxation/"
 ---
 
 An office wants to assign one holiday gift to each of five people (Alice, Bob, Carol, Dave, and Eve) from a list of five gifts, each with its own cost. Every person also has a "happiness score" for each possible gift. Assign exactly one gift per person so that total happiness is maximized without exceeding a fixed budget.
