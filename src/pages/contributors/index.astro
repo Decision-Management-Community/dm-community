@@ -32,16 +32,33 @@ function profileMentionTokens(contributor: (typeof contributors)[number]) {
   return [...new Set(tokens.filter(Boolean))];
 }
 
-function indexedContributionCount(contributor: (typeof contributors)[number]) {
+function contributorStats(contributor: (typeof contributors)[number]) {
   const name = canonicalAuthorName(contributorFullName(contributor.data));
-  const articleCount = articles.filter((item) => canonicalAuthorName(item.data.author) === name).length;
-  const solutionCount = challenges.reduce(
-    (count, challenge) => count + challenge.data.solutions.filter((solution) => canonicalAuthorName(solution.author) === name).length,
-    0,
+  const authoredArticles = articles.filter((item) => canonicalAuthorName(item.data.author) === name);
+  const authoredSolutions = challenges.flatMap((challenge) =>
+    challenge.data.solutions
+      .filter((solution) => canonicalAuthorName(solution.author) === name)
+      .map((solution) => ({ challenge, solution })),
   );
-  const qaCount = qa.filter((item) => canonicalAuthorName(item.data.author) === name).length;
-  const newsCount = news.filter((item) => canonicalAuthorName(item.data.author) === name).length;
-  return articleCount + solutionCount + qaCount + newsCount;
+  const authoredQa = qa.filter((item) => canonicalAuthorName(item.data.author) === name);
+  const authoredNews = news.filter((item) => canonicalAuthorName(item.data.author) === name);
+
+  const substantiveDates = [
+    ...authoredArticles.map((item) => item.data.date.valueOf()),
+    ...authoredSolutions.map(({ challenge }) => challenge.data.date.valueOf()),
+    ...authoredQa.map((item) => item.data.date.valueOf()),
+  ];
+
+  return {
+    count: authoredArticles.length + authoredSolutions.length + authoredQa.length + authoredNews.length,
+    substantiveCount: authoredArticles.length + authoredSolutions.length + authoredQa.length,
+    depthScore:
+      authoredArticles.length * 4 +
+      authoredSolutions.length * 4 +
+      authoredQa.length * 3 +
+      authoredNews.length,
+    latestSubstantive: substantiveDates.length > 0 ? Math.max(...substantiveDates) : 0,
+  };
 }
 
 function indexedNewsMentionCount(contributor: (typeof contributors)[number]) {
@@ -57,7 +74,7 @@ function indexedNewsMentionCount(contributor: (typeof contributors)[number]) {
 
 const rows = contributors.map((entry) => ({
   entry,
-  count: indexedContributionCount(entry),
+  ...contributorStats(entry),
   mentions: indexedNewsMentionCount(entry),
 }));
 
@@ -78,7 +95,13 @@ const isFeatured = ({ entry, count }: (typeof rows)[number]) => entry.data.featu
 
 const featured = rows
   .filter(isFeatured)
-  .sort((a, b) => b.count - a.count || a.entry.data.lastName.localeCompare(b.entry.data.lastName));
+  .sort((a, b) =>
+    b.latestSubstantive - a.latestSubstantive ||
+    b.depthScore - a.depthScore ||
+    b.substantiveCount - a.substantiveCount ||
+    b.count - a.count ||
+    a.entry.data.lastName.localeCompare(b.entry.data.lastName),
+  );
 
 const community = rows
   .filter((row) => !isFeatured(row))
