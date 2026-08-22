@@ -8,6 +8,7 @@ const emails: Record<string, string> = {
   'Alex Fleischer': 'afleischer@fr.ibm.com',
   'Alex Goldin': 'alexgoldin@openrules.com',
   'Alex Mirtsyn': 'alexmirtsyn@openrules.com',
+  'Alex Porcelli': 'porcelli@aletyx.ai',
   'Alireza Soroudi': 'alireza.soroudi@gmail.com',
   'Andrew Macdonald': 'macdonald@uk.ibm.com',
   'Antonio Plais': 'antonioplais@centus.com.br',
@@ -34,9 +35,11 @@ const emails: Record<string, string> = {
   'Evan Semet': 'evancsemet@gmail.com',
   'Falko Menge': 'falko.menge@camunda.com',
   'Faisal Ahmed': 'ahmed.960@buckeyemail.osu.edu',
+  'Filipe Brandão': 'fdabrandao@gmail.com',
   'Florian Sikora': 'florian.sikora@dauphine.fr',
   'Francisco Manso': 'fmanso@decidesoluciones.es',
   'Gary Hallmark': 'gary.hallmark@oracle.com',
+  'Gene Weng': 'gene.weng@gmail.com',
   'Gil Ronen': 'Gil.Ronen@sapiens.com',
   'Gil Segal': 'gil.segal@sapiens.com',
   'Gopal Gupta': 'gupta@utdallas.edu',
@@ -55,6 +58,7 @@ const emails: Record<string, string> = {
   'Jordy Voesten': 'jordy.voesten@avola-decision.com',
   'Julien Pradier': 'pradier.j@fr.ibm.com',
   'Kurth Wilfried': 'wilfried.kurth@axa.ch',
+  'Ken Ritley': 'kenneth.ritley@bfh.ch',
   'Leonid Nisenboym': 'nisenl@hotmail.com',
   'Maarten Schadd': 'm.schadd@blueriq.com',
   'Mahesh Shankar': 'maheshshankar96@gmail.com',
@@ -87,4 +91,16 @@ const emails: Record<string, string> = {
 
 export function challengeAuthorEmail(author: string): string | undefined {
   return emails[author.trim()];
+}
+
+// The legacy page sometimes linked a submitter name to a public profile rather
+// than an email address. Retain those links too, so a migrated solution does
+// not lose its original attribution link.
+const profiles: Record<string, string> = {
+  'Jeremiah Connelly': 'https://jeremiahconnelly.dev/#',
+  'Dr. John Svirbely': 'https://www.trisotech.com/john-svirbely/',
+};
+
+export function challengeAuthorProfileUrl(author: string): string | undefined {
+  return profiles[author.trim()];
 }
