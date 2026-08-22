@@ -23,6 +23,7 @@ const emails: Record<string, string> = {
   'Carole-Ann Berlioz': 'cberlioz@sparklinglogic.com',
   'Carole-Ann Matignon': 'cmatignon@sparklinglogic.com',
   'Chad Musick': 'chad.e.musick@gmail.com',
+  'Charo Álvarez': 'ralvarez@decidesoluciones.es',
   'Damir Sudarevic': 'damir.sudarevic@gmail.com',
   'David Durant': 'david.durant@tiscali.co.uk',
   'Denis Gagné': 'dgagne@trisotech.com',
@@ -97,8 +98,14 @@ export function challengeAuthorEmail(author: string): string | undefined {
 // than an email address. Retain those links too, so a migrated solution does
 // not lose its original attribution link.
 const profiles: Record<string, string> = {
+  'Dan Selman': 'https://www.linkedin.com/feed/update/urn:li:activity:7071844242611937281?commentUrn=urn%3Ali%3Acomment%3A%28activity%3A7071844242611937281%2C7168230748959817728%29&dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287168230748959817728%2Curn%3Ali%3Aactivity%3A7071844242611937281%29',
   'Jeremiah Connelly': 'https://jeremiahconnelly.dev/#',
   'Dr. John Svirbely': 'https://www.trisotech.com/john-svirbely/',
+  'Krunal Patel': 'https://www.krooonal.com/',
+  'Marnix van Rij': 'https://www.linkedin.com/in/marnixvanrij/',
+  'Nathan Brixius': 'https://nathanbrixius.wordpress.com/2019/09/22/creating-equation-haikus-using-constraint-programming/',
+  'Sadhana Nandakumar': 'https://blog.kie.org/category/all?search_authors=271',
+  'Özgür Akgün': 'https://twitter.com/ozgurakgun',
 };
 
 export function challengeAuthorProfileUrl(author: string): string | undefined {

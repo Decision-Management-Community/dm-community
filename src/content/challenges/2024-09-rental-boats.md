@@ -36,6 +36,7 @@ solutions:
     url: "/resources/articles/2024-09-01-rental-boats-excel-solver/"
   - title: Seeker
     author: Meinolf Sellmann
+    authorUrl: https://www.linkedin.com/in/meinolf-sellmann-a349636/
     url: https://colab.research.google.com/drive/1_HbGO-R80v5uH5Tu1_nH39sfBV-u81Vi?usp=sharing
 ---
 
