@@ -16,8 +16,12 @@ const DISCUSSIONS_QUERY = `
           comments(first: 100) {
             totalCount
             nodes {
+              bodyText
               replies(first: 50) {
                 totalCount
+                nodes {
+                  bodyText
+                }
               }
             }
           }
@@ -28,18 +32,19 @@ const DISCUSSIONS_QUERY = `
 `;
 
 /**
- * Returns Giscus discussion totals keyed by News entry id. During local builds
- * and pull-request checks no token is required: legacy-comment counts still
- * render, while live Giscus totals are refreshed by the scheduled deployment.
+ * Returns Giscus discussion totals and text keyed by News entry id. During
+ * local builds and pull-request checks no token is required: legacy comments
+ * still render and remain searchable, while Giscus data is refreshed by the
+ * scheduled deployment.
  *
- * @returns {Promise<Record<string, number>>}
+ * @returns {Promise<Record<string, { count: number, searchText: string }>>}
  */
-export async function getGiscusNewsCommentCounts() {
+export async function getGiscusNewsComments() {
   const token = process.env.GITHUB_TOKEN;
   if (!token) return {};
 
-  /** @type {Record<string, number>} */
-  const counts = {};
+  /** @type {Record<string, { count: number, searchText: string }>} */
+  const commentsByNewsId = {};
   let after = null;
 
   try {
@@ -65,7 +70,7 @@ export async function getGiscusNewsCommentCounts() {
       const payload = await response.json();
       const discussions = payload.data?.repository?.discussions;
       if (!response.ok || payload.errors || !discussions) {
-        console.warn('Unable to refresh Giscus comment totals; using archived totals only.');
+        console.warn('Unable to refresh Giscus comments; using archived comments only.');
         return {};
       }
 
@@ -76,16 +81,23 @@ export async function getGiscusNewsCommentCounts() {
             (total, comment) => total + comment.replies.totalCount,
             0,
           );
-          counts[match[1]] = discussion.comments.totalCount + replyCount;
+          const searchText = discussion.comments.nodes
+            .flatMap((comment) => [comment.bodyText, ...comment.replies.nodes.map((reply) => reply.bodyText)])
+            .filter(Boolean)
+            .join(' ');
+          commentsByNewsId[match[1]] = {
+            count: discussion.comments.totalCount + replyCount,
+            searchText,
+          };
         }
       }
 
       after = discussions.pageInfo.hasNextPage ? discussions.pageInfo.endCursor : null;
     } while (after);
   } catch {
-    console.warn('Unable to refresh Giscus comment totals; using archived totals only.');
+    console.warn('Unable to refresh Giscus comments; using archived comments only.');
     return {};
   }
 
-  return counts;
+  return commentsByNewsId;
 }
