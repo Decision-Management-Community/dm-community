@@ -24,6 +24,7 @@ The community maintains practical resources including:
 - **Challenges** for hands-on decision modeling and problem solving
 - **Decision models, tools, books, case studies, and learning resources**
 - **Articles, Q&A, and news** from practitioners and researchers
+- **[Contributor profiles](/contributors/)** connecting people to their work, expertise, and public professional identities
 - **Vendor's Corner** for relevant product and ecosystem announcements
 
 ## How we operate
