@@ -14,6 +14,24 @@ const [articles, challenges, qa, news] = await Promise.all([
   getCollection('news'),
 ]);
 
+function profileMentionTokens(contributor: (typeof contributors)[number]) {
+  const tokens = [
+    contributorFullName(contributor.data),
+    `${contributor.data.firstName} ${contributor.data.lastName}`,
+  ];
+
+  if (contributor.data.linkedin) {
+    try {
+      const handle = new URL(contributor.data.linkedin).pathname.split('/').filter(Boolean).pop();
+      if (handle) tokens.push(handle);
+    } catch {
+      // Ignore malformed legacy links; schema validation handles normal cases.
+    }
+  }
+
+  return [...new Set(tokens.filter(Boolean))];
+}
+
 function indexedContributionCount(contributor: (typeof contributors)[number]) {
   const name = canonicalAuthorName(contributorFullName(contributor.data));
   const articleCount = articles.filter((item) => canonicalAuthorName(item.data.author) === name).length;
@@ -26,7 +44,22 @@ function indexedContributionCount(contributor: (typeof contributors)[number]) {
   return articleCount + solutionCount + qaCount + newsCount;
 }
 
-const rows = contributors.map((entry) => ({ entry, count: indexedContributionCount(entry) }));
+function indexedNewsMentionCount(contributor: (typeof contributors)[number]) {
+  const name = canonicalAuthorName(contributorFullName(contributor.data));
+  const tokens = profileMentionTokens(contributor);
+
+  return news.filter((item) => {
+    if (canonicalAuthorName(item.data.author) === name) return false;
+    const body = typeof item.body === 'string' ? item.body : '';
+    return tokens.some((token) => body.includes(token));
+  }).length;
+}
+
+const rows = contributors.map((entry) => ({
+  entry,
+  count: indexedContributionCount(entry),
+  mentions: indexedNewsMentionCount(entry),
+}));
 const isFeatured = ({ entry, count }: (typeof rows)[number]) => entry.data.featured || count >= 2;
 
 const featured = rows
@@ -46,24 +79,20 @@ const community = rows
 >
   <h1>Contributors</h1>
   <p class="lede">
-    Practitioners, researchers, and community members who contribute to the Decision Management
-    Community. Profiles connect people to their work, expertise, affiliations, and public
-    professional identities without turning this into a popularity contest.
+    Practitioners, researchers, and community members connected to the Decision Management Community.
+    Profiles bring together their work, expertise, affiliations, and public professional links.
   </p>
 
   {featured.length > 0 && (
     <section class="featured-section" aria-labelledby="featured-contributors-heading">
       <div class="section-intro">
-        <span class="eyebrow">Substantive community work</span>
+        <span class="eyebrow">Community work</span>
         <h2 id="featured-contributors-heading">Featured contributors</h2>
-        <p>
-          These profiles represent sustained or substantive participation that is indexed on the
-          site. Profiles with multiple indexed contributions can move into this section over time.
-        </p>
+        <p>Contributors with articles, solutions, Q&amp;A, and other work represented across DMCommunity.</p>
       </div>
 
       <div class="featured-grid">
-        {featured.map(({ entry: contributor, count }) => {
+        {featured.map(({ entry: contributor, count, mentions }) => {
           const name = contributorFullName(contributor.data);
           return (
             <article class="card featured-card">
@@ -71,7 +100,10 @@ const community = rows
               <div class="contributor-copy">
                 <div class="title-row">
                   <h3><a href={url(contributorPath(contributor.id))}>{name}</a></h3>
-                  <span class="contribution-count">{count} indexed {count === 1 ? 'contribution' : 'contributions'}</span>
+                  <div class="activity-badges">
+                    <span class="contribution-count">{count} indexed {count === 1 ? 'contribution' : 'contributions'}</span>
+                    {mentions > 0 && <span class="contribution-count">{mentions} news {mentions === 1 ? 'mention' : 'mentions'}</span>}
+                  </div>
                 </div>
                 <p class="headline">{contributor.data.headline}</p>
                 {contributor.data.affiliations.length > 0 && (
@@ -106,10 +138,7 @@ const community = rows
       <div class="section-intro compact-intro">
         <span class="eyebrow">Community directory</span>
         <h2 id="community-profiles-heading">Community profiles</h2>
-        <p>
-          Lightweight profiles for Advisory Board members and other participants. These stay compact
-          until the profile is expanded or more substantive work is indexed on DMCommunity.
-        </p>
+        <p>Advisory Board members and other practitioners connected to the Decision Management Community.</p>
       </div>
 
       <div class="community-grid">
@@ -159,6 +188,7 @@ const community = rows
   .contributor-copy { min-width: 0; flex: 1; }
   .title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
   .featured-card h3 { margin: 0 0 0.25rem; font-size: 1.3rem; }
+  .activity-badges { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 0.35rem; }
   .contribution-count { flex: 0 0 auto; padding: 0.22rem 0.48rem; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-text-muted); font-size: 0.72rem; font-weight: 650; }
   .headline { margin: 0.2rem 0; font-weight: 650; }
   .affiliations { margin: 0.2rem 0 0.75rem; }
@@ -179,6 +209,7 @@ const community = rows
   @media (max-width: 620px) {
     .featured-card { align-items: flex-start; }
     .title-row { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
+    .activity-badges { justify-content: flex-start; }
     .community-grid { grid-template-columns: 1fr; }
   }
 </style>
