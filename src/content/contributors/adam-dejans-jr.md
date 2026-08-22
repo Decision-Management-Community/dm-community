@@ -31,6 +31,8 @@ sameAs:
   - https://www.adamdejans.com
   - https://www.linkedin.com/in/addejans/
   - https://bitbrosdata.com/
+featured: true
+structuredData: true
 ---
 
 I work on practical decision systems where uncertainty, economics, optimization, simulation, and real organizational constraints meet. My interests include supply-chain decisions, simulation-based optimization, mathematical programming, policy design, and building systems that translate uncertain information into actions that can actually be deployed.
