@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="560" viewBox="0 0 1100 560" role="img" aria-labelledby="title desc">
+  <title id="title">Doctor Planning schedule solved by HiGHS</title>
+  <desc id="desc">Seven-day schedule with early, late, and night shifts assigned to Fleming, Freud, Heimlich, Eustachi, and Golgi.</desc>
+  <rect width="1100" height="560" rx="24" fill="#f8fafc"/>
+  <text x="44" y="54" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Doctor Planning — HiGHS feasible weekly roster</text>
+  <text x="44" y="83" font-family="Arial, sans-serif" font-size="15" fill="#475569">21 shifts covered exactly once · all availability and sequencing rules satisfied</text>
+
+  <g font-family="Arial, sans-serif" font-size="14">
+    <rect x="42" y="118" width="1016" height="370" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <line x1="155" y1="118" x2="155" y2="488" stroke="#cbd5e1"/>
+    <line x1="42" y1="165" x2="1058" y2="165" stroke="#cbd5e1"/>
+    <line x1="42" y1="272" x2="1058" y2="272" stroke="#cbd5e1"/>
+    <line x1="42" y1="379" x2="1058" y2="379" stroke="#cbd5e1"/>
+
+    <text x="68" y="148" font-weight="700" fill="#334155">Shift</text>
+    <g font-weight="700" fill="#334155" text-anchor="middle">
+      <text x="220" y="148">Mon</text><text x="350" y="148">Tue</text><text x="480" y="148">Wed</text>
+      <text x="610" y="148">Thu</text><text x="740" y="148">Fri</text><text x="870" y="148">Sat</text><text x="1000" y="148">Sun</text>
+    </g>
+
+    <text x="70" y="223" font-weight="700" fill="#0f172a">Early</text>
+    <text x="70" y="330" font-weight="700" fill="#0f172a">Late</text>
+    <text x="70" y="437" font-weight="700" fill="#0f172a">Night</text>
+
+    <g text-anchor="middle" fill="#0f172a">
+      <rect x="167" y="182" width="106" height="70" rx="10" fill="#dbeafe"/><text x="220" y="222" font-weight="700">Eustachi</text>
+      <rect x="297" y="182" width="106" height="70" rx="10" fill="#dbeafe"/><text x="350" y="222" font-weight="700">Eustachi</text>
+      <rect x="427" y="182" width="106" height="70" rx="10" fill="#dbeafe"/><text x="480" y="222" font-weight="700">Eustachi</text>
+      <rect x="557" y="182" width="106" height="70" rx="10" fill="#fef3c7"/><text x="610" y="222" font-weight="700">Freud</text>
+      <rect x="687" y="182" width="106" height="70" rx="10" fill="#dcfce7"/><text x="740" y="222" font-weight="700">Fleming</text>
+      <rect x="817" y="182" width="106" height="70" rx="10" fill="#ede9fe"/><text x="870" y="222" font-weight="700">Golgi</text>
+      <rect x="947" y="182" width="106" height="70" rx="10" fill="#fef3c7"/><text x="1000" y="222" font-weight="700">Freud</text>
+
+      <rect x="167" y="289" width="106" height="70" rx="10" fill="#ede9fe"/><text x="220" y="329" font-weight="700">Golgi</text>
+      <rect x="297" y="289" width="106" height="70" rx="10" fill="#fef3c7"/><text x="350" y="329" font-weight="700">Freud</text>
+      <rect x="427" y="289" width="106" height="70" rx="10" fill="#fee2e2"/><text x="480" y="329" font-weight="700">Heimlich</text>
+      <rect x="557" y="289" width="106" height="70" rx="10" fill="#fee2e2"/><text x="610" y="329" font-weight="700">Heimlich</text>
+      <rect x="687" y="289" width="106" height="70" rx="10" fill="#fef3c7"/><text x="740" y="329" font-weight="700">Freud</text>
+      <rect x="817" y="289" width="106" height="70" rx="10" fill="#fef3c7"/><text x="870" y="329" font-weight="700">Freud</text>
+      <rect x="947" y="289" width="106" height="70" rx="10" fill="#ede9fe"/><text x="1000" y="329" font-weight="700">Golgi</text>
+
+      <rect x="167" y="396" width="106" height="70" rx="10" fill="#fee2e2"/><text x="220" y="436" font-weight="700">Heimlich</text>
+      <rect x="297" y="396" width="106" height="70" rx="10" fill="#ede9fe"/><text x="350" y="436" font-weight="700">Golgi</text>
+      <rect x="427" y="396" width="106" height="70" rx="10" fill="#ede9fe"/><text x="480" y="436" font-weight="700">Golgi</text>
+      <rect x="557" y="396" width="106" height="70" rx="10" fill="#dbeafe"/><text x="610" y="436" font-weight="700">Eustachi</text>
+      <rect x="687" y="396" width="106" height="70" rx="10" fill="#dbeafe"/><text x="740" y="436" font-weight="700">Eustachi</text>
+      <rect x="817" y="396" width="106" height="70" rx="10" fill="#dcfce7"/><text x="870" y="436" font-weight="700">Fleming</text>
+      <rect x="947" y="396" width="106" height="70" rx="10" fill="#dcfce7"/><text x="1000" y="436" font-weight="700">Fleming</text>
+    </g>
+  </g>
+
+  <g font-family="Arial, sans-serif" font-size="12" fill="#475569">
+    <text x="44" y="525">Night sequences: Heimlich Mon → Tue off · Golgi Tue/Wed → Thu off · Eustachi Thu/Fri → Sat off · Fleming Sat/Sun</text>
+  </g>
+</svg>
