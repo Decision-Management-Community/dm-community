@@ -2,10 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import Avatar from '../components/Avatar.astro';
+import { url } from '../lib/url';
 
 const members = (await getCollection('advisoryBoard')).sort((a, b) =>
   a.data.lastName.localeCompare(b.data.lastName) || a.data.firstName.localeCompare(b.data.firstName),
 );
+const contributors = await getCollection('contributors');
+const contributorIds = new Set(contributors.map((entry) => entry.id));
 
 function displayName(m: (typeof members)[number]) {
   const { firstName, lastName, suffix } = m.data;
@@ -57,16 +60,30 @@ const fullName = (m: (typeof members)[number]) =>
 
   <h2>Members</h2>
   <div class="card-grid">
-    {members.map((m) => (
-      <div class="card member-card">
-        <Avatar name={fullName(m)} image={m.data.image} />
-        <div>
-          <h3>{m.data.linkedin ? <a href={m.data.linkedin} target="_blank" rel="noopener">{displayName(m)}</a> : displayName(m)}</h3>
-          {m.data.affiliation && <p class="muted">{m.data.affiliation}</p>}
-          {m.data.email && <p><a href={`mailto:${m.data.email}`}>{m.data.email}</a></p>}
+    {members.map((m) => {
+      const contributorHref = contributorIds.has(m.id) ? url(`/contributors/${m.id}/`) : undefined;
+      const primaryHref = contributorHref ?? m.data.linkedin;
+      const external = Boolean(primaryHref?.startsWith('http'));
+      return (
+        <div class="card member-card">
+          <Avatar name={fullName(m)} image={m.data.image} />
+          <div>
+            <h3>
+              {primaryHref ? (
+                <a href={primaryHref} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>
+                  {displayName(m)}
+                </a>
+              ) : displayName(m)}
+            </h3>
+            {m.data.affiliation && <p class="muted">{m.data.affiliation}</p>}
+            {contributorHref && m.data.linkedin && (
+              <p><a href={m.data.linkedin} target="_blank" rel="noopener">LinkedIn</a></p>
+            )}
+            {m.data.email && <p><a href={`mailto:${m.data.email}`}>{m.data.email}</a></p>}
+          </div>
         </div>
-      </div>
-    ))}
+      );
+    })}
   </div>
 
   <section class="membership-callout">
