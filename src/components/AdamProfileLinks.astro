@@ -31,10 +31,11 @@
 
       if (existingLink) {
         textNode.nodeValue = value.replace(splitPattern, canonicalName);
-        if (exactPattern.test(textNode.nodeValue ?? '') && existingLink.dataset.personProfile === 'adam-dejans') {
+        if (exactPattern.test(textNode.nodeValue ?? '')) {
           existingLink.setAttribute('href', profileUrl);
           existingLink.removeAttribute('target');
           existingLink.removeAttribute('rel');
+          existingLink.dataset.personProfile = 'adam-dejans';
         }
         continue;
       }
