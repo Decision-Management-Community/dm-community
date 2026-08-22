@@ -1,5 +1,5 @@
 const ADAM_CANONICAL_NAME = 'Adam DeJans Jr.';
-const ADAM_PROFILE_URL = 'https://www.adamdejans.com';
+const ADAM_PROFILE_URL = '/contributors/adam-dejans-jr/';
 const adamAuthorNames = new Set([
   'Adam DeJans',
   'Adam DeJans Jr',
