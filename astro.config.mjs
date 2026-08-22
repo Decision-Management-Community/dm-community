@@ -47,6 +47,27 @@ function adamProfileLink() {
   };
 }
 
+function normalizeAdamAnchor(node) {
+  if (node.type !== 'element' || node.tagName !== 'a' || !Array.isArray(node.children)) return;
+
+  const visibleText = node.children
+    .filter((child) => child.type === 'text')
+    .map((child) => child.value)
+    .join('')
+    .trim();
+
+  if (!adamNameExactPattern.test(visibleText)) return;
+
+  node.properties = {
+    ...(node.properties ?? {}),
+    href: adamProfileUrl,
+    'data-person-profile': 'adam-dejans',
+  };
+  delete node.properties.target;
+  delete node.properties.rel;
+  node.children = [{ type: 'text', value: canonicalAdamName }];
+}
+
 function linkAdamNamesInTree(node, blocked = false) {
   if (!Array.isArray(node.children)) return;
 
@@ -74,8 +95,16 @@ function linkAdamNamesInTree(node, blocked = false) {
   node.children = children;
 }
 
+function normalizeAdamAnchorsInRawHtml(value) {
+  return value.replace(
+    /<a\b[^>]*>\s*(Adam DeJans Jr\.?|Adam DeJans)\s*<\/a>/gi,
+    `<a href="${adamProfileUrl}" data-person-profile="adam-dejans">${canonicalAdamName}</a>`,
+  );
+}
+
 function linkAdamNamesInRawHtml(value) {
-  const tokens = value.split(/(<[^>]+>)/g);
+  const normalized = normalizeAdamAnchorsInRawHtml(value);
+  const tokens = normalized.split(/(<[^>]+>)/g);
   let blockedDepth = 0;
 
   return tokens
@@ -107,13 +136,14 @@ function linkAdamNamesInRawHtml(value) {
 // absolute links copied from the legacy WordPress site. Normalize both at
 // render time so migrated content never depends on the retired WordPress host.
 // At the same render stage, canonicalize visible Adam DeJans / Adam DeJans Jr.
-// mentions to Adam DeJans Jr. and link them to the community contributor profile
-// without touching code, scripts, or existing links.
+// mentions to Adam DeJans Jr. and link them to the community contributor profile.
 function rehypeBaseLinks() {
   return (tree) => {
     linkAdamNamesInTree(tree);
 
     visit(tree, 'element', (node) => {
+      normalizeAdamAnchor(node);
+
       if (node.tagName !== 'a' && node.tagName !== 'img' && node.tagName !== 'video' && node.tagName !== 'source') return;
 
       for (const attr of ['href', 'src', 'poster', 'srcset']) {
@@ -124,9 +154,9 @@ function rehypeBaseLinks() {
     });
 
     // WordPress bodies are preserved as raw HTML. Raw nodes bypass the element
-    // visitor, so link profile-name text outside existing anchors/code first,
-    // then rewrite URL-bearing attributes. Inert migration metadata such as
-    // data-permalink is intentionally left untouched.
+    // visitor, so normalize existing Adam profile anchors, link unlinked name
+    // text outside anchors/code, then rewrite URL-bearing attributes. Inert
+    // migration metadata such as data-permalink is intentionally left untouched.
     visit(tree, 'raw', (node) => {
       node.value = linkAdamNamesInRawHtml(node.value);
       node.value = node.value.replace(
