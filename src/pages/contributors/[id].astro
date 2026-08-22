@@ -56,7 +56,7 @@ const organizations = entry.data.affiliations.map((affiliation) => ({
   name: affiliation.name,
   ...(affiliation.url ? { url: affiliation.url } : {}),
 }));
-const personJsonLd = {
+const personJsonLd = entry.data.structuredData ? {
   '@context': 'https://schema.org',
   '@type': 'Person',
   '@id': `${profileUrl}#person`,
@@ -68,19 +68,19 @@ const personJsonLd = {
   ...(organizations.length > 0 ? { affiliation: organizations, worksFor: organizations } : {}),
   ...(entry.data.expertise.length > 0 ? { knowsAbout: entry.data.expertise } : {}),
   mainEntityOfPage: profileUrl,
-};
+} : undefined;
 
 const contributionCount = authoredArticles.length + challengeSolutions.length + authoredQa.length + authoredNews.length;
 ---
 <BaseLayout title={name} description={entry.data.shortBio}>
-  <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+  {personJsonLd && <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />}
 
   <a href={url('/contributors/')}>&larr; All contributors</a>
 
-  <header class="profile-hero">
-    <Avatar name={name} image={entry.data.image} size={120} />
+  <header class:list={['profile-hero', { 'profile-hero-basic': !entry.data.featured }]}>
+    <Avatar name={name} image={entry.data.image} size={entry.data.featured ? 120 : 88} />
     <div>
-      <p class="profile-kicker">Community contributor</p>
+      <p class="profile-kicker">{entry.data.featured ? 'Featured contributor' : 'Community profile'}</p>
       <h1>{name}</h1>
       <p class="headline">{entry.data.headline}</p>
       {entry.data.affiliations.length > 0 && (
@@ -210,13 +210,21 @@ const contributionCount = authoredArticles.length + challengeSolutions.length + 
       )}
 
       <section class="identity-card">
-        <h2>Identity links</h2>
+        <h2>Public links</h2>
         <ul>
-          {entry.data.website && <li><a href={entry.data.website} target="_blank" rel="me noopener">Personal website</a></li>}
+          {entry.data.website && <li><a href={entry.data.website} target="_blank" rel="me noopener">Website</a></li>}
           {entry.data.linkedin && <li><a href={entry.data.linkedin} target="_blank" rel="me noopener">LinkedIn</a></li>}
-          <li><a href={profilePath}>DMCommunity canonical profile</a></li>
+          {entry.data.featured && <li><a href={profilePath}>DMCommunity canonical profile</a></li>}
         </ul>
       </section>
+
+      {!entry.data.featured && (
+        <section class="profile-update-card">
+          <h2>Is this your profile?</h2>
+          <p>Send us an updated bio, affiliation, links, or corrections and we will expand it.</p>
+          <a href={`mailto:DecisionManagementCommunity@gmail.com?subject=Contributor%20profile%20update%20-%20${encodeURIComponent(name)}`}>Update this profile &rarr;</a>
+        </section>
+      )}
     </aside>
   </div>
 </BaseLayout>
@@ -233,6 +241,7 @@ const contributionCount = authoredArticles.length + challengeSolutions.length + 
     background: var(--color-card);
     box-shadow: var(--shadow-card);
   }
+  .profile-hero-basic { padding: 1.15rem; box-shadow: none; }
   .profile-kicker {
     margin: 0 0 0.2rem;
     color: var(--color-accent-dark);
@@ -267,15 +276,18 @@ const contributionCount = authoredArticles.length + challengeSolutions.length + 
   .contribution-item time { flex: 0 0 auto; color: var(--color-text-muted); font-size: 0.8rem; }
   .profile-sidebar { display: grid; gap: 1rem; position: sticky; top: 6rem; }
   .engagement-card,
-  .identity-card {
+  .identity-card,
+  .profile-update-card {
     padding: 1.1rem;
     border: 1px solid var(--color-border);
     border-radius: 10px;
     background: var(--color-bg-alt);
   }
   .engagement-card h2,
-  .identity-card h2 { margin: 0.25rem 0 0.65rem; font-size: 1rem; }
-  .engagement-card p { font-size: 0.9rem; }
+  .identity-card h2,
+  .profile-update-card h2 { margin: 0.25rem 0 0.65rem; font-size: 1rem; }
+  .engagement-card p,
+  .profile-update-card p { font-size: 0.9rem; }
   .engagement-card .btn { display: inline-flex; margin-top: 0.35rem; }
   .identity-card ul { margin: 0; padding-left: 1.1rem; }
   .identity-card li { margin: 0.35rem 0; }
