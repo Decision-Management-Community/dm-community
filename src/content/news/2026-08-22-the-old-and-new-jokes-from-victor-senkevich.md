@@ -2,7 +2,7 @@
 title: "The Old and New Jokes from Victor Senkevich"
 date: 2026-08-22T12:00:00Z
 author: "Victor Senkevich"
-tags: ["Artificial Intelligence", "Decision Intelligence"]
+tags: ["Consulting"]
 ---
 
 [Victor Senkevich](https://www.linkedin.com/in/victorsenkevich/) posted:
