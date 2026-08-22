@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="520" viewBox="0 0 1000 520" role="img" aria-labelledby="title desc">
+<title id="title">Mr Bates box design found by differential evolution and validated analytically</title>
+<desc id="desc">A continuous optimum uses dimensions approximately 33.019 by 16.510 by 16.510 inches with volume 9000 cubic inches and strap measure 99.058 inches. A simple integer alternative 30 by 20 by 15 has volume 9000 and strap 100.</desc>
+<rect width="1000" height="520" rx="24" fill="#f8fafc"/>
+<text x="48" y="54" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">Mr Bates vs The Post Office — search, then prove</text>
+<text x="48" y="82" font-family="Arial,sans-serif" font-size="15" fill="#475569">Differential evolution discovers the geometry; an analytic check proves the continuous optimum.</text>
+<g transform="translate(80,135)" font-family="Arial,sans-serif">
+  <polygon points="60,70 350,70 445,25 155,25" fill="#e2e8f0" stroke="#475569" stroke-width="2"/>
+  <polygon points="350,70 445,25 445,220 350,270" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+  <rect x="60" y="70" width="290" height="200" fill="#ffffff" stroke="#475569" stroke-width="2"/>
+  <line x1="60" y1="295" x2="350" y2="295" stroke="#334155" stroke-width="2"/>
+  <line x1="60" y1="287" x2="60" y2="303" stroke="#334155" stroke-width="2"/>
+  <line x1="350" y1="287" x2="350" y2="303" stroke="#334155" stroke-width="2"/>
+  <text x="205" y="320" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">33.019 in</text>
+  <text x="28" y="175" transform="rotate(-90 28 175)" text-anchor="middle" font-size="15" font-weight="700" fill="#0f172a">16.510 in</text>
+  <text x="412" y="250" font-size="15" font-weight="700" fill="#0f172a">16.510 in</text>
+</g>
+<g font-family="Arial,sans-serif">
+  <rect x="585" y="132" width="350" height="105" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="610" y="163" font-size="16" font-weight="700" fill="#0f172a">Continuous minimum-strap box</text>
+  <text x="610" y="190" font-size="14" fill="#475569">Volume = 9,000 in³</text>
+  <text x="610" y="214" font-size="14" fill="#475569">Strap = 99.0578 in  →  0.9422 in spare</text>
+  <rect x="585" y="258" width="350" height="105" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="610" y="289" font-size="16" font-weight="700" fill="#0f172a">Simple integer-dimension witness</text>
+  <text x="610" y="316" font-size="14" fill="#475569">30 × 20 × 15 = 9,000 in³</text>
+  <text x="610" y="340" font-size="14" fill="#475569">30 + 2(20 + 15) = 100 in</text>
+  <rect x="585" y="384" width="350" height="78" rx="14" fill="#ecfdf5" stroke="#86efac"/>
+  <text x="610" y="415" font-size="16" font-weight="700" fill="#166534">Flat-rate box exists</text>
+  <text x="610" y="440" font-size="14" fill="#166534">Search result independently validated.</text>
+</g>
+</svg>
