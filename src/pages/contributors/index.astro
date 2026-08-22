@@ -60,6 +60,20 @@ const rows = contributors.map((entry) => ({
   count: indexedContributionCount(entry),
   mentions: indexedNewsMentionCount(entry),
 }));
+
+function contributorSearchText(contributor: (typeof contributors)[number]) {
+  return [
+    contributorFullName(contributor.data),
+    contributor.data.headline,
+    contributor.data.shortBio,
+    ...contributor.data.affiliations.map((affiliation) => affiliation.name),
+    ...contributor.data.expertise,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLocaleLowerCase();
+}
+
 const isFeatured = ({ entry, count }: (typeof rows)[number]) => entry.data.featured || count >= 2;
 
 const featured = rows
@@ -83,8 +97,21 @@ const community = rows
     Profiles bring together their work, expertise, affiliations, and public professional links.
   </p>
 
+  <section class="contributor-search" aria-label="Search contributors">
+    <label for="contributor-search-input">Search contributors</label>
+    <input
+      id="contributor-search-input"
+      type="search"
+      placeholder="Search by name, expertise, affiliation, or biography"
+      autocomplete="off"
+    />
+    <p id="contributor-search-status" class="muted" aria-live="polite">
+      Search the contributor directory.
+    </p>
+  </section>
+
   {featured.length > 0 && (
-    <section class="featured-section" aria-labelledby="featured-contributors-heading">
+    <section class="featured-section" data-contributor-section aria-labelledby="featured-contributors-heading">
       <div class="section-intro">
         <span class="eyebrow">Community work</span>
         <h2 id="featured-contributors-heading">Featured contributors</h2>
@@ -95,7 +122,7 @@ const community = rows
         {featured.map(({ entry: contributor, count, mentions }) => {
           const name = contributorFullName(contributor.data);
           return (
-            <article class="card featured-card">
+            <article class="card featured-card" data-contributor data-search={contributorSearchText(contributor)}>
               <Avatar name={name} image={contributor.data.image} size={88} />
               <div class="contributor-copy">
                 <div class="title-row">
@@ -134,7 +161,7 @@ const community = rows
   )}
 
   {community.length > 0 && (
-    <section class="community-section" aria-labelledby="community-profiles-heading">
+    <section class="community-section" data-contributor-section aria-labelledby="community-profiles-heading">
       <div class="section-intro compact-intro">
         <span class="eyebrow">Community directory</span>
         <h2 id="community-profiles-heading">Community profiles</h2>
@@ -145,7 +172,7 @@ const community = rows
         {community.map(({ entry: contributor, count }) => {
           const name = contributorFullName(contributor.data);
           return (
-            <article class="community-card">
+            <article class="community-card" data-contributor data-search={contributorSearchText(contributor)}>
               <Avatar name={name} image={contributor.data.image} size={52} />
               <div>
                 <h3><a href={url(contributorPath(contributor.id))}>{name}</a></h3>
@@ -176,8 +203,64 @@ const community = rows
   </section>
 </BaseLayout>
 
+<script>
+  const input = document.querySelector<HTMLInputElement>('#contributor-search-input');
+  const status = document.querySelector<HTMLElement>('#contributor-search-status');
+  const contributors = Array.from(document.querySelectorAll<HTMLElement>('[data-contributor]'));
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('[data-contributor-section]'));
+
+  function applySearch() {
+    if (!input || !status) return;
+
+    const query = input.value.trim().toLocaleLowerCase();
+    let matches = 0;
+
+    contributors.forEach((contributor) => {
+      const visible = !query || (contributor.dataset.search ?? '').includes(query);
+      contributor.hidden = !visible;
+      if (visible) matches += 1;
+    });
+
+    sections.forEach((section) => {
+      section.hidden = Boolean(query) && !section.querySelector('[data-contributor]:not([hidden])');
+    });
+
+    status.textContent = query
+      ? `Showing ${matches} ${matches === 1 ? 'contributor' : 'contributors'} matching “${input.value.trim()}”.`
+      : 'Search the contributor directory.';
+  }
+
+  input?.addEventListener('input', applySearch);
+</script>
+
 <style>
   .lede { max-width: 56rem; font-size: 1.08rem; line-height: 1.65; }
+  .contributor-search {
+    max-width: 48rem;
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-card);
+  }
+  .contributor-search label { display: block; font-weight: 750; }
+  .contributor-search input {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 0.65rem;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .contributor-search input:focus {
+    outline: 3px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+    outline-offset: 2px;
+  }
+  .contributor-search p { margin: 0.7rem 0 0; }
   .featured-section, .community-section { margin-top: 2.4rem; }
   .section-intro { max-width: 54rem; margin-bottom: 1rem; }
   .section-intro h2 { margin: 0.15rem 0 0.45rem; }
@@ -205,6 +288,7 @@ const community = rows
   .contributor-note { margin-top: 2.5rem; padding: 1.25rem 1.4rem; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-bg-alt); }
   .contributor-note h2 { margin-top: 0; }
   .contributor-note p { margin-bottom: 0; }
+  [data-contributor][hidden], [data-contributor-section][hidden] { display: none !important; }
   @media (max-width: 900px) { .community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 620px) {
     .featured-card { align-items: flex-start; }
