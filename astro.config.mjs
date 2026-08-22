@@ -8,7 +8,7 @@ import { migrateLegacyUrl } from './src/lib/legacyUrl.mjs';
 // deployment backend, but the custom domain serves the site from the root.
 const base = '/';
 const basePrefix = base.endsWith('/') ? base.slice(0, -1) : base;
-const adamProfileUrl = 'https://www.adamdejans.com';
+const adamProfileUrl = '/contributors/adam-dejans-jr/';
 const canonicalAdamName = 'Adam DeJans Jr.';
 const adamNameSplitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
 const adamNameExactPattern = /^(Adam DeJans Jr\.?|Adam DeJans)$/;
@@ -41,8 +41,6 @@ function adamProfileLink() {
     tagName: 'a',
     properties: {
       href: adamProfileUrl,
-      target: '_blank',
-      rel: ['noopener'],
       'data-person-profile': 'adam-dejans',
     },
     children: [{ type: 'text', value: canonicalAdamName }],
@@ -86,7 +84,7 @@ function linkAdamNamesInRawHtml(value) {
         if (blockedDepth > 0 || !/Adam DeJans/.test(token)) return token;
         return token.replace(
           adamNameSplitPattern,
-          () => `<a href="${adamProfileUrl}" target="_blank" rel="noopener" data-person-profile="adam-dejans">${canonicalAdamName}</a>`,
+          () => `<a href="${adamProfileUrl}" data-person-profile="adam-dejans">${canonicalAdamName}</a>`,
         );
       }
 
@@ -109,8 +107,8 @@ function linkAdamNamesInRawHtml(value) {
 // absolute links copied from the legacy WordPress site. Normalize both at
 // render time so migrated content never depends on the retired WordPress host.
 // At the same render stage, canonicalize visible Adam DeJans / Adam DeJans Jr.
-// mentions to Adam DeJans Jr. and link them to the canonical profile without
-// touching code, scripts, or existing links.
+// mentions to Adam DeJans Jr. and link them to the community contributor profile
+// without touching code, scripts, or existing links.
 function rehypeBaseLinks() {
   return (tree) => {
     linkAdamNamesInTree(tree);
