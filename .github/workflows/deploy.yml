@@ -9,6 +9,7 @@ on:
 
 permissions:
   contents: read
+  discussions: read
   pages: write
   id-token: write
 
@@ -27,6 +28,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Check internal links
         run: node scripts/check-links.mjs
       - name: Check site metadata

@@ -3,11 +3,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getEntry, getCollection, render } from 'astro:content';
 import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { url } from '../../lib/url';
+import legacyComments from '../../data/legacy-news-comments.json';
+import { getGiscusNewsCommentCounts } from '../../lib/giscusCommentCounts.mjs';
 
 const entry = await getEntry('pages', 'news');
 const { Content } = await render(entry!);
 
 const posts = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const archivedCommentCounts = legacyComments as Record<string, unknown[]>;
+const giscusCommentCounts = await getGiscusNewsCommentCounts();
 
 const tagCounts = new Map<string, number>();
 for (const post of posts) {
@@ -58,6 +62,7 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
         {byYear.get(year)!.map((p) => {
           const displayAuthor = canonicalAuthorName(p.data.author);
           const profile = authorUrl(displayAuthor);
+          const commentCount = (archivedCommentCounts[p.id]?.length ?? 0) + (giscusCommentCounts[p.id] ?? 0);
           return (
             <article
               class="card news-card"
@@ -75,6 +80,11 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
                   </>
                 )}
               </p>
+              {commentCount > 0 && (
+                <p class="comment-count" aria-label={`${commentCount} ${commentCount === 1 ? 'comment' : 'comments'}`}>
+                  {commentCount} {commentCount === 1 ? 'comment' : 'comments'}
+                </p>
+              )}
             </article>
           );
         })}
@@ -159,6 +169,12 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
 
 <style>
   .small { font-size: 0.8rem; }
+  .comment-count {
+    margin: 0.8rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
   .year-jump {
     display: flex;
     flex-wrap: wrap;
