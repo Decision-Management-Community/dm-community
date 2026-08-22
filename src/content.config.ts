@@ -51,6 +51,11 @@ const contributors = defineCollection({
     engagementUrl: z.string().url().optional(),
     engagementNote: z.string().optional(),
     sameAs: z.array(z.string().url()).default([]),
+    // Featured profiles are reserved for sustained/substantive community contributors.
+    // Basic directory profiles intentionally render more compactly.
+    featured: z.boolean().default(false),
+    // Rich identity markup is opt-in. Bulk/community profiles stay intentionally simple.
+    structuredData: z.boolean().default(false),
   }),
 });
 
