@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import { authorUrl, canonicalAuthorName } from '../../../lib/authorUrl';
 import { url } from '../../../lib/url';
+import GiscusComments from '../../../components/GiscusComments.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('articles');
@@ -60,6 +61,8 @@ const profile = authorUrl(displayAuthor, entry.data.linkedin);
       )}
     </footer>
   )}
+
+  <GiscusComments />
 </BaseLayout>
 
 <style>

@@ -3,10 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { url } from '../../lib/url';
+import { getGiscusArticleComments } from '../../lib/giscusCommentCounts.mjs';
 
 const posts = (await getCollection('articles')).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
 );
+const giscusCommentsByArticle = await getGiscusArticleComments();
 
 const authorCounts = new Map<string, number>();
 for (const post of posts) {
@@ -27,13 +29,20 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
   <div class="archive-tools">
     <label>
       <span>Search articles</span>
-      <input id="article-search" type="search" placeholder="Search titles, authors, and summaries" autocomplete="off" />
+      <input id="article-search" type="search" placeholder="Search titles, authors, summaries, and comments" autocomplete="off" />
     </label>
     <label>
       <span>Author</span>
       <select id="article-author">
         <option value="">All authors</option>
         {authors.map((author) => <option value={author}>{author} ({authorCounts.get(author)})</option>)}
+      </select>
+    </label>
+    <label>
+      <span>Comments</span>
+      <select id="article-comments">
+        <option value="">All articles</option>
+        <option value="with-comments">With comments</option>
       </select>
     </label>
     <p id="article-count" class="muted" aria-live="polite">
@@ -45,11 +54,14 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
     {posts.map((p) => {
       const displayAuthor = canonicalAuthorName(p.data.author);
       const profile = authorUrl(displayAuthor, p.data.linkedin);
+      const giscusComments = giscusCommentsByArticle[p.id];
+      const commentCount = giscusComments?.count ?? 0;
       return (
         <article
           class="card article-card"
-          data-search={`${p.data.title} ${displayAuthor ?? ''} ${p.data.summary ?? ''}`.toLocaleLowerCase()}
+          data-search={`${p.data.title} ${displayAuthor ?? ''} ${p.data.summary ?? ''} ${giscusComments?.searchText ?? ''}`.toLocaleLowerCase()}
           data-author={displayAuthor ?? ''}
+          data-comment-count={commentCount}
         >
           <h3><a href={url(`/resources/articles/${p.id}/`)}>{p.data.title}</a></h3>
           <p class="muted small">
@@ -64,6 +76,11 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
             )}
           </p>
           {p.data.summary && <p>{p.data.summary}</p>}
+          {commentCount > 0 && (
+            <p class="comment-count" aria-label={`${commentCount} ${commentCount === 1 ? 'comment' : 'comments'}`}>
+              {commentCount} {commentCount === 1 ? 'comment' : 'comments'}
+            </p>
+          )}
         </article>
       );
     })}
@@ -77,6 +94,7 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
     const cards = [...document.querySelectorAll('.article-card')];
     const search = document.querySelector('#article-search');
     const author = document.querySelector('#article-author');
+    const comments = document.querySelector('#article-comments');
     const count = document.querySelector('#article-count');
     const more = document.querySelector('#article-more');
     const pageSize = 60;
@@ -85,9 +103,11 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
     const apply = () => {
       const query = search.value.trim().toLocaleLowerCase();
       const selectedAuthor = author.value;
+      const commentsOnly = comments.value === 'with-comments';
       const matches = cards.filter((card) =>
         (!query || card.dataset.search.includes(query)) &&
-        (!selectedAuthor || card.dataset.author === selectedAuthor),
+        (!selectedAuthor || card.dataset.author === selectedAuthor) &&
+        (!commentsOnly || Number(card.dataset.commentCount) > 0),
       );
       const matchSet = new Set(matches);
       let shown = 0;
@@ -104,6 +124,7 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
 
     search.addEventListener('input', () => { limit = pageSize; apply(); });
     author.addEventListener('change', () => { limit = pageSize; apply(); });
+    comments.addEventListener('change', () => { limit = pageSize; apply(); });
     more.addEventListener('click', () => { limit += pageSize; apply(); });
     apply();
   });
@@ -111,9 +132,10 @@ const authors = [...authorCounts.keys()].sort((a, b) => a.localeCompare(b));
 
 <style>
   .small { font-size: 0.8rem; }
+  .comment-count { margin: 0.8rem 0 0; color: var(--color-text-muted); font-size: 0.8rem; font-weight: 600; }
   .archive-tools {
     display: grid;
-    grid-template-columns: minmax(16rem, 2fr) minmax(12rem, 1fr);
+    grid-template-columns: minmax(16rem, 2fr) minmax(12rem, 1fr) minmax(11rem, 1fr);
     gap: 0.9rem 1rem;
     align-items: end;
     margin: 1.5rem 0;

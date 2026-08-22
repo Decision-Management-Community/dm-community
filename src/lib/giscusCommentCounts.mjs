@@ -1,7 +1,7 @@
 const REPOSITORY_OWNER = 'Decision-Management-Community';
 const REPOSITORY_NAME = 'dm-community';
 const GISCUS_CATEGORY_ID = 'DIC_kwDOTxocAM4DD6P8';
-const NEWS_PATHNAME = /^\/news\/([^/]+)\/?$/;
+const CONTENT_PATHNAME = /^\/(news|resources\/articles)\/([^/]+)\/?$/;
 
 const DISCUSSIONS_QUERY = `
   query GiscusDiscussionCounts($owner: String!, $name: String!, $categoryId: ID!, $after: String) {
@@ -32,19 +32,19 @@ const DISCUSSIONS_QUERY = `
 `;
 
 /**
- * Returns Giscus discussion totals and text keyed by News entry id. During
- * local builds and pull-request checks no token is required: legacy comments
- * still render and remain searchable, while Giscus data is refreshed by the
- * scheduled deployment.
+ * Returns Giscus discussion totals and text keyed by content entry id. During
+ * local builds and pull-request checks no token is required, while Giscus data
+ * is refreshed by the scheduled deployment.
  *
- * @returns {Promise<Record<string, { count: number, searchText: string }>>}
+ * @typedef {{ count: number, searchText: string }} GiscusCommentData
+ * @typedef {Record<string, GiscusCommentData>} GiscusCommentsByEntry
  */
-export async function getGiscusNewsComments() {
+async function getGiscusContentComments() {
   const token = process.env.GITHUB_TOKEN;
-  if (!token) return {};
+  if (!token) return { news: {}, articles: {} };
 
-  /** @type {Record<string, { count: number, searchText: string }>} */
-  const commentsByNewsId = {};
+  /** @type {{ news: GiscusCommentsByEntry, articles: GiscusCommentsByEntry }} */
+  const commentsByCollection = { news: {}, articles: {} };
   let after = null;
 
   try {
@@ -70,13 +70,14 @@ export async function getGiscusNewsComments() {
       const payload = await response.json();
       const discussions = payload.data?.repository?.discussions;
       if (!response.ok || payload.errors || !discussions) {
-        console.warn('Unable to refresh Giscus comments; using archived comments only.');
-        return {};
+        console.warn('Unable to refresh Giscus comments.');
+        return { news: {}, articles: {} };
       }
 
       for (const discussion of discussions.nodes) {
-        const match = NEWS_PATHNAME.exec(discussion.title);
+        const match = CONTENT_PATHNAME.exec(discussion.title);
         if (match) {
+          const collection = match[1] === 'news' ? 'news' : 'articles';
           const replyCount = discussion.comments.nodes.reduce(
             (total, comment) => total + comment.replies.totalCount,
             0,
@@ -85,7 +86,7 @@ export async function getGiscusNewsComments() {
             .flatMap((comment) => [comment.bodyText, ...comment.replies.nodes.map((reply) => reply.bodyText)])
             .filter(Boolean)
             .join(' ');
-          commentsByNewsId[match[1]] = {
+          commentsByCollection[collection][match[2]] = {
             count: discussion.comments.totalCount + replyCount,
             searchText,
           };
@@ -95,9 +96,26 @@ export async function getGiscusNewsComments() {
       after = discussions.pageInfo.hasNextPage ? discussions.pageInfo.endCursor : null;
     } while (after);
   } catch {
-    console.warn('Unable to refresh Giscus comments; using archived comments only.');
-    return {};
+    console.warn('Unable to refresh Giscus comments.');
+    return { news: {}, articles: {} };
   }
 
-  return commentsByNewsId;
+  return commentsByCollection;
+}
+
+let commentsPromise;
+
+function loadGiscusContentComments() {
+  commentsPromise ??= getGiscusContentComments();
+  return commentsPromise;
+}
+
+/** @returns {Promise<GiscusCommentsByEntry>} */
+export async function getGiscusNewsComments() {
+  return (await loadGiscusContentComments()).news;
+}
+
+/** @returns {Promise<GiscusCommentsByEntry>} */
+export async function getGiscusArticleComments() {
+  return (await loadGiscusContentComments()).articles;
 }
