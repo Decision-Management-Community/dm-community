@@ -54,76 +54,61 @@ The search therefore finds a box that fits the comforter with roughly **0.9422 i
 
 ## The analytical validation
 
-The numerical result strongly suggests two structural facts:
+The numerical result strongly suggests:
 
 ```text
 y = z
 x = 2y
 ```
 
-We can prove them directly.
+There is a clean global proof using AM-GM. For any positive dimensions,
 
-At the minimum, the volume constraint must bind. If `xyz` were larger than 9,000, we could shrink a dimension and reduce the strap measure. So:
+```text
+x + 2y + 2z
+    >= 3 * (x * 2y * 2z)^(1/3)
+    =  3 * (4xyz)^(1/3)
+```
+
+and every feasible box has `xyz >= 9000`, so:
+
+```text
+strap >= 3 * (4 * 9000)^(1/3)
+      =  3 * 36000^(1/3)
+      ≈ 99.05781747 inches
+```
+
+Equality in AM-GM occurs exactly when:
+
+```text
+x = 2y = 2z
+```
+
+and equality in the volume inequality requires:
 
 ```text
 xyz = 9000
 ```
 
-Consider the Lagrangian:
+Let `y = z = a` and `x = 2a`. Then:
 
 ```text
-L = x + 2y + 2z + lambda(9000 - xyz)
-```
-
-The first-order conditions are:
-
-```text
-1  = lambda yz
-2  = lambda xz
-2  = lambda xy
-```
-
-Dividing the second and third equations gives:
-
-```text
-y = z
-```
-
-Comparing the first and second gives:
-
-```text
-x = 2y
-```
-
-Let `y = z = a`. Then:
-
-```text
-(2a)(a)(a) = 9000
 2a^3 = 9000
-a^3 = 4500
-```
 
-so:
-
-```text
 a = 4500^(1/3) ≈ 16.50963624
 x = 2a          ≈ 33.01927249
 ```
 
-and the minimum strap measure is:
+That gives:
 
 ```text
-x + 2y + 2z
-= 2a + 2a + 2a
-= 6a
-≈ 99.05781747 inches
+minimum strap = 6a ≈ 99.05781747 inches
 ```
 
-That independently matches the differential-evolution result to numerical precision.
+So the differential-evolution result is not just close to a plausible stationary point. The independent inequality establishes a **global lower bound**, and the candidate attains it. The continuous optimum is proved.
 
 ## A second check: maximize volume at the 100-inch boundary
 
-We can reverse the question. If the strap limit is exactly 100 and the same optimal proportions hold, then:
+We can reverse the question. At the most volume-efficient proportions, `x = 2a` and `y = z = a`. If the strap limit binds at 100:
 
 ```text
 6a = 100
@@ -132,13 +117,13 @@ a = 16.66666667
 x = 33.33333333
 ```
 
-The maximum continuous volume at the strap boundary is then:
+The corresponding volume is:
 
 ```text
 2a^3 ≈ 9,259.259 cubic inches
 ```
 
-Since 9,259.259 is comfortably above the required 9,000, feasibility is not marginal.
+Since 9,259.259 is above the required 9,000, feasibility is not marginal.
 
 ## The practical answer is simpler
 
@@ -171,10 +156,7 @@ def strap(v):
 
 
 constraints = [
-    # Required volume.
     NonlinearConstraint(lambda v: v[0] * v[1] * v[2], 9000, np.inf),
-
-    # Keep x as the longest side and y >= z.
     NonlinearConstraint(lambda v: v[0] - v[1], 0, np.inf),
     NonlinearConstraint(lambda v: v[1] - v[2], 0, np.inf),
 ]
@@ -201,12 +183,12 @@ The run completed successfully and returned the values above.
 
 It would be easy to stop when differential evolution prints `99.05781747` and declare victory. I think that misses the best part of the exercise.
 
-The search algorithm found the pattern. The pattern suggested a hypothesis. The analytical derivation then converted that hypothesis into a proof. Finally, a simple integer-dimension box converted the mathematical answer into an operational decision.
+The search algorithm found the pattern. The pattern suggested a hypothesis. The independent bound converted that hypothesis into a proof. Finally, a simple integer-dimension box converted the mathematical answer into an operational decision.
 
 Those are different jobs:
 
 - **search** finds promising decisions;
-- **mathematics** can establish what is actually possible;
+- **mathematics** establishes what is actually possible;
 - **engineering judgment** chooses a solution that is usable in the real world.
 
 Metaheuristics are powerful. They become much more powerful when we do not ask them to pretend to be proof engines.
