@@ -21,6 +21,9 @@ type LegacyComment = {
 };
 
 const { entry } = Astro.props;
+if (entry.data.redirectUrl) {
+  return Astro.redirect(entry.data.redirectUrl, 302);
+}
 const { Content } = await render(entry);
 const commentsByPost = legacyComments as Record<string, LegacyComment[]>;
 const archivedComments = commentsByPost[entry.id] ?? [];

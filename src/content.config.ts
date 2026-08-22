@@ -211,6 +211,8 @@ const news = defineCollection({
     // Original WordPress permalink. Used to emit a static redirect when the
     // dmcommunity.org domain is cut over to this site.
     legacyPath: z.string().regex(/^\/\d{4}\/\d{2}\/\d{2}\/[^/]+\/$/).optional(),
+    // Some News entries are pointers whose canonical destination is external.
+    redirectUrl: z.string().url().optional(),
   }),
 });
 

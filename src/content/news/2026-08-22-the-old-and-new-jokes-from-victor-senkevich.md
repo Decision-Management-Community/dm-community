@@ -3,6 +3,7 @@ title: "The Old and New Jokes from Victor Senkevich"
 date: 2026-08-22T12:00:00Z
 author: "Victor Senkevich"
 tags: ["Consulting"]
+redirectUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7496672507257843712/?dashCommentUrn=urn%3Ali%3Afsd_comment%3A%287496731336431427586%2Curn%3Ali%3Aactivity%3A7496672507257843712%29"
 ---
 
 [Victor Senkevich](https://www.linkedin.com/in/victorsenkevich/) posted:
