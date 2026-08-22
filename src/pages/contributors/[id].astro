@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Avatar from '../../components/Avatar.astro';
 import { getCollection, render } from 'astro:content';
-import { canonicalAuthorName } from '../../lib/authorUrl';
+import { canonicalAuthorNames } from '../../lib/authorUrl';
 import { contributorFullName, contributorPath } from '../../lib/contributorProfile';
 import { url } from '../../lib/url';
 
@@ -14,7 +14,8 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const name = contributorFullName(entry.data);
-const canonicalName = canonicalAuthorName(name);
+const canonicalNames = new Set(canonicalAuthorNames(name));
+const isByContributor = (author?: string) => canonicalAuthorNames(author).some((candidate) => canonicalNames.has(candidate));
 
 const [articles, challenges, qa, news] = await Promise.all([
   getCollection('articles'),
@@ -24,23 +25,23 @@ const [articles, challenges, qa, news] = await Promise.all([
 ]);
 
 const authoredArticles = articles
-  .filter((item) => canonicalAuthorName(item.data.author) === canonicalName)
+  .filter((item) => isByContributor(item.data.author))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const challengeSolutions = challenges
   .flatMap((challenge) =>
     challenge.data.solutions
-      .filter((solution) => canonicalAuthorName(solution.author) === canonicalName)
+      .filter((solution) => isByContributor(solution.author))
       .map((solution) => ({ challenge, solution })),
   )
   .sort((a, b) => b.challenge.data.date.valueOf() - a.challenge.data.date.valueOf());
 
 const authoredQa = qa
-  .filter((item) => canonicalAuthorName(item.data.author) === canonicalName)
+  .filter((item) => isByContributor(item.data.author))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const authoredNews = news
-  .filter((item) => canonicalAuthorName(item.data.author) === canonicalName)
+  .filter((item) => isByContributor(item.data.author))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const mentionTokens = [name, `${entry.data.firstName} ${entry.data.lastName}`];
@@ -55,7 +56,7 @@ if (entry.data.linkedin) {
 const uniqueMentionTokens = [...new Set(mentionTokens.filter(Boolean))];
 const mentionedNews = news
   .filter((item) => {
-    if (canonicalAuthorName(item.data.author) === canonicalName) return false;
+    if (isByContributor(item.data.author)) return false;
     const body = typeof item.body === 'string' ? item.body : '';
     return uniqueMentionTokens.some((token) => body.includes(token));
   })

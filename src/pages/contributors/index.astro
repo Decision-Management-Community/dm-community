@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Avatar from '../../components/Avatar.astro';
 import { getCollection } from 'astro:content';
-import { canonicalAuthorName } from '../../lib/authorUrl';
+import { canonicalAuthorNames } from '../../lib/authorUrl';
 import { contributorFullName, contributorPath } from '../../lib/contributorProfile';
 import { url } from '../../lib/url';
 
@@ -33,15 +33,16 @@ function profileMentionTokens(contributor: (typeof contributors)[number]) {
 }
 
 function contributorStats(contributor: (typeof contributors)[number]) {
-  const name = canonicalAuthorName(contributorFullName(contributor.data));
-  const authoredArticles = articles.filter((item) => canonicalAuthorName(item.data.author) === name);
+  const names = new Set(canonicalAuthorNames(contributorFullName(contributor.data)));
+  const isByContributor = (author?: string) => canonicalAuthorNames(author).some((candidate) => names.has(candidate));
+  const authoredArticles = articles.filter((item) => isByContributor(item.data.author));
   const authoredSolutions = challenges.flatMap((challenge) =>
     challenge.data.solutions
-      .filter((solution) => canonicalAuthorName(solution.author) === name)
+      .filter((solution) => isByContributor(solution.author))
       .map((solution) => ({ challenge, solution })),
   );
-  const authoredQa = qa.filter((item) => canonicalAuthorName(item.data.author) === name);
-  const authoredNews = news.filter((item) => canonicalAuthorName(item.data.author) === name);
+  const authoredQa = qa.filter((item) => isByContributor(item.data.author));
+  const authoredNews = news.filter((item) => isByContributor(item.data.author));
 
   const substantiveDates = [
     ...authoredArticles.map((item) => item.data.date.valueOf()),
@@ -62,11 +63,12 @@ function contributorStats(contributor: (typeof contributors)[number]) {
 }
 
 function indexedNewsMentionCount(contributor: (typeof contributors)[number]) {
-  const name = canonicalAuthorName(contributorFullName(contributor.data));
+  const names = new Set(canonicalAuthorNames(contributorFullName(contributor.data)));
+  const isByContributor = (author?: string) => canonicalAuthorNames(author).some((candidate) => names.has(candidate));
   const tokens = profileMentionTokens(contributor);
 
   return news.filter((item) => {
-    if (canonicalAuthorName(item.data.author) === name) return false;
+    if (isByContributor(item.data.author)) return false;
     const body = typeof item.body === 'string' ? item.body : '';
     return tokens.some((token) => body.includes(token));
   }).length;
