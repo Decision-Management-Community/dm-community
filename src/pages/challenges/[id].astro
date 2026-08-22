@@ -51,11 +51,14 @@ function solutionHref(value: string) {
           const external = href?.startsWith('http://') || href?.startsWith('https://');
           const displayAuthor = canonicalAuthorName(s.author);
           const profile = authorUrl(displayAuthor);
+          const profileExternal = Boolean(profile?.startsWith('http'));
           return (
             <li>
               {href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{s.title}</a> : s.title}
               {' — '}
-              {profile ? <a href={profile} target="_blank" rel="noopener">{displayAuthor}</a> : displayAuthor}
+              {profile ? (
+                <a href={profile} target={profileExternal ? '_blank' : undefined} rel={profileExternal ? 'noopener' : undefined}>{displayAuthor}</a>
+              ) : displayAuthor}
               {s.affiliation ? ` (${s.affiliation})` : ''}
             </li>
           );
