@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">Optimal Rental Boats purchase plan</title>
+  <desc id="desc">HiGHS selects 28 Speedhawks and 28 Classys, spending the full 420 thousand dollar budget, providing 252 seats and 5040 dollars expected daily profit.</desc>
+  <rect width="960" height="520" rx="24" fill="#f8fafc"/>
+  <text x="48" y="58" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Rental Boats — HiGHS optimal fleet</text>
+  <text x="48" y="88" font-family="Arial, sans-serif" font-size="15" fill="#475569">56 boats · equal manufacturer split · proven optimal MILP solution</text>
+
+  <g font-family="Arial, sans-serif">
+    <text x="55" y="145" font-size="15" font-weight="700" fill="#334155">Boat model</text>
+    <text x="235" y="145" font-size="15" font-weight="700" fill="#334155">Units purchased</text>
+    <text x="810" y="145" font-size="15" font-weight="700" fill="#334155">Count</text>
+
+    <text x="55" y="192" font-size="16" fill="#0f172a">Speedhawk</text>
+    <rect x="235" y="169" width="532" height="28" rx="8" fill="#2563eb"/>
+    <text x="820" y="191" font-size="17" font-weight="700" fill="#0f172a">28</text>
+
+    <text x="55" y="242" font-size="16" fill="#0f172a">Silverbird</text>
+    <rect x="235" y="219" width="4" height="28" rx="2" fill="#94a3b8"/>
+    <text x="820" y="241" font-size="17" font-weight="700" fill="#0f172a">0</text>
+
+    <text x="55" y="292" font-size="16" fill="#0f172a">Catman</text>
+    <rect x="235" y="269" width="4" height="28" rx="2" fill="#94a3b8"/>
+    <text x="820" y="291" font-size="17" font-weight="700" fill="#0f172a">0</text>
+
+    <text x="55" y="342" font-size="16" fill="#0f172a">Classy</text>
+    <rect x="235" y="319" width="532" height="28" rx="8" fill="#0f766e"/>
+    <text x="820" y="341" font-size="17" font-weight="700" fill="#0f172a">28</text>
+  </g>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="48" y="392" width="196" height="82" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="66" y="420" font-size="13" fill="#64748b">TOTAL COST</text>
+    <text x="66" y="451" font-size="24" font-weight="700" fill="#0f172a">$420,000</text>
+    <text x="66" y="469" font-size="12" fill="#64748b">of $420,000</text>
+
+    <rect x="268" y="392" width="196" height="82" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="286" y="420" font-size="13" fill="#64748b">SEATING</text>
+    <text x="286" y="451" font-size="24" font-weight="700" fill="#0f172a">252 seats</text>
+    <text x="286" y="469" font-size="12" fill="#64748b">minimum 200</text>
+
+    <rect x="488" y="392" width="196" height="82" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="506" y="420" font-size="13" fill="#64748b">MANUFACTURERS</text>
+    <text x="506" y="451" font-size="24" font-weight="700" fill="#0f172a">28 / 28</text>
+    <text x="506" y="469" font-size="12" fill="#64748b">Sleekboat / Racer</text>
+
+    <rect x="708" y="392" width="204" height="82" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="726" y="420" font-size="13" fill="#64748b">DAILY PROFIT</text>
+    <text x="726" y="451" font-size="24" font-weight="700" fill="#0f172a">$5,040</text>
+    <text x="726" y="469" font-size="12" fill="#64748b">HiGHS optimum</text>
+  </g>
+</svg>
