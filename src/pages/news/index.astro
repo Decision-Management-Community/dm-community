@@ -4,14 +4,15 @@ import { getEntry, getCollection, render } from 'astro:content';
 import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { url } from '../../lib/url';
 import legacyComments from '../../data/legacy-news-comments.json';
-import { getGiscusNewsCommentCounts } from '../../lib/giscusCommentCounts.mjs';
+import { getGiscusNewsComments } from '../../lib/giscusCommentCounts.mjs';
 
 const entry = await getEntry('pages', 'news');
 const { Content } = await render(entry!);
 
 const posts = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const archivedCommentCounts = legacyComments as Record<string, unknown[]>;
-const giscusCommentCounts = await getGiscusNewsCommentCounts();
+type ArchivedComment = { content: string };
+const archivedCommentsByPost = legacyComments as Record<string, ArchivedComment[]>;
+const giscusCommentsByPost = await getGiscusNewsComments();
 
 const tagCounts = new Map<string, number>();
 for (const post of posts) {
@@ -42,13 +43,20 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
   <div class="archive-tools">
     <label>
       <span>Search the archive</span>
-      <input id="news-search" type="search" placeholder="Search titles, authors, and topics" autocomplete="off" />
+      <input id="news-search" type="search" placeholder="Search titles, authors, topics, and comments" autocomplete="off" />
     </label>
     <label>
       <span>Topic</span>
       <select id="news-topic">
         <option value="">All topics</option>
         {tags.map((tag) => <option value={tag}>{tag} ({tagCounts.get(tag)})</option>)}
+      </select>
+    </label>
+    <label>
+      <span>Comments</span>
+      <select id="news-comments">
+        <option value="">All articles</option>
+        <option value="with-comments">With comments</option>
       </select>
     </label>
     <p id="news-count" class="muted" aria-live="polite">{posts.length} articles</p>
@@ -62,12 +70,19 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
         {byYear.get(year)!.map((p) => {
           const displayAuthor = canonicalAuthorName(p.data.author);
           const profile = authorUrl(displayAuthor);
-          const commentCount = (archivedCommentCounts[p.id]?.length ?? 0) + (giscusCommentCounts[p.id] ?? 0);
+          const archivedComments = archivedCommentsByPost[p.id] ?? [];
+          const giscusComments = giscusCommentsByPost[p.id];
+          const commentCount = archivedComments.length + (giscusComments?.count ?? 0);
+          const commentText = [
+            ...archivedComments.map((comment) => comment.content),
+            giscusComments?.searchText ?? '',
+          ].join(' ');
           return (
             <article
               class="card news-card"
-              data-search={`${p.data.title} ${displayAuthor ?? ''} ${p.data.tags.join(' ')}`.toLocaleLowerCase()}
+              data-search={`${p.data.title} ${displayAuthor ?? ''} ${p.data.tags.join(' ')} ${commentText}`.toLocaleLowerCase()}
               data-tags={JSON.stringify(p.data.tags)}
+              data-comment-count={commentCount}
             >
               {p.data.tags[0] && <span class="badge">{p.data.tags[0]}</span>}
               <h3><a href={url(`/news/${p.id}/`)}>{p.data.title}</a></h3>
@@ -106,6 +121,7 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     const sections = [...document.querySelectorAll('[data-news-year]')];
     const search = document.querySelector('#news-search');
     const topic = document.querySelector('#news-topic');
+    const comments = document.querySelector('#news-comments');
     const count = document.querySelector('#news-count');
     const more = document.querySelector('#news-more');
     const yearLinks = [...document.querySelectorAll('[data-news-year-filter]')];
@@ -124,12 +140,14 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     const apply = () => {
       const query = search.value.trim().toLocaleLowerCase();
       const selectedTopic = topic.value;
+      const commentsOnly = comments.value === 'with-comments';
       const matches = cards.filter((card) => {
         const topics = JSON.parse(card.dataset.tags || '[]');
         const cardYear = card.closest('[data-news-year]')?.dataset.newsYear;
         return (!selectedYear || cardYear === selectedYear) &&
           (!query || card.dataset.search.includes(query)) &&
-          (!selectedTopic || topics.includes(selectedTopic));
+          (!selectedTopic || topics.includes(selectedTopic)) &&
+          (!commentsOnly || Number(card.dataset.commentCount) > 0);
       });
       const matchSet = new Set(matches);
       let shown = 0;
@@ -150,12 +168,14 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
         setActiveYear(link.dataset.newsYearFilter || '');
         search.value = '';
         topic.value = '';
+        comments.value = '';
         limit = selectedYear ? Number.POSITIVE_INFINITY : pageSize;
         apply();
       });
     }
     search.addEventListener('input', () => { limit = selectedYear ? Number.POSITIVE_INFINITY : pageSize; apply(); });
     topic.addEventListener('change', () => { limit = selectedYear ? Number.POSITIVE_INFINITY : pageSize; apply(); });
+    comments.addEventListener('change', () => { limit = selectedYear ? Number.POSITIVE_INFINITY : pageSize; apply(); });
     more.addEventListener('click', () => { limit += pageSize; apply(); });
 
     const hashYear = window.location.hash.match(/^#y(\d{4})$/)?.[1];
@@ -207,7 +227,7 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
   }
   .archive-tools {
     display: grid;
-    grid-template-columns: minmax(16rem, 2fr) minmax(12rem, 1fr);
+    grid-template-columns: minmax(16rem, 2fr) minmax(12rem, 1fr) minmax(11rem, 1fr);
     gap: 0.9rem 1rem;
     align-items: end;
     margin: 1.5rem 0;
