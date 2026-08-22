@@ -95,8 +95,6 @@ function contributorSearchText(contributor: (typeof contributors)[number]) {
     .toLocaleLowerCase();
 }
 
-const isFeatured = ({ entry, count }: (typeof rows)[number]) => entry.data.featured || count >= 2;
-
 function compareByActivity(a: (typeof rows)[number], b: (typeof rows)[number]) {
   return (
     b.count - a.count ||
@@ -106,16 +104,7 @@ function compareByActivity(a: (typeof rows)[number], b: (typeof rows)[number]) {
   );
 }
 
-const featuredCandidates = rows
-  .filter(isFeatured)
-  .sort(compareByActivity);
-
-const featured = featuredCandidates.slice(0, 10);
-
-const community = [
-  ...featuredCandidates.slice(10),
-  ...rows.filter((row) => !isFeatured(row)),
-].sort(compareByActivity);
+const featured = [...rows].sort(compareByActivity);
 ---
 <BaseLayout
   title="Contributors"
@@ -144,7 +133,7 @@ const community = [
     <section class="featured-section" data-contributor-section aria-labelledby="featured-contributors-heading">
       <div class="section-intro">
         <span class="eyebrow">Community work</span>
-        <h2 id="featured-contributors-heading">Top 10 contributors</h2>
+        <h2 id="featured-contributors-heading">Featured contributors ({featured.length})</h2>
         <p>Contributors with articles, solutions, Q&amp;A, and other work represented across DMCommunity.</p>
       </div>
 
@@ -182,39 +171,6 @@ const community = [
                   </div>
                 )}
                 <p class="profile-link"><a href={url(contributorPath(contributor.id))}>View contributor profile &rarr;</a></p>
-              </div>
-            </article>
-          );
-        })}
-      </div>
-    </section>
-  )}
-
-  {community.length > 0 && (
-    <section class="community-section" data-contributor-section aria-labelledby="community-profiles-heading">
-      <div class="section-intro compact-intro">
-        <span class="eyebrow">Community directory</span>
-        <h2 id="community-profiles-heading">Community profiles</h2>
-        <p>Advisory Board members and other practitioners connected to the Decision Management Community.</p>
-      </div>
-
-      <div class="community-grid">
-        {community.map(({ entry: contributor, count }) => {
-          const name = contributorFullName(contributor.data);
-          return (
-            <article class="community-card" data-contributor data-search={contributorSearchText(contributor)}>
-              <Avatar name={name} image={contributor.data.image} size={52} />
-              <div>
-                <h3><a href={url(contributorPath(contributor.id))}>{name}</a></h3>
-                {contributor.data.affiliations.length > 0 && (
-                  <p class="muted compact-affiliation">{contributor.data.affiliations.map((a) => a.name).join(' · ')}</p>
-                )}
-                <p class="compact-headline">{contributor.data.headline}</p>
-                <div class="compact-links">
-                  <a href={url(contributorPath(contributor.id))}>Profile</a>
-                  {contributor.data.linkedin && <a href={contributor.data.linkedin} target="_blank" rel="noopener">LinkedIn</a>}
-                  {count > 0 && <span class="muted">{count} indexed</span>}
-                </div>
               </div>
             </article>
           );
