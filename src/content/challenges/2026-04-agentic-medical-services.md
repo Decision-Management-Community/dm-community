@@ -5,25 +5,31 @@ tags: [agentic-ai, business-rules, healthcare]
 solutions:
   - title: OpenRules
     author: Jacob Feldman
+    email: jacobfeldman@openrules.com
     affiliation: OpenRules
     url: "https://www.linkedin.com/pulse/agentic-medical-services-openrules-solution-jacob-feldman-phd-sd29e/"
   - title: Novus-Forge
     author: Jeremiah Connelly
+    authorUrl: https://jeremiahconnelly.dev/#
     affiliation: Novus-Forge
     url: "https://www.linkedin.com/posts/novus-forge_dm-community-challenge-april-2026-ugcPost-7450271652757536769-YRg3"
   - title: Aletyx
     author: Alex Porcelli
+    email: porcelli@aletyx.ai
     affiliation: Aletyx
     url: "/resources/articles/2026-04-01-agentic-medical-services-aletyx/"
   - title: Trisotech
     author: Dr. John Svirbely
+    authorUrl: https://www.trisotech.com/john-svirbely/
     affiliation: Trisotech
     url: "https://www.trisotech.com/can-you-trust-an-llm/"
   - title: Claude Skills and Python
     author: Gene Weng
+    email: gene.weng@gmail.com
     url: "https://github.com/geneweng/agentic_medical_services_poc"
   - title: DT5GL/SQL/Python
     author: Jack Jansonius
+    email: j.jansonius@home.nl
     url: "/resources/articles/2026-04-01-agentic-medical-services-dt5gl-sql-python/"
 ---
 

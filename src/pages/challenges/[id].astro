@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { url } from '../../lib/url';
 import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
-import { challengeAuthorEmail } from '../../lib/challengeAuthorEmail';
+import { challengeAuthorEmail, challengeAuthorProfileUrl } from '../../lib/challengeAuthorEmail';
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 import { migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 
@@ -51,8 +51,8 @@ function solutionHref(value: string) {
           const href = s.url ? solutionHref(s.url) : undefined;
           const external = href?.startsWith('http://') || href?.startsWith('https://');
           const displayAuthor = canonicalAuthorName(s.author);
-          const email = challengeAuthorEmail(s.author);
-          const profile = authorUrl(displayAuthor);
+          const email = s.email ?? challengeAuthorEmail(s.author);
+          const profile = s.authorUrl ?? authorUrl(displayAuthor) ?? challengeAuthorProfileUrl(s.author);
           const profileExternal = Boolean(profile?.startsWith('http'));
           // A few legacy records list two submitters in one field. Preserve the
           // original wording while restoring a mail link for each known person.

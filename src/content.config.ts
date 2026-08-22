@@ -118,6 +118,10 @@ const challenges = defineCollection({
           title: z.string(),
           author: z.string(),
           affiliation: z.string().optional(),
+          // Historical contact links are stored per solution when they differ
+          // from the submitter's link on another Challenge.
+          email: z.string().email().optional(),
+          authorUrl: z.string().url().optional(),
           // Solutions may link to external sources or to migrated local article pages.
           url: z
             .string()

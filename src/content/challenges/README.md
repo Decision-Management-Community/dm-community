@@ -20,6 +20,8 @@ Each item in `solutions` is:
 | `title` | string | yes (e.g. `"OpenRules"`, `"IBM CPLEX"` — the tool/approach used) |
 | `author` | string | yes |
 | `affiliation` | string | no |
+| `email` | string | no — use only for a historically published, solution-specific email link |
+| `authorUrl` | URL | no — use for a historically published author/profile link |
 | `url` | string (URL) | no — omit if there's no working link, don't include a broken one |
 
 For migrated solutions, the submitter's historical email link is restored automatically where the
