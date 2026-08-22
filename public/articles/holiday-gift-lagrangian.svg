@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="560" viewBox="0 0 1050 560" role="img" aria-labelledby="title desc">
+  <title id="title">Holiday Gift Assignment solved by Lagrangian relaxation</title>
+  <desc id="desc">A shared budget is priced with lambda equal to one thirteenth, decomposing the gift assignment into five independent choices and producing an upper bound of 24.4615. A feasible assignment reaches happiness 24 and is therefore optimal.</desc>
+  <rect width="1050" height="560" rx="24" fill="#f8fafc"/>
+  <text x="48" y="54" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">Holiday Gift Assignment — price the coupling constraint</text>
+  <text x="48" y="82" font-family="Arial,sans-serif" font-size="15" fill="#475569">Lagrangian multiplier λ = 1/13 turns one shared budget into five independent gift decisions</text>
+
+  <rect x="48" y="118" width="230" height="118" rx="16" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="163" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Shared budget</text>
+  <text x="163" y="182" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#2563eb">≤ 50</text>
+  <text x="163" y="211" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">the only coupling constraint</text>
+
+  <path d="M278 177 H360" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="360" y="118" width="250" height="118" rx="16" fill="#eef2ff" stroke="#818cf8"/>
+  <text x="485" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#312e81">Put a price on budget</text>
+  <text x="485" y="184" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#4338ca">λ = 1/13</text>
+  <text x="485" y="211" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">maximize happiness − λ × cost</text>
+
+  <path d="M610 177 H692" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+  <rect x="692" y="118" width="310" height="118" rx="16" fill="#ecfdf5" stroke="#34d399"/>
+  <text x="847" y="150" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#065f46">Relaxed upper bound</text>
+  <text x="847" y="184" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="700" fill="#047857">318/13 = 24.4615</text>
+  <text x="847" y="211" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">integer happiness ⇒ optimum ≤ 24</text>
+
+  <text x="48" y="286" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#334155">Independent choices at λ = 1/13</text>
+  <g font-family="Arial,sans-serif" text-anchor="middle">
+    <g transform="translate(48 310)"><rect width="178" height="92" rx="13" fill="#ffffff" stroke="#cbd5e1"/><text x="89" y="30" font-size="15" font-weight="700" fill="#0f172a">Alice</text><text x="89" y="56" font-size="14" fill="#475569">Toy or Flowers</text><text x="89" y="77" font-size="12" fill="#7c3aed">exact tie</text></g>
+    <g transform="translate(242 310)"><rect width="178" height="92" rx="13" fill="#ffffff" stroke="#cbd5e1"/><text x="89" y="30" font-size="15" font-weight="700" fill="#0f172a">Bob</text><text x="89" y="58" font-size="15" fill="#475569">Wine</text></g>
+    <g transform="translate(436 310)"><rect width="178" height="92" rx="13" fill="#ffffff" stroke="#cbd5e1"/><text x="89" y="30" font-size="15" font-weight="700" fill="#0f172a">Carol</text><text x="89" y="58" font-size="15" fill="#475569">Book</text></g>
+    <g transform="translate(630 310)"><rect width="178" height="92" rx="13" fill="#ffffff" stroke="#cbd5e1"/><text x="89" y="30" font-size="15" font-weight="700" fill="#0f172a">Dave</text><text x="89" y="58" font-size="15" fill="#475569">Chocolate</text></g>
+    <g transform="translate(824 310)"><rect width="178" height="92" rx="13" fill="#ffffff" stroke="#cbd5e1"/><text x="89" y="30" font-size="15" font-weight="700" fill="#0f172a">Eve</text><text x="89" y="58" font-size="15" fill="#475569">Flowers</text></g>
+  </g>
+
+  <rect x="220" y="444" width="610" height="76" rx="16" fill="#ffffff" stroke="#16a34a" stroke-width="2"/>
+  <text x="525" y="474" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#166534">Choose Flowers for Alice → feasible incumbent</text>
+  <text x="525" y="502" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0f172a">Happiness 24 · Cost 44 · Globally optimal</text>
+
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8"/></marker></defs>
+</svg>
