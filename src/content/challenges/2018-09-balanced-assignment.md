@@ -15,6 +15,10 @@ solutions:
   - title: OpenRules with CP/LP Solvers
     author: Jacob Feldman
     url: https://openrules.files.wordpress.com/2019/04/balancedassignmentwithrulesandconstraints.pdf
+  - title: Simulated Annealing / Local Search
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: "/resources/articles/2026-08-22-balanced-assignment-simulated-annealing/"
 ---
 
 This challenge, contributed by Prof. Robert Fourer, is about assigning people to groups fairly — the same underlying problem as assigning students to project teams or professors to shared offices.
