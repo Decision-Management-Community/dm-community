@@ -26,6 +26,10 @@ solutions:
   - title: DT5GL/SQL
     author: Jack Jansonius
     url: "/resources/articles/2025-04-01-case-assignments-dt5gl-sql/"
+  - title: Scarcity-First Heuristic + HiGHS
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: "/resources/articles/2026-08-22-case-assignments-option-value/"
 ---
 
 An analytical firm assigns cases to analysts using these rules:
