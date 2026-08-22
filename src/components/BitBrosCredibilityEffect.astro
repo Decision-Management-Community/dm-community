@@ -1,9 +1,9 @@
 <script>
   const bitBrosCard = document.querySelector<HTMLElement>('.sponsor-card-bit-bros');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   if (bitBrosCard) {
     const description = bitBrosCard.querySelector<HTMLElement>('.muted');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const highlightPhrases = new Set(['applied economics', 'amazon', 'toyota', 'gurobi']);
     const highlightedSpans: HTMLElement[] = [];
 
@@ -74,5 +74,104 @@
     });
 
     bitBrosCard.addEventListener('focusin', shineCredibility);
+  }
+
+  const footerMarquee = document.querySelector<HTMLElement>('.sponsor-marquee');
+  const footerBitBrosTiles = footerMarquee?.querySelectorAll<HTMLElement>('[data-sponsor-id="bit-bros"]');
+
+  if (footerMarquee && footerBitBrosTiles?.length) {
+    let animationFrame = 0;
+    let isActive = false;
+
+    const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
+    const smoothstep = (start: number, end: number, value: number) => {
+      const t = clamp01((value - start) / (end - start));
+      return t * t * (3 - 2 * t);
+    };
+
+    const resetFooterSpotlight = () => {
+      footerBitBrosTiles.forEach((tile) => {
+        tile.style.removeProperty('--tile-scale');
+        tile.style.removeProperty('background');
+        tile.style.removeProperty('border-color');
+        tile.style.removeProperty('box-shadow');
+        tile.querySelector<HTMLElement>('img')?.style.removeProperty('filter');
+      });
+    };
+
+    const updateFooterSpotlight = () => {
+      if (!isActive) return;
+
+      const viewportWidth = Math.max(window.innerWidth, 1);
+      const maxScaleBoost = viewportWidth <= 700 ? 0.20 : 0.30;
+
+      footerBitBrosTiles.forEach((tile) => {
+        const rect = tile.getBoundingClientRect();
+        const tileCenter = rect.left + rect.width / 2;
+        const progress = clamp01(tileCenter / viewportWidth);
+
+        // Start the dark treatment around the first quarter of the viewport and
+        // keep it through the third quarter, instead of only popping at center.
+        const entering = smoothstep(0.17, 0.26, progress);
+        const leaving = 1 - smoothstep(0.74, 0.83, progress);
+        const darkFocus = Math.min(entering, leaving);
+
+        // Grow from 1/4 -> 1/2, then shrink from 1/2 -> 3/4.
+        const rawHero = progress < 0.5
+          ? clamp01((progress - 0.24) / 0.26)
+          : clamp01((0.76 - progress) / 0.26);
+        const heroFocus = rawHero * rawHero * (3 - 2 * rawHero);
+        const scale = 1 + heroFocus * maxScaleBoost;
+
+        const darkR = Math.round(255 + (6 - 255) * darkFocus);
+        const darkG = Math.round(255 + (6 - 255) * darkFocus);
+        const darkB = Math.round(255 + (17 - 255) * darkFocus);
+        const glowAlpha = 0.08 + darkFocus * 0.16 + heroFocus * 0.10;
+        const glowBlur = 4 + heroFocus * 24;
+
+        tile.style.setProperty('--tile-scale', scale.toFixed(3));
+        tile.style.background = `rgba(${darkR}, ${darkG}, ${darkB}, 0.97)`;
+        tile.style.borderColor = `rgba(56, 182, 255, ${(0.10 + darkFocus * 0.38).toFixed(3)})`;
+        tile.style.boxShadow = `0 6px ${glowBlur.toFixed(1)}px rgba(56, 182, 255, ${glowAlpha.toFixed(3)}), 0 2px 8px rgba(15, 23, 42, ${(0.06 + heroFocus * 0.12).toFixed(3)})`;
+
+        const logo = tile.querySelector<HTMLElement>('img');
+        if (logo) {
+          logo.style.filter = [
+            'brightness(0)',
+            'saturate(100%)',
+            `invert(${(darkFocus * 53.168).toFixed(3)}%)`,
+            `sepia(${(darkFocus * 78.128).toFixed(3)}%)`,
+            `saturate(${(100 + darkFocus * 955.007).toFixed(3)}%)`,
+            `hue-rotate(${(darkFocus * 160.832).toFixed(3)}deg)`,
+            `brightness(${(100 + darkFocus * 59.817).toFixed(3)}%)`,
+            `contrast(${(100 - darkFocus * 73.161).toFixed(3)}%)`,
+          ].join(' ');
+        }
+      });
+
+      animationFrame = window.requestAnimationFrame(updateFooterSpotlight);
+    };
+
+    const setFooterActive = (nextActive: boolean) => {
+      const shouldRun = nextActive && !reducedMotion.matches;
+      if (shouldRun === isActive) return;
+
+      isActive = shouldRun;
+      window.cancelAnimationFrame(animationFrame);
+
+      if (isActive) {
+        animationFrame = window.requestAnimationFrame(updateFooterSpotlight);
+      } else {
+        resetFooterSpotlight();
+      }
+    };
+
+    const footerObserver = new IntersectionObserver(
+      ([entry]) => setFooterActive(Boolean(entry?.isIntersecting)),
+      { rootMargin: '80px 0px' },
+    );
+
+    footerObserver.observe(footerMarquee);
+    reducedMotion.addEventListener('change', () => setFooterActive(true));
   }
 </script>
