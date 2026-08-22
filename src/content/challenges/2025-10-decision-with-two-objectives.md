@@ -5,6 +5,7 @@ tags: [optimization]
 solutions:
   - title: Seeker
     author: Meinolf Sellmann
+    authorUrl: https://insideopt.com/blogs/news/the-freelancers-dilemma
     affiliation: InsideOpt
     url: https://colab.research.google.com/drive/1_HbGO-R80v5uH5Tu1_nH39sfBV-u81Vi?usp=sharing
   - title: Pymoo
