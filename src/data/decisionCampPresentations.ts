@@ -215,7 +215,7 @@ export const decisionCampPresentations: DecisionCampPresentation[] = [
     'Mark Proctor\tLearning Rule Base Programming with Classic Computer Games',
     'Shenghui Cheng; Klaus Mueller\tThe Decision Boundary Map: An Interactive Visual Interface to Make Informed Decisions and Selections in the Presence of Tradeoffs',
     'Jacob Feldman\tWhat-If Analyzer for DMN-based Decision Models',
-  ], 'https://dmcommunity.org/decisioncamp/decisioncamp-history/decisioncamp-2016-presentations/'),
+  ], 'https://sites.google.com/site/ruleml2016/decisioncamp-2016/decisioncamp-2016-program'),
   ...programRecords(2018, [
     'Alan Fish\tSpecifying collaborative decision-making systems using BPMN, CMMN & DMN',
     'Denis Gagne\tDecision Automation using Models, Services and Dashboards',
