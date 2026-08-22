@@ -5,6 +5,7 @@ const canonicalNames = new Map([
   ['Baljeet Singh', 'Baljeet Singh Kandhari'],
   ['Carole-Ann Matignon', 'Carole-Ann Berlioz'],
   ['Denis Gagné', 'Denis Gagne'],
+  ['Daniel Selman', 'Dan Selman'],
   ['Dr. Bob Moore', 'Bob Moore'],
   ['Dr. John Svirbely', 'John Svirbely'],
   ['Dr. Vijay Bandekar', 'Vijay Bandekar'],
