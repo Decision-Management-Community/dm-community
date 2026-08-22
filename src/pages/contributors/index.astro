@@ -104,13 +104,16 @@ function compareByActivity(a: (typeof rows)[number], b: (typeof rows)[number]) {
   );
 }
 
-const featured = rows
+const featuredCandidates = rows
   .filter(isFeatured)
   .sort(compareByActivity);
 
-const community = rows
-  .filter((row) => !isFeatured(row))
-  .sort(compareByActivity);
+const featured = featuredCandidates.slice(0, 10);
+
+const community = [
+  ...featuredCandidates.slice(10),
+  ...rows.filter((row) => !isFeatured(row)),
+].sort(compareByActivity);
 ---
 <BaseLayout
   title="Contributors"
