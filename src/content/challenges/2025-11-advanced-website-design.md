@@ -19,6 +19,10 @@ solutions:
     author: Alex Fleischer
     affiliation: IBM
     url: "/resources/articles/2025-11-01-advanced-website-design-opl-cplex/"
+  - title: Exact Pareto Frontier Enumeration
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: "/resources/articles/2026-08-22-advanced-web-design-pareto-frontier/"
 ---
 
 This challenge is an advanced version of last month's "Decision with Two Objectives," where a freelance developer needs to design a website with as many valuable features as possible within a fixed budget. This time there are additional constraints:
