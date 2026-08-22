@@ -140,8 +140,13 @@ const featured = [...rows].sort(compareByActivity);
       <div class="featured-grid">
         {featured.map(({ entry: contributor, count, mentions }) => {
           const name = contributorFullName(contributor.data);
+          const isAdam = contributor.id === 'adam-dejans-jr';
           return (
-            <article class="card featured-card" data-contributor data-search={contributorSearchText(contributor)}>
+            <article
+              class:list={['card', 'featured-card', { 'featured-card-adam': isAdam }]}
+              data-contributor
+              data-search={contributorSearchText(contributor)}
+            >
               <Avatar name={name} image={contributor.data.image} size={88} />
               <div class="contributor-copy">
                 <div class="title-row">
@@ -221,6 +226,58 @@ const featured = [...rows].sort(compareByActivity);
   }
 
   input?.addEventListener('input', applySearch);
+
+  const adamCard = document.querySelector<HTMLElement>('.featured-card-adam');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (adamCard) {
+    const palette = ['#38b6ff', '#6eccff', '#2867b2'];
+    let lastSparkAt = 0;
+
+    const spark = (x: number, y: number) => {
+      if (reducedMotion.matches) return;
+      const now = performance.now();
+      if (now - lastSparkAt < 85) return;
+      lastSparkAt = now;
+
+      for (let i = 0; i < 4; i += 1) {
+        const particle = document.createElement('span');
+        const angle = Math.random() * Math.PI * 2;
+        const distance = 18 + Math.random() * 28;
+        const color = palette[i % palette.length];
+        Object.assign(particle.style, {
+          position: 'fixed',
+          left: `${x}px`,
+          top: `${y}px`,
+          width: '4px',
+          height: '4px',
+          borderRadius: '999px',
+          background: color,
+          boxShadow: `0 0 8px ${color}`,
+          pointerEvents: 'none',
+          zIndex: '2147483647',
+        });
+        document.body.appendChild(particle);
+
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
+        particle.animate(
+          [
+            { transform: 'translate(-50%, -50%) scale(1)', opacity: 0.95 },
+            { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(0.15)`, opacity: 0 },
+          ],
+          { duration: 430, easing: 'ease-out', fill: 'forwards' },
+        ).finished.finally(() => particle.remove());
+      }
+    };
+
+    adamCard.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'touch') spark(event.clientX, event.clientY);
+    });
+    adamCard.addEventListener('pointermove', (event) => {
+      if (event.pointerType !== 'touch') spark(event.clientX, event.clientY);
+    });
+  }
 </script>
 
 <style>
@@ -258,6 +315,54 @@ const featured = [...rows].sort(compareByActivity);
   .eyebrow { color: var(--color-accent-dark); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
   .featured-grid { display: grid; gap: 1rem; }
   .featured-card { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.35rem; }
+  .featured-card-adam {
+    --adam-blue: #38b6ff;
+    --adam-blue-dark: #2867b2;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-color: color-mix(in srgb, var(--color-border) 72%, var(--adam-blue) 28%);
+    background: linear-gradient(135deg, color-mix(in srgb, var(--color-card) 95%, var(--adam-blue) 5%), var(--color-card));
+    box-shadow: var(--shadow-card), 0 8px 30px rgba(56, 182, 255, 0.08);
+    transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.75, 0.25, 1), background-color 0.22s ease;
+    animation: adam-card-spotlight 11s ease-in-out infinite;
+  }
+  .featured-card-adam::after {
+    position: absolute;
+    top: -1px;
+    right: 7%;
+    left: 7%;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--adam-blue), transparent);
+    content: '';
+    opacity: 0.6;
+    pointer-events: none;
+    transform: scaleX(0.72);
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  .featured-card-adam:hover,
+  .featured-card-adam:focus-within {
+    z-index: 2;
+    animation: none;
+    border-color: rgba(56, 182, 255, 0.95);
+    box-shadow: var(--shadow-card), 0 24px 54px rgba(56, 182, 255, 0.25), 0 0 0 1px rgba(56, 182, 255, 0.18);
+    transform: translateY(-5px) scale(1.018);
+  }
+  .featured-card-adam:hover::after,
+  .featured-card-adam:focus-within::after { opacity: 1; transform: scaleX(1); }
+  .featured-card-adam h3 a { transition: color 0.2s ease, text-shadow 0.2s ease; }
+  .featured-card-adam:hover h3 a,
+  .featured-card-adam:focus-within h3 a { color: var(--adam-blue-dark); text-shadow: 0 0 18px rgba(56, 182, 255, 0.22); }
+  .featured-card-adam .badge { transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease; }
+  .featured-card-adam:hover .badge,
+  .featured-card-adam:focus-within .badge { border-color: rgba(56, 182, 255, 0.35); box-shadow: 0 0 12px rgba(56, 182, 255, 0.08); }
+  .featured-card-adam:hover .badge:nth-child(odd),
+  .featured-card-adam:focus-within .badge:nth-child(odd) { transform: translateY(-1px); }
+  @keyframes adam-card-spotlight {
+    0%, 68%, 100% { box-shadow: var(--shadow-card), 0 8px 30px rgba(56, 182, 255, 0.08); transform: translateY(0) scale(1); }
+    76%, 86% { box-shadow: var(--shadow-card), 0 18px 42px rgba(56, 182, 255, 0.18), 0 0 0 1px rgba(56, 182, 255, 0.14); transform: translateY(-2px) scale(1.006); }
+  }
   .contributor-copy { min-width: 0; flex: 1; }
   .title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
   .featured-card h3 { margin: 0 0 0.25rem; font-size: 1.3rem; }
@@ -279,6 +384,11 @@ const featured = [...rows].sort(compareByActivity);
   .contributor-note h2 { margin-top: 0; }
   .contributor-note p { margin-bottom: 0; }
   [data-contributor][hidden], [data-contributor-section][hidden] { display: none !important; }
+  @media (prefers-reduced-motion: reduce) {
+    .featured-card-adam { animation: none; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .featured-card-adam:hover,
+    .featured-card-adam:focus-within { transform: none; }
+  }
   @media (max-width: 900px) { .community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 620px) {
     .featured-card { align-items: flex-start; }
