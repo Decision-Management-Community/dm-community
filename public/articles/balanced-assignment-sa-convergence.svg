@@ -5,20 +5,20 @@
 <text x="50" y="50" font-family="Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">Balanced Assignment — simulated annealing convergence</text>
 <text x="50" y="76" font-family="Arial,sans-serif" font-size="15" fill="#475569">Seed 0 · fixed feasible group sizes · pair-swap neighborhood · lower bound = 3370</text>
 <rect x="90" y="90" width="870" height="340" fill="#ffffff" stroke="#cbd5e1"/>
-<line x1="90" y1="400.9" x2="960" y2="400.9" stroke="#e2e8f0"/><text x="78" y="405.9" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3370</text>
-<line x1="90" y1="349.1" x2="960" y2="349.1" stroke="#e2e8f0"/><text x="78" y="354.1" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3400</text>
-<line x1="90" y1="262.7" x2="960" y2="262.7" stroke="#e2e8f0"/><text x="78" y="267.7" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3450</text>
-<line x1="90" y1="176.4" x2="960" y2="176.4" stroke="#e2e8f0"/><text x="78" y="181.4" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3500</text>
-<line x1="90" y1="90.0" x2="960" y2="90.0" stroke="#e2e8f0"/><text x="78" y="95.0" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3550</text>
+<line x1="90" y1="421.5" x2="960" y2="421.5" stroke="#e2e8f0"/><text x="78" y="426.5" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3370</text>
+<line x1="90" y1="370.2" x2="960" y2="370.2" stroke="#e2e8f0"/><text x="78" y="375.2" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3400</text>
+<line x1="90" y1="284.8" x2="960" y2="284.8" stroke="#e2e8f0"/><text x="78" y="289.8" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3450</text>
+<line x1="90" y1="199.3" x2="960" y2="199.3" stroke="#e2e8f0"/><text x="78" y="204.3" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3500</text>
+<line x1="90" y1="113.9" x2="960" y2="113.9" stroke="#e2e8f0"/><text x="78" y="118.9" text-anchor="end" font-family="Arial,sans-serif" font-size="13" fill="#64748b">3550</text>
 <line x1="90.0" y1="90" x2="90.0" y2="430" stroke="#f1f5f9"/><text x="90.0" y="458" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">0</text>
 <line x1="318.2" y1="90" x2="318.2" y2="430" stroke="#f1f5f9"/><text x="318.2" y="458" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">25,000</text>
 <line x1="546.4" y1="90" x2="546.4" y2="430" stroke="#f1f5f9"/><text x="546.4" y="458" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">50,000</text>
 <line x1="774.6" y1="90" x2="774.6" y2="430" stroke="#f1f5f9"/><text x="774.6" y="458" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">75,000</text>
 <line x1="960.0" y1="90" x2="960.0" y2="430" stroke="#f1f5f9"/><text x="960.0" y="458" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#64748b">95,308</text>
-<line x1="90" y1="400.9" x2="960" y2="400.9" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
-<polyline points="90.0,83.1 135.6,323.2 181.3,324.9 226.9,326.6 272.5,331.8 318.2,337.0 363.8,338.7 409.4,340.4 455.1,343.9 500.7,347.3 546.4,352.5 592.0,355.9 637.6,359.4 683.3,362.8 728.9,367.9 774.6,374.8 820.2,388.7 865.8,392.1 911.5,392.1 956.9,399.1 960.0,400.9" fill="none" stroke="#2563eb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="960.0" cy="400.9" r="7" fill="#16a34a"/>
-<text x="955" y="388.9" text-anchor="end" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#166534">Proven optimum 3370</text>
+<line x1="90" y1="421.5" x2="960" y2="421.5" stroke="#334155" stroke-width="2" stroke-dasharray="8 6"/>
+<polyline points="90.0,107.1 135.6,344.6 181.3,346.3 226.9,348.0 272.6,353.1 318.2,358.2 363.8,368.5 409.5,368.5 455.1,394.1 500.8,394.1 546.4,394.1 592.1,394.1 637.7,401.0 683.3,402.7 729.0,406.1 774.6,407.8 820.3,409.5 865.9,412.9 911.5,412.9 957.2,419.7 960.0,421.5" fill="none" stroke="#2563eb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="960.0" cy="421.5" r="7" fill="#16a34a"/>
+<text x="955" y="409.5" text-anchor="end" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#166534">Proven optimum 3370</text>
 <text x="525" y="492" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#475569">Swap proposals</text>
 <text x="24" y="260" transform="rotate(-90 24 260)" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#475569">Best sameness penalty</text>
 </svg>
