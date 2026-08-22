@@ -1,0 +1,291 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Avatar from '../../components/Avatar.astro';
+import { getCollection, render } from 'astro:content';
+import { canonicalAuthorName } from '../../lib/authorUrl';
+import { contributorFullName, contributorPath } from '../../lib/contributorProfile';
+import { url } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const contributors = await getCollection('contributors');
+  return contributors.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const name = contributorFullName(entry.data);
+const canonicalName = canonicalAuthorName(name);
+
+const [articles, challenges, qa, news] = await Promise.all([
+  getCollection('articles'),
+  getCollection('challenges'),
+  getCollection('qa'),
+  getCollection('news'),
+]);
+
+const authoredArticles = articles
+  .filter((item) => canonicalAuthorName(item.data.author) === canonicalName)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const challengeSolutions = challenges
+  .flatMap((challenge) =>
+    challenge.data.solutions
+      .filter((solution) => canonicalAuthorName(solution.author) === canonicalName)
+      .map((solution) => ({ challenge, solution })),
+  )
+  .sort((a, b) => b.challenge.data.date.valueOf() - a.challenge.data.date.valueOf());
+
+const authoredQa = qa
+  .filter((item) => canonicalAuthorName(item.data.author) === canonicalName)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const authoredNews = news
+  .filter((item) => canonicalAuthorName(item.data.author) === canonicalName)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const profilePath = url(contributorPath(entry.id));
+const profileUrl = new URL(profilePath, Astro.site).toString();
+const imageUrl = entry.data.image ? new URL(url(entry.data.image), Astro.site).toString() : undefined;
+const sameAs = [...new Set([
+  entry.data.website,
+  entry.data.linkedin,
+  ...entry.data.sameAs,
+].filter(Boolean))];
+const organizations = entry.data.affiliations.map((affiliation) => ({
+  '@type': 'Organization',
+  name: affiliation.name,
+  ...(affiliation.url ? { url: affiliation.url } : {}),
+}));
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${profileUrl}#person`,
+  name,
+  url: profileUrl,
+  description: entry.data.shortBio,
+  ...(imageUrl ? { image: imageUrl } : {}),
+  ...(sameAs.length > 0 ? { sameAs } : {}),
+  ...(organizations.length > 0 ? { affiliation: organizations, worksFor: organizations } : {}),
+  ...(entry.data.expertise.length > 0 ? { knowsAbout: entry.data.expertise } : {}),
+  mainEntityOfPage: profileUrl,
+};
+
+const contributionCount = authoredArticles.length + challengeSolutions.length + authoredQa.length + authoredNews.length;
+---
+<BaseLayout title={name} description={entry.data.shortBio}>
+  <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+
+  <a href={url('/contributors/')}>&larr; All contributors</a>
+
+  <header class="profile-hero">
+    <Avatar name={name} image={entry.data.image} size={120} />
+    <div>
+      <p class="profile-kicker">Community contributor</p>
+      <h1>{name}</h1>
+      <p class="headline">{entry.data.headline}</p>
+      {entry.data.affiliations.length > 0 && (
+        <p class="affiliations">
+          {entry.data.affiliations.map((affiliation, index) => (
+            <>
+              {index > 0 && <span aria-hidden="true"> · </span>}
+              {affiliation.url ? (
+                <a href={affiliation.url} target="_blank" rel="noopener">{affiliation.name}</a>
+              ) : affiliation.name}
+            </>
+          ))}
+        </p>
+      )}
+      <div class="profile-links">
+        {entry.data.website && <a href={entry.data.website} target="_blank" rel="me noopener">Website</a>}
+        {entry.data.linkedin && <a href={entry.data.linkedin} target="_blank" rel="me noopener">LinkedIn</a>}
+      </div>
+    </div>
+  </header>
+
+  <div class="profile-layout">
+    <main>
+      <article class="prose bio">
+        <Content />
+      </article>
+
+      {entry.data.expertise.length > 0 && (
+        <section class="profile-section">
+          <h2>Areas of expertise</h2>
+          <div class="expertise-list">
+            {entry.data.expertise.map((item) => <span class="badge">{item}</span>)}
+          </div>
+        </section>
+      )}
+
+      <section class="profile-section" aria-labelledby="contributions-heading">
+        <div class="section-heading-row">
+          <h2 id="contributions-heading">Contributions</h2>
+          <span class="muted">{contributionCount} indexed on this profile</span>
+        </div>
+
+        {authoredArticles.length > 0 && (
+          <div class="contribution-group">
+            <h3>Articles</h3>
+            <div class="contribution-list">
+              {authoredArticles.map((article) => (
+                <article class="contribution-item">
+                  <div>
+                    <a href={url(`/resources/articles/${article.id}/`)}>{article.data.title}</a>
+                    {article.data.summary && <p>{article.data.summary}</p>}
+                  </div>
+                  <time datetime={article.data.date.toISOString()}>
+                    {article.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+                  </time>
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {challengeSolutions.length > 0 && (
+          <div class="contribution-group">
+            <h3>Challenge solutions</h3>
+            <div class="contribution-list">
+              {challengeSolutions.map(({ challenge, solution }) => (
+                <article class="contribution-item">
+                  <div>
+                    <a href={url(`/challenges/${challenge.id}/`)}>{solution.title}</a>
+                    <p>Solution to {challenge.data.title}{solution.affiliation ? ` · ${solution.affiliation}` : ''}</p>
+                  </div>
+                  <time datetime={challenge.data.date.toISOString()}>
+                    {challenge.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+                  </time>
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {authoredQa.length > 0 && (
+          <div class="contribution-group">
+            <h3>Q&amp;A</h3>
+            <div class="contribution-list">
+              {authoredQa.map((item) => (
+                <article class="contribution-item">
+                  <div><a href={url(`/qa/${item.id}/`)}>{item.data.title}</a></div>
+                  <time datetime={item.data.date.toISOString()}>
+                    {item.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+                  </time>
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {authoredNews.length > 0 && (
+          <div class="contribution-group">
+            <h3>News &amp; commentary</h3>
+            <div class="contribution-list">
+              {authoredNews.map((item) => (
+                <article class="contribution-item">
+                  <div><a href={url(`/news/${item.id}/`)}>{item.data.title}</a></div>
+                  <time datetime={item.data.date.toISOString()}>
+                    {item.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' })}
+                  </time>
+                </article>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {contributionCount === 0 && <p class="muted">No indexed contributions yet.</p>}
+      </section>
+    </main>
+
+    <aside class="profile-sidebar">
+      {entry.data.availableFor.length > 0 && (
+        <section class="engagement-card">
+          <span class="profile-kicker">Independent engagements</span>
+          <h2>Available for {entry.data.availableFor.join(', ').toLowerCase()}</h2>
+          {entry.data.engagementNote && <p>{entry.data.engagementNote}</p>}
+          {entry.data.engagementUrl && (
+            <a class="btn" href={entry.data.engagementUrl} target="_blank" rel="noopener">Work with {entry.data.firstName} &rarr;</a>
+          )}
+        </section>
+      )}
+
+      <section class="identity-card">
+        <h2>Identity links</h2>
+        <ul>
+          {entry.data.website && <li><a href={entry.data.website} target="_blank" rel="me noopener">Personal website</a></li>}
+          {entry.data.linkedin && <li><a href={entry.data.linkedin} target="_blank" rel="me noopener">LinkedIn</a></li>}
+          <li><a href={profilePath}>DMCommunity canonical profile</a></li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+</BaseLayout>
+
+<style>
+  .profile-hero {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-card);
+    box-shadow: var(--shadow-card);
+  }
+  .profile-kicker {
+    margin: 0 0 0.2rem;
+    color: var(--color-accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .profile-hero h1 { margin: 0; }
+  .headline { margin: 0.35rem 0; font-size: 1.05rem; font-weight: 650; }
+  .affiliations { margin: 0.3rem 0; color: var(--color-text-muted); }
+  .profile-links { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.65rem; }
+  .profile-layout { display: grid; grid-template-columns: minmax(0, 1fr) 19rem; gap: 2rem; align-items: start; }
+  .bio { margin-top: 0; }
+  .profile-section { margin-top: 2.25rem; }
+  .expertise-list { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .section-heading-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .section-heading-row h2 { margin-bottom: 0.8rem; }
+  .contribution-group { margin-top: 1.5rem; }
+  .contribution-group h3 { margin-bottom: 0.55rem; font-size: 1rem; }
+  .contribution-list { display: grid; gap: 0.55rem; }
+  .contribution-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-card);
+  }
+  .contribution-item p { margin: 0.2rem 0 0; color: var(--color-text-muted); font-size: 0.88rem; }
+  .contribution-item time { flex: 0 0 auto; color: var(--color-text-muted); font-size: 0.8rem; }
+  .profile-sidebar { display: grid; gap: 1rem; position: sticky; top: 6rem; }
+  .engagement-card,
+  .identity-card {
+    padding: 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-bg-alt);
+  }
+  .engagement-card h2,
+  .identity-card h2 { margin: 0.25rem 0 0.65rem; font-size: 1rem; }
+  .engagement-card p { font-size: 0.9rem; }
+  .engagement-card .btn { display: inline-flex; margin-top: 0.35rem; }
+  .identity-card ul { margin: 0; padding-left: 1.1rem; }
+  .identity-card li { margin: 0.35rem 0; }
+  @media (max-width: 840px) {
+    .profile-layout { grid-template-columns: 1fr; }
+    .profile-sidebar { position: static; }
+  }
+  @media (max-width: 560px) {
+    .profile-hero { align-items: flex-start; flex-direction: column; padding: 1.1rem; }
+    .section-heading-row { align-items: flex-start; flex-direction: column; gap: 0; }
+    .contribution-item { flex-direction: column; gap: 0.4rem; }
+  }
+</style>
