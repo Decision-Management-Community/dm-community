@@ -5,6 +5,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { url } from '../../lib/url';
 import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
+import { challengeAuthorEmail } from '../../lib/challengeAuthorEmail';
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 import { migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 
@@ -50,13 +51,25 @@ function solutionHref(value: string) {
           const href = s.url ? solutionHref(s.url) : undefined;
           const external = href?.startsWith('http://') || href?.startsWith('https://');
           const displayAuthor = canonicalAuthorName(s.author);
+          const email = challengeAuthorEmail(s.author);
           const profile = authorUrl(displayAuthor);
           const profileExternal = Boolean(profile?.startsWith('http'));
+          // A few legacy records list two submitters in one field. Preserve the
+          // original wording while restoring a mail link for each known person.
+          const authorParts = s.author.split(/( & )/);
+          const multipleAuthors = authorParts.length > 1;
           return (
             <li>
               {href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{s.title}</a> : s.title}
               {' — '}
-              {profile ? (
+              {multipleAuthors ? authorParts.map((part) => {
+                if (part === ' & ') return part;
+                const partEmail = challengeAuthorEmail(part);
+                const partName = canonicalAuthorName(part);
+                return partEmail ? <a href={`mailto:${partEmail}`}>{partName}</a> : partName;
+              }) : email ? (
+                <a href={`mailto:${email}`}>{displayAuthor}</a>
+              ) : profile ? (
                 <a href={profile} target={profileExternal ? '_blank' : undefined} rel={profileExternal ? 'noopener' : undefined}>{displayAuthor}</a>
               ) : displayAuthor}
               {s.affiliation ? ` (${s.affiliation})` : ''}
