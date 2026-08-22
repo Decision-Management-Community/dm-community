@@ -2,12 +2,43 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Avatar from '../../components/Avatar.astro';
 import { getCollection } from 'astro:content';
+import { canonicalAuthorName } from '../../lib/authorUrl';
 import { contributorFullName, contributorPath } from '../../lib/contributorProfile';
 import { url } from '../../lib/url';
 
-const contributors = (await getCollection('contributors')).sort((a, b) =>
-  a.data.lastName.localeCompare(b.data.lastName) || a.data.firstName.localeCompare(b.data.firstName),
-);
+const contributors = await getCollection('contributors');
+const [articles, challenges, qa, news] = await Promise.all([
+  getCollection('articles'),
+  getCollection('challenges'),
+  getCollection('qa'),
+  getCollection('news'),
+]);
+
+function indexedContributionCount(contributor: (typeof contributors)[number]) {
+  const name = canonicalAuthorName(contributorFullName(contributor.data));
+  const articleCount = articles.filter((item) => canonicalAuthorName(item.data.author) === name).length;
+  const solutionCount = challenges.reduce(
+    (count, challenge) => count + challenge.data.solutions.filter((solution) => canonicalAuthorName(solution.author) === name).length,
+    0,
+  );
+  const qaCount = qa.filter((item) => canonicalAuthorName(item.data.author) === name).length;
+  const newsCount = news.filter((item) => canonicalAuthorName(item.data.author) === name).length;
+  return articleCount + solutionCount + qaCount + newsCount;
+}
+
+const rows = contributors.map((entry) => ({ entry, count: indexedContributionCount(entry) }));
+const isFeatured = ({ entry, count }: (typeof rows)[number]) => entry.data.featured || count >= 2;
+
+const featured = rows
+  .filter(isFeatured)
+  .sort((a, b) => b.count - a.count || a.entry.data.lastName.localeCompare(b.entry.data.lastName));
+
+const community = rows
+  .filter((row) => !isFeatured(row))
+  .sort((a, b) =>
+    a.entry.data.lastName.localeCompare(b.entry.data.lastName) ||
+    a.entry.data.firstName.localeCompare(b.entry.data.firstName),
+  );
 ---
 <BaseLayout
   title="Contributors"
@@ -15,74 +46,139 @@ const contributors = (await getCollection('contributors')).sort((a, b) =>
 >
   <h1>Contributors</h1>
   <p class="lede">
-    Practitioners, researchers, and community members who contribute substantive work to the Decision
-    Management Community. Profiles connect a contributor's articles, challenge solutions, Q&amp;A,
-    expertise, and public professional links in one place.
+    Practitioners, researchers, and community members who contribute to the Decision Management
+    Community. Profiles connect people to their work, expertise, affiliations, and public
+    professional identities without turning this into a popularity contest.
   </p>
 
-  <div class="card-grid contributor-grid">
-    {contributors.map((contributor) => {
-      const name = contributorFullName(contributor.data);
-      return (
-        <article class="card contributor-card">
-          <Avatar name={name} image={contributor.data.image} />
-          <div class="contributor-copy">
-            <h2><a href={url(contributorPath(contributor.id))}>{name}</a></h2>
-            <p class="headline">{contributor.data.headline}</p>
-            {contributor.data.affiliations.length > 0 && (
-              <p class="muted affiliations">
-                {contributor.data.affiliations.map((affiliation, index) => (
-                  <>
-                    {index > 0 && ' · '}
-                    {affiliation.url ? (
-                      <a href={affiliation.url} target="_blank" rel="noopener">{affiliation.name}</a>
-                    ) : affiliation.name}
-                  </>
-                ))}
-              </p>
-            )}
-            <p>{contributor.data.shortBio}</p>
-            {contributor.data.expertise.length > 0 && (
-              <div class="expertise" aria-label={`${name} expertise`}>
-                {contributor.data.expertise.slice(0, 5).map((item) => <span class="badge">{item}</span>)}
+  {featured.length > 0 && (
+    <section class="featured-section" aria-labelledby="featured-contributors-heading">
+      <div class="section-intro">
+        <span class="eyebrow">Substantive community work</span>
+        <h2 id="featured-contributors-heading">Featured contributors</h2>
+        <p>
+          These profiles represent sustained or substantive participation that is indexed on the
+          site. Profiles with multiple indexed contributions can move into this section over time.
+        </p>
+      </div>
+
+      <div class="featured-grid">
+        {featured.map(({ entry: contributor, count }) => {
+          const name = contributorFullName(contributor.data);
+          return (
+            <article class="card featured-card">
+              <Avatar name={name} image={contributor.data.image} size={88} />
+              <div class="contributor-copy">
+                <div class="title-row">
+                  <h3><a href={url(contributorPath(contributor.id))}>{name}</a></h3>
+                  <span class="contribution-count">{count} indexed {count === 1 ? 'contribution' : 'contributions'}</span>
+                </div>
+                <p class="headline">{contributor.data.headline}</p>
+                {contributor.data.affiliations.length > 0 && (
+                  <p class="muted affiliations">
+                    {contributor.data.affiliations.map((affiliation, index) => (
+                      <>
+                        {index > 0 && ' · '}
+                        {affiliation.url ? (
+                          <a href={affiliation.url} target="_blank" rel="noopener">{affiliation.name}</a>
+                        ) : affiliation.name}
+                      </>
+                    ))}
+                  </p>
+                )}
+                <p>{contributor.data.shortBio}</p>
+                {contributor.data.expertise.length > 0 && (
+                  <div class="expertise" aria-label={`${name} expertise`}>
+                    {contributor.data.expertise.slice(0, 5).map((item) => <span class="badge">{item}</span>)}
+                  </div>
+                )}
+                <p class="profile-link"><a href={url(contributorPath(contributor.id))}>View contributor profile &rarr;</a></p>
               </div>
-            )}
-            <p class="profile-link"><a href={url(contributorPath(contributor.id))}>View contributor profile &rarr;</a></p>
-          </div>
-        </article>
-      );
-    })}
-  </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  )}
+
+  {community.length > 0 && (
+    <section class="community-section" aria-labelledby="community-profiles-heading">
+      <div class="section-intro compact-intro">
+        <span class="eyebrow">Community directory</span>
+        <h2 id="community-profiles-heading">Community profiles</h2>
+        <p>
+          Lightweight profiles for Advisory Board members and other participants. These stay compact
+          until the profile is expanded or more substantive work is indexed on DMCommunity.
+        </p>
+      </div>
+
+      <div class="community-grid">
+        {community.map(({ entry: contributor, count }) => {
+          const name = contributorFullName(contributor.data);
+          return (
+            <article class="community-card">
+              <Avatar name={name} image={contributor.data.image} size={52} />
+              <div>
+                <h3><a href={url(contributorPath(contributor.id))}>{name}</a></h3>
+                {contributor.data.affiliations.length > 0 && (
+                  <p class="muted compact-affiliation">{contributor.data.affiliations.map((a) => a.name).join(' · ')}</p>
+                )}
+                <p class="compact-headline">{contributor.data.headline}</p>
+                <div class="compact-links">
+                  <a href={url(contributorPath(contributor.id))}>Profile</a>
+                  {contributor.data.linkedin && <a href={contributor.data.linkedin} target="_blank" rel="noopener">LinkedIn</a>}
+                  {count > 0 && <span class="muted">{count} indexed</span>}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  )}
 
   <section class="contributor-note">
-    <h2>About contributor profiles</h2>
+    <h2>Expand or correct a profile</h2>
     <p>
-      Profiles are community records, not endorsements. They are intended to make authorship,
-      expertise, affiliations, and contributions easier to discover and verify across the site.
+      Contributor profiles are community records, not endorsements. If a profile is yours, email
+      <a href="mailto:DecisionManagementCommunity@gmail.com?subject=Contributor%20profile%20update"> DecisionManagementCommunity@gmail.com</a>
+      with updated biography, affiliation, links, or other corrections.
     </p>
   </section>
 </BaseLayout>
 
 <style>
-  .lede { max-width: 54rem; font-size: 1.08rem; line-height: 1.65; }
-  .contributor-grid { margin-top: 1.75rem; }
-  .contributor-card { display: flex; gap: 1.1rem; align-items: flex-start; }
-  .contributor-copy { min-width: 0; }
-  .contributor-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; }
+  .lede { max-width: 56rem; font-size: 1.08rem; line-height: 1.65; }
+  .featured-section, .community-section { margin-top: 2.4rem; }
+  .section-intro { max-width: 54rem; margin-bottom: 1rem; }
+  .section-intro h2 { margin: 0.15rem 0 0.45rem; }
+  .section-intro p { margin: 0; color: var(--color-text-muted); }
+  .eyebrow { color: var(--color-accent-dark); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+  .featured-grid { display: grid; gap: 1rem; }
+  .featured-card { display: flex; gap: 1.25rem; align-items: flex-start; padding: 1.35rem; }
+  .contributor-copy { min-width: 0; flex: 1; }
+  .title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .featured-card h3 { margin: 0 0 0.25rem; font-size: 1.3rem; }
+  .contribution-count { flex: 0 0 auto; padding: 0.22rem 0.48rem; border: 1px solid var(--color-border); border-radius: 999px; color: var(--color-text-muted); font-size: 0.72rem; font-weight: 650; }
   .headline { margin: 0.2rem 0; font-weight: 650; }
   .affiliations { margin: 0.2rem 0 0.75rem; }
   .expertise { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.8rem; }
   .profile-link { margin-bottom: 0; }
-  .contributor-note {
-    margin-top: 2.5rem;
-    padding: 1.25rem 1.4rem;
-    border: 1px solid var(--color-border);
-    border-radius: 10px;
-    background: var(--color-bg-alt);
-  }
+  .compact-intro { margin-bottom: 1.15rem; }
+  .community-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+  .community-card { display: flex; gap: 0.8rem; align-items: flex-start; min-width: 0; padding: 0.9rem; border: 1px solid var(--color-border); border-radius: 9px; background: var(--color-card); }
+  .community-card > div { min-width: 0; }
+  .community-card h3 { margin: 0; font-size: 0.98rem; }
+  .compact-affiliation { margin: 0.15rem 0; font-size: 0.78rem; }
+  .compact-headline { margin: 0.35rem 0; font-size: 0.84rem; line-height: 1.35; }
+  .compact-links { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-top: 0.5rem; font-size: 0.76rem; }
+  .contributor-note { margin-top: 2.5rem; padding: 1.25rem 1.4rem; border: 1px solid var(--color-border); border-radius: 10px; background: var(--color-bg-alt); }
   .contributor-note h2 { margin-top: 0; }
   .contributor-note p { margin-bottom: 0; }
+  @media (max-width: 900px) { .community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 620px) {
-    .contributor-card { align-items: center; }
+    .featured-card { align-items: flex-start; }
+    .title-row { align-items: flex-start; flex-direction: column; gap: 0.25rem; }
+    .community-grid { grid-template-columns: 1fr; }
   }
 </style>
