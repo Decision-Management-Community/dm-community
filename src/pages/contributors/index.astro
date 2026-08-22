@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Avatar from '../../components/Avatar.astro';
 import { getCollection } from 'astro:content';
 import { canonicalAuthorNames } from '../../lib/authorUrl';
-import { contributorFullName, contributorPath } from '../../lib/contributorProfile';
+import { contributorFullName, contributorPath, decisionCampPresentationYears } from '../../lib/contributorProfile';
 import { url } from '../../lib/url';
 
 const contributors = await getCollection('contributors');
@@ -43,21 +43,23 @@ function contributorStats(contributor: (typeof contributors)[number]) {
   );
   const authoredQa = qa.filter((item) => isByContributor(item.data.author));
   const authoredNews = news.filter((item) => isByContributor(item.data.author));
+  const presentationYears = decisionCampPresentationYears(`${contributor.data.shortBio}\n${contributor.body ?? ''}`);
 
   const substantiveDates = [
     ...authoredArticles.map((item) => item.data.date.valueOf()),
     ...authoredSolutions.map(({ challenge }) => challenge.data.date.valueOf()),
     ...authoredQa.map((item) => item.data.date.valueOf()),
+    ...presentationYears.map((year) => Date.UTC(year, 0, 1)),
   ];
 
   return {
-    count: authoredArticles.length + authoredSolutions.length + authoredQa.length + authoredNews.length,
-    substantiveCount: authoredArticles.length + authoredSolutions.length + authoredQa.length,
+    count: authoredArticles.length + authoredSolutions.length + authoredQa.length + authoredNews.length + presentationYears.length,
+    substantiveCount: authoredArticles.length + authoredSolutions.length + authoredQa.length + presentationYears.length,
     depthScore:
       authoredArticles.length * 4 +
       authoredSolutions.length * 4 +
       authoredQa.length * 3 +
-      authoredNews.length,
+      authoredNews.length + presentationYears.length * 2,
     latestSubstantive: substantiveDates.length > 0 ? Math.max(...substantiveDates) : 0,
   };
 }
