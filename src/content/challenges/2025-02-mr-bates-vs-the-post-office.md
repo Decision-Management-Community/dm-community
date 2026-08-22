@@ -18,6 +18,10 @@ solutions:
   - title: Prolog
     author: Matteo Redaelli
     url: https://www.mr70.eu/posts/dmcommunity_org_challenge-feb-2025/
+  - title: Differential Evolution + Analytic Validation
+    author: Adam DeJans Jr.
+    affiliation: BitBros
+    url: "/resources/articles/2026-08-22-mr-bates-differential-evolution/"
 ---
 
 The Post Office in DS City has introduced a new flat rate for packages, regardless of weight or volume, as long as the box's "strap measure" doesn't exceed 100 inches. The strap measure of a box is the length of its longest side plus twice the sum of its two shorter sides.
