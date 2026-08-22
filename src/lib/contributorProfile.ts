@@ -1,4 +1,5 @@
 import { canonicalAuthorName } from './authorUrl';
+import { decisionCampPresentations, type DecisionCampPresentation } from '../data/decisionCampPresentations';
 
 type ContributorIdentity = {
   firstName: string;
@@ -48,4 +49,31 @@ export function decisionCampPresentationYears(content?: string) {
   }
 
   return [...years].sort((a, b) => b - a);
+}
+
+export type ContributorPresentation = DecisionCampPresentation & { detailed: boolean };
+
+/**
+ * Match a profile to the detailed program catalog.  A historical profile that
+ * records a year but has no matching program item is kept as a year-level
+ * contribution, so the catalog never discards the records restored in #129.
+ */
+export function decisionCampPresentationsForContributor(name: string, content?: string): ContributorPresentation[] {
+  const canonicalName = canonicalAuthorName(name);
+  const detailed = decisionCampPresentations.filter((presentation) =>
+    presentation.presenters.some((presenter) => canonicalAuthorName(presenter) === canonicalName),
+  );
+  const detailedYears = new Set(detailed.map((presentation) => presentation.year));
+  const historical = decisionCampPresentationYears(content)
+    .filter((year) => !detailedYears.has(year))
+    .map((year) => ({
+      year,
+      title: `DecisionCAMP ${year}`,
+      presenters: [name],
+      programUrl: `/decisioncamp/${year}/`,
+      detailed: false,
+    }));
+
+  return [...detailed.map((presentation) => ({ ...presentation, detailed: true })), ...historical]
+    .sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
 }

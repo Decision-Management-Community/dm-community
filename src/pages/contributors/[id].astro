@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Avatar from '../../components/Avatar.astro';
 import { getCollection, render } from 'astro:content';
 import { canonicalAuthorNames } from '../../lib/authorUrl';
-import { contributorFullName, contributorPath, decisionCampPresentationYears } from '../../lib/contributorProfile';
+import { contributorFullName, contributorPath, decisionCampPresentationsForContributor } from '../../lib/contributorProfile';
 import { url } from '../../lib/url';
 
 export async function getStaticPaths() {
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 const name = contributorFullName(entry.data);
-const decisionCampYears = decisionCampPresentationYears(`${entry.data.shortBio}\n${entry.body ?? ''}`);
+const decisionCampPresentations = decisionCampPresentationsForContributor(name, `${entry.data.shortBio}\n${entry.body ?? ''}`);
 const canonicalNames = new Set(canonicalAuthorNames(name));
 const isByContributor = (author?: string) => canonicalAuthorNames(author).some((candidate) => canonicalNames.has(candidate));
 
@@ -90,7 +90,7 @@ const personJsonLd = entry.data.structuredData ? {
   mainEntityOfPage: profileUrl,
 } : undefined;
 
-const contributionCount = authoredArticles.length + challengeSolutions.length + authoredQa.length + authoredNews.length + decisionCampYears.length;
+const contributionCount = authoredArticles.length + challengeSolutions.length + authoredQa.length + authoredNews.length + decisionCampPresentations.length;
 const indexedItemCount = contributionCount + mentionedNews.length;
 ---
 <BaseLayout title={name} description={entry.data.shortBio}>
@@ -182,17 +182,17 @@ const indexedItemCount = contributionCount + mentionedNews.length;
           </div>
       )}
 
-      {decisionCampYears.length > 0 && (
+      {decisionCampPresentations.length > 0 && (
         <div class="contribution-group">
           <h3>DecisionCAMP presentations</h3>
           <div class="contribution-list">
-            {decisionCampYears.map((year) => (
+            {decisionCampPresentations.map((presentation) => (
               <article class="contribution-item">
                 <div>
-                  <a href={url(`/decisioncamp/${year}/`)}>DecisionCAMP {year}</a>
-                  <p>Conference presentation</p>
+                  <a href={presentation.detailed ? presentation.programUrl : url(presentation.programUrl)}>{presentation.title}</a>
+                  <p>{presentation.detailed ? `DecisionCAMP ${presentation.year} conference programme` : 'Conference presentation'}</p>
                 </div>
-                <time datetime={`${year}-01-01`}>{year}</time>
+                <time datetime={`${presentation.year}-01-01`}>{presentation.year}</time>
               </article>
             ))}
           </div>
