@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { authorUrl, canonicalAuthorName } from '../../lib/authorUrl';
 import { url } from '../../lib/url';
 import { isLegacyDmCommunityUrl, migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 import legacyComments from '../../data/legacy-news-comments.json';
@@ -23,6 +24,9 @@ const { entry } = Astro.props;
 const { Content } = await render(entry);
 const commentsByPost = legacyComments as Record<string, LegacyComment[]>;
 const archivedComments = commentsByPost[entry.id] ?? [];
+const displayAuthor = canonicalAuthorName(entry.data.author);
+const profile = authorUrl(displayAuthor);
+const profileExternal = Boolean(profile?.startsWith('http'));
 
 const migratedSource = entry.data.sourceUrl ? migrateLegacyUrl(entry.data.sourceUrl) : undefined;
 const sourceHref = migratedSource && !isLegacyDmCommunityUrl(migratedSource)
@@ -40,7 +44,14 @@ function formatCommentDate(value: string) {
   <h1>{entry.data.title}</h1>
   <p class="muted">
     {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-    {entry.data.author ? ` · ${entry.data.author}` : ''}
+    {displayAuthor && (
+      <>
+        {' · '}
+        {profile ? (
+          <a href={profile} target={profileExternal ? '_blank' : undefined} rel={profileExternal ? 'noopener' : undefined}>{displayAuthor}</a>
+        ) : displayAuthor}
+      </>
+    )}
   </p>
   {entry.data.tags.length > 0 && (
     <p class="tags">
@@ -88,7 +99,7 @@ function formatCommentDate(value: string) {
   .legacy-comments-list { display: grid; gap: 0.85rem; margin-top: 1.25rem; }
   .legacy-comment { margin: 0; padding: 1rem 1.1rem; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius); box-shadow: var(--shadow-card); }
   .legacy-comment-reply { margin-left: 1.5rem; border-left: 3px solid var(--color-accent); }
-  .legacy-comment-meta { margin: 0 0 0.4rem; font-size: 0.9rem; }
-  .legacy-comment-body { margin: 0; white-space: pre-line; }
-  @media (max-width: 600px) { .legacy-comment-reply { margin-left: 0.75rem; } }
+  .legacy-comment-meta { margin: 0 0 0.4rem; font-size: 0.88rem; }
+  .legacy-comment-body { margin: 0; white-space: pre-wrap; }
+  @media (max-width: 640px) { .legacy-comment-reply { margin-left: 0.75rem; } }
 </style>

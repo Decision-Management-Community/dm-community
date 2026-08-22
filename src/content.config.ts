@@ -27,6 +27,33 @@ const advisoryBoard = defineCollection({
   }),
 });
 
+const contributors = defineCollection({
+  loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/contributors' }),
+  schema: z.object({
+    firstName: z.string(),
+    lastName: z.string(),
+    suffix: z.string().optional(),
+    image: z.string().optional(),
+    headline: z.string(),
+    shortBio: z.string(),
+    website: z.string().url().optional(),
+    linkedin: z.string().url().optional(),
+    affiliations: z
+      .array(
+        z.object({
+          name: z.string(),
+          url: z.string().url().optional(),
+        }),
+      )
+      .default([]),
+    expertise: z.array(z.string()).default([]),
+    availableFor: z.array(z.string()).default([]),
+    engagementUrl: z.string().url().optional(),
+    engagementNote: z.string().optional(),
+    sameAs: z.array(z.string().url()).default([]),
+  }),
+});
+
 const sponsors = defineCollection({
   loader: glob({ pattern: ['**/*.md', '!README.md'], base: './src/content/sponsors' }),
   schema: z.object({
@@ -200,6 +227,7 @@ const articles = defineCollection({
 export const collections = {
   pages,
   advisoryBoard,
+  contributors,
   sponsors,
   caseStudies,
   tools,

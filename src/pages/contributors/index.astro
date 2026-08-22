@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Avatar from '../../components/Avatar.astro';
+import { getCollection } from 'astro:content';
+import { contributorFullName, contributorPath } from '../../lib/contributorProfile';
+import { url } from '../../lib/url';
+
+const contributors = (await getCollection('contributors')).sort((a, b) =>
+  a.data.lastName.localeCompare(b.data.lastName) || a.data.firstName.localeCompare(b.data.firstName),
+);
+---
+<BaseLayout
+  title="Contributors"
+  description="People contributing articles, solutions, talks, Q&A, and practical expertise to the Decision Management Community."
+>
+  <h1>Contributors</h1>
+  <p class="lede">
+    Practitioners, researchers, and community members who contribute substantive work to the Decision
+    Management Community. Profiles connect a contributor's articles, challenge solutions, Q&amp;A,
+    expertise, and public professional links in one place.
+  </p>
+
+  <div class="card-grid contributor-grid">
+    {contributors.map((contributor) => {
+      const name = contributorFullName(contributor.data);
+      return (
+        <article class="card contributor-card">
+          <Avatar name={name} image={contributor.data.image} />
+          <div class="contributor-copy">
+            <h2><a href={url(contributorPath(contributor.id))}>{name}</a></h2>
+            <p class="headline">{contributor.data.headline}</p>
+            {contributor.data.affiliations.length > 0 && (
+              <p class="muted affiliations">
+                {contributor.data.affiliations.map((affiliation, index) => (
+                  <>
+                    {index > 0 && ' · '}
+                    {affiliation.url ? (
+                      <a href={affiliation.url} target="_blank" rel="noopener">{affiliation.name}</a>
+                    ) : affiliation.name}
+                  </>
+                ))}
+              </p>
+            )}
+            <p>{contributor.data.shortBio}</p>
+            {contributor.data.expertise.length > 0 && (
+              <div class="expertise" aria-label={`${name} expertise`}>
+                {contributor.data.expertise.slice(0, 5).map((item) => <span class="badge">{item}</span>)}
+              </div>
+            )}
+            <p class="profile-link"><a href={url(contributorPath(contributor.id))}>View contributor profile &rarr;</a></p>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+
+  <section class="contributor-note">
+    <h2>About contributor profiles</h2>
+    <p>
+      Profiles are community records, not endorsements. They are intended to make authorship,
+      expertise, affiliations, and contributions easier to discover and verify across the site.
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  .lede { max-width: 54rem; font-size: 1.08rem; line-height: 1.65; }
+  .contributor-grid { margin-top: 1.75rem; }
+  .contributor-card { display: flex; gap: 1.1rem; align-items: flex-start; }
+  .contributor-copy { min-width: 0; }
+  .contributor-card h2 { margin: 0 0 0.25rem; font-size: 1.15rem; }
+  .headline { margin: 0.2rem 0; font-weight: 650; }
+  .affiliations { margin: 0.2rem 0 0.75rem; }
+  .expertise { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.8rem; }
+  .profile-link { margin-bottom: 0; }
+  .contributor-note {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.4rem;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-bg-alt);
+  }
+  .contributor-note h2 { margin-top: 0; }
+  .contributor-note p { margin-bottom: 0; }
+  @media (max-width: 620px) {
+    .contributor-card { align-items: center; }
+  }
+</style>

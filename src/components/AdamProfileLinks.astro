@@ -1,12 +1,13 @@
 <script>
-  const profileUrl = 'https://www.adamdejans.com';
+  const profileUrl = '/contributors/adam-dejans-jr/';
   const canonicalName = 'Adam DeJans Jr.';
   const splitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
   const exactPattern = /^(Adam DeJans Jr\.?|Adam DeJans)$/;
   const containsName = /Adam DeJans(?: Jr\.?)?/;
   const root = document.querySelector<HTMLElement>('#main-content');
+  const normalizedPath = window.location.pathname.endsWith('/') ? window.location.pathname : `${window.location.pathname}/`;
 
-  if (root) {
+  if (root && normalizedPath !== profileUrl) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         const value = node.nodeValue ?? '';
@@ -30,6 +31,12 @@
 
       if (existingLink) {
         textNode.nodeValue = value.replace(splitPattern, canonicalName);
+        if (exactPattern.test(textNode.nodeValue ?? '')) {
+          existingLink.setAttribute('href', profileUrl);
+          existingLink.removeAttribute('target');
+          existingLink.removeAttribute('rel');
+          existingLink.dataset.personProfile = 'adam-dejans';
+        }
         continue;
       }
 
@@ -44,8 +51,6 @@
 
         const link = document.createElement('a');
         link.href = profileUrl;
-        link.target = '_blank';
-        link.rel = 'noopener';
         link.dataset.personProfile = 'adam-dejans';
         link.textContent = canonicalName;
         fragment.appendChild(link);
