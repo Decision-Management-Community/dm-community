@@ -22,6 +22,10 @@ Each item in `solutions` is:
 | `affiliation` | string | no |
 | `url` | string (URL) | no — omit if there's no working link, don't include a broken one |
 
+For migrated solutions, the submitter's historical email link is restored automatically where the
+legacy Challenge page supplied one. Do not add personal email addresses to new solutions unless the
+submitter has explicitly agreed to publish them.
+
 ## Adding a new Challenge
 
 File name: `src/content/challenges/YYYY-MM-short-slug.md`
