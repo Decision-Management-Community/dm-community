@@ -20,6 +20,8 @@ expertise:
 sameAs:
   - https://www.linkedin.com/in/jacobfeldmanopenrules/
   - https://openrules.com
+featured: true
+structuredData: true
 ---
 
 Jacob Feldman is an active contributor to the Decision Management Community and a member of its Advisory Board. His work through OpenRules spans business rules, decision modeling, decision intelligence, machine learning, optimization, and emerging agentic AI approaches to decision systems.
