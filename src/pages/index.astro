@@ -3,10 +3,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { url } from '../lib/url';
 
-const newsPosts = (await getCollection('news')).sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+const [newsPosts, challenges, articles, contributors, events] = await Promise.all([
+  getCollection('news'),
+  getCollection('challenges'),
+  getCollection('articles'),
+  getCollection('contributors'),
+  getCollection('events'),
+]);
+
+newsPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+challenges.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+articles.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
 const latestNews = newsPosts.slice(0, 4);
+const latestChallenge = challenges[0];
+const latestArticles = articles.slice(0, 3);
+const totalSolutions = challenges.reduce((sum, challenge) => sum + challenge.data.solutions.length, 0);
+const openChallenges = challenges.filter((challenge) => challenge.data.solutions.length === 0).length;
+
+const today = new Date();
+today.setUTCHours(0, 0, 0, 0);
+const nextEvent = events
+  .filter((event) => event.data.startDate.valueOf() >= today.valueOf())
+  .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf())[0];
+
+const metrics = [
+  { label: 'Challenges', value: challenges.length, href: '/challenges/' },
+  { label: 'Published solutions', value: totalSolutions, href: '/challenges/' },
+  { label: 'Articles', value: articles.length, href: '/resources/articles/' },
+  { label: 'Contributors', value: contributors.length, href: '/contributors/' },
+];
 ---
 <BaseLayout title="Home" description="Decision Management Community — practitioners designing, building, operating, and improving decision systems.">
   <section class="hero">
@@ -34,23 +60,135 @@ const latestNews = newsPosts.slice(0, 4);
     </div>
   </section>
 
-  <section class="section-block">
-    <section aria-labelledby="latest-news-heading">
-      <h3 id="latest-news-heading"><span class="badge">Latest News</span></h3>
-      {latestNews.length > 0 ? (
-        <div class="latest-grid">
-          {latestNews.map((post) => (
+  <section class="metric-strip" aria-label="Community at a glance">
+    {metrics.map((metric) => (
+      <a class="metric" href={url(metric.href)}>
+        <strong>{metric.value.toLocaleString('en-US')}</strong>
+        <span>{metric.label}</span>
+      </a>
+    ))}
+  </section>
+
+  <section class="section-block" aria-labelledby="start-heading">
+    <div class="section-heading-row">
+      <div>
+        <span class="eyebrow">Start here</span>
+        <h2 id="start-heading">Use the community, not just the archive</h2>
+      </div>
+    </div>
+    <div class="path-grid">
+      <a class="path-card" href={url('/challenges/')}>
+        <span class="path-number">01</span>
+        <h3>Solve a real challenge</h3>
+        <p>Browse the archive, filter for open problems, compare existing approaches, and submit your own solution.</p>
+        <span class="card-arrow">Explore {challenges.length} challenges &rarr;</span>
+      </a>
+      <a class="path-card" href={url('/resources/')}>
+        <span class="path-number">02</span>
+        <h3>Learn from working examples</h3>
+        <p>Find articles, decision models, case studies, standards, tools, books, and community software in one place.</p>
+        <span class="card-arrow">Browse resources &rarr;</span>
+      </a>
+      <a class="path-card" href={url('/contribute/')}>
+        <span class="path-number">03</span>
+        <h3>Put your work in the record</h3>
+        <p>Contribute an article, challenge solution, event, tool, case study, or correction and get proper attribution.</p>
+        <span class="card-arrow">How to contribute &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section-block" aria-labelledby="pulse-heading">
+    <div class="section-heading-row">
+      <div>
+        <span class="eyebrow">Community pulse</span>
+        <h2 id="pulse-heading">What to look at right now</h2>
+      </div>
+    </div>
+    <div class="pulse-grid">
+      {latestChallenge && (
+        <article class="pulse-card">
+          <span class="badge">Latest challenge</span>
+          <h3><a href={url(`/challenges/${latestChallenge.id}/`)}>{latestChallenge.data.title}</a></h3>
+          <p class="meta">{latestChallenge.data.date.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' })}</p>
+          <p class="muted">
+            {latestChallenge.data.solutions.length > 0
+              ? `${latestChallenge.data.solutions.length} published solution${latestChallenge.data.solutions.length === 1 ? '' : 's'} so far.`
+              : 'No published solutions yet — this one is wide open.'}
+          </p>
+          <a class="card-arrow" href={url(`/challenges/${latestChallenge.id}/`)}>Open challenge &rarr;</a>
+        </article>
+      )}
+
+      <article class="pulse-card">
+        <span class="badge">Open problems</span>
+        <h3>{openChallenges} challenges still need a solution</h3>
+        <p class="muted">Use the new open-only filter to jump straight to problems where a fresh contribution can add the most value.</p>
+        <a class="card-arrow" href={url('/challenges/#challenge-search-input')}>Find an open challenge &rarr;</a>
+      </article>
+
+      {nextEvent ? (
+        <article class="pulse-card">
+          <span class="badge">Next event</span>
+          <h3><a href={url('/events/')}>{nextEvent.data.title}</a></h3>
+          <p class="meta">{nextEvent.data.startDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
+          {nextEvent.data.location && <p class="muted">{nextEvent.data.location}</p>}
+          <a class="card-arrow" href={url('/events/')}>View events &rarr;</a>
+        </article>
+      ) : (
+        <article class="pulse-card">
+          <span class="badge">DecisionCAMP</span>
+          <h3>Talk to the people doing the work</h3>
+          <p class="muted">Explore DecisionCAMP sessions, presentations, and community history across the annual conference archive.</p>
+          <a class="card-arrow" href={url('/decisioncamp/')}>Explore DecisionCAMP &rarr;</a>
+        </article>
+      )}
+    </div>
+  </section>
+
+  {latestArticles.length > 0 && (
+    <section class="section-block" aria-labelledby="latest-articles-heading">
+      <div class="section-heading-row">
+        <div>
+          <span class="eyebrow">Deep dives</span>
+          <h2 id="latest-articles-heading">Latest articles</h2>
+        </div>
+        <a href={url('/resources/articles/')}>All articles &rarr;</a>
+      </div>
+      <div class="article-grid">
+        {latestArticles.map((article) => (
           <article class="compact-card">
+            <h3><a href={url(`/resources/articles/${article.id}/`)}>{article.data.title}</a></h3>
+            <p class="meta">
+              {article.data.author ? `${article.data.author} · ` : ''}
+              {article.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}
+            </p>
+            {article.data.summary && <p class="muted">{article.data.summary}</p>}
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="section-block" aria-labelledby="latest-news-heading">
+    <div class="section-heading-row">
+      <div>
+        <span class="eyebrow">Fresh links and commentary</span>
+        <h2 id="latest-news-heading">Latest news</h2>
+      </div>
+      <a href={url('/news/')}>More news &rarr;</a>
+    </div>
+    {latestNews.length > 0 ? (
+      <div class="latest-grid">
+        {latestNews.map((post) => (
+          <article class="compact-card news-card">
             <h3><a href={url(`/news/${post.id}/`)}>{post.data.title}</a></h3>
             <p class="meta">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
           </article>
-          ))}
-        </div>
-      ) : <p class="muted">No news yet.</p>}
-      <a class="card-arrow" href={url('/news/')}>More news &rarr;</a>
-    </section>
+        ))}
+      </div>
+    ) : <p class="muted">No news yet.</p>}
   </section>
-
 </BaseLayout>
 
 <style>
@@ -69,9 +207,7 @@ const latestNews = newsPosts.slice(0, 4);
       var(--color-card);
     box-shadow: var(--shadow-card);
   }
-  .hero-copy {
-    max-width: 72ch;
-  }
+  .hero-copy { max-width: 72ch; }
   .hero-copy h1 {
     max-width: 17ch;
     margin: 0.35rem 0 1rem;
@@ -139,16 +275,65 @@ const latestNews = newsPosts.slice(0, 4);
     text-decoration: none;
   }
 
-  .section-block { padding: 3.5rem 0 0; }
-
-  .card-arrow { display: inline-block; margin-top: auto; padding-top: 1rem; font-weight: 650; }
-
-  .latest-grid {
+  .metric-strip {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.7rem;
     margin-top: 1rem;
   }
+  .metric {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: var(--color-card);
+    color: inherit;
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+  }
+  .metric:hover,
+  .metric:focus-visible {
+    border-color: color-mix(in srgb, var(--color-accent) 65%, var(--color-border));
+    text-decoration: none;
+  }
+  .metric strong {
+    font-family: var(--font-serif);
+    font-size: clamp(1.65rem, 4vw, 2.25rem);
+    line-height: 1;
+    color: var(--color-primary);
+  }
+  .metric span {
+    margin-top: 0.35rem;
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 650;
+  }
+
+  .section-block { padding: 3.5rem 0 0; }
+  .section-heading-row {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .section-heading-row h2 { margin: 0.15rem 0 0; }
+  .section-heading-row > a { flex: 0 0 auto; font-weight: 650; }
+
+  .path-grid,
+  .pulse-grid,
+  .article-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .path-grid,
+  .pulse-grid,
+  .article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .path-card,
+  .pulse-card,
   .compact-card {
     min-width: 0;
     border: 1px solid var(--color-border);
@@ -156,8 +341,45 @@ const latestNews = newsPosts.slice(0, 4);
     background: var(--color-card);
     box-shadow: var(--shadow-card);
   }
+  .path-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .path-card:hover,
+  .path-card:focus-visible {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+  .path-card h3,
+  .pulse-card h3,
+  .compact-card h3 { margin: 0.35rem 0 0.55rem; }
+  .path-card p,
+  .pulse-card p { line-height: 1.6; }
+  .path-number {
+    color: var(--color-accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+  }
+  .pulse-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.35rem;
+  }
+  .pulse-card .badge { align-self: flex-start; }
   .compact-card { padding: 1.35rem; }
-  .compact-card h3 { margin: 0 0 0.4rem; }
+  .compact-card .muted { line-height: 1.55; }
+
+  .card-arrow { display: inline-block; margin-top: auto; padding-top: 1rem; font-weight: 650; }
+  .latest-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+  .news-card h3 { margin-top: 0; }
   .meta { margin: 0.25rem 0; color: var(--color-text-muted); font-size: 0.82rem; }
 
   @media (max-width: 940px) {
@@ -165,9 +387,14 @@ const latestNews = newsPosts.slice(0, 4);
       grid-template-columns: minmax(0, 1fr) 145px;
       gap: 1.25rem;
     }
+    .metric-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .path-grid,
+    .pulse-grid,
+    .article-grid { grid-template-columns: 1fr; }
     .latest-grid { grid-template-columns: 1fr; }
     .hero-copy h1 { max-width: 16ch; }
   }
+
   @media (max-width: 700px) {
     .hero {
       grid-template-columns: 1fr;
@@ -188,8 +415,13 @@ const latestNews = newsPosts.slice(0, 4);
     }
     .hero-links a { width: auto; }
     .hero-links a:last-child { grid-column: 1 / -1; }
-    .latest-grid { grid-template-columns: 1fr; gap: 2rem; }
     .section-block { padding-top: 2.5rem; }
+    .section-heading-row { align-items: flex-start; flex-direction: column; }
+  }
+
+  @media (max-width: 460px) {
+    .metric-strip { grid-template-columns: 1fr 1fr; }
+    .metric { padding: 0.85rem; }
   }
 
   @media (max-width: 380px) {

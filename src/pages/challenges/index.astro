@@ -5,6 +5,7 @@ import { url } from '../../lib/url';
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 
 const challenges = (await getCollection('challenges')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const openChallengeCount = challenges.filter((challenge) => challenge.data.solutions.length === 0).length;
 const searchIndex = new Map(
   challenges.map((challenge) => [
     challenge.id,
@@ -43,7 +44,15 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     or add them directly via a <a href="https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md">pull request</a>.
   </p>
 
-  <section class="challenge-search">
+  <section class="challenge-search" aria-labelledby="challenge-search-heading">
+    <div class="search-heading-row">
+      <div>
+        <h2 id="challenge-search-heading">Find a challenge</h2>
+        <p class="muted">Search the full archive or jump straight to a problem that still needs a solution.</p>
+      </div>
+      <span class="open-count">{openChallengeCount} open</span>
+    </div>
+
     <label for="challenge-search-input">Search all challenges</label>
     <input
       id="challenge-search-input"
@@ -51,8 +60,17 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
       placeholder="Search by title, topic, tag, solution author, or challenge text"
       autocomplete="off"
     />
+
+    <div class="challenge-controls">
+      <label class="filter-toggle" for="unsolved-only">
+        <input id="unsolved-only" type="checkbox" />
+        <span>Show only challenges with no published solution</span>
+      </label>
+      <button id="random-challenge" class="random-button" type="button">Surprise me</button>
+    </div>
+
     <p id="challenge-search-status" class="muted" aria-live="polite">
-      Search across the complete Challenges archive.
+      Showing all {challenges.length} challenges.
     </p>
   </section>
 
@@ -65,13 +83,25 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
       <h2>{year}</h2>
       <div class="card-grid">
         {byYear.get(year)!.map((c) => (
-          <div class="card" data-challenge data-search={searchIndex.get(c.id)}>
-            <h3><a href={url(`/challenges/${c.id}/`)}>{c.data.title}</a></h3>
+          <div
+            class:list={['card', { 'open-challenge': c.data.solutions.length === 0 }]}
+            data-challenge
+            data-search={searchIndex.get(c.id)}
+            data-solution-count={c.data.solutions.length}
+          >
+            <div class="challenge-card-heading">
+              <h3><a href={url(`/challenges/${c.id}/`)}>{c.data.title}</a></h3>
+              {c.data.solutions.length === 0 && <span class="open-badge">Open</span>}
+            </div>
             <p class="muted">{c.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</p>
             {c.data.tags.length > 0 && (
               <p>{c.data.tags.map((t: string) => <span class="badge tag" style={categoryBadgeStyle(t)}>{t}</span>)}</p>
             )}
-            <p class="muted small">{c.data.solutions.length} solution{c.data.solutions.length === 1 ? '' : 's'}</p>
+            <p class="muted small">
+              {c.data.solutions.length === 0
+                ? 'No published solutions yet'
+                : `${c.data.solutions.length} solution${c.data.solutions.length === 1 ? '' : 's'}`}
+            </p>
           </div>
         ))}
       </div>
@@ -81,52 +111,98 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
 
 <script>
   const input = document.querySelector<HTMLInputElement>('#challenge-search-input');
+  const unsolvedOnly = document.querySelector<HTMLInputElement>('#unsolved-only');
+  const randomButton = document.querySelector<HTMLButtonElement>('#random-challenge');
   const status = document.querySelector<HTMLElement>('#challenge-search-status');
   const challenges = Array.from(document.querySelectorAll<HTMLElement>('[data-challenge]'));
   const years = Array.from(document.querySelectorAll<HTMLElement>('[data-challenge-year]'));
   const yearLinks = Array.from(document.querySelectorAll<HTMLElement>('[data-year-jump]'));
 
-  function applySearch() {
-    if (!input || !status) return;
+  function visibleChallenges() {
+    return challenges.filter((challenge) => !challenge.hidden);
+  }
 
-    const query = input.value.trim().toLocaleLowerCase();
+  function applyFilters() {
+    if (!input || !status || !unsolvedOnly) return;
+
+    const rawQuery = input.value.trim();
+    const query = rawQuery.toLocaleLowerCase();
+    const onlyOpen = unsolvedOnly.checked;
     let matches = 0;
 
     challenges.forEach((challenge) => {
-      const visible = !query || (challenge.dataset.search ?? '').includes(query);
+      const matchesText = !query || (challenge.dataset.search ?? '').includes(query);
+      const matchesOpen = !onlyOpen || Number(challenge.dataset.solutionCount ?? 0) === 0;
+      const visible = matchesText && matchesOpen;
       challenge.hidden = !visible;
       if (visible) matches += 1;
     });
 
     years.forEach((year) => {
-      year.hidden = Boolean(query) && !year.querySelector('[data-challenge]:not([hidden])');
+      year.hidden = !year.querySelector('[data-challenge]:not([hidden])');
     });
     yearLinks.forEach((link) => {
       const year = document.querySelector<HTMLElement>(`#y${link.dataset.yearJump}`);
-      link.hidden = Boolean(query) && Boolean(year?.hidden);
+      link.hidden = Boolean(year?.hidden);
     });
 
-    status.textContent = query
-      ? `Showing ${matches} ${matches === 1 ? 'challenge' : 'challenges'} matching “${input.value.trim()}”.`
-      : 'Search across the complete Challenges archive.';
+    const qualifiers = [];
+    if (rawQuery) qualifiers.push(`matching “${rawQuery}”`);
+    if (onlyOpen) qualifiers.push('with no published solution');
+    const qualifierText = qualifiers.length ? ` ${qualifiers.join(' and ')}` : '';
+    status.textContent = `Showing ${matches} ${matches === 1 ? 'challenge' : 'challenges'}${qualifierText}.`;
+    if (randomButton) randomButton.disabled = matches === 0;
   }
 
-  input?.addEventListener('input', applySearch);
+  input?.addEventListener('input', applyFilters);
+  unsolvedOnly?.addEventListener('change', applyFilters);
+  randomButton?.addEventListener('click', () => {
+    const candidates = visibleChallenges();
+    if (candidates.length === 0) return;
+    const selected = candidates[Math.floor(Math.random() * candidates.length)];
+    const link = selected?.querySelector<HTMLAnchorElement>('h3 a');
+    if (link?.href) window.location.assign(link.href);
+  });
+
+  applyFilters();
 </script>
 
 <style>
   .small { font-size: 0.8rem; }
   .tag { margin: 0.2rem 0.3rem 0.2rem 0; }
   .challenge-search {
-    max-width: 48rem;
+    max-width: 52rem;
     margin: 1.5rem 0;
     padding: 1.25rem;
     border: 1px solid var(--color-border);
     border-radius: 12px;
     background: var(--color-card);
   }
-  .challenge-search label { display: block; font-weight: 750; }
-  .challenge-search input {
+  .search-heading-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .search-heading-row h2 { margin: 0; font-size: 1.2rem; }
+  .search-heading-row p { margin: 0.35rem 0 0; }
+  .open-count,
+  .open-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-accent) 13%, var(--color-card));
+    color: var(--color-accent-dark);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.03em;
+  }
+  .open-count { min-height: 32px; padding: 0.25rem 0.7rem; white-space: nowrap; }
+  .open-badge { min-height: 26px; padding: 0.18rem 0.55rem; }
+  .challenge-search > label { display: block; font-weight: 750; }
+  .challenge-search input[type='search'] {
     box-sizing: border-box;
     width: 100%;
     min-height: 44px;
@@ -138,11 +214,62 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     color: var(--color-text);
     font: inherit;
   }
-  .challenge-search input:focus {
+  .challenge-search input[type='search']:focus {
     outline: 3px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
     outline-offset: 2px;
   }
-  .challenge-search p { margin: 0.7rem 0 0; }
+  .challenge-search p { margin-bottom: 0; }
+  .challenge-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem 1rem;
+    margin-top: 0.85rem;
+  }
+  .filter-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .filter-toggle input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--color-primary);
+  }
+  .random-button {
+    min-height: 40px;
+    padding: 0.5rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-bg);
+    color: var(--color-primary);
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 750;
+    cursor: pointer;
+  }
+  .random-button:hover,
+  .random-button:focus-visible { border-color: var(--color-accent); }
+  .random-button:disabled { cursor: not-allowed; opacity: 0.45; }
+
+  .challenge-card-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .challenge-card-heading h3 { margin-top: 0; }
+  .open-challenge {
+    background:
+      linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 5%, transparent), transparent 48%),
+      var(--color-card);
+  }
+
   .year-jump {
     display: flex;
     flex-wrap: wrap;
@@ -158,9 +285,7 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
     color: var(--color-text-muted);
   }
   .year-jump a:hover { color: var(--color-text); }
-  .year-section {
-    margin-top: 2.5rem;
-  }
+  .year-section { margin-top: 2.5rem; }
   .year-section h2 {
     font-family: var(--font-serif);
     border-bottom: 1px solid var(--color-border);
@@ -171,6 +296,9 @@ const years = [...byYear.keys()].sort((a, b) => b - a);
 
   @media (max-width: 640px) {
     .challenge-search { padding: 1rem; }
+    .search-heading-row { align-items: flex-start; }
+    .challenge-controls { align-items: stretch; flex-direction: column; }
+    .random-button { align-self: flex-start; }
     .year-jump {
       flex-wrap: nowrap;
       gap: 0.2rem;
