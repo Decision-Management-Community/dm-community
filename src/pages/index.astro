@@ -18,7 +18,6 @@ articles.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const latestNews = newsPosts.slice(0, 4);
 const latestChallenge = challenges[0];
 const latestArticles = articles.slice(0, 3);
-const totalSolutions = challenges.reduce((sum, challenge) => sum + challenge.data.solutions.length, 0);
 const openChallenges = challenges.filter((challenge) => challenge.data.solutions.length === 0).length;
 
 const today = new Date();
@@ -26,13 +25,6 @@ today.setUTCHours(0, 0, 0, 0);
 const nextEvent = events
   .filter((event) => event.data.startDate.valueOf() >= today.valueOf())
   .sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf())[0];
-
-const metrics = [
-  { label: 'Challenges', value: challenges.length, href: '/challenges/' },
-  { label: 'Published solutions', value: totalSolutions, href: '/challenges/' },
-  { label: 'Articles', value: articles.length, href: '/resources/articles/' },
-  { label: 'Contributors', value: contributors.length, href: '/contributors/' },
-];
 ---
 <BaseLayout title="Home" description="Decision Management Community — practitioners designing, building, operating, and improving decision systems.">
   <section class="hero">
@@ -47,6 +39,11 @@ const metrics = [
         Explore ideas, methods, tools, and real-world practice across Business Rules, Decision Modeling,
         Decision Optimization, Machine Learning, and Agentic AI — maintained by practitioners for practitioners.
       </p>
+      <a class="contributor-count" href={url('/contributors/')} aria-label={`${contributors.length}+ community contributors`}>
+        <strong data-count-value data-count-target={contributors.length}>0+</strong>
+        <span>community contributors</span>
+        <span class="count-arrow">Meet the community &rarr;</span>
+      </a>
     </div>
     <div class="hero-actions">
       <img class="hero-logo" src={url('/hero-dm-circle.png')} alt="Decision Management Community" />
@@ -60,13 +57,24 @@ const metrics = [
     </div>
   </section>
 
-  <section class="metric-strip" aria-label="Community at a glance">
-    {metrics.map((metric) => (
-      <a class="metric" href={url(metric.href)}>
-        <strong>{metric.value.toLocaleString('en-US')}</strong>
-        <span>{metric.label}</span>
-      </a>
-    ))}
+  <section class="section-block news-first" aria-labelledby="latest-news-heading">
+    <div class="section-heading-row">
+      <div>
+        <span class="eyebrow">Fresh from the community</span>
+        <h2 id="latest-news-heading">Latest news</h2>
+      </div>
+      <a href={url('/news/')}>More news &rarr;</a>
+    </div>
+    {latestNews.length > 0 ? (
+      <div class="latest-grid">
+        {latestNews.map((post) => (
+          <article class="compact-card news-card">
+            <h3><a href={url(`/news/${post.id}/`)}>{post.data.title}</a></h3>
+            <p class="meta">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
+          </article>
+        ))}
+      </div>
+    ) : <p class="muted">No news yet.</p>}
   </section>
 
   <section class="section-block" aria-labelledby="start-heading">
@@ -81,7 +89,7 @@ const metrics = [
         <span class="path-number">01</span>
         <h3>Solve a real challenge</h3>
         <p>Browse the archive, filter for open problems, compare existing approaches, and submit your own solution.</p>
-        <span class="card-arrow">Explore {challenges.length} challenges &rarr;</span>
+        <span class="card-arrow">Explore challenges &rarr;</span>
       </a>
       <a class="path-card" href={url('/resources/')}>
         <span class="path-number">02</span>
@@ -123,7 +131,7 @@ const metrics = [
       <article class="pulse-card">
         <span class="badge">Open problems</span>
         <h3>{openChallenges} challenges still need a solution</h3>
-        <p class="muted">Use the new open-only filter to jump straight to problems where a fresh contribution can add the most value.</p>
+        <p class="muted">Use the open-only filter to jump straight to problems where a fresh contribution can add the most value.</p>
         <a class="card-arrow" href={url('/challenges/#challenge-search-input')}>Find an open challenge &rarr;</a>
       </article>
 
@@ -169,27 +177,37 @@ const metrics = [
       </div>
     </section>
   )}
-
-  <section class="section-block" aria-labelledby="latest-news-heading">
-    <div class="section-heading-row">
-      <div>
-        <span class="eyebrow">Fresh links and commentary</span>
-        <h2 id="latest-news-heading">Latest news</h2>
-      </div>
-      <a href={url('/news/')}>More news &rarr;</a>
-    </div>
-    {latestNews.length > 0 ? (
-      <div class="latest-grid">
-        {latestNews.map((post) => (
-          <article class="compact-card news-card">
-            <h3><a href={url(`/news/${post.id}/`)}>{post.data.title}</a></h3>
-            <p class="meta">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
-          </article>
-        ))}
-      </div>
-    ) : <p class="muted">No news yet.</p>}
-  </section>
 </BaseLayout>
+
+<script>
+  const contributorCounter = document.querySelector<HTMLElement>('[data-count-value]');
+
+  if (contributorCounter) {
+    const target = Number(contributorCounter.dataset.countTarget ?? 0);
+    const format = new Intl.NumberFormat('en-US');
+    const render = (value: number) => {
+      contributorCounter.textContent = `${format.format(value)}+`;
+    };
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || target <= 0) {
+      render(target);
+    } else {
+      const duration = 1800;
+      let startedAt: number | undefined;
+
+      const tick = (now: number) => {
+        startedAt ??= now;
+        const progress = Math.min(1, (now - startedAt) / duration);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        render(Math.round(target * eased));
+
+        if (progress < 1) window.requestAnimationFrame(tick);
+      };
+
+      window.requestAnimationFrame(tick);
+    }
+  }
+</script>
 
 <style>
   .hero {
@@ -233,6 +251,43 @@ const metrics = [
   .intro { margin-top: 1.25rem; font-size: 1.08rem; }
   .lede { font-size: 1rem; }
 
+  .contributor-count {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    align-items: baseline;
+    gap: 0.15rem 0.55rem;
+    margin-top: 0.85rem;
+    padding: 0.75rem 0.95rem;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--color-bg-alt) 62%, transparent);
+    color: inherit;
+    text-decoration: none;
+  }
+  .contributor-count:hover,
+  .contributor-count:focus-visible {
+    border-color: var(--color-accent);
+    text-decoration: none;
+  }
+  .contributor-count strong {
+    grid-row: 1 / 3;
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    line-height: 1;
+    color: var(--color-primary);
+    font-variant-numeric: tabular-nums;
+  }
+  .contributor-count > span:not(.count-arrow) {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .count-arrow {
+    color: var(--color-primary);
+    font-size: 0.76rem;
+    font-weight: 650;
+  }
+
   .hero-actions {
     display: flex;
     width: 150px;
@@ -275,43 +330,8 @@ const metrics = [
     text-decoration: none;
   }
 
-  .metric-strip {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.7rem;
-    margin-top: 1rem;
-  }
-  .metric {
-    display: flex;
-    min-width: 0;
-    flex-direction: column;
-    padding: 1rem 1.1rem;
-    border: 1px solid var(--color-border);
-    border-radius: 12px;
-    background: var(--color-card);
-    color: inherit;
-    box-shadow: var(--shadow-card);
-    text-decoration: none;
-  }
-  .metric:hover,
-  .metric:focus-visible {
-    border-color: color-mix(in srgb, var(--color-accent) 65%, var(--color-border));
-    text-decoration: none;
-  }
-  .metric strong {
-    font-family: var(--font-serif);
-    font-size: clamp(1.65rem, 4vw, 2.25rem);
-    line-height: 1;
-    color: var(--color-primary);
-  }
-  .metric span {
-    margin-top: 0.35rem;
-    color: var(--color-text-muted);
-    font-size: 0.8rem;
-    font-weight: 650;
-  }
-
   .section-block { padding: 3.5rem 0 0; }
+  .news-first { padding-top: 2.4rem; }
   .section-heading-row {
     display: flex;
     align-items: end;
@@ -327,10 +347,8 @@ const metrics = [
   .article-grid {
     display: grid;
     gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  .path-grid,
-  .pulse-grid,
-  .article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
   .path-card,
   .pulse-card,
@@ -387,7 +405,6 @@ const metrics = [
       grid-template-columns: minmax(0, 1fr) 145px;
       gap: 1.25rem;
     }
-    .metric-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .path-grid,
     .pulse-grid,
     .article-grid { grid-template-columns: 1fr; }
@@ -416,12 +433,12 @@ const metrics = [
     .hero-links a { width: auto; }
     .hero-links a:last-child { grid-column: 1 / -1; }
     .section-block { padding-top: 2.5rem; }
+    .news-first { padding-top: 2rem; }
     .section-heading-row { align-items: flex-start; flex-direction: column; }
   }
 
-  @media (max-width: 460px) {
-    .metric-strip { grid-template-columns: 1fr 1fr; }
-    .metric { padding: 0.85rem; }
+  @media (max-width: 420px) {
+    .contributor-count { grid-template-columns: auto 1fr; }
   }
 
   @media (max-width: 380px) {
