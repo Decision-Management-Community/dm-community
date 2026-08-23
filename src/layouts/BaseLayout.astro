@@ -22,6 +22,16 @@ const socialTitle = `${title} · Decision Management Community`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script is:inline>
+      try {
+        const preference = localStorage.getItem('dmcommunity-theme');
+        if (preference === 'light' || preference === 'dark') {
+          document.documentElement.dataset.theme = preference;
+        }
+      } catch {
+        // Use the visitor's system preference when local storage is unavailable.
+      }
+    </script>
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <meta name="generator" content={Astro.generator} />
     <title>{socialTitle}</title>
