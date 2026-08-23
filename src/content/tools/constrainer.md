@@ -1,6 +1,6 @@
 ---
 name: "Constrainer"
 categories: ["OPT"]
-url: "http://rulesolber.com"
+url: "http://rulesolver.com"
 linkStatus: ok
 ---
