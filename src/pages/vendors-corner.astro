@@ -46,9 +46,16 @@ function vendorNewsHref(value?: string) {
               const href = vendorNewsHref(p.data.url);
               const external = href?.startsWith('http://') || href?.startsWith('https://');
               const summary = p.body?.trim();
+              const isOrderOtter = p.id === '2026-08-15-order-otter-smarter-replenishment';
               return (
-                <div class="card vendor-card">
-                  <span class="badge">{p.data.vendor}</span>
+                <div
+                  class:list={['card', 'vendor-card', { 'vendor-card-order-otter': isOrderOtter }]}
+                  data-order-otter={isOrderOtter ? '' : undefined}
+                >
+                  <div class="vendor-badge-row">
+                    <span class="badge">{p.data.vendor}</span>
+                    {isOrderOtter && <span class="otter-peek" aria-hidden="true">🦦</span>}
+                  </div>
                   <h3>{href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{p.data.title}</a> : p.data.title}</h3>
                   <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
                   {summary && <p class="vendor-summary">{summary}</p>}
@@ -72,8 +79,122 @@ function vendorNewsHref(value?: string) {
   </p>
 </BaseLayout>
 
+<script>
+  const orderOtterCard = document.querySelector<HTMLElement>('[data-order-otter]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (orderOtterCard && !reducedMotion.matches) {
+    const otter = document.createElement('span');
+    otter.textContent = '🦦';
+    otter.setAttribute('aria-hidden', 'true');
+    Object.assign(otter.style, {
+      position: 'fixed',
+      left: '0px',
+      top: '0px',
+      zIndex: '2147483647',
+      pointerEvents: 'none',
+      fontSize: '30px',
+      lineHeight: '1',
+      opacity: '0',
+      transform: 'translate(16px, 18px) rotate(-10deg) scale(0.7)',
+      transformOrigin: 'center',
+      filter: 'drop-shadow(0 5px 7px rgba(15, 23, 42, 0.28))',
+      transition: 'opacity 120ms ease, transform 160ms ease',
+      willChange: 'left, top, transform, opacity',
+    });
+    document.body.appendChild(otter);
+
+    let activeRipples = 0;
+    let lastRippleAt = 0;
+    let lastRippleX = 0;
+    let lastRippleY = 0;
+
+    const placeOtter = (x: number, y: number) => {
+      otter.style.left = `${x}px`;
+      otter.style.top = `${y}px`;
+    };
+
+    const createRipple = (x: number, y: number, strong = false) => {
+      if (activeRipples >= 24) return;
+      const ripple = document.createElement('span');
+      const startSize = strong ? 13 : 8;
+      Object.assign(ripple.style, {
+        position: 'fixed',
+        left: `${x}px`,
+        top: `${y}px`,
+        width: `${startSize}px`,
+        height: `${startSize}px`,
+        border: strong ? '2px solid rgba(14, 165, 233, 0.78)' : '1.5px solid rgba(14, 165, 233, 0.54)',
+        borderRadius: '999px',
+        boxShadow: strong ? '0 0 10px rgba(20, 184, 166, 0.28)' : 'none',
+        pointerEvents: 'none',
+        zIndex: '2147483646',
+        transform: 'translate(-50%, -50%) scale(0.35)',
+        opacity: '0.9',
+      });
+      document.body.appendChild(ripple);
+      activeRipples += 1;
+
+      const animation = ripple.animate(
+        [
+          { transform: 'translate(-50%, -50%) scale(0.35)', opacity: 0.9 },
+          { transform: `translate(-50%, -50%) scale(${strong ? 3.1 : 2.2})`, opacity: 0 },
+        ],
+        { duration: strong ? 720 : 520, easing: 'cubic-bezier(0.16, 0.78, 0.28, 1)', fill: 'forwards' },
+      );
+
+      const cleanup = () => {
+        if (!ripple.isConnected) return;
+        ripple.remove();
+        activeRipples = Math.max(0, activeRipples - 1);
+      };
+      animation.finished.then(cleanup).catch(cleanup);
+      window.setTimeout(cleanup, 900);
+    };
+
+    orderOtterCard.addEventListener('pointerenter', (event) => {
+      if (event.pointerType === 'touch') return;
+      placeOtter(event.clientX, event.clientY);
+      otter.style.opacity = '1';
+      otter.style.transform = 'translate(16px, 18px) rotate(7deg) scale(1)';
+      createRipple(event.clientX, event.clientY, true);
+      lastRippleAt = performance.now();
+      lastRippleX = event.clientX;
+      lastRippleY = event.clientY;
+    });
+
+    orderOtterCard.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch') return;
+      placeOtter(event.clientX, event.clientY);
+
+      const now = performance.now();
+      const distance = Math.hypot(event.clientX - lastRippleX, event.clientY - lastRippleY);
+      if (now - lastRippleAt < 90 || distance < 18) return;
+
+      lastRippleAt = now;
+      lastRippleX = event.clientX;
+      lastRippleY = event.clientY;
+      createRipple(event.clientX, event.clientY);
+    });
+
+    orderOtterCard.addEventListener('pointerleave', () => {
+      otter.style.opacity = '0';
+      otter.style.transform = 'translate(16px, 18px) rotate(-12deg) scale(0.72)';
+    });
+
+    orderOtterCard.addEventListener('pointerdown', (event) => {
+      if (event.pointerType === 'touch') return;
+      createRipple(event.clientX, event.clientY, true);
+    });
+  }
+</script>
+
 <style>
   .small { font-size: 0.8rem; }
+  .vendor-card {
+    min-width: 0;
+    overflow: visible;
+  }
   .vendor-card h3 { margin-bottom: 0.25rem; }
   .vendor-summary {
     margin: 0.7rem 0 0;
@@ -81,6 +202,120 @@ function vendorNewsHref(value?: string) {
     font-size: 0.9rem;
     line-height: 1.55;
   }
+  .vendor-badge-row {
+    display: flex;
+    min-height: 1.7rem;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .vendor-card-order-otter {
+    --otter-water: #0ea5e9;
+    --otter-teal: #14b8a6;
+    --otter-deep: #075985;
+    position: relative;
+    isolation: isolate;
+    z-index: 1;
+    background:
+      radial-gradient(circle at 92% 5%, rgba(14, 165, 233, 0.09), transparent 28%),
+      var(--color-card);
+    transition:
+      transform 0.22s cubic-bezier(0.2, 0.75, 0.25, 1),
+      border-color 0.22s ease,
+      box-shadow 0.22s ease,
+      background 0.22s ease;
+  }
+  .vendor-card-order-otter::before {
+    position: absolute;
+    top: -1px;
+    right: 8%;
+    left: 8%;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--otter-teal), var(--otter-water), transparent);
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleX(0.5);
+    transform-origin: center;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  .vendor-card-order-otter::after {
+    position: absolute;
+    right: -18px;
+    bottom: -18px;
+    width: 90px;
+    height: 90px;
+    border: 1px solid rgba(14, 165, 233, 0.18);
+    border-radius: 999px;
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.55);
+    transition: opacity 0.24s ease, transform 0.34s ease;
+  }
+  .vendor-card-order-otter h3 a {
+    transition: color 0.2s ease;
+  }
+  .vendor-card-order-otter:hover,
+  .vendor-card-order-otter:focus-within {
+    z-index: 3;
+    border-color: rgba(14, 165, 233, 0.86);
+    background:
+      radial-gradient(circle at 92% 5%, rgba(20, 184, 166, 0.14), transparent 30%),
+      color-mix(in srgb, var(--color-card) 94%, #e0f2fe 6%);
+    box-shadow:
+      var(--shadow-card),
+      0 24px 54px rgba(14, 165, 233, 0.22),
+      0 0 0 1px rgba(20, 184, 166, 0.16),
+      inset 0 1px 0 rgba(255, 255, 255, 0.38);
+    transform: translateY(-7px) scale(1.035);
+  }
+  .vendor-card-order-otter:hover::before,
+  .vendor-card-order-otter:focus-within::before {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  .vendor-card-order-otter:hover::after,
+  .vendor-card-order-otter:focus-within::after {
+    opacity: 1;
+    transform: scale(1.28);
+  }
+  .vendor-card-order-otter:hover h3 a,
+  .vendor-card-order-otter:focus-within h3 a {
+    color: var(--otter-deep);
+  }
+  .vendor-card-order-otter .badge {
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+  .vendor-card-order-otter:hover .badge,
+  .vendor-card-order-otter:focus-within .badge {
+    border-color: rgba(20, 184, 166, 0.34);
+    background: color-mix(in srgb, var(--color-card) 82%, #ccfbf1 18%);
+    color: var(--otter-deep);
+  }
+  .otter-peek {
+    display: inline-block;
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-10px) translateY(4px) rotate(-18deg) scale(0.58);
+    transform-origin: 50% 80%;
+    transition: opacity 0.18s ease, transform 0.28s cubic-bezier(0.16, 0.84, 0.28, 1.25);
+  }
+  .vendor-card-order-otter:hover .otter-peek,
+  .vendor-card-order-otter:focus-within .otter-peek {
+    opacity: 1;
+    transform: translateX(0) translateY(-2px) rotate(7deg) scale(1.08);
+    animation: otter-bob 1.8s ease-in-out 0.25s infinite;
+  }
+
+  @keyframes otter-bob {
+    0%, 100% { transform: translateX(0) translateY(-2px) rotate(7deg) scale(1.08); }
+    50% { transform: translateX(1px) translateY(-5px) rotate(-3deg) scale(1.12); }
+  }
+
   .year-jump {
     display: flex;
     flex-wrap: wrap;
@@ -104,6 +339,20 @@ function vendorNewsHref(value?: string) {
     border-bottom: 1px solid var(--color-border);
     padding-bottom: 0.4rem;
     margin-bottom: 1.25rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vendor-card-order-otter,
+    .vendor-card-order-otter::before,
+    .vendor-card-order-otter::after,
+    .otter-peek {
+      transition: none;
+      animation: none !important;
+    }
+    .vendor-card-order-otter:hover,
+    .vendor-card-order-otter:focus-within {
+      transform: none;
+    }
   }
 
   @media (max-width: 640px) {
