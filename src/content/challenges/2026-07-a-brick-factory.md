@@ -11,6 +11,11 @@ solutions:
     author: Adam DeJans Jr.
     affiliation: BitBros
     url: /resources/articles/2026-08-19-brick-factory-highs-time-indexed-milp/
+  - title: "Bob, CPLEX"
+    author: Alex Fleischer
+    affiliation: IBM
+    email: afleischer@fr.ibm.com
+    url: /resources/articles/2026-08-25-brick-factory-bob-opl-cplex/
 ---
 
 A brick factory must schedule five orders (A, B, C, D, E) as single, uninterrupted activities within an 11-day planning horizon. Each order requires a specific number of batches per day for a set duration:
