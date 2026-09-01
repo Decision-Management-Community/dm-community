@@ -1,7 +1,7 @@
 ---
 title: Decision Control Sandbox launches on AWS Marketplace
 vendor: Aletyx
-date: 2026-09-01
+date: 2026-08-18
 url: "https://aletyx.ai/aletyx-decision-control-sandbox-live-on-aws/"
 ---
 

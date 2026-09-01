@@ -57,7 +57,7 @@ function vendorNewsHref(value?: string) {
                     {isOrderOtter && <span class="otter-peek" aria-hidden="true">🦦</span>}
                   </div>
                   <h3>{href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{p.data.title}</a> : p.data.title}</h3>
-                  <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                  <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
                   {summary && <p class="vendor-summary">{summary}</p>}
                 </div>
               );

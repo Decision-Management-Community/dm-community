@@ -1,7 +1,7 @@
 ---
 title: Inventory optimization under uncertainty delivers major savings
 vendor: Bluebird Optimization
-date: 2026-09-01
+date: 2026-08-16
 url: "https://www.bluebirdoptimization.com/blog-posts-en/success-story-inventory-optimization-under-uncertainty-at-dryft"
 ---
 
