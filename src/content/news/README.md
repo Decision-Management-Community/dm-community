@@ -17,6 +17,7 @@ practitioners, retrospectives, industry-report commentary, and similar community
 | `author` | string | no | Who wrote it, if known |
 | `tags` | array of strings | no | Free-form topic tags, e.g. `["AI", "Standards"]` |
 | `sourceUrl` | string (URL) | no | External source being discussed; do not use the retired community site as a source |
+| `directLink` | boolean | no | Set to `true` when cards and feeds should open `sourceUrl` directly |
 | `legacyPath` | string | no | Original `/YYYY/MM/DD/slug/` WordPress path retained as migration metadata |
 
 ## Adding a post
@@ -30,6 +31,7 @@ date: 2026-09-01
 author: "Your Name"
 tags: ["AI", "Standards"]
 sourceUrl: "https://example.com/the-article-being-discussed"
+directLink: false
 ---
 
 A few paragraphs in your own words — commentary, an interview writeup, or a summary of something

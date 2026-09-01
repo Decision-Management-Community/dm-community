@@ -213,6 +213,9 @@ const news = defineCollection({
     // article being discussed) — most entries here are commentary about, or a
     // pointer to, something published elsewhere.
     sourceUrl: z.string().url().optional(),
+    // When true, news cards and feeds link straight to sourceUrl instead of
+    // opening the local news detail page.
+    directLink: z.boolean().default(false),
     // Original WordPress permalink. Used to emit a static redirect when the
     // dmcommunity.org domain is cut over to this site.
     legacyPath: z.string().regex(/^\/\d{4}\/\d{2}\/\d{2}\/[^/]+\/$/).optional(),

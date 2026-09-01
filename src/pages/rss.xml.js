@@ -39,7 +39,7 @@ export async function GET(context) {
     ...news.map((n) => ({
       title: `News: ${n.data.title}`,
       pubDate: n.data.date,
-      link: url(`/news/${n.id}/`),
+      link: n.data.directLink && n.data.sourceUrl ? n.data.sourceUrl : url(`/news/${n.id}/`),
       categories: ['News', ...n.data.tags],
     })),
   ].sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf());
