@@ -1,5 +1,5 @@
 ---
-title: OpenRules 12.2 integrates Rule Engine with Optimization Solvers
+title: OpenRules integrates Rule Engine with Optimization Solvers
 vendor: OpenRules
 date: 2026-08-20
 url: "https://openrulesdecisionmanager.com/release-notes-12-2-0/"
