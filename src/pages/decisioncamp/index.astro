@@ -4,12 +4,30 @@ import { getCollection } from 'astro:content';
 import { url } from '../../lib/url';
 
 const editions = (await getCollection('decisioncamp')).sort((a, b) => b.data.year - a.data.year);
+const conferenceNewsByYear = new Map<number, string[]>();
+
+for (const story of await getCollection('news')) {
+  const searchableStory = [story.data.title, story.body ?? ''].join(' ');
+  if (!/\b(?:decision\s*camp|decisioncamp|rulesfest|intellifest)\b/i.test(searchableStory)) continue;
+
+  const year = story.data.date.getUTCFullYear();
+  const entries = conferenceNewsByYear.get(year) ?? [];
+  entries.push(searchableStory);
+  conferenceNewsByYear.set(year, entries);
+}
+
 const recent = editions.filter((e) => e.data.year >= 2023);
 const earlier = editions.filter((e) => e.data.year < 2023);
 const searchIndex = new Map(
   editions.map((edition) => [
     edition.id,
-    [edition.data.title, edition.data.year, edition.data.location, edition.body ?? '']
+    [
+      edition.data.title,
+      edition.data.year,
+      edition.data.location,
+      edition.body ?? '',
+      ...(conferenceNewsByYear.get(edition.data.year) ?? []),
+    ]
       .filter(Boolean)
       .join(' ')
       .toLocaleLowerCase(),
