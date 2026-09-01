@@ -69,10 +69,11 @@ const nextEvent = events
     {latestNews.length > 0 ? (
       <div class="latest-grid">
         {latestNews.map((post) => {
-          const postHref = post.data.directLink && post.data.sourceUrl ? post.data.sourceUrl : url(`/news/${post.id}/`);
+          const opensInNewTab = Boolean(post.data.directLink && post.data.sourceUrl);
+          const postHref = opensInNewTab ? post.data.sourceUrl! : url(`/news/${post.id}/`);
           return (
             <article class="compact-card news-card">
-              <h3><a href={postHref}>{post.data.title}</a></h3>
+              <h3><a href={postHref} target={opensInNewTab ? '_blank' : undefined} rel={opensInNewTab ? 'noopener' : undefined}>{post.data.title}</a></h3>
               <p class="meta">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
             </article>
           );
