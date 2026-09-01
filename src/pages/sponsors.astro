@@ -14,7 +14,10 @@ const sponsors = (await getCollection('sponsors'))
     Management Community while keeping participation open to practitioners.
   </p>
 
-  <h2>Current Sponsors</h2>
+  <div class="sponsor-section-heading">
+    <h2>Current Sponsors</h2>
+    <a href="#become-a-sponsor">Become a Sponsor <span aria-hidden="true">→</span></a>
+  </div>
   <div class="card-grid sponsor-grid">
     {sponsors.map((s) => (
       <div class:list={['card', 'sponsor-card', { 'sponsor-card-bit-bros': s.id === 'bit-bros' }]}>
@@ -42,7 +45,7 @@ const sponsors = (await getCollection('sponsors'))
     ))}
   </div>
 
-  <h2>Become a Sponsor</h2>
+  <h2 id="become-a-sponsor">Become a Sponsor</h2>
   <div class="card">
     <p><strong>Sponsorship fee:</strong> $600 per year (single tier)</p>
     <p><strong>Benefits include:</strong></p>
@@ -197,6 +200,10 @@ const sponsors = (await getCollection('sponsors'))
 </script>
 
 <style>
+  .sponsor-section-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; }
+  .sponsor-section-heading h2 { margin: 0; }
+  .sponsor-section-heading > a { flex: 0 0 auto; font-weight: 650; }
+  #become-a-sponsor { scroll-margin-top: 6rem; }
   .sponsor-grid { align-items: stretch; }
   .sponsor-card { display: flex; min-width: 0; height: 100%; flex-direction: column; }
   .sponsor-card h3 { margin: 0 0 0.35rem; }
@@ -362,6 +369,7 @@ const sponsors = (await getCollection('sponsors'))
   }
 
   @media (max-width: 560px) {
+    .sponsor-section-heading { align-items: flex-start; flex-direction: column; gap: 0.35rem; }
     .sponsor-logo-link { height: 100px; flex-basis: 100px; }
     .sponsor-logo { height: 58px; max-height: 58px; }
     .sponsor-logo-mark,
