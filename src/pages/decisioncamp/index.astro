@@ -98,7 +98,13 @@ const searchIndex = new Map(
     <div class="card-grid">
       {recent.map((e) => (
         <div class="card" data-camp data-search={searchIndex.get(e.id)}>
-          <h3><a href={url(`/decisioncamp/${e.id}/`)}>{e.data.title}</a></h3>
+          <h3>
+            <a
+              href={e.data.url ?? url(`/decisioncamp/${e.id}/`)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >{e.data.title}</a>
+          </h3>
           {e.data.location && <p class="muted">{e.data.location}</p>}
         </div>
       ))}
@@ -113,7 +119,13 @@ const searchIndex = new Map(
         {earlier.map((e) => (
           <tr data-camp data-search={searchIndex.get(e.id)}>
             <td>{e.data.year}</td>
-            <td><a href={url(`/decisioncamp/${e.id}/`)}>{e.data.title}</a></td>
+            <td>
+              <a
+                href={e.data.url ?? url(`/decisioncamp/${e.id}/`)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >{e.data.title}</a>
+            </td>
             <td>{e.data.location}</td>
           </tr>
         ))}
