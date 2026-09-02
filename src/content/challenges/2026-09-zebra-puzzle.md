@@ -5,7 +5,7 @@ tags: [Rules, Constraint Satisfaction]
 solutions: []
 ---
 
-The following version of the puzzle appeared in *Life International* in 1962:
+The following puzzle often called **Einstein's Riddle.** It appeared in *Life International* in 1962:
 
 > 1. There are five houses.
 > 2. The Englishman lives in the red house.
@@ -25,4 +25,4 @@ The following version of the puzzle appeared in *Life International* in 1962:
 >
 > **Question:** Where is the zebra?
 
-Source: <https://en.wikipedia.org/wiki/Zebra_Puzzle>
+Source: <a href="https://en.wikipedia.org/wiki/Zebra_Puzzle" target="_blank" rel="noopener noreferrer">https://en.wikipedia.org/wiki/Zebra_Puzzle</a>
