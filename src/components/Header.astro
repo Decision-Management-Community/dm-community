@@ -32,7 +32,10 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
   <div class="wrap bar">
     <a class="brand" href={url('/')} aria-label="Decision Management Community home">
       <Logomark size={32} />
-      <span class="brand-name">Decision Management Community</span>
+      <span class="brand-name">
+        <span class="brand-decision">Decision Management</span>
+        <span class="brand-community">Community</span>
+      </span>
     </a>
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
       {primaryNav.map((item) => (
@@ -135,12 +138,33 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
   }
   .brand:hover { text-decoration: none; }
   .brand-name {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.28em;
     overflow: hidden;
     text-overflow: ellipsis;
     font-family: var(--font-serif);
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.16rem;
+    font-weight: 700;
     letter-spacing: -0.01em;
+  }
+  .brand-community {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(100deg, #0f9fb3, #34b88a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .brand-community::after {
+    position: absolute;
+    right: 0.08em;
+    bottom: -0.18em;
+    left: 0.08em;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #0f9fb3, #34b88a);
+    content: '';
   }
   .site-nav {
     display: flex;
