@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { url } from '../lib/url';
+import { isLegacyDmCommunityUrl, migrateLegacyUrl } from '../lib/legacyUrl.mjs';
 
 const [newsPosts, challenges, articles, contributors, events] = await Promise.all([
   getCollection('news'),
@@ -19,6 +20,14 @@ const latestNews = newsPosts.slice(0, 6);
 const latestChallenge = challenges[0];
 const latestArticles = articles.slice(0, 3);
 const openChallenges = challenges.filter((challenge) => challenge.data.solutions.length === 0).length;
+const directNewsHref = (sourceUrl: string) => {
+  if (isLegacyDmCommunityUrl(sourceUrl)) {
+    const parsed = new URL(sourceUrl);
+    return url(`${parsed.pathname}${parsed.search}${parsed.hash}`);
+  }
+  const migrated = migrateLegacyUrl(sourceUrl);
+  return migrated.startsWith('/') ? url(migrated) : migrated;
+};
 
 const today = new Date();
 today.setUTCHours(0, 0, 0, 0);
@@ -70,7 +79,7 @@ const nextEvent = events
       <div class="latest-grid">
         {latestNews.map((post) => {
           const opensInNewTab = Boolean(post.data.directLink && post.data.sourceUrl);
-          const postHref = opensInNewTab ? post.data.sourceUrl! : url(`/news/${post.id}/`);
+          const postHref = opensInNewTab ? directNewsHref(post.data.sourceUrl!) : url(`/news/${post.id}/`);
           return (
             <article class="compact-card news-card">
               <h3><a href={postHref} target={opensInNewTab ? '_blank' : undefined} rel={opensInNewTab ? 'noopener' : undefined}>{post.data.title}</a></h3>
