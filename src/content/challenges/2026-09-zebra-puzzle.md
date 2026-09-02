@@ -25,4 +25,4 @@ The following version of the puzzle appeared in *Life International* in 1962:
 >
 > **Question:** Where is the zebra?
 
-Source: [OpenRules Decision Manager](https://openrulesdecisionmanager.com/rule-solver-where-is-zebra/)
+Source: <https://en.wikipedia.org/wiki/Zebra_Puzzle>
