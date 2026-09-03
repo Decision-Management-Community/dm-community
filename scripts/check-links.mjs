@@ -43,6 +43,11 @@ function annotateError(title, message) {
 
 const args = process.argv.slice(2);
 const checkExternal = args.includes('--external');
+// The historical WordPress media archive is intentionally not stored in this
+// repository.  During the migration, pages retained those archival URLs; do
+// not let absent legacy assets block publishing current content.  New media
+// added to the repository is still checked normally.
+const allowMissingArchivedMedia = args.includes('--allow-missing-archived-media');
 const concurrencyArg = args.find((a) => a.startsWith('--concurrency='));
 const concurrency = concurrencyArg ? Number(concurrencyArg.split('=')[1]) : 8;
 
@@ -159,6 +164,7 @@ async function main() {
         continue;
       }
       if (!(await internalTargetExists(href, relFile))) {
+        if (allowMissingArchivedMedia && resolveInternalPath(href, relFile).startsWith('/news-media/')) continue;
         internalBroken.push({ href, file: relFile });
       }
     }
