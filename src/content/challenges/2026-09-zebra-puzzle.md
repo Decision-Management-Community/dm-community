@@ -2,7 +2,17 @@
 title: Zebra Puzzle
 date: 2026-09-02
 tags: [Rules, Constraint Satisfaction]
-solutions: []
+solutions:
+  - title: "IBM Bob, CPLEX"
+    author: Alex Fleischer
+    affiliation: IBM
+    email: afleischer@fr.ibm.com
+    url: "/resources/articles/2026-09-03-zebra-puzzle-ibm-bob-opl-cplex/"
+  - title: OpenRules RuleSolver
+    author: Alex Mirtsyn
+    affiliation: OpenRules
+    email: alexmirtsyn@openrules.com
+    url: "https://openrulesdecisionmanager.com/rule-solver-where-is-zebra/"
 ---
 
 The following puzzle often called **Einstein's Riddle.** It appeared in *Life International* in 1962:
