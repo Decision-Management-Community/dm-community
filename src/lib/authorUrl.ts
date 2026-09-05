@@ -18,6 +18,7 @@ const canonicalNames = new Map([
 
 const profileUrls = new Map([
   ['Adam DeJans Jr.', '/contributors/adam-dejans-jr/'],
+  ['Roderich Wallrath', 'https://www.linkedin.com/in/roderichwallrath/overlay/background-photo/'],
 ]);
 
 export function canonicalAuthorName(name?: string) {
