@@ -151,10 +151,7 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
   .brand-community {
     position: relative;
     display: inline-block;
-    background: #3b66ac;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #3b66ac;
   }
   .brand-community::after {
     position: absolute;
@@ -167,14 +164,14 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
     content: '';
   }
   :global(:root[data-theme='dark']) .brand-community {
-    background: #b9dcff;
+    color: #b9dcff;
   }
   :global(:root[data-theme='dark']) .brand-community::after {
     background: #b9dcff;
   }
   @media (prefers-color-scheme: dark) {
     :global(:root:not([data-theme])) .brand-community {
-      background: #b9dcff;
+      color: #b9dcff;
     }
     :global(:root:not([data-theme])) .brand-community::after {
       background: #b9dcff;
