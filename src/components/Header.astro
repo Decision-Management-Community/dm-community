@@ -166,6 +166,20 @@ const pagefindUiCss = url('/pagefind/pagefind-ui.css');
     background: #3b66ac;
     content: '';
   }
+  :global(:root[data-theme='dark']) .brand-community {
+    background: #b9dcff;
+  }
+  :global(:root[data-theme='dark']) .brand-community::after {
+    background: #b9dcff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme])) .brand-community {
+      background: #b9dcff;
+    }
+    :global(:root:not([data-theme])) .brand-community::after {
+      background: #b9dcff;
+    }
+  }
   .site-nav {
     display: flex;
     align-items: center;
