@@ -47,9 +47,10 @@ function vendorNewsHref(value?: string) {
               const external = href?.startsWith('http://') || href?.startsWith('https://');
               const summary = p.body?.trim();
               const isOrderOtter = p.id === '2026-08-15-order-otter-smarter-replenishment';
+              const isDecisionFactory = p.id === '2026-09-06-the-decision-factory-framework';
               return (
                 <div
-                  class:list={['card', 'vendor-card', { 'vendor-card-order-otter': isOrderOtter }]}
+                  class:list={['card', 'vendor-card', { 'vendor-card-order-otter': isOrderOtter, 'vendor-card-bit-bros': isDecisionFactory }]}
                   data-order-otter={isOrderOtter ? '' : undefined}
                 >
                   <div class="vendor-badge-row">
@@ -314,6 +315,76 @@ function vendorNewsHref(value?: string) {
   @keyframes otter-bob {
     0%, 100% { transform: translateX(0) translateY(-2px) rotate(7deg) scale(1.08); }
     50% { transform: translateX(1px) translateY(-5px) rotate(-3deg) scale(1.12); }
+  }
+
+  .vendor-card-bit-bros {
+    --bit-bros-blue: #38b6ff;
+    --bit-bros-blue-dark: #2867b2;
+    --bit-bros-black: #060611;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s cubic-bezier(0.2, 0.75, 0.25, 1);
+    animation: bit-bros-card-spotlight 14s ease-in-out infinite;
+  }
+  .vendor-card-bit-bros::before {
+    position: absolute;
+    top: -1px;
+    right: 8%;
+    left: 8%;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--bit-bros-blue), transparent);
+    content: '';
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleX(0.55);
+    transform-origin: center;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+  }
+  .vendor-card-bit-bros h3 a { transition: color 0.2s ease; }
+  .vendor-card-bit-bros .badge { transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease; }
+  .vendor-card-bit-bros:hover,
+  .vendor-card-bit-bros:focus-within {
+    z-index: 3;
+    animation: none;
+    background-color: color-mix(in srgb, var(--color-card) 91%, var(--bit-bros-blue) 9%);
+    border-color: rgba(56, 182, 255, 0.94);
+    box-shadow: var(--shadow-card), 0 24px 56px rgba(56, 182, 255, 0.30), 0 0 0 1px rgba(56, 182, 255, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.38);
+    transform: translateY(-6px) scale(1.03);
+  }
+  .vendor-card-bit-bros:hover::before,
+  .vendor-card-bit-bros:focus-within::before { opacity: 1; transform: scaleX(1); }
+  .vendor-card-bit-bros:hover h3 a,
+  .vendor-card-bit-bros:focus-within h3 a { color: var(--bit-bros-blue-dark); }
+  .vendor-card-bit-bros:hover .badge,
+  .vendor-card-bit-bros:focus-within .badge {
+    border-color: rgba(56, 182, 255, 0.4);
+    background: color-mix(in srgb, var(--color-card) 84%, var(--bit-bros-blue) 16%);
+    color: var(--bit-bros-blue-dark);
+  }
+
+  @keyframes bit-bros-card-spotlight {
+    0%, 69%, 92%, 100% { border-color: var(--color-border); box-shadow: var(--shadow-card); transform: translateY(0) scale(1); }
+    76%, 86% { border-color: rgba(56, 182, 255, 0.44); box-shadow: var(--shadow-card), 0 10px 26px rgba(56, 182, 255, 0.13); transform: translateY(-1px) scale(1.004); }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .vendor-card-bit-bros:hover,
+    .vendor-card-bit-bros:focus-within {
+      background-color: color-mix(in srgb, var(--color-card) 87%, var(--bit-bros-blue) 13%);
+      border-color: rgba(56, 182, 255, 0.96);
+      box-shadow: var(--shadow-card), 0 24px 56px rgba(56, 182, 255, 0.30), 0 0 0 1px rgba(56, 182, 255, 0.24), inset 0 1px 0 rgba(56, 182, 255, 0.10);
+    }
+    .vendor-card-bit-bros:hover h3 a,
+    .vendor-card-bit-bros:focus-within h3 a { color: var(--bit-bros-blue); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vendor-card-bit-bros,
+    .vendor-card-bit-bros::before,
+    .vendor-card-bit-bros h3 a { transition: none; animation: none !important; }
+    .vendor-card-bit-bros:hover,
+    .vendor-card-bit-bros:focus-within { transform: none; }
   }
 
   .year-jump {
