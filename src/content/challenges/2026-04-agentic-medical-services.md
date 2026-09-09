@@ -30,7 +30,7 @@ solutions:
   - title: DT5GL/SQL/Python
     author: Jack Jansonius
     email: j.jansonius@home.nl
-    url: "/resources/articles/2026-04-01-agentic-medical-services-dt5gl-sql-python/"
+    url: "/news-media/2026/05/Challenge2026Apr.JJ_.pdf"
 ---
 
 This challenge aims to explore how LLMs orchestrate rule-based decision services. Consider the following three loosely coupled medical services that should be used by an LLM to help a doctor determine a therapy for a patient with Acute Sinusitis.
