@@ -33,7 +33,11 @@ solutions:
     url: "/resources/articles/2025-10-01-decision-with-two-objectives-jsr-331/"
 ---
 
-This challenge, offered by Dr. Meinolf Sellmann, follows a freelance web developer who receives a $10,000 budget from a client. The client wants a webpage built with as many features as possible, while also maximizing the total value delivered by those features. Each candidate feature has both a cost and a value. The developer decides which features to build — she wants to delight the client, so which features should she pick?
+This challenge, offered by Dr. Meinolf Sellmann, follows a freelance web developer who receives a $10,000 budget from a client. The client wants a webpage built with as many features as possible, while also maximizing the total value delivered by those features;
+
+![Candidate features with costs and values](/news-media/2025/10/decision-with-two-objectives-features.png)
+
+Each candidate feature has both a cost and a value. The developer decides which features to build, she wants to delight the client, so which features should she pick?
 
 This is a decision under two, potentially conflicting, objectives (feature count and total value) plus a hard budget constraint. Can you devise a rational way to trade the two objectives off against each other?
 
