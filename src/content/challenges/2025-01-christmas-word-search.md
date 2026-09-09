@@ -24,7 +24,7 @@ solutions:
     url: "/resources/articles/2025-01-01-christmas-word-search-llama-watsonx/"
   - title: DT5GL/Python
     author: Jack Jansonius
-    url: "/resources/articles/2025-01-01-christmas-word-search-dt5gl-python/"
+    url: "/news-media/2025/01/challenge2025jan.jj_.pdf"
 ---
 
 A holiday puzzle to start the year: given a grid of letters, count how many times the word "XMAS" appears — horizontally, vertically, or diagonally, forwards or backwards, and even overlapping other occurrences. Build a service that can do this for any grid, not just the sample one.
