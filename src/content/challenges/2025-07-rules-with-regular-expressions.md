@@ -17,7 +17,7 @@ solutions:
     url: "/resources/articles/2025-07-01-rules-with-regular-expressions-rulesmatix/"
   - title: DT5GL/SQL/Python
     author: Jack Jansonius
-    url: "/resources/articles/2025-07-01-rules-with-regular-expressions-dt5gl-sql-python/"
+    url: "/news-media/2025/07/challenge2025july.jj_.pdf"
   - title: IBM ODM
     author: Andrew Macdonald
     affiliation: IBM
