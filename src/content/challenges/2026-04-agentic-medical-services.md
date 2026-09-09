@@ -17,7 +17,7 @@ solutions:
     author: Alex Porcelli
     email: porcelli@aletyx.ai
     affiliation: Aletyx
-    url: "/resources/articles/2026-04-01-agentic-medical-services-aletyx/"
+    url: "/news-media/2026/04/challenge2026apr.aletyx.pdf"
   - title: Trisotech
     author: Dr. John Svirbely
     authorUrl: https://www.trisotech.com/john-svirbely/
