@@ -25,7 +25,7 @@ solutions:
     url: https://github.com/corticon/corticon-classic-samples/blob/main/Case%20Assignment/README.md
   - title: DT5GL/SQL
     author: Jack Jansonius
-    url: "/resources/articles/2025-04-01-case-assignments-dt5gl-sql/"
+    url: "/news-media/2025/04/challenge2025apr.jj_.pdf"
   - title: Scarcity-First Heuristic + HiGHS
     author: Adam DeJans Jr.
     affiliation: BitBros
