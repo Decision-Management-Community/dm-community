@@ -18,6 +18,10 @@ solutions:
     affiliation: optexpert.org
     email: alireza.soroudi@gmail.com
     url: "https://github.com/OptimizationExpert/Pyomo/blob/main/zebra_CP_v2.py"
+  - title: "A MILP Formulation"
+    author: Adam DeJans Jr.
+    affiliation: Bit Bros LLC
+    url: "/resources/articles/2026-09-14-zebra-puzzle-milp/"
 ---
 
 The following puzzle often called **Einstein's Riddle.** It appeared in *Life International* in 1962:
