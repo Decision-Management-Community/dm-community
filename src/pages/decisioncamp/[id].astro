@@ -18,7 +18,7 @@ function eventHrefFor(value: string | undefined) {
   const migrated = migrateLegacyUrl(value);
   if (migrated.startsWith('/news-media/')) {
     const localMediaPath = join(process.cwd(), 'public', migrated.replace(/^\/+/, ''));
-    if (!existsSync(localMediaPath)) return ${legacyMediaArchivePrefix};
+    if (!existsSync(localMediaPath)) return `${legacyMediaArchivePrefix}${migrated.slice('/news-media/'.length)}`;
   }
   return migrated.startsWith('/') ? url(migrated) : migrated;
 }
