@@ -20,9 +20,9 @@ const profileLinkBlockedTags = new Set(['a', 'code', 'pre', 'script', 'style', '
 function prefixInternalUrl(value) {
   const migrated = migrateLegacyUrl(value);
   if (typeof migrated === 'string' && migrated.startsWith('/news-media/')) {
-    const localMediaPath = fileURLToPath(new URL(./public${migrated}, import.meta.url));
+    const localMediaPath = fileURLToPath(new URL(`./public${migrated}`, import.meta.url));
     if (!existsSync(localMediaPath)) {
-      return  ${legacyMediaArchivePrefix}${migrated.slice('/news-media/'.length)};
+      return `${legacyMediaArchivePrefix}${migrated.slice('/news-media/'.length)}`;
     }
   }
   if (typeof migrated === 'string' && migrated.startsWith('/') && !migrated.startsWith('//')) {
