@@ -12,7 +12,7 @@ solutions:
     author: Alex Mirtsyn
     affiliation: OpenRules
     email: alexmirtsyn@openrules.com
-    url: "https://openrulesdecisionmanager.com/rule-solver-where-is-zebra/"
+    url: "https://openrules.ai/rule-solver-where-is-zebra/"
   - title: OR-Tools CP-SAT 
     author: Alireza Soroudi
     affiliation: optexpert.org
