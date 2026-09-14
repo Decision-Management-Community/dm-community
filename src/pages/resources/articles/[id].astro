@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { authorUrl, canonicalAuthorName } from '../../../lib/authorUrl';
 import { contributorPath, findContributorByName } from '../../../lib/contributorProfile';
 import { url } from '../../../lib/url';
@@ -11,8 +13,20 @@ export async function getStaticPaths() {
   return posts.map((p) => ({ params: { id: p.id }, props: { entry: p } }));
 }
 
+const legacyMediaArchivePrefix = 'https://web.archive.org/web/20200101000000id_/https://dmcommunity.org/wp-content/uploads/';
+
+function documentHrefFor(value: string) {
+  if (value.startsWith('http://') || value.startsWith('https://')) return value;
+  if (value.startsWith('/news-media/')) {
+    const localMediaPath = join(process.cwd(), 'public', value.replace(/^\/+/, ''));
+    if (!existsSync(localMediaPath)) return `${legacyMediaArchivePrefix}${value.slice('/news-media/'.length)}`;
+  }
+  return url(value);
+}
+
 const { entry } = Astro.props;
 const { Content } = await render(entry);
+const documentHref = entry.data.documentUrl ? documentHrefFor(entry.data.documentUrl) : undefined;
 const displayAuthor = canonicalAuthorName(entry.data.author);
 const contributors = await getCollection('contributors');
 const contributor = findContributorByName(displayAuthor, contributors);
@@ -71,7 +85,7 @@ const articleJsonLd = {
 
   {entry.data.documentUrl && (
     <p>
-      <a class="btn secondary" href={url(entry.data.documentUrl)} target="_blank" rel="noopener">
+      <a class="btn secondary" href={documentHref} target="_blank" rel="noopener">
         View or download the migrated solution document &rarr;
       </a>
     </p>

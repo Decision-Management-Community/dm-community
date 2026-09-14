@@ -232,7 +232,11 @@ const articles = defineCollection({
     originalUrl: z.string().url().optional(),
     summary: z.string().optional(),
     challengeUrl: z.string().regex(/^\/challenges\/[^/]+\/$/).optional(),
-    documentUrl: z.string().regex(/^\/news-media\/.+/).optional(),
+    // Documents may be self-hosted under public/news-media or preserved by a public archive.
+    documentUrl: z
+      .string()
+      .refine((v) => /^\/news-media\/.+/.test(v) || /^https?:\/\//.test(v), 'must be an archive URL or a /news-media path')
+      .optional(),
   }),
 });
 

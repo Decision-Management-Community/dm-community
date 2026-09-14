@@ -9,6 +9,8 @@ import { challengeAuthorEmail, challengeAuthorProfileUrl } from '../../lib/chall
 import { categoryBadgeStyle } from '../../lib/categoryColors';
 import { migrateLegacyUrl } from '../../lib/legacyUrl.mjs';
 
+const legacyMediaArchivePrefix = 'https://web.archive.org/web/20200101000000id_/https://dmcommunity.org/wp-content/uploads/';
+
 export async function getStaticPaths() {
   const challenges = await getCollection('challenges');
   return challenges.map((c) => ({ params: { id: c.id }, props: { entry: c } }));
@@ -25,7 +27,7 @@ function solutionHref(value: string) {
   // silently dropping the link from the challenge page.
   if (migrated.startsWith('/news-media/')) {
     const localMediaPath = join(process.cwd(), 'public', migrated.replace(/^\/+/, ''));
-    if (!existsSync(localMediaPath)) return value;
+    if (!existsSync(localMediaPath)) return `${legacyMediaArchivePrefix}${migrated.slice('/news-media/'.length)}`;
   }
 
   return migrated.startsWith('/') ? url(migrated) : migrated;

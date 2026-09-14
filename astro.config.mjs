@@ -1,3 +1,5 @@
+import { existsSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
@@ -8,6 +10,7 @@ import { migrateLegacyUrl } from './src/lib/legacyUrl.mjs';
 // deployment backend, but the custom domain serves the site from the root.
 const base = '/';
 const basePrefix = base.endsWith('/') ? base.slice(0, -1) : base;
+const legacyMediaArchivePrefix = 'https://web.archive.org/web/20200101000000id_/https://dmcommunity.org/wp-content/uploads/';
 const adamProfileUrl = '/contributors/adam-dejans-jr/';
 const canonicalAdamName = 'Adam DeJans Jr.';
 const adamNameSplitPattern = /(Adam DeJans Jr\.?|Adam DeJans)/g;
@@ -16,6 +19,12 @@ const profileLinkBlockedTags = new Set(['a', 'code', 'pre', 'script', 'style', '
 
 function prefixInternalUrl(value) {
   const migrated = migrateLegacyUrl(value);
+  if (typeof migrated === 'string' && migrated.startsWith('/news-media/')) {
+    const localMediaPath = fileURLToPath(new URL(`./public${migrated}`, import.meta.url));
+    if (!existsSync(localMediaPath)) {
+      return `${legacyMediaArchivePrefix}${migrated.slice('/news-media/'.length)}`;
+    }
+  }
   if (typeof migrated === 'string' && migrated.startsWith('/') && !migrated.startsWith('//')) {
     return `${basePrefix}${migrated}`;
   }
