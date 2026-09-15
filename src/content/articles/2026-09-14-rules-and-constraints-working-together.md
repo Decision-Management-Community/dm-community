@@ -7,7 +7,11 @@ summary: "How business rules and optimization constraints differ, and how the re
 
 ![Rules and constraints work together: rules, input data, and constraints contribute to a decision model, which an optimization solver uses to produce the best decision](/articles/rules-and-constraints-working-together/rules-and-constraints-working-together.png)
 
-People who build decision systems with business-rules products often regard constraints as a special case of rules, especially without experience using optimization tools. I asked ChatGPT about the difference and received a useful starting point.
+People who build decision systems with business-rules products often regard constraints as a special case of rules, especially without experience using optimization tools.
+
+Rules provide a business-friendly way to define decision logic, while constraints and optimization provide powerful ways to resolve complex decision problems. Putting them inside the same decision model offers the advantages of both.
+
+I asked ChatGPT about the difference and received a useful starting point.
 
 ![ChatGPT comparison of rules and constraints](/articles/rules-and-constraints-working-together/chatgpt-rules-and-constraints.png)
 
