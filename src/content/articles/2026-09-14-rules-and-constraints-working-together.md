@@ -118,4 +118,4 @@ Thus, Zebra lives in house 5.
 
 This integrated rules-and-constraints approach is designed to retain the simplicity and understandability of decision tables while adding optimization capabilities. Rule Solver decision models also inherit the wider Decision Intelligence Platform capabilities: a business-oriented IDE with a test harness and rule debugger, deployment options, security, and integration with existing environments.
 
-To learn more, visit [DecisionCAMP 2026](https://decisioncamp2026.wordpress.com/) and look for the presentation "Democratizing Optimization through Decision Intelligence Platforms."
+To learn more, visit [DecisionCAMP 2026](https://decisioncamp2026.wordpress.com/) and watch ["Democratizing Optimization through Decision Intelligence Platforms."](https://youtu.be/UxrnAnX-GmU)
