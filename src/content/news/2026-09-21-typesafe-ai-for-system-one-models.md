@@ -1,7 +1,7 @@
 ---
 title: "TypeSafe AI for System One Models"
 date: 2026-09-21
-sourceUrl: "https://typesafe.ai/"
+sourceUrl: "https://typesafe.ai/blog/introducing-system-one-models-and-jev"
 directLink: true
 ---
 
