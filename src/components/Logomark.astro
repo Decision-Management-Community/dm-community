@@ -1,27 +1,25 @@
 ---
+import { url } from '../lib/url';
+
 interface Props {
   size?: number;
 }
 const { size = 30 } = Astro.props;
 ---
-<svg
+<img
+  class="logomark"
+  src={url('/dm-community-logo.png')}
   width={size}
   height={size}
-  viewBox="0 0 64 64"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
+  alt=""
   aria-hidden="true"
-  focusable="false"
->
-  <rect width="64" height="64" rx="12" fill="var(--color-brand)" />
-  <text
-    x="32"
-    y="42"
-    text-anchor="middle"
-    font-family="Arial, Helvetica, sans-serif"
-    font-weight="800"
-    font-size="28"
-    letter-spacing="-1"
-    fill="#f4f1ea"
-  >DMC</text>
-</svg>
+  loading="eager"
+/>
+
+<style>
+  .logomark {
+    display: block;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+</style>
