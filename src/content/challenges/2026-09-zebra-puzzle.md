@@ -21,7 +21,11 @@ solutions:
   - title: "A MILP Formulation"
     author: Adam DeJans Jr.
     affiliation: Bit Bros LLC
-    url: "/resources/articles/2026-09-14-zebra-puzzle-milp/"
+    url: "/resources/articles/2026-09-14-zebra-puzzle-milp/"  - title: DT5GL/Python/Claude
+    author: Jack Jansonius
+    affiliation: POSG
+    authorUrl: https://www.linkedin.com/in/jackjansonius/
+    url: "/resources/articles/2026-09-23-zebra-puzzle-dt5gl-python-claude/"
 ---
 
 The following puzzle often called **Einstein's Riddle.** It appeared in *Life International* in 1962:
