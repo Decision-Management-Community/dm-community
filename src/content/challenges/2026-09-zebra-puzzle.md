@@ -21,7 +21,8 @@ solutions:
   - title: "A MILP Formulation"
     author: Adam DeJans Jr.
     affiliation: Bit Bros LLC
-    url: "/resources/articles/2026-09-14-zebra-puzzle-milp/"  - title: DT5GL/Python/Claude
+    url: "/resources/articles/2026-09-14-zebra-puzzle-milp/"
+  - title: DT5GL/Python/Claude
     author: Jack Jansonius
     affiliation: POSG
     authorUrl: "https://www.linkedin.com/in/jackjansonius/"
