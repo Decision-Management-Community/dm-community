@@ -24,7 +24,7 @@ solutions:
     url: "/resources/articles/2026-09-14-zebra-puzzle-milp/"  - title: DT5GL/Python/Claude
     author: Jack Jansonius
     affiliation: POSG
-    authorUrl: https://www.linkedin.com/in/jackjansonius/
+    authorUrl: "https://www.linkedin.com/in/jackjansonius/"
     url: "/resources/articles/2026-09-23-zebra-puzzle-dt5gl-python-claude/"
 ---
 
