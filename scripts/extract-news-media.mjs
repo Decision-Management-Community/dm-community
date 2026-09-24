@@ -4,9 +4,8 @@ import { spawnSync } from 'node:child_process';
 
 const root = process.cwd();
 const mediaDirectory = join(root, 'public', 'news-media');
-if (!existsSync(mediaDirectory) || readdirSync(mediaDirectory).length === 0) {
-  const archiveDirectory = join(root, 'archives', 'news-media');
-  const archives = readdirSync(archiveDirectory)
+const archiveDirectory = join(root, 'archives', 'news-media');
+const archives = readdirSync(archiveDirectory)
     .filter((name) => name.endsWith('.tar.gz'))
     .sort();
   if (!archives.length) throw new Error(`No news media archives found in ${archiveDirectory}`);
