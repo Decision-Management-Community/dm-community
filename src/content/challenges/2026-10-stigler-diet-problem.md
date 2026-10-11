@@ -4,7 +4,7 @@ date: 2026-10-01
 tags: [ Linear Programming, Optimization ]
 solutions:
   - title: OR-Tools
-    url: "https://developers.google.com/optimization/lp/stigler_diet"
+    author: Google OR-Tools`r`n    url: "https://developers.google.com/optimization/lp/stigler_diet"
   - title: PyOPL
     author: Roberto Rossi
     authorUrl: "https://www.linkedin.com/in/gwren/"
