@@ -17,6 +17,6 @@ Stigler's Diet Problem is one of the classical problems in Operational Research.
 
 > For a moderately active man weighing 154 pounds, how much of each of 77 foods should be eaten on a daily basis so that the man's intake of nine nutrients will be at least equal to the [recommended dietary allowances](https://en.wikipedia.org/wiki/Recommended_dietary_allowance) in 1943, with the cost of the diet being minimal?
 
-You can find the nutrients and commodities lists along with a possible solution at the [OR-Tools website](https://developers.google.com/optimization/lp/stigler_diet).
+You can find more details, the nutrients and commodities lists, along with a possible solution, at the [OR-Tools website](https://developers.google.com/optimization/lp/stigler_diet).
 
 Send your solutions to [DecisionManagementCommunity@gmail.com](mailto:DecisionManagementCommunity@gmail.com), or [open a pull request](https://github.com/Decision-Management-Community/dm-community/blob/main/CONTRIBUTING.md) to add yours here.
