@@ -16,6 +16,11 @@ solutions:
     authorUrl: "https://www.linkedin.com/in/gwren/"
     affiliation: University of Edinburgh
     url: "https://colab.research.google.com/github/gwr3n/pyopl/blob/main/ipynb/Stigler_Diet_Problem_in_PyOPL.ipynb"
+  - title: "OPL CPLEX"
+    author: Alex Fleischer
+    affiliation: IBM
+    email: afleischer@fr.ibm.com
+    url: "/resources/articles/2026-10-03-stigler-diet-opl-cplex/"
 ---
 
 Stigler's Diet Problem is one of the classical problems in Operational Research. The problem finds its origin in the work of Nobel laureate George Stigler (1944), who posed this as a mathematical exercise, not as eating recommendations:
