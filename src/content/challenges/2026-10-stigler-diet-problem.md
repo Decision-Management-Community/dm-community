@@ -3,6 +3,11 @@ title: Stigler's Diet Problem
 date: 2026-10-01
 tags: [ Linear Programming, Optimization ]
 solutions:
+  - title: "OPL CPLEX"
+    author: Alex Fleischer
+    affiliation: IBM
+    email: afleischer@fr.ibm.com
+    url: "/resources/articles/2026-10-03-stigler-diet-opl-cplex/"
   - title: OR-Tools
     author: Google OR-Tools
     url: "https://developers.google.com/optimization/lp/stigler_diet"
