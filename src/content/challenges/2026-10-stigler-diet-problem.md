@@ -1,8 +1,8 @@
 ---
- title: Stigler's Diet Problem
- date: 2026-10-01
- tags: [ Linear Programming, Optimization ]
- solutions:
+title: Stigler's Diet Problem
+date: 2026-10-01
+tags: [ Linear Programming, Optimization ]
+solutions:
   - title: OR-Tools
     author: Google OR-Tools
     url: "https://developers.google.com/optimization/lp/stigler_diet"
