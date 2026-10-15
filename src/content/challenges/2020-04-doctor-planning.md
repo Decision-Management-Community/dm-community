@@ -28,6 +28,11 @@ solutions:
     author: Adam DeJans Jr.
     affiliation: BitBros
     url: /resources/articles/2026-08-22-doctor-planning-highs-milp/
+  - title: Rule Solver with AI Assistant
+    author: Jacob Feldman
+    affiliation: OpenRules
+    email: jacobfeldman@openrules.com
+    url: /news-media/2026/10/building-complete-decision-models-2020-vs-today.pdf
 ---
 
 Based on a real-life use case offered by Simon Vandevelde (KU Leuven): a hospital needs a doctor present at all times. Build a 7-day schedule, starting on a Monday, that covers three shifts per day — early, late, and night — using 5 doctors, subject to these rules:
