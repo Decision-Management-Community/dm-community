@@ -11,3 +11,5 @@ Building practical decision-making applications requires more than developing de
 This article compares the development of a complete worker scheduling application in 2020 and 2026, using the same decision optimization problem.
 
 [Read the complete article (PDF)](/news-media/2026/10/building-complete-decision-models-2020-vs-today.pdf)
+
+[Rule Solver with AI Assistant](/news-media/2026/10/building-complete-decision-models-2020-vs-today.pdf) — [Jacob Feldman](mailto:jacobfeldman@openrules.com) (OpenRules)
