@@ -16,6 +16,10 @@ solutions:
     affiliation: IBM
     email: afleischer@fr.ibm.com
     url: "/resources/articles/2026-10-03-stigler-diet-opl-cplex/"
+  - title: "Rule Solver"
+    author: Jacob Feldman
+    affiliation: OpenRules
+    url: "/news-media/2026/10/stigler-diet-rule-solver.pdf"
 ---
 
 Stigler's Diet Problem is one of the classical problems in Operational Research. The problem finds its origin in the work of Nobel laureate George Stigler (1944), who posed this as a mathematical exercise, not as eating recommendations:
