@@ -95,7 +95,11 @@ const directNewsHref = (sourceUrl: string) => {
               data-tags={JSON.stringify(p.data.tags)}
               data-comment-count={commentCount}
             >
-              {p.data.tags[0] && <span class="badge">{p.data.tags[0]}</span>}
+              {p.data.tags.length > 0 && (
+                <div class="news-tags">
+                  {p.data.tags.map((tag) => <span class="badge">{tag}</span>)}
+                </div>
+              )}
               <h3><a href={postHref} target={opensInNewTab ? '_blank' : undefined} rel={opensInNewTab ? 'noopener' : undefined}>{p.data.title}</a></h3>
               <p class="muted small">
                 {p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
@@ -200,6 +204,7 @@ const directNewsHref = (sourceUrl: string) => {
 
 <style>
   .small { font-size: 0.8rem; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   .news-card .badge { text-transform: none; letter-spacing: normal; }
   .comment-count {
     margin: 0.8rem 0 0;
