@@ -19,6 +19,7 @@ const canonicalNames = new Map([
 const profileUrls = new Map([
   ['Adam DeJans Jr.', '/contributors/adam-dejans-jr/'],
   ['Aakash Gupta', 'https://substack.com/@aakashgupta'],
+  ['Kurt Cagle', 'https://substack.com/@kurtcagle'],
   ['Rod Johnson', 'https://medium.com/@springrod?source=post_page---byline--616ccde93533-----------------------------------------'],
   ['Roderich Wallrath', 'https://www.linkedin.com/in/roderichwallrath/overlay/background-photo/'],
 ]);
