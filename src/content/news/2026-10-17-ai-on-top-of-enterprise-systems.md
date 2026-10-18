@@ -2,7 +2,7 @@
 title: "AI on TOP of enterprise systems is more important than INSIDE them"
 date: 2026-10-17
 author: "Rod Johnson"
-tags: ["Artificial Intelligence", "Enterprise Systems"]
+tags: ["Agentic AI", "Enterprise Systems"]
 sourceUrl: "https://medium.com/@springrod/a-new-layer-for-a-new-client-introducing-embabel-worlds-616ccde93533"
 ---
 
