@@ -4,29 +4,145 @@ date: 2026-10-21
 author: "Jacob Feldman"
 authorEmail: "jacobfeldman@openrules.com"
 affiliation: "OpenRules"
-summary: "A no-Java OpenRules Rule Solver solution for the October 2026 Stigler's Diet Problem challenge, implemented entirely with Excel decision tables."
+summary: "A complete no-Java OpenRules Rule Solver solution for the October 2026 Stigler's Diet Problem challenge, implemented entirely with Excel decision tables."
 challengeUrl: "/challenges/2026-10-stigler-diet-problem/"
-documentUrl: "/news-media/2026/10/stigler-diet-rule-solver-no-java.pdf"
 ---
 
-This solution implements the October 2026 [Stigler's Diet Problem challenge](/challenges/2026-10-stigler-diet-problem/) with the latest OpenRules Rule Solver. The model uses Excel decision tables only and requires no Java code.
+This article presents a solution to the October 2026 [Stigler's Diet Problem challenge](/challenges/2026-10-stigler-diet-problem/) using OpenRules Rule Solver without any Java code.
+
+Stigler's Diet Problem is one of the classical problems in Operational Research. The problem finds its origin in the work of Nobel laureate George Stigler (1944), who posed this as a mathematical exercise, not as eating recommendations:
+
+> For a moderately active man weighing 154 pounds, how much of each of 77 foods should be eaten on a daily basis so that the man's intake of nine nutrients will be at least equal to the [recommended dietary allowances](https://en.wikipedia.org/wiki/Recommended_dietary_allowance) in 1943, with the cost of the diet being minimal?
+
+The nutrients, commodities, and an alternative implementation are described on the [OR-Tools Stigler diet page](https://developers.google.com/optimization/lp/stigler_diet).
+
+## Glossary
+
+| Variable | Business concept | Attribute or expression | Type | Used as |
+| --- | --- | --- | --- | --- |
+| Nutrients | DietProblem | nutrients | Nutrient[] | in |
+| Foods | DietProblem | foods | Food[] | in |
+| TotalAnnualCost | DietProblem | totalAnnualCost | double | out |
+| NutrientName | Nutrient | name | String | in |
+| NutrientId | Nutrient | id | int | in |
+| DailyIntake | Nutrient | dailyIntake | double | in |
+| FoodId | Food | foodId | String | in |
+| Commodity | Food | commodity | String | in |
+| Units | Food | units | String | in |
+| Price | Food | price | double | in |
+| NutrientQuantities | Food | nutrientQuantities | double[] | in |
+| AnnualCost | Food | annualCost | double | out |
+| NumberOfNutrients | calculated | Nutrients.length | int | - |
+| NutrientQuantity | calculated | NutrientQuantities[NutrientId - 1] | double | - |
 
 ## Test data
 
-The classical OR-Tools data set was copied into Excel. It contains the nine required nutrients and 77 foods, with each food's price, unit, and nutrient quantities represented as decision data.
+We copied the OR-Tools data to Excel and added two lines to the headers. The nutrient decision data is:
 
-## Decision-table model
+| Nutrient ID | Nutrient name | Daily intake |
+| ---: | --- | ---: |
+| 1 | Calories (calories) | 3 |
+| 2 | Protein (grams) | 70 |
+| 3 | Calcium (grams) | 0.8 |
+| 4 | Iron (milligrams) | 12 |
+| 5 | Vitamin A (IU) | 5 |
+| 6 | Thiamine (Vitamin B1) (milligrams) | 1.8 |
+| 7 | Riboflavin (Vitamin B2) (milligrams) | 2.7 |
+| 8 | Niacin (milligrams) | 18 |
+| 9 | Ascorbic Acid (Vitamin C) (milligrams) | 75 |
 
-The optimization model is defined in three steps:
+The food decision data contains all 77 commodities from the OR-Tools data set. Each food row supplies a food ID, commodity name, units, price, and an array of the nine nutrient quantities. A single test case passes the named **nutrients** and **foods** decision-data tables to the model.
 
-1. **Create the food variables.** For every food, the model creates a nonnegative real decision variable and adds it to the `AllFoodVariables` array.
-2. **Post the nutrient constraints.** For every nutrient, the model calculates the quantity supplied by each food and requires the annual total to be at least the daily allowance multiplied by 365.
-3. **Set the objective.** `TotalAnnualCost` is defined as the sum of all food variables and is selected as the minimization objective.
+## Business logic
 
-The standard `SolverMinimize` action finds the optimum. A final decision table copies positive solution values into each food's `AnnualCost` output and prints the selected foods.
+The solution uses the newest version of [OpenRules Rule Solver](https://openrules.com/rule-solver/) and only OpenRules decision tables - no Java code.
 
-## Solvers and result
+### Problem definition
 
-The same decision-table model was tested with SCIP, CLP, and ojAlgo. All three produced the same minimum annual cost of approximately **$39.66**, selecting wheat flour, beef liver, cabbage, spinach, and dried navy beans.
+The **Define** decision table executes three tables in order:
 
-[View the complete Rule Solver solution without Java (PDF)](/news-media/2026/10/stigler-diet-rule-solver-no-java.pdf)
+| Decision tables |
+| --- |
+| CreateVariables |
+| PostConstraints |
+| SetObjective |
+
+### Step 1: Create the main constraint variables
+
+For every food in the **Foods** array, **CreateVariables** calls **SolverCreateReal**:
+
+| Variable name | Domain | Array name |
+| --- | --- | --- |
+| {{FoodId}} | 0..1000000 | AllFoodVariables |
+
+This creates an unknown real decision variable between 0 and 1,000,000 for every food and adds it to the **AllFoodVariables** array, which is later used to define the **TotalAnnualCost** objective.
+
+### Step 2: Post the daily intake constraints
+
+For every nutrient in the **Nutrients** array, **PostConstraints** executes these tables:
+
+| Tables |
+| --- |
+| CreateConsumedNutrientArray |
+| PostDailyIntakeConstraints |
+
+For every food, **CreateConsumedNutrientArray** calls **SolverDefineReal**:
+
+| Variable name | Variable expression | Array name |
+| --- | --- | --- |
+| Consumed_{{NutrientId}}_{{FoodId}} | {{FoodId}} * {{NutrientQuantity}} | Consumed{{NutrientId}} |
+
+**PostDailyIntakeConstraints** then calls **SolverPost** with this constraint:
+
+    Sum(Consumed{{NutrientId}}) >= ({{DailyIntake of Nutrient}} * 365.0)
+
+### Step 3: Set the optimization objective
+
+**SetObjective** defines the annual cost and selects it as the real-valued objective:
+
+| Variable name | Expression | Objective |
+| --- | --- | --- |
+| TotalAnnualCost | Sum(AllFoodVariables) | TotalAnnualCost |
+
+The constrained variable **TotalAnnualCost** is therefore the sum of every variable in **AllFoodVariables**, and the solver minimizes it.
+
+## Problem resolution
+
+The standard **Solve** decision table executes:
+
+| Actions |
+| --- |
+| SolverMinimize |
+| AssignSolution |
+
+After an optimal solution is found, **AssignSolution** runs for every food. If the food's solution value is greater than zero, **SolverAssignSolutionReal** assigns it to the food's **AnnualCost** output and prints the commodity and its annual cost.
+
+| Solver variable | Condition | Business variable | Printed text |
+| --- | --- | --- | --- |
+| {{FoodId}} | > 0 | AnnualCost | {{Commodity}} = $ {{AnnualCost}} |
+
+## Applied linear solvers
+
+We tested different linear/MIP solvers by changing the **SOLVER** property in **test.bat**:
+
+    @echo off
+    cd %~dp0
+    set SOLVER=Scip
+    rem set SOLVER=CLP
+    rem set SOLVER=ojAlgo
+    call mvn clean test -e
+
+SCIP, CLP, and ojAlgo all produced the same optimum. A representative run returned:
+
+    TotalAnnualCost[39.66173222461947]
+    *** Execution Profile ***
+    Execution time: 1089 msec
+    SolverSaveSolution
+    Wheat Flour (Enriched) = $ 10.7744567645
+    Liver (Beef) = $ 0.6907836618
+    Cabbage = $ 4.0932688874
+    Spinach = $ 1.8277959785
+    Navy Beans, Dried = $ 22.2754269323
+    'testCases-1' succeeded. Elapsed time 1590.03 ms
+
+The minimum annual cost is approximately **$39.66**, using wheat flour, beef liver, cabbage, spinach, and dried navy beans.
