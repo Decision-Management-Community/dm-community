@@ -24,7 +24,7 @@ solutions:
     author: Jacob Feldman
     affiliation: OpenRules
     email: jacobfeldman@openrules.com
-    url: "/resources/articles/2026-10-21-stigler-diet-rule-solver-no-java/"
+    url: "/resources/articles/StiglerDietNoJava.pdf"
 ---
 
 Stigler's Diet Problem is one of the classical problems in Operational Research. The problem finds its origin in the work of Nobel laureate George Stigler (1944), who posed this as a mathematical exercise, not as eating recommendations:
