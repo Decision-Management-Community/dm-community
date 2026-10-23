@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { communityContributorNames } from '../lib/communityContributors';
+import { contributorFullName } from '../lib/contributorProfile';
 import { url } from '../lib/url';
 import { isLegacyDmCommunityUrl, migrateLegacyUrl } from '../lib/legacyUrl.mjs';
 
@@ -20,6 +22,10 @@ const latestNews = newsPosts.slice(0, 6);
 const latestChallenge = challenges[0];
 const latestArticles = articles.slice(0, 3);
 const openChallenges = challenges.filter((challenge) => challenge.data.solutions.length === 0).length;
+const communityContributorCount = communityContributorNames(
+  contributors.map((contributor) => contributorFullName(contributor.data)),
+  articles.map((article) => article.data.author),
+).length;
 const directNewsHref = (sourceUrl: string) => {
   if (isLegacyDmCommunityUrl(sourceUrl)) {
     const parsed = new URL(sourceUrl);
@@ -49,8 +55,8 @@ const nextEvent = events
         Decision Optimization, Machine Learning, and Agentic AI — maintained by practitioners for practitioners.
       </p>
       <p class="contributor-count">
-        <a href={url('/contributors/')} aria-label={`${contributors.length}+ community contributors`}>
-          <strong data-count-value data-count-target={contributors.length}>0+</strong>
+        <a href={url('/contributors/')} aria-label={`${communityContributorCount}+ community contributors`}>
+          <strong data-count-value data-count-target={communityContributorCount}>0+</strong>
           <span>community contributors</span>
         </a>
       </p>
