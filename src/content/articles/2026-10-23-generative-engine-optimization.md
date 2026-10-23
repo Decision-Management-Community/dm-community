@@ -1,22 +1,9 @@
-Filename: src/content/articles/2026-10-23-generative-engine-optimization.md
-
 ---
-
 title: "Beyond SEO: A Practical Guide to Generative Engine Optimization (GEO)"
 date: 2026-10-23
 author: "Abhishek Jaiswal"
 linkedin: "https://www.linkedin.com/in/abhishekjaiswal076/"
 summary: "Explore how digital marketers can optimize content for AI-powered search experiences, build brand visibility in generative answers, and measure performance beyond traditional search rankings."
-
----
-
----
-
-title: "Beyond SEO: A Practical Guide to Generative Engine Optimization (GEO)"
-date: 2026-10-23
-author: "Abhishek Jaiswal"
-summary: "Explore how digital marketers can optimize content for AI-powered search experiences, build brand visibility in generative answers, and measure performance beyond traditional search rankings."
-
 ---
 
 # Beyond SEO: A Practical Guide to Generative Engine Optimization (GEO)
