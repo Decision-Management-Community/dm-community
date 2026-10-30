@@ -1,5 +1,5 @@
 ---
-title: "Is Operation Research walking into commoditization?"
+title: "Is Operations Research walking into commoditization?"
 date: 2026-10-30
 tags: ["Operations Research", "Decision Optimization", "Generative AI"]
 ---
