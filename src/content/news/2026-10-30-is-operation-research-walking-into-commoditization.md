@@ -17,3 +17,5 @@ Pierre Schaus wrote [https://lnkd.in/p/eGnCjv8R](https://lnkd.in/p/eGnCjv8R):
 Meinolf Sellmann wrote [https://lnkd.in/p/ex9diSAv](https://lnkd.in/p/ex9diSAv):
 
 > “I have stated this here before and will do so again: the job of an OR expert who predominantly develops models to be sent to a solver is going extinct. Two out of three respondents already use GenAI to produce code and to build models.”
+
+Also listen to the latest Lex Fridman's podcast “AI Crisis in Math” [https://www.youtube.com/watch?v=ZAzWPE9CItg](https://www.youtube.com/watch?v=ZAzWPE9CItg)
