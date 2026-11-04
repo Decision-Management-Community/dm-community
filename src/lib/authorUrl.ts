@@ -23,6 +23,7 @@ const profileUrls = new Map([
   ['Aakash Gupta', 'https://substack.com/@aakashgupta'],
   ['Kurt Cagle', 'https://substack.com/@kurtcagle'],
   ['Meinolf Sellmann', 'https://www.linkedin.com/in/meinolf-sellmann/'],
+  ['Michael Fieg', 'https://www.linkedin.com/in/michaelfieg/'],
   ['Nick Saraev', 'https://www.linkedin.com/in/nick-saraev/'],
   ['Rod Johnson', 'https://medium.com/@springrod?source=post_page---byline--616ccde93533-----------------------------------------'],
   ['Roderich Wallrath', 'https://www.linkedin.com/in/roderichwallrath/overlay/background-photo/'],
