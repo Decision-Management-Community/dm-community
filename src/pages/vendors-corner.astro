@@ -20,6 +20,12 @@ for (const p of posts) {
 }
 const years = [...byYear.keys()].sort((a, b) => b - a);
 
+// Render Markdown bodies as Astro content, rather than showing raw Markdown text.
+// This preserves bold formatting and clickable links in Vendor's Corner summaries.
+const renderedSummaries = new Map(
+  await Promise.all(posts.map(async (post) => [post.id, (await render(post)).Content] as const)),
+);
+
 function vendorNewsHref(value?: string) {
   if (!value) return undefined;
   const migrated = migrateLegacyUrl(value);
@@ -45,7 +51,7 @@ function vendorNewsHref(value?: string) {
             {byYear.get(year)!.map((p) => {
               const href = vendorNewsHref(p.data.url);
               const external = href?.startsWith('http://') || href?.startsWith('https://');
-              const summary = p.body?.trim();
+              const SummaryContent = renderedSummaries.get(p.id);
               const isOrderOtter = p.id === '2026-08-15-order-otter-smarter-replenishment';
               const isDecisionFactory = p.id === '2026-09-06-the-decision-factory-framework';
               return (
@@ -59,7 +65,7 @@ function vendorNewsHref(value?: string) {
                   </div>
                   <h3>{href ? <a href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener' : undefined}>{p.data.title}</a> : p.data.title}</h3>
                   <p class="muted small">{p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>
-                  {summary && <p class="vendor-summary">{summary}</p>}
+                  {SummaryContent && <div class="vendor-summary"><SummaryContent /></div>}
                 </div>
               );
             })}
@@ -203,6 +209,10 @@ function vendorNewsHref(value?: string) {
     font-size: 0.9rem;
     line-height: 1.55;
   }
+  .vendor-summary :global(p) { margin: 0 0 0.6rem; }
+  .vendor-summary :global(p:last-child) { margin-bottom: 0; }
+  .vendor-summary :global(a) { color: var(--color-accent-dark); text-decoration: underline; text-underline-offset: 0.16em; overflow-wrap: anywhere; }
+  .vendor-summary :global(strong) { color: var(--color-text); font-weight: 700; }
   .vendor-badge-row {
     display: flex;
     min-height: 1.7rem;
