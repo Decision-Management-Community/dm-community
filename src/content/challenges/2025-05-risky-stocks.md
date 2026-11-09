@@ -13,7 +13,7 @@ solutions:
   - title: OpenRules Rule Solver
     author: Jacob Feldman
     affiliation: OpenRules
-    url: https://openrules.blog/2025/06/21/solving-challenge-risky-stocks/
+    url: https://openrules.blog/2025/06/22/solving-challenge-risky-stocks/
 ---
 
 Build a decision service that decides whether to buy a given stock, based on guiding rules such as:
