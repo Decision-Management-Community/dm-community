@@ -208,6 +208,7 @@ const news = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     author: z.string().optional(),
+    summary: z.string().optional(),
     tags: z.array(z.string()).default([]),
     // Link to the original source (e.g. the pre-rebuild site, or an external
     // article being discussed) — most entries here are commentary about, or a

@@ -89,6 +89,7 @@ const nextEvent = events
           return (
             <article class="compact-card news-card">
               <h3><a href={postHref} target={opensInNewTab ? '_blank' : undefined} rel={opensInNewTab ? 'noopener' : undefined}>{post.data.title}</a></h3>
+              {post.data.summary && <p class="news-summary">{post.data.summary}</p>}
               <p class="meta">{post.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' })}</p>
             </article>
           );
@@ -408,6 +409,7 @@ const nextEvent = events
     gap: 1rem;
   }
   .news-card h3 { margin-top: 0; }
+  .news-summary { margin: 0.35rem 0 0; color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.45; }
   .meta { margin: 0.25rem 0; color: var(--color-text-muted); font-size: 0.82rem; }
 
   @media (max-width: 940px) {

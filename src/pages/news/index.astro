@@ -91,11 +91,12 @@ const directNewsHref = (sourceUrl: string) => {
           return (
             <article
               class="card news-card"
-              data-search={`${p.data.title} ${displayAuthor ?? ''} ${p.data.tags.join(' ')} ${commentText}`.toLocaleLowerCase()}
+              data-search={`${p.data.title} ${p.data.summary ?? ''} ${displayAuthor ?? ''} ${p.data.tags.join(' ')} ${commentText}`.toLocaleLowerCase()}
               data-tags={JSON.stringify(p.data.tags)}
               data-comment-count={commentCount}
             >
               <h3><a href={postHref} target={opensInNewTab ? '_blank' : undefined} rel={opensInNewTab ? 'noopener' : undefined}>{p.data.title}</a></h3>
+              {p.data.summary && <p class="news-summary">{p.data.summary}</p>}
               <p class="muted small">
                 {p.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
                 {displayAuthor && (
@@ -205,6 +206,7 @@ const directNewsHref = (sourceUrl: string) => {
 <style>
   .small { font-size: 0.8rem; }
   .news-card { display: flex; flex-direction: column; }
+  .news-summary { margin: 0.35rem 0 0; color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.45; }
   .news-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: auto; padding-top: 0.8rem; }
   .news-card .badge { text-transform: none; letter-spacing: normal; }
   .comment-count {

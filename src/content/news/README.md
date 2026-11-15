@@ -15,6 +15,7 @@ practitioners, retrospectives, industry-report commentary, and similar community
 | `title` | string | yes | |
 | `date` | date (`YYYY-MM-DD`) | yes | |
 | `author` | string | no | Who wrote it, if known |
+| `summary` | string | no | Short text shown directly below the title on news cards |
 | `tags` | array of strings | no | Free-form topic tags, e.g. `["AI", "Standards"]` |
 | `sourceUrl` | string (URL) | no | External source being discussed; do not use the retired community site as a source |
 | `directLink` | boolean | no | Set to `true` when cards and feeds should open `sourceUrl` directly |
@@ -29,6 +30,7 @@ File name: `src/content/news/YYYY-MM-DD-short-slug.md`
 title: "Why X matters for decision management"
 date: 2026-09-01
 author: "Your Name"
+summary: "A short summary shown directly on the news card."
 tags: ["AI", "Standards"]
 sourceUrl: "https://example.com/the-article-being-discussed"
 directLink: false
