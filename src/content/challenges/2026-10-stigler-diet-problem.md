@@ -25,6 +25,10 @@ solutions:
     affiliation: OpenRules
     email: jacobfeldman@openrules.com
     url: "/resources/articles/StiglerDietNoJava.pdf"
+  - title: "HiGHS Primal-Dual Certificate and Sensitivity"
+    author: "Adam DeJans Jr."
+    affiliation: "Bit Bros LLC"
+    url: "/resources/articles/2026-11-21-stigler-diet-highs-primal-dual/"
 ---
 
 Stigler's Diet Problem is one of the classical problems in Operational Research. The problem finds its origin in the work of Nobel laureate George Stigler (1944), who posed this as a mathematical exercise, not as eating recommendations:
