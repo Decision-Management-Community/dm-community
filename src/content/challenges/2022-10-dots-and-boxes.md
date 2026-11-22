@@ -2,7 +2,11 @@
 title: Dots and Boxes
 date: 2022-10-01
 tags: [game-theory, machine-learning]
-solutions: []
+solutions:
+  - title: "Exact Minimax Dynamic Programming (Playable Python)"
+    author: "Adam DeJans Jr."
+    affiliation: "Bit Bros LLC"
+    url: "/resources/articles/2026-11-21-dots-and-boxes-exact-dp/"
 ---
 
 Build a decision model that can play the classic pencil-and-paper game "[Dots and Boxes](https://www.youtube.com/watch?v=hQdQWxQk8_A&t=13s)," with rules borrowed from Ben Orlin's book *Math Games with Bad Drawings*: players take turns drawing one line — horizontal or vertical — between two adjacent dots on a grid. Whoever draws the line that completes the fourth side of a 1×1 box claims that box (and, when a single move completes two boxes at once, claims both). Once the grid is full, whoever claimed the most boxes wins.
