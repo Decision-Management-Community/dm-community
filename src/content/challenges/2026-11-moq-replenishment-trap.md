@@ -7,6 +7,10 @@ solutions:
     author: "Adam DeJans Jr."
     affiliation: "Bit Bros LLC"
     url: "/resources/articles/2026-11-21-moq-replenishment-milp-dynamic-programming/"
+  - title: "Constraint Programming"
+    author: "Alireza Soroudi"
+    affiliation: "optexpert.org"
+    url: "https://www.linkedin.com/pulse/ordering-turkey-thanksgiving-via-cp-alireza-soroudi-phd-w6gsf/"
 ---
 
 A supplier can have the lowest price per unit and still be the wrong choice for a particular replenishment decision. Fixed ordering charges, minimum order quantities (MOQs), and lead times interact across periods. This challenge asks you to find the least-cost purchase plan for a small warehouse that serves deterministic weekly demand, but orders from suppliers on different terms.
